@@ -3,6 +3,7 @@ package frc.robot.subsystems.Swerve;
 import com.ctre.phoenix.sensors.WPI_CANCoder;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.RelativeEncoder;
+import com.revrobotics.CANSparkLowLevel.MotorType;
 
 import edu.wpi.first.math.controller.PIDController;
 
@@ -27,6 +28,10 @@ public class SwerveModule {
     private int moduleNumber;
 
     public SwerveModule(String swerveModuleName, int moduleNumber; int driveMotorID, int angleMotorID, int angleEncoderID, double angleOffsetDegrees){
-        
+        driveMotor = new CANSparkMax(driveMotorID, MotorType.kBrushless);
+        driveEncoder = driveMotor.getEncoder();
+
+        angleMotor = new CANSparkMax(angleMotorID, MotorType.kBrushless);
+        angleEncoder = new WPI_CANCoder(angleEncoderID);
     }
 }
