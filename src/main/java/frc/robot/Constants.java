@@ -70,6 +70,16 @@ public final class Constants {
 //                -x(back)
   public static final double FRONT_LEFT_X_LOCATION = X_FROM_CENTER;
   public static final double FRONT_LEFT_Y_LOCATION = Y_FROM_CENTER;
+  public static final SwerveDriveKinematics SWERVE_DRIVE_KINEMATICS = null;
+  //General Subsystem Motor Constants
+  public static final int INTAKE_MOTOR_ID = 0;
+  //Joystick Constants
+  public static final int RIGHT_JOYSTICK_PORT = 0;
+  public static final int MIDDLE_JOYSTICK_PORT = 0;
+  public static final int LEFT_JOYSTICK_PORT = 0;
+  //Joystick Button ID Constants
+  public static final int INTAKE_MOTOR_IN_BUTTON_ID = 0;
+  public static final int INTAKE_MOTOR_OUT_BUTTON_ID = 0;
 
   public static final double FRONT_RIGHT_X_LOCATION = X_FROM_CENTER;
   public static final double FRONT_RIGHT_Y_LOCATION = -Y_FROM_CENTER;
