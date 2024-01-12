@@ -8,7 +8,6 @@ import com.revrobotics.RelativeEncoder;
 import com.revrobotics.CANSparkBase.IdleMode;
 import com.revrobotics.CANSparkLowLevel.MotorType;
 
-import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.kinematics.SwerveModulePosition;
@@ -49,8 +48,8 @@ public class SwerveModule {
     angleEncoder.configSensorInitializationStrategy(SensorInitializationStrategy.BootToAbsolutePosition);
 
     angleController = new PIDController(Constants.ANGLE_KP, Constants.ANGLE_KI, Constants.ANGLE_KD);
-    angleController.enableContinuousInput(-180, 180);
-    angleController.setIntegratorRange(-1, 1);
+    angleController.enableContinuousInput(-1, 1);
+    // angleController.setIntegratorRange(-1, 1);
 
     driveMotor.enableVoltageCompensation(Constants.VOLTAGE_COMPENSATION);
     driveMotor.setIdleMode(IdleMode.kBrake);
@@ -78,7 +77,7 @@ public class SwerveModule {
 
   public void setState(SwerveModuleState state){
     SwerveModuleState optimizedState = SwerveModuleState.optimize(state, getState().angle);
-    double angleOutput = MathUtil.clamp(angleController.calculate(getState().angle.getDegrees(), optimizedState.angle.getDegrees()), -0.5, 0.5);
+    double angleOutput = angleController.calculate(getState().angle.getDegrees(), optimizedState.angle.getDegrees());
     angleMotor.set(angleOutput);
     driveMotor.set(optimizedState.speedMetersPerSecond);
   }
