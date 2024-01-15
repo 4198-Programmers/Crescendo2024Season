@@ -7,8 +7,7 @@ package frc.robot;
 import frc.robot.Constants;
 import frc.robot.commands.Autos;
 import frc.robot.commands.ExampleCommand;
-import frc.robot.commands.IntakeMotorInCommand;
-import frc.robot.commands.IntakeMotorOutCommand;
+import frc.robot.commands.IntakeMotorCommand;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
 import edu.wpi.first.wpilibj.Joystick;
@@ -24,8 +23,7 @@ public class RobotContainer {
   private final IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
 
   //Commands
-  private IntakeMotorInCommand intakeMotorInCommand = new IntakeMotorInCommand(intakeSubsystem);
-  private IntakeMotorOutCommand intakeMotorOutCommand = new IntakeMotorOutCommand(intakeSubsystem);
+  private IntakeMotorCommand intakeMotorCommand = new IntakeMotorCommand(intakeSubsystem, Constants.INTAKE_MOTOR_SPEED);
 
   //Joysticks
   Joystick rightJoystick = new Joystick(Constants.RIGHT_JOYSTICK_PORT);
@@ -34,9 +32,9 @@ public class RobotContainer {
 
   
   //Buttons
-  JoystickButton intakeMotorInButton = new JoystickButton(middleJoystick, Constants.INTAKE_MOTOR_IN_BUTTON_ID);
-  JoystickButton intakeMotorOutButton = new JoystickButton(middleJoystick, Constants.INTAKE_MOTOR_OUT_BUTTON_ID);
-
+  JoystickButton intakeMotorButton = new JoystickButton(middleJoystick, Constants.INTAKE_MOTOR_BUTTON_ID);
+  JoystickButton shootingMotorButton = new JoystickButton(rightJoystick, Constants.SHOOTING_MOTOR_BUTTON_ID);
+ 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the trigger bindings
@@ -53,8 +51,7 @@ public class RobotContainer {
    * joysticks}.
    */
   private void configureBindings() {
-    intakeMotorInButton.whileTrue(intakeMotorInCommand);
-    intakeMotorOutButton.whileTrue(intakeMotorOutCommand);
+    intakeMotorButton.whileTrue(intakeMotorCommand);
   }
 
   /**

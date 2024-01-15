@@ -3,18 +3,20 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.ShootingSubsytem;
 
-public class ShootingMotorOutCommand extends Command {
+public class ShootingMotorCommand extends Command {
     
     private ShootingSubsytem shootingSubsytem;
+    private double speed;
 
-    public ShootingMotorOutCommand(ShootingSubsytem shootingSubsytem){
+    public ShootingMotorCommand(ShootingSubsytem shootingSubsytem, double speed){
         this.shootingSubsytem = shootingSubsytem;
+        this.speed = speed;
         addRequirements(shootingSubsytem);
     }
 
     @Override
     public void execute(){
-        shootingSubsytem.shootingMotorOut();
+        shootingSubsytem.ShootingMotorSpeed(speed);
     }
 
 }

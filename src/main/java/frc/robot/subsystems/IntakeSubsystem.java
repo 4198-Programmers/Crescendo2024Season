@@ -11,16 +11,12 @@ public class IntakeSubsystem extends SubsystemBase {
 
     private CANSparkMax intakeMotor = new CANSparkMax(Constants.INTAKE_MOTOR_ID, MotorType.kBrushless);
     private RelativeEncoder intakeEncoder = intakeMotor.getEncoder();
-    private double speed = 1.0;
+    
     
     public IntakeSubsystem(){}
-
-    public void intakeMotorIn(){
+    //Negative is one direction posititve is the other
+    public void intakeMotorSpeed(double speed){
         intakeMotor.set(speed);
-    }
-
-    public void intakeMotorOut(){
-        intakeMotor.set(-speed);
     }
 
     public void intakeMotorStop(){
