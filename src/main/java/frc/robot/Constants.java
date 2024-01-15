@@ -91,4 +91,5 @@ public final class Constants {
   
   //Deadband for joysticks
     public static final double DEADBAND = 0;
+    public static final int SHOOTING_MOTOR_ID = 0;
 }
