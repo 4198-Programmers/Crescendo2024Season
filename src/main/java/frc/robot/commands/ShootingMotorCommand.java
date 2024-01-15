@@ -16,7 +16,7 @@ public class ShootingMotorCommand extends Command {
 
     @Override
     public void execute(){
-        shootingSubsytem.ShootingMotorSpeed(speed);
+        shootingSubsytem.shootingMotorSpeed(speed);
     }
 
 }
