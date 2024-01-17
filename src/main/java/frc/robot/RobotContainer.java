@@ -6,6 +6,7 @@ package frc.robot;
 
 import frc.robot.Constants;
 import frc.robot.commands.Autos;
+import frc.robot.commands.ChangeIntakeSolenoidCommand;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.IntakeMotorCommand;
 import frc.robot.commands.ShootingMotorCommand;
@@ -28,7 +29,7 @@ public class RobotContainer {
   //Commands
   private IntakeMotorCommand intakeMotorCommand = new IntakeMotorCommand(intakeSubsystem, Constants.INTAKE_MOTOR_SPEED);
   private ShootingMotorCommand shootingMotorCommand = new ShootingMotorCommand(shootingSubsytem, Constants.SHOOTING_MOTOR_SPEED);
-  private ChangeIntakeSolenoidCommand changeIntakeSolenoidCommand = new ChangeIntakeSolenoidCommand(intakeSubsytem);
+  private ChangeIntakeSolenoidCommand changeIntakeSolenoidCommand = new ChangeIntakeSolenoidCommand(intakeSubsystem);
 
   //Joysticks
   Joystick rightJoystick = new Joystick(Constants.RIGHT_JOYSTICK_PORT);
