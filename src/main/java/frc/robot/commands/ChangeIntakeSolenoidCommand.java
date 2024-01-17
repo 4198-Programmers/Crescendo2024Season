@@ -7,13 +7,13 @@ public class ChangeIntakeSolonoidCommand extends Command{
     
     private IntakeSubsystem intakeSubsystem;
     
-    public ChangeIntakeSolonoidCommand(IntakeSubsystem intakeSubsystem){
+    public ChangeIntakeSolenoidCommand(IntakeSubsystem intakeSubsystem){
         this.intakeSubsystem = intakeSubsystem;
         addRequirements(intakeSubsystem);
     }
 
     @Override
     public void execute(){
-        intakeSubsystem.switchIntakeSolenoidState;
+        intakeSubsystem.switchIntakeSolenoidState();
     }
 }
