@@ -70,6 +70,9 @@ public final class Constants {
   public static final double FRONT_LEFT_X_LOCATION = X_FROM_CENTER;
   public static final double FRONT_LEFT_Y_LOCATION = Y_FROM_CENTER;
   public static final SwerveDriveKinematics SWERVE_DRIVE_KINEMATICS = null;
+  //Pneumatic Values
+  public static final int INTAKE_PNUEMATIC_INTEGER = 0;
+  public static final int INTAKE_PNEUMATIC_CHANNEL = 0;
   //General Subsystem Motor Constants
   public static final int INTAKE_MOTOR_ID = 0;
   public static final int SHOOTING_MOTOR_ID = 0;
@@ -96,4 +99,5 @@ public final class Constants {
   //MotorSpeeds
   public static final double INTAKE_MOTOR_SPEED = 1;
   public static final double SHOOTING_MOTOR_SPEED = 1;
+
 }
