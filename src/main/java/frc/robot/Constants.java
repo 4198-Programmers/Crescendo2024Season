@@ -27,6 +27,7 @@ public final class Constants {
   //Drive Constants
   public static final double DRIVE_VELOCITY_CONVERSION_FACTOR = 0;
   public static final double DRIVE_POSITION_CONVERSION_FACTOR = 0;
+  public static final double ANGLE_POSITION_CONVERSION_FACTOR = 0;
   //Front Left Module Constants
   public static final String FRONT_LEFT_MODULE_NAME = null;
   public static final int FRONT_LEFT_MODULE_NUMBER = 0;
@@ -41,6 +42,7 @@ public final class Constants {
   public static final int FRONT_RIGHT_ANGLE_MOTOR_ID = 0;
   public static final int FRONT_RIGHT_ANGLE_ENCODER_ID = 0;
   public static final double FRONT_RIGHT_ANGLE_OFFSET_DEGREES = 0;
+  public static final int SHOOTING_MOTOR_ANGLE_ID = 0;
   //Back Left Module Constants
   public static final String BACK_LEFT_MODULE_NAME = null;
   public static final int BACK_LEFT_MODULE_NUMBER = 0;
