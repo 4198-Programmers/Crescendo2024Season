@@ -9,12 +9,12 @@ import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
-public class TummyTime extends SubsystemBase{
+public class InternalMovor extends SubsystemBase{
     
 
 private CANSparkMax internalMotor = new CANSparkMax(Constants.INTERNAL_MOTOR_ID, MotorType.kBrushless);
 
-DigitalInput MiddleLimitSwitch = new DigitalInput(0);
+DigitalInput MiddleLimitSwitch = new DigitalInput(Constants.MIDDLE_LIMIT_SWITCH);
 
 /** 
  * transfer to shooter
