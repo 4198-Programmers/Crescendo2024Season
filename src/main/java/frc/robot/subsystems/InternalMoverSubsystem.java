@@ -25,7 +25,10 @@ public void up() {
  */
 public void down() {
     internalMotor.set(Constants.INTERNAL_MOVER_DOWN);
+}
 
+public void stop(){
+    internalMotor.set(0);
 }
 /**
  * Lets us know if the note is in the transfer

@@ -24,4 +24,11 @@ public class AutoIntake extends Command{
     public boolean isFinished() {
         return internalMoverSubsystem.noteStatus();
     }
+
+    @Override
+    public void end(boolean interrupted) {
+        intakeSubsystem.switchIntakeSolenoidState();
+        intakeSubsystem.intakeMotorStop();
+        internalMoverSubsystem.stop();
+    }
 }
