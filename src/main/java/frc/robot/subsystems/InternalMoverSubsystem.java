@@ -27,4 +27,10 @@ public void down() {
     internalMotor.set(Constants.INTERNAL_MOVER_DOWN);
 
 }
+/**
+ * Lets us know if the note is in the transfer
+ */
+public boolean noteStatus(){
+    return MiddleLimitSwitch.get();
+}
 }
