@@ -19,6 +19,7 @@ import frc.robot.Constants;
  * Each swerve module will have all of the things located here.
  */
 public class SwerveModule {
+  //Initializing all the objects we need for a swerve module
   private CANSparkMax driveMotor;
   private CANSparkMax angleMotor;
   private RelativeEncoder driveEncoder;
@@ -59,36 +60,66 @@ public class SwerveModule {
     this.moduleName = moduleName;
     this.moduleNumber = moduleNumber;
   }
-
+/**
+ * Used for Print Statements
+ * @return Module Name to identify each module
+ */
   public String getName(){
     return moduleName;
   }
+  /**
+   * Used in SwerveModule array to identify each module
+   * @return Module Number for the location in the array
+   */
   public int getModuleNumber(){
     return moduleNumber;
   }
-  
+  /**
+   * Get the state of the Module.
+   * <p>
+   * This is the current speed the robot is moving and what angle the motors are currently facing.
+   * @return
+   */
   public SwerveModuleState getState(){
     return new SwerveModuleState(driveEncoder.getVelocity(), Rotation2d.fromDegrees(getAngle()));
   }
-
+/**
+ * Get the distance the wheels have traveled throughout the game.
+ * @return the distance traveled and current angle of the wheels
+ */
   public SwerveModulePosition getPosition(){
     return new SwerveModulePosition(driveEncoder.getPosition(), Rotation2d.fromDegrees(getAngle()));
   }
-
+/**
+ * This sets the drive speed and angle speed
+ * <p>
+ * Angle speed is based on the current angle and the wanted angle
+ * @param state We are passing in the current state of the robot in order to calculate how fast the angle motors need to move to reach the wanted angle
+ */
   public void setState(SwerveModuleState state){
     SwerveModuleState optimizedState = SwerveModuleState.optimize(state, getState().angle);
     double angleOutput = angleController.calculate(getState().angle.getDegrees(), optimizedState.angle.getDegrees());
     angleMotor.set(angleOutput);
     driveMotor.set(optimizedState.speedMetersPerSecond);
   }
-
+/**
+ * We are using the absolute position of the angle motors
+ * @return Aboslute position of angle encoders
+ */
   public double getAngle(){
     return angleEncoder.getAbsolutePosition();
   }
-
+/**
+ * Get the drive speed of the module
+ * @return Drive Speed
+ */
   public double getDriveSpeed(){
     return getState().speedMetersPerSecond;
   }
+  /**
+   * Get the angle speed of the module
+   * @return Angle Speed
+   */
   public double getAngleSpeed(){
     return angleEncoder.getVelocity();
   }

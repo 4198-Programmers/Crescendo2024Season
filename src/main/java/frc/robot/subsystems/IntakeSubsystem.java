@@ -12,19 +12,28 @@ import frc.robot.Constants;
 public class IntakeSubsystem extends SubsystemBase {
 
     private CANSparkMax intakeMotor = new CANSparkMax(Constants.INTAKE_MOTOR_ID, MotorType.kBrushless);
+    private CANSparkMax intakeMotor1 = new CANSparkMax(Constants.INTAKE_MOTOR_1_ID, MotorType.kBrushless);
+
     private RelativeEncoder intakeEncoder = intakeMotor.getEncoder();
+    private RelativeEncoder intakeEncoder1 = intakeMotor1.getEncoder();
+
     private Solenoid intakeSolenoid = new Solenoid(PneumaticsModuleType.CTREPCM, Constants.INTAKE_PNEUMATIC_CHANNEL);
     private Compressor intakeCompresser = new Compressor(Constants.INTAKE_PNUEMATIC_INTEGER, PneumaticsModuleType.CTREPCM);
     private boolean switchValue = false;
     
-    public IntakeSubsystem(){}
+    public IntakeSubsystem(){
+        this.initialize();
+    }
     //Negative is one direction posititve is the other
     public void intakeMotorSpeed(double speed){
         intakeMotor.set(speed);
+        intakeMotor1.set(speed);
     }
 
     public void intakeMotorStop(){
         intakeMotor.set(0);
+        intakeMotor1.set(0);
+
     }
 
     public double getIntakePosition(){
@@ -40,13 +49,9 @@ public class IntakeSubsystem extends SubsystemBase {
         intakeSolenoid.set(false);
     }
 
-    @Override
-    public void periodic(){
+    public void initialize(){
         intakeCompresser.enableDigital();
         intakeSolenoid.set(switchValue);
     }
-
-
-
 
 }
