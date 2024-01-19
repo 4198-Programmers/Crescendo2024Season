@@ -73,6 +73,9 @@ public final class Constants {
   //Pneumatic Values
   public static final int INTAKE_PNUEMATIC_INTEGER = 0;
   public static final int INTAKE_PNEUMATIC_CHANNEL = 0;
+  public static final int CLIMB_PNUEMATIC_INTEGER = 0;
+  public static final int CLIMB_PNEUMATIC_CHANNEL_A = 0;
+  public static final int CLIMB_PNEUMATIC_CHANNEL_B = 0;
   //General Subsystem Motor Constants
   public static final int INTAKE_MOTOR_ID = 0;
   public static final int SHOOTING_MOTOR_ID = 0;
@@ -84,6 +87,7 @@ public final class Constants {
   public static final int INTAKE_MOTOR_BUTTON_ID = 0;
   public static final int SHOOTING_MOTOR_BUTTON_ID = 0;
   public static final int CHANGE_INTAKE_PNEUMATIC_STATE_BUTTON = 0;
+  public static final int CHANGE_CLIMB_STATE_BUTTON = 0;
 
   public static final double FRONT_RIGHT_X_LOCATION = X_FROM_CENTER;
   public static final double FRONT_RIGHT_Y_LOCATION = -Y_FROM_CENTER;
@@ -100,5 +104,7 @@ public final class Constants {
   //MotorSpeeds
   public static final double INTAKE_MOTOR_SPEED = 1;
   public static final double SHOOTING_MOTOR_SPEED = 1;
+
+
 
 }
