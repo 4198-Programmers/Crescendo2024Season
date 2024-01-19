@@ -16,6 +16,11 @@ import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
+  public static class OperatorConstants {
+    public static final int kDriverControllerPort = 0;
+  }
+
+public static final int INTERNAL_MOTOR_ID = 0;
   //Angle Constants
   public static final boolean ANGLE_MOTOR_INVERTED = false;
   public static final double VOLTAGE_COMPENSATION = 12.0; //Max battery volts we can half
@@ -106,4 +111,17 @@ public final class Constants {
     new Translation2d(FRONT_RIGHT_X_LOCATION, FRONT_RIGHT_Y_LOCATION),
     new Translation2d(BACK_LEFT_X_LOCATION, BACK_LEFT_Y_LOCATION),
     new Translation2d(BACK_RIGHT_X_LOCATION, BACK_RIGHT_Y_LOCATION));
+  
+  //Internal Mover Direction/speed
+  public static final int MIDDLE_LIMIT_SWITCH = 0;
+  public static final double INTERAL_MOVER_UP = 0;
+  public static final double INTERNAL_MOVER_DOWN = 0;
+  public static final int INTERNAL_MOVER_UP_BOTTON_ID = 0;
+  public static final int INTERNAL_MOVER_DOWN_BOTTON_ID = 0;
 }
+
+
+
+
+
+
