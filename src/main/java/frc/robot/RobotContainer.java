@@ -11,9 +11,11 @@ import frc.robot.commands.ChangeClimbStateCommand;
 import frc.robot.commands.ChangeIntakeSolenoidCommand;
 import frc.robot.commands.IntakeMotorCommand;
 import frc.robot.commands.ShootingMotorCommand;
+import frc.robot.commands.SwerveTeleopDrive;
 import frc.robot.subsystems.ClimbSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.subsystems.ShootingSubsytem;
+import frc.robot.subsystems.Swerve.SwerveSubsystem;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
@@ -23,6 +25,7 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 public class RobotContainer {
   // Subsystems
+  private final SwerveSubsystem swerveSubsystem = new SwerveSubsystem();
   private final IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
   private final ShootingSubsytem shootingSubsytem = new ShootingSubsytem();
   private final InternalMoverSubsystem internalMoverSubsystem = new InternalMoverSubsystem();
@@ -53,6 +56,12 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the trigger bindings
     configureBindings();
+    swerveSubsystem.setDefaultCommand(new SwerveTeleopDrive(
+      swerveSubsystem, 
+      () -> leftJoystick.getX(), 
+      () -> leftJoystick.getY(), 
+      () -> middleJoystick.getX(), 
+      () -> true));
   }
 
   /**

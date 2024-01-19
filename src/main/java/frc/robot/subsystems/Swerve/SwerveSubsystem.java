@@ -62,9 +62,17 @@ public class SwerveSubsystem extends SubsystemBase{
     }
     @Override
     public void periodic() {
+        //Constantly updating the position of the robot on the field
         odometry.update(gyro.getRotation2d(), getModulePositions());
     }
-
+/**
+ * Setting the speed of the drive and angle motors
+ * Also prints the current drive speed, angle speed, current angle, wanted angle and optimized angle for debugging.
+ * @param xSpeed The xSpeed given from the joystick
+ * @param ySpeed The ySpeed given from the joystick
+ * @param zSpeed The zSpeed given from the joystick
+ * @param fieldOriented If the robot's front is forward or if it is a certain direction on the field.
+ */
     public void drive(double xSpeed, double ySpeed, double zSpeed, boolean fieldOriented){
         SwerveModuleState[] states;
         if(fieldOriented){
@@ -81,7 +89,10 @@ public class SwerveSubsystem extends SubsystemBase{
         }
         setModuleStates(states);
     }
-
+/**
+ * this lets us know what the current drive speed is and angle of the wheels
+ * @return
+ */
     public SwerveModuleState[] getModuleStates(){
         return new SwerveModuleState[]{
             frontLeftModule.getState(),
@@ -90,7 +101,10 @@ public class SwerveSubsystem extends SubsystemBase{
             backRightModule.getState()
         };
     }
-
+/**
+ * Lets us know how far the robot has traveled and what the current angle is
+ * @return
+ */
     public SwerveModulePosition[] getModulePositions(){
         return new SwerveModulePosition[]{
             frontLeftModule.getPosition(),
@@ -99,7 +113,10 @@ public class SwerveSubsystem extends SubsystemBase{
             backRightModule.getPosition()
         };
     }
-
+/**
+ * Lets us set the speed and wanted angle for each module
+ * @param desiredStates
+ */
     public void setModuleStates(SwerveModuleState[] desiredStates){
         SwerveDriveKinematics.desaturateWheelSpeeds(desiredStates, 1);
         for(SwerveModule module: modules){
