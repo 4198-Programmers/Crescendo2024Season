@@ -75,6 +75,21 @@ public static final int INTERNAL_MOTOR_ID = 0;
 //                -x(back)
   public static final double FRONT_LEFT_X_LOCATION = X_FROM_CENTER;
   public static final double FRONT_LEFT_Y_LOCATION = Y_FROM_CENTER;
+
+  public static final double FRONT_RIGHT_X_LOCATION = X_FROM_CENTER;
+  public static final double FRONT_RIGHT_Y_LOCATION = -Y_FROM_CENTER;
+
+  public static final double BACK_LEFT_X_LOCATION = -X_FROM_CENTER;
+  public static final double BACK_LEFT_Y_LOCATION = Y_FROM_CENTER;
+
+  public static final double BACK_RIGHT_X_LOCATION = -X_FROM_CENTER;
+  public static final double BACK_RIGHT_Y_LOCATION = -Y_FROM_CENTER;
+
+  public static final SwerveDriveKinematics SWERVE_DRIVE_KINEMATICS = new SwerveDriveKinematics(
+    new Translation2d(FRONT_LEFT_X_LOCATION, FRONT_LEFT_Y_LOCATION),
+    new Translation2d(FRONT_RIGHT_X_LOCATION, FRONT_RIGHT_Y_LOCATION),
+    new Translation2d(BACK_LEFT_X_LOCATION, BACK_LEFT_Y_LOCATION),
+    new Translation2d(BACK_RIGHT_X_LOCATION, BACK_RIGHT_Y_LOCATION));
   //Pneumatic Values
   public static final int INTAKE_PNUEMATIC_INTEGER = 0;
   public static final int INTAKE_PNEUMATIC_CHANNEL = 0;
@@ -83,6 +98,7 @@ public static final int INTERNAL_MOTOR_ID = 0;
   public static final int CLIMB_PNEUMATIC_CHANNEL_B = 0;
   //General Subsystem Motor Constants
   public static final int INTAKE_MOTOR_ID = 0;
+  public static final int INTAKE_MOTOR_1_ID = 0;
   public static final int SHOOTING_MOTOR_ID = 0;
   //Joystick Constants
   public static final int RIGHT_JOYSTICK_PORT = 0;
@@ -93,15 +109,6 @@ public static final int INTERNAL_MOTOR_ID = 0;
   public static final int SHOOTING_MOTOR_BUTTON_ID = 1;
   public static final int CHANGE_INTAKE_PNEUMATIC_STATE_BUTTON = 1;
   public static final int CHANGE_CLIMB_STATE_BUTTON = 3;
-
-  public static final double FRONT_RIGHT_X_LOCATION = X_FROM_CENTER;
-  public static final double FRONT_RIGHT_Y_LOCATION = -Y_FROM_CENTER;
-
-  public static final double BACK_LEFT_X_LOCATION = -X_FROM_CENTER;
-  public static final double BACK_LEFT_Y_LOCATION = Y_FROM_CENTER;
-
-  public static final double BACK_RIGHT_X_LOCATION = -X_FROM_CENTER;
-  public static final double BACK_RIGHT_Y_LOCATION = -Y_FROM_CENTER;
   
   //Deadband for joysticks
     public static final double DEADBAND = 0;
@@ -109,12 +116,6 @@ public static final int INTERNAL_MOTOR_ID = 0;
   //MotorSpeeds
   public static final double INTAKE_MOTOR_SPEED = 1;
   public static final double SHOOTING_MOTOR_SPEED = 1;
-
-  public static final SwerveDriveKinematics SWERVE_DRIVE_KINEMATICS = new SwerveDriveKinematics(
-    new Translation2d(FRONT_LEFT_X_LOCATION, FRONT_LEFT_Y_LOCATION),
-    new Translation2d(FRONT_RIGHT_X_LOCATION, FRONT_RIGHT_Y_LOCATION),
-    new Translation2d(BACK_LEFT_X_LOCATION, BACK_LEFT_Y_LOCATION),
-    new Translation2d(BACK_RIGHT_X_LOCATION, BACK_RIGHT_Y_LOCATION));
   
   //Internal Mover Direction/speed
   public static final int MIDDLE_LIMIT_SWITCH = 0;

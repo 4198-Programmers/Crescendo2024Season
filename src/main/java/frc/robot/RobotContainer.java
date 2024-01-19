@@ -4,9 +4,6 @@
 
 package frc.robot;
 
-import frc.robot.Constants;
-import frc.robot.commands.Autos;
-import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.InternalMoverDownCommand;
 import frc.robot.commands.InternalMoverUpCommand;
 import frc.robot.subsystems.InternalMoverSubsystem;
@@ -15,7 +12,6 @@ import frc.robot.commands.ChangeIntakeSolenoidCommand;
 import frc.robot.commands.IntakeMotorCommand;
 import frc.robot.commands.ShootingMotorCommand;
 import frc.robot.subsystems.ClimbSubsystem;
-import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.subsystems.ShootingSubsytem;
 import edu.wpi.first.wpilibj.Joystick;
@@ -27,7 +23,6 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 public class RobotContainer {
   // Subsystems
-  private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
   private final IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
   private final ShootingSubsytem shootingSubsytem = new ShootingSubsytem();
   private final InternalMoverSubsystem internalMoverSubsystem = new InternalMoverSubsystem();
@@ -75,11 +70,6 @@ public class RobotContainer {
     changeIntakePneumaticStateButton.whileTrue(changeIntakeSolenoidCommand);
     internalMoverUpButton.whileTrue(internalMoverUp);
     internalMoverDownButton.whileTrue(internalMoverDown);
-
-    // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
-    new Trigger(m_exampleSubsystem::exampleCondition)
-        .onTrue(new ExampleCommand(m_exampleSubsystem));
-
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
     changeClimbStateButton.whileTrue(climbStateChangeCommand);
@@ -92,6 +82,7 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An example command will be run in autonomous
-    return Autos.exampleAuto(m_exampleSubsystem);
+    return null;
+    //return Autos.exampleAuto();
   }
 }
