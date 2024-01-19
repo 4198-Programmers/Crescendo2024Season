@@ -61,8 +61,8 @@ public static final int INTERNAL_MOTOR_ID = 0;
   public static final int BACK_RIGHT_ANGLE_ENCODER_ID = 0;
   public static final double BACK_RIGHT_ANGLE_OFFSET_DEGREES = 0;
   //Swerve Drive Kinematics Constants
-  public static final double ROBOT_BASE_WIDTH_METERS = 0;
-  public static final double ROBOT_BASE_LENGTH_METERS = 0;
+  public static final double ROBOT_BASE_WIDTH_METERS = 0.30;
+  public static final double ROBOT_BASE_LENGTH_METERS = 0.295;
   public static final double X_FROM_CENTER = ROBOT_BASE_LENGTH_METERS / 2;
   public static final double Y_FROM_CENTER = ROBOT_BASE_WIDTH_METERS / 2;
 //      Robot Orientation
