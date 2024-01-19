@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 public class SwerveSubsystem extends SubsystemBase{
+    //This is how we determine the front of the field.
     private final AHRS gyro = new AHRS(SPI.Port.kMXP);
 
     private final SwerveModule frontLeftModule, frontRightModule, backLeftModule, backRightModule;

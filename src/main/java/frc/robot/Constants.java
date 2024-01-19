@@ -98,7 +98,6 @@ public static final int INTERNAL_MOTOR_ID = 0;
   public static final int CLIMB_PNEUMATIC_CHANNEL_B = 0;
   //General Subsystem Motor Constants
   public static final int INTAKE_MOTOR_ID = 0;
-  public static final int INTAKE_MOTOR_1_ID = 0;
   public static final int SHOOTING_MOTOR_ID = 0;
   //Joystick Constants
   public static final int RIGHT_JOYSTICK_PORT = 0;

@@ -1,9 +1,9 @@
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.InternalMoverSubsystem;
 
-public class InternalMoverDownCommand extends CommandBase {
+public class InternalMoverDownCommand extends Command {
     private InternalMoverSubsystem m_InternalMoverSubsystem;
 
     public InternalMoverDownCommand(InternalMoverSubsystem internalMoverSubsystem){
