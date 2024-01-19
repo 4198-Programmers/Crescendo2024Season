@@ -6,15 +6,17 @@ package frc.robot;
 
 import frc.robot.Constants;
 import frc.robot.commands.Autos;
-import frc.robot.commands.ChangeIntakeSolenoidCommand;
 import frc.robot.commands.ExampleCommand;
-import frc.robot.commands.IntakeMotorCommand;
 import frc.robot.commands.InternalMoverDownCommand;
 import frc.robot.commands.InternalMoverUpCommand;
+import frc.robot.subsystems.InternalMoverSubsystem;
+import frc.robot.commands.ChangeClimbStateCommand;
+import frc.robot.commands.ChangeIntakeSolenoidCommand;
+import frc.robot.commands.IntakeMotorCommand;
 import frc.robot.commands.ShootingMotorCommand;
+import frc.robot.subsystems.ClimbSubsystem;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
-import frc.robot.subsystems.InternalMoverSubsystem;
 import frc.robot.subsystems.ShootingSubsytem;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -29,6 +31,7 @@ public class RobotContainer {
   private final IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
   private final ShootingSubsytem shootingSubsytem = new ShootingSubsytem();
   private final InternalMoverSubsystem internalMoverSubsystem = new InternalMoverSubsystem();
+  private final ClimbSubsystem climbSubsystem = new ClimbSubsystem();
 
   //Commands
   private IntakeMotorCommand intakeMotorCommand = new IntakeMotorCommand(intakeSubsystem, Constants.INTAKE_MOTOR_SPEED);
@@ -36,6 +39,7 @@ public class RobotContainer {
   private ChangeIntakeSolenoidCommand changeIntakeSolenoidCommand = new ChangeIntakeSolenoidCommand(intakeSubsystem);
   private InternalMoverUpCommand internalMoverUp = new InternalMoverUpCommand(internalMoverSubsystem);
   private InternalMoverDownCommand internalMoverDown = new InternalMoverDownCommand(internalMoverSubsystem);
+  private ChangeClimbStateCommand climbStateChangeCommand = new ChangeClimbStateCommand(climbSubsystem);
 
   //Joysticks
   Joystick rightJoystick = new Joystick(Constants.RIGHT_JOYSTICK_PORT);
@@ -44,11 +48,12 @@ public class RobotContainer {
 
   
   //Buttons
-  JoystickButton intakeMotorButton = new JoystickButton(middleJoystick, Constants.INTAKE_MOTOR_BUTTON_ID);
-  JoystickButton shootingMotorButton = new JoystickButton(rightJoystick, Constants.SHOOTING_MOTOR_BUTTON_ID);
-  JoystickButton changeIntakePneumaticStateButton = new JoystickButton(middleJoystick, Constants.CHANGE_INTAKE_PNEUMATIC_STATE_BUTTON);
   JoystickButton internalMoverUpButton = new JoystickButton(middleJoystick, Constants.INTERNAL_MOVER_UP_BOTTON_ID);
   JoystickButton internalMoverDownButton = new JoystickButton(middleJoystick, Constants.INTERNAL_MOVER_DOWN_BOTTON_ID);
+  JoystickButton intakeMotorButton = new JoystickButton(leftJoystick, Constants.INTAKE_MOTOR_BUTTON_ID);
+  JoystickButton shootingMotorButton = new JoystickButton(rightJoystick, Constants.SHOOTING_MOTOR_BUTTON_ID);
+  JoystickButton changeIntakePneumaticStateButton = new JoystickButton(middleJoystick, Constants.CHANGE_INTAKE_PNEUMATIC_STATE_BUTTON);
+  JoystickButton changeClimbStateButton = new JoystickButton(rightJoystick, Constants.CHANGE_CLIMB_STATE_BUTTON); 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the trigger bindings
@@ -77,6 +82,7 @@ public class RobotContainer {
 
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
+    changeClimbStateButton.whileTrue(climbStateChangeCommand);
   }
 
   /**

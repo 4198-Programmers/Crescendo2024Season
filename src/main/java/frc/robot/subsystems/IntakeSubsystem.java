@@ -21,18 +21,24 @@ public class IntakeSubsystem extends SubsystemBase {
     private Compressor intakeCompresser = new Compressor(Constants.INTAKE_PNUEMATIC_INTEGER, PneumaticsModuleType.CTREPCM);
     private boolean switchValue = false;
     
-    public IntakeSubsystem(){}
+    public IntakeSubsystem(){
+        this.initialize();
+    }
     //Negative is one direction posititve is the other
     public void intakeMotorSpeed(double speed){
         intakeMotor.set(speed);
         intakeMotor1.set(speed);
-
     }
 
     public void intakeMotorStop(){
         intakeMotor.set(0);
         intakeMotor1.set(0);
 
+    }
+
+    public double getIntakePosition(){
+        double motorPosition = intakeEncoder.getPosition();
+        return motorPosition;
     }
 
     public void switchIntakeSolenoidState(){
@@ -43,8 +49,7 @@ public class IntakeSubsystem extends SubsystemBase {
         intakeSolenoid.set(false);
     }
 
-    @Override
-    public void periodic(){
+    public void initialize(){
         intakeCompresser.enableDigital();
         intakeSolenoid.set(switchValue);
     }
