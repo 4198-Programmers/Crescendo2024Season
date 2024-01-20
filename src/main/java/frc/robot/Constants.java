@@ -21,6 +21,8 @@ public final class Constants {
   }
 
 public static final int INTERNAL_MOTOR_ID = 0;
+  //Shooter Constants
+  public static final double SHOOTER_ANGLE_OFFSET = 0;
   //Angle Constants
   public static final boolean ANGLE_MOTOR_INVERTED = false;
   public static final double VOLTAGE_COMPENSATION = 12.0; //Max battery volts we can half
@@ -32,6 +34,7 @@ public static final int INTERNAL_MOTOR_ID = 0;
   //Drive Constants
   public static final double DRIVE_VELOCITY_CONVERSION_FACTOR = 0;
   public static final double DRIVE_POSITION_CONVERSION_FACTOR = 0;
+  public static final double ANGLE_POSITION_CONVERSION_FACTOR = 0;
   //Front Left Module Constants
   public static final String FRONT_LEFT_MODULE_NAME = null;
   public static final int FRONT_LEFT_MODULE_NUMBER = 0;
@@ -46,6 +49,7 @@ public static final int INTERNAL_MOTOR_ID = 0;
   public static final int FRONT_RIGHT_ANGLE_MOTOR_ID = 0;
   public static final int FRONT_RIGHT_ANGLE_ENCODER_ID = 0;
   public static final double FRONT_RIGHT_ANGLE_OFFSET_DEGREES = 0;
+  public static final int SHOOTING_MOTOR_ANGLE_ID = 0;
   //Back Left Module Constants
   public static final String BACK_LEFT_MODULE_NAME = null;
   public static final int BACK_LEFT_MODULE_NUMBER = 0;
@@ -108,6 +112,7 @@ public static final int INTERNAL_MOTOR_ID = 0;
   public static final int SHOOTING_MOTOR_BUTTON_ID = 1;
   public static final int CHANGE_INTAKE_PNEUMATIC_STATE_BUTTON = 1;
   public static final int CHANGE_CLIMB_STATE_BUTTON = 3;
+  public static final int SHOOTING_ANGLE_BUTTON = 0;
   
   //Deadband for joysticks
     public static final double DEADBAND = 0;
