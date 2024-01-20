@@ -9,10 +9,11 @@ import frc.robot.commands.Autos;
 import frc.robot.commands.ChangeIntakeSolenoidCommand;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.IntakeMotorCommand;
+import frc.robot.commands.ShooterAngleCommand;
 import frc.robot.commands.ShootingMotorCommand;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
-import frc.robot.subsystems.ShootingSubsytem;
+import frc.robot.subsystems.ShootingSubsystem;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
@@ -24,12 +25,13 @@ public class RobotContainer {
   // Subsystems
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
   private final IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
-  private final ShootingSubsytem shootingSubsytem = new ShootingSubsytem();
+  private final ShootingSubsystem shootingSubsytem = new ShootingSubsystem();
 
   //Commands
   private IntakeMotorCommand intakeMotorCommand = new IntakeMotorCommand(intakeSubsystem, Constants.INTAKE_MOTOR_SPEED);
   private ShootingMotorCommand shootingMotorCommand = new ShootingMotorCommand(shootingSubsytem, Constants.SHOOTING_MOTOR_SPEED);
   private ChangeIntakeSolenoidCommand changeIntakeSolenoidCommand = new ChangeIntakeSolenoidCommand(intakeSubsystem);
+  private ShooterAngleCommand shooterAngleCommand = new ShooterAngleCommand(shootingSubsytem, 0, 1, 0.05);
 
   //Joysticks
   Joystick rightJoystick = new Joystick(Constants.RIGHT_JOYSTICK_PORT);
@@ -41,6 +43,7 @@ public class RobotContainer {
   JoystickButton intakeMotorButton = new JoystickButton(middleJoystick, Constants.INTAKE_MOTOR_BUTTON_ID);
   JoystickButton shootingMotorButton = new JoystickButton(rightJoystick, Constants.SHOOTING_MOTOR_BUTTON_ID);
   JoystickButton changeIntakePneumaticStateButton = new JoystickButton(middleJoystick, Constants.CHANGE_INTAKE_PNEUMATIC_STATE_BUTTON);
+  JoystickButton shootingAngleButton = new JoystickButton(rightJoystick, Constants.SHOOTING_ANGLE_BUTTON);
  
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -61,6 +64,7 @@ public class RobotContainer {
     intakeMotorButton.whileTrue(intakeMotorCommand);
     shootingMotorButton.whileTrue(shootingMotorCommand);
     changeIntakePneumaticStateButton.whileTrue(changeIntakeSolenoidCommand);
+    shootingAngleButton.whileTrue(shooterAngleCommand);
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
     new Trigger(m_exampleSubsystem::exampleCondition)
         .onTrue(new ExampleCommand(m_exampleSubsystem));

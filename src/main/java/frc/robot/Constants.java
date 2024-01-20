@@ -16,6 +16,8 @@ import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
+  //Shooter Constants
+  public static final double SHOOTER_ANGLE_OFFSET = 0;
   //Angle Constants
   public static final boolean ANGLE_MOTOR_INVERTED = false;
   public static final double VOLTAGE_COMPENSATION = 12.0; //Max battery volts we can half
@@ -86,6 +88,7 @@ public final class Constants {
   public static final int INTAKE_MOTOR_BUTTON_ID = 0;
   public static final int SHOOTING_MOTOR_BUTTON_ID = 0;
   public static final int CHANGE_INTAKE_PNEUMATIC_STATE_BUTTON = 0;
+  public static final int SHOOTING_ANGLE_BUTTON = 0;
 
   public static final double FRONT_RIGHT_X_LOCATION = X_FROM_CENTER;
   public static final double FRONT_RIGHT_Y_LOCATION = -Y_FROM_CENTER;
