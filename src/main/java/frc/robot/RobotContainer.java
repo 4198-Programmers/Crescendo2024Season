@@ -4,28 +4,55 @@
 
 package frc.robot;
 
-import frc.robot.Constants.OperatorConstants;
-import frc.robot.commands.Autos;
-import frc.robot.commands.ExampleCommand;
-import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.commands.InternalMoverDownCommand;
+import frc.robot.commands.InternalMoverUpCommand;
+import frc.robot.subsystems.InternalMoverSubsystem;
+import frc.robot.commands.ChangeClimbStateCommand;
+import frc.robot.commands.ChangeIntakeSolenoidCommand;
+import frc.robot.commands.IntakeMotorCommand;
+import frc.robot.commands.ShooterAngleCommand;
+import frc.robot.commands.ShootingMotorCommand;
+import frc.robot.subsystems.ClimbSubsystem;
+import frc.robot.subsystems.IntakeSubsystem;
+import frc.robot.subsystems.ShootingSubsystem;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
-/**
- * This class is where the bulk of the robot should be declared. Since Command-based is a
- * "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
- * periodic methods (other than the scheduler calls). Instead, the structure of the robot (including
- * subsystems, commands, and trigger mappings) should be declared here.
- */
+
 public class RobotContainer {
-  // The robot's subsystems and commands are defined here...
-  private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
+  // Subsystems
+  private final IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
+  private final ShootingSubsystem shootingSubsytem = new ShootingSubsystem();
+  private final InternalMoverSubsystem internalMoverSubsystem = new InternalMoverSubsystem();
+  private final ClimbSubsystem climbSubsystem = new ClimbSubsystem();
 
-  // Replace with CommandPS4Controller or CommandJoystick if needed
-  private final CommandXboxController m_driverController =
-      new CommandXboxController(OperatorConstants.kDriverControllerPort);
+  //Commands
+  private IntakeMotorCommand intakeMotorCommand = new IntakeMotorCommand(intakeSubsystem, Constants.INTAKE_MOTOR_SPEED);
+  private ShootingMotorCommand shootingMotorCommand = new ShootingMotorCommand(shootingSubsytem, Constants.SHOOTING_MOTOR_SPEED);
+  private ChangeIntakeSolenoidCommand changeIntakeSolenoidCommand = new ChangeIntakeSolenoidCommand(intakeSubsystem);
+  private InternalMoverUpCommand internalMoverUp = new InternalMoverUpCommand(internalMoverSubsystem);
+  private InternalMoverDownCommand internalMoverDown = new InternalMoverDownCommand(internalMoverSubsystem);
+  private ChangeClimbStateCommand climbStateChangeCommand = new ChangeClimbStateCommand(climbSubsystem);
+  private ShooterAngleCommand shooterAngleCommand = new ShooterAngleCommand(shootingSubsytem, 0, 1, 0.05);
 
+  //Joysticks
+  Joystick rightJoystick = new Joystick(Constants.RIGHT_JOYSTICK_PORT);
+  Joystick middleJoystick = new Joystick(Constants.MIDDLE_JOYSTICK_PORT);
+  Joystick leftJoystick = new Joystick(Constants.LEFT_JOYSTICK_PORT);
+
+  
+  //Buttons
+  JoystickButton internalMoverUpButton = new JoystickButton(middleJoystick, Constants.INTERNAL_MOVER_UP_BOTTON_ID);
+  JoystickButton internalMoverDownButton = new JoystickButton(middleJoystick, Constants.INTERNAL_MOVER_DOWN_BOTTON_ID);
+  JoystickButton intakeMotorButton = new JoystickButton(leftJoystick, Constants.INTAKE_MOTOR_BUTTON_ID);
+  JoystickButton shootingMotorButton = new JoystickButton(rightJoystick, Constants.SHOOTING_MOTOR_BUTTON_ID);
+  JoystickButton changeIntakePneumaticStateButton = new JoystickButton(middleJoystick, Constants.CHANGE_INTAKE_PNEUMATIC_STATE_BUTTON);
+  JoystickButton changeClimbStateButton = new JoystickButton(rightJoystick, Constants.CHANGE_CLIMB_STATE_BUTTON); 
+  JoystickButton shootingAngleButton = new JoystickButton(rightJoystick, Constants.SHOOTING_ANGLE_BUTTON);
+ 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the trigger bindings
@@ -42,13 +69,17 @@ public class RobotContainer {
    * joysticks}.
    */
   private void configureBindings() {
+    intakeMotorButton.whileTrue(intakeMotorCommand);
+    shootingMotorButton.whileTrue(shootingMotorCommand);
+    changeIntakePneumaticStateButton.whileTrue(changeIntakeSolenoidCommand);
+    internalMoverUpButton.whileTrue(internalMoverUp);
+    internalMoverDownButton.whileTrue(internalMoverDown);
+    shootingAngleButton.whileTrue(shooterAngleCommand);
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
-    new Trigger(m_exampleSubsystem::exampleCondition)
-        .onTrue(new ExampleCommand(m_exampleSubsystem));
 
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
-    m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
+    changeClimbStateButton.whileTrue(climbStateChangeCommand);
   }
 
   /**
@@ -58,6 +89,7 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An example command will be run in autonomous
-    return Autos.exampleAuto(m_exampleSubsystem);
+    return null;
+    //return Autos.exampleAuto();
   }
 }
