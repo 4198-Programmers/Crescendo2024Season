@@ -4,6 +4,11 @@ import org.photonvision.PhotonCamera;
 import org.photonvision.targeting.PhotonPipelineResult;
 import org.photonvision.targeting.PhotonTrackedTarget;
 
+import edu.wpi.first.math.estimator.SwerveDrivePoseEstimator;
+import edu.wpi.first.math.geometry.Pose3d;
+import edu.wpi.first.math.geometry.Transform3d;
+import frc.robot.Constants;
+
 public class PhotonVisionSubsystem {
 
     //set up the object for the camera.
@@ -15,8 +20,13 @@ public class PhotonVisionSubsystem {
     PhotonTrackedTarget target;
     double fiducialId;
 
-    public void CheckTarget() {
-        
+    public void CheckTarget(SwerveDrivePoseEstimator poseEstimator) {
+        if(result.hasTargets()) {
+            double imageCaptureTIme = result.getTimestampSeconds();
+            Transform3d camToTarget = result.getBestTarget().getBestCameraToTarget();
+            Pose3d camPose = Constants.TARGET_POSITION.transformBy(camToTarget);
+            poseEstimator.addVisionMeasurement(camPose.toPose2d(), imageCaptureTIme);
+        }
     }
 
 }

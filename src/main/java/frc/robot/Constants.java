@@ -4,8 +4,12 @@
 
 package frc.robot;
 
+import edu.wpi.first.math.geometry.Pose3d;
+import edu.wpi.first.math.geometry.Rotation3d;
 import edu.wpi.first.math.geometry.Translation2d;
+import edu.wpi.first.math.geometry.Translation3d;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
+import edu.wpi.first.math.util.Units;
 
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
@@ -127,6 +131,20 @@ public static final int INTERNAL_MOTOR_ID = 0;
   public static final double INTERNAL_MOVER_DOWN = 0;
   public static final int INTERNAL_MOVER_UP_BOTTON_ID = 0;
   public static final int INTERNAL_MOVER_DOWN_BOTTON_ID = 0;
+
+  /*Game Target Location Constants: Y and X are measured from the corner of the red Source, 
+  *and positive in their respective directions.*/
+  //z height location of the target
+  public static final double TARGET_Z_HEIGHT = Units.inchesToMeters(80.515);
+  //y target location on coordinate plane
+  public static final double TARGET_Y_DISTANCE = Units.inchesToMeters(218.42);
+  //x target location on coordinate plane
+  public static final double TARGET_X_DISTANCE = Units.inchesToMeters(9.055);
+
+  //target position
+  public static final Pose3d TARGET_POSITION = 
+    new Pose3d(new Translation3d(TARGET_X_DISTANCE, TARGET_Y_DISTANCE, TARGET_Z_HEIGHT),
+    new Rotation3d(0.0, 0.0, Units.degreesToRadians(180)));
 }
 
 

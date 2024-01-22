@@ -2,6 +2,7 @@ package frc.robot.subsystems.Swerve;
 
 import com.kauailabs.navx.frc.AHRS;
 
+import edu.wpi.first.math.estimator.SwerveDrivePoseEstimator;
 import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
 import edu.wpi.first.math.kinematics.SwerveDriveOdometry;
@@ -12,10 +13,14 @@ import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
+import frc.robot.subsystems.AprilTags.PhotonVisionSubsystem;
 
 public class SwerveSubsystem extends SubsystemBase{
     //This is how we determine the front of the field.
     private final AHRS gyro = new AHRS(SPI.Port.kMXP);
+    SwerveDrivePoseEstimator poseEstimator = 
+    new SwerveDrivePoseEstimator(Constants.SWERVE_DRIVE_KINEMATICS, gyro.getRotation2d(), getModulePositions(), null);
+    PhotonVisionSubsystem vision = new PhotonVisionSubsystem();
 
     private final SwerveModule frontLeftModule, frontRightModule, backLeftModule, backRightModule;
     private SwerveDriveOdometry odometry;
@@ -59,6 +64,10 @@ public class SwerveSubsystem extends SubsystemBase{
             driveTab.addNumber(module.getName() + " Current Angle:", () -> module.getAngle());
         }
         driveTab.addNumber("Gyro", () -> gyro.getRotation2d().getDegrees());
+    }
+
+    public void update(double leftDistance, double rightDistance) {
+        
     }
     @Override
     public void periodic() {
