@@ -145,6 +145,9 @@ public static final int INTERNAL_MOTOR_ID = 0;
   public static final Pose3d TARGET_POSITION = 
     new Pose3d(new Translation3d(TARGET_X_DISTANCE, TARGET_Y_DISTANCE, TARGET_Z_HEIGHT),
     new Rotation3d(0.0, 0.0, Units.degreesToRadians(180)));
+  public static final double CAMERA_HEIGHT = 0;
+  public static final double TAG_HEIGHT = 0;
+  public static final double CAMERA_PITCH = 0;
 }
 
 
