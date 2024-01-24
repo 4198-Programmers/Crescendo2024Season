@@ -96,7 +96,8 @@ public static final int INTERNAL_MOTOR_ID = 0;
     new Translation2d(BACK_RIGHT_X_LOCATION, BACK_RIGHT_Y_LOCATION));
   //Pneumatic Values
   public static final int INTAKE_PNUEMATIC_INTEGER = 0;
-  public static final int INTAKE_PNEUMATIC_CHANNEL = 0;
+  public static final int INTAKE_PNEUMATIC_CHANNEL_FORWARD = 0;
+  public static final int INTAKE_PNEUMATIC_CHANNEL_REVERSE = 0;
   public static final int CLIMB_PNUEMATIC_INTEGER = 0;
   public static final int CLIMB_PNEUMATIC_CHANNEL_A = 0;
   public static final int CLIMB_PNEUMATIC_CHANNEL_B = 0;
