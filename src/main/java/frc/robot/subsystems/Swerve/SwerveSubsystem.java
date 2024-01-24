@@ -65,13 +65,11 @@ public class SwerveSubsystem extends SubsystemBase{
         }
         driveTab.addNumber("Gyro", () -> gyro.getRotation2d().getDegrees());
     }
-
-    public void update(double leftDistance, double rightDistance) {
-        
-    }
+    
     @Override
     public void periodic() {
         odometry.update(gyro.getRotation2d(), getModulePositions());
+        vision.CheckTarget(poseEstimator);
     }
 
     public void drive(double xSpeed, double ySpeed, double zSpeed, boolean fieldOriented){

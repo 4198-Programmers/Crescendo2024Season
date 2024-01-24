@@ -21,11 +21,12 @@ public class PhotonVisionSubsystem {
     double fiducialId;
 
     public void CheckTarget(SwerveDrivePoseEstimator poseEstimator) {
+        this.result = camera.getLatestResult();
         if(result.hasTargets()) {
-            double imageCaptureTIme = result.getTimestampSeconds();
+            double imageCaptureTime = result.getTimestampSeconds();
             Transform3d camToTarget = result.getBestTarget().getBestCameraToTarget();
             Pose3d camPose = Constants.TARGET_POSITION.transformBy(camToTarget);
-            poseEstimator.addVisionMeasurement(camPose.toPose2d(), imageCaptureTIme);
+            poseEstimator.addVisionMeasurement(camPose.toPose2d(), imageCaptureTime);
         }
     }
 
