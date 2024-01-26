@@ -148,6 +148,11 @@ public static final int INTERNAL_MOTOR_ID = 0;
   public static final double CAMERA_HEIGHT = 0;
   public static final double TAG_HEIGHT = 0;
   public static final double CAMERA_PITCH = 0;
+
+  //Math Constants
+  public static final double SHOOTER_MAX_VELOCITY = 0;
+  public static final double INITIAL_SHOOTER_HEIGHT = 0;
+  public static final double ACCELERATION_DUE_TO_GRAVITY = 0;
 }
 
 

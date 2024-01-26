@@ -39,4 +39,16 @@ public class PhotonVisionSubsystem {
         return range;
     }
 
+    public double wantedAngle(double targetRange) {
+        //the "+" may need to be changed to a -
+        double angle = Math.acos(targetRange/(Constants.SHOOTER_MAX_VELOCITY * 
+        (Math.sqrt(2 * (Math.pow(Constants.SHOOTER_MAX_VELOCITY, 2)) 
+        - 2 * (Constants.ACCELERATION_DUE_TO_GRAVITY) * (Constants.INITIAL_SHOOTER_HEIGHT) 
+        + 2 * Math.sqrt((Math.pow((Constants.ACCELERATION_DUE_TO_GRAVITY * Constants.INITIAL_SHOOTER_HEIGHT)
+        - (Math.pow(Constants.SHOOTER_MAX_VELOCITY, 2)), 2) 
+        - Math.pow(Constants.ACCELERATION_DUE_TO_GRAVITY, 2) * (Math.pow(targetRange, 2) 
+        + Math.pow(Constants.INITIAL_SHOOTER_HEIGHT, 2))))) / Constants.ACCELERATION_DUE_TO_GRAVITY)));
+        return angle;
+    }
+    
 }
