@@ -9,9 +9,10 @@ import edu.wpi.first.math.estimator.SwerveDrivePoseEstimator;
 import edu.wpi.first.math.geometry.Pose3d;
 import edu.wpi.first.math.geometry.Transform3d;
 import edu.wpi.first.math.util.Units;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
-public class PhotonVisionSubsystem {
+public class PhotonVisionSubsystem extends SubsystemBase{
 
     //set up the object for the camera.
     PhotonCamera camera = new PhotonCamera("camera");
@@ -50,5 +51,5 @@ public class PhotonVisionSubsystem {
         + Math.pow(Constants.INITIAL_SHOOTER_HEIGHT, 2))))) / Constants.ACCELERATION_DUE_TO_GRAVITY)));
         return angle;
     }
-    
+
 }
