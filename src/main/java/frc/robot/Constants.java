@@ -6,6 +6,7 @@ package frc.robot;
 
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
+import edu.wpi.first.wpilibj.AddressableLED;
 
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
@@ -118,6 +119,11 @@ public static final int INTERNAL_MOTOR_ID = 0;
   public static final double INTERNAL_MOVER_DOWN = 0;
   public static final int INTERNAL_MOVER_UP_BOTTON_ID = 0;
   public static final int INTERNAL_MOVER_DOWN_BOTTON_ID = 0;
+
+  //RGB Lights
+  public static final int AddressableLED = 0;
+  //how long the stip is
+  public static final int AddressableLEDBuffer = 0;
 }
 
 
