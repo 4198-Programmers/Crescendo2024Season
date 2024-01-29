@@ -45,9 +45,14 @@ public class IntakeSubsystem extends SubsystemBase {
         intakeSolenoid.set(false);
     }
 
+    public void autoIntake(double speed){
+        switchValue = true;
+        intakeSolenoid.set(switchValue);
+        intakeMotor.set(speed);
+    }
+
     public void initialize(){
         intakeCompresser.enableDigital();
         intakeSolenoid.set(switchValue);
     }
-
 }

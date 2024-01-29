@@ -21,6 +21,7 @@ public class SwerveTeleopDrive extends Command{
     }
     @Override
     public void execute() {
+        //Determining if the joysticks are being moved enough to be considered input or not
         double xSpeed = Math.abs(xSupplier.get()) > Constants.DEADBAND ? xSupplier.get() : 0;
         double ySpeed = Math.abs(ySupplier.get()) > Constants.DEADBAND ? ySupplier.get() : 0;
         double zSpeed = Math.abs(zSupplier.get()) > Constants.DEADBAND ? zSupplier.get() : 0;
