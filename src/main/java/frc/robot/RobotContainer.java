@@ -8,7 +8,6 @@ import frc.robot.commands.InternalMoverDownCommand;
 import frc.robot.commands.InternalMoverUpCommand;
 import frc.robot.subsystems.InternalMoverSubsystem;
 import frc.robot.commands.ChangeClimbStateCommand;
-import frc.robot.commands.ChangeIntakeSolenoidCommand;
 import frc.robot.commands.IntakeMotorCommand;
 import frc.robot.commands.ShooterAngleCommand;
 import frc.robot.commands.ShootingMotorCommand;
@@ -35,7 +34,6 @@ public class RobotContainer {
   //Commands
   private IntakeMotorCommand intakeMotorCommand = new IntakeMotorCommand(intakeSubsystem, Constants.INTAKE_MOTOR_SPEED);
   private ShootingMotorCommand shootingMotorCommand = new ShootingMotorCommand(shootingSubsytem, Constants.SHOOTING_MOTOR_SPEED);
-  private ChangeIntakeSolenoidCommand changeIntakeSolenoidCommand = new ChangeIntakeSolenoidCommand(intakeSubsystem);
   private InternalMoverUpCommand internalMoverUp = new InternalMoverUpCommand(internalMoverSubsystem);
   private InternalMoverDownCommand internalMoverDown = new InternalMoverDownCommand(internalMoverSubsystem);
   private ChangeClimbStateCommand climbStateChangeCommand = new ChangeClimbStateCommand(climbSubsystem);
@@ -80,7 +78,6 @@ public class RobotContainer {
   private void configureBindings() {
     intakeMotorButton.whileTrue(intakeMotorCommand);
     shootingMotorButton.whileTrue(shootingMotorCommand);
-    changeIntakePneumaticStateButton.whileTrue(changeIntakeSolenoidCommand);
     internalMoverUpButton.whileTrue(internalMoverUp);
     internalMoverDownButton.whileTrue(internalMoverDown);
     shootingAngleButton.whileTrue(shooterAngleCommand);
