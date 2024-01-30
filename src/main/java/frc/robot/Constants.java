@@ -146,13 +146,16 @@ public static final int INTERNAL_MOTOR_ID = 0;
     new Pose3d(new Translation3d(TARGET_X_DISTANCE, TARGET_Y_DISTANCE, TARGET_Z_HEIGHT),
     new Rotation3d(0.0, 0.0, Units.degreesToRadians(180)));
   public static final double CAMERA_HEIGHT = 0;
-  public static final double TAG_HEIGHT = 0;
   public static final double CAMERA_PITCH = 0;
 
   //Math Constants
   public static final double SHOOTER_MAX_VELOCITY = 0;
   public static final double INITIAL_SHOOTER_HEIGHT = 0;
-  public static final double ACCELERATION_DUE_TO_GRAVITY = 0;
+  public static final double ACCELERATION_DUE_TO_GRAVITY = -9.8;
+  public static final double SOURCE_TAG_HEIGHTS = Units.inchesToMeters(53.75);
+  public static final double SPEAKER_TAG_HEIGHTS = Units.inchesToMeters(57.125);
+  public static final double AMP_TAG_HEIGHTS = Units.inchesToMeters(53.375);
+  public static final double STAGE_TAG_HEIGHTS = Units.inchesToMeters(52);
 }
 
 

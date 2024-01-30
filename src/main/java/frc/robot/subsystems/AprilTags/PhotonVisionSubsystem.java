@@ -22,6 +22,7 @@ public class PhotonVisionSubsystem extends SubsystemBase{
     and also gives us the ability to do things with the data.*/
     PhotonTrackedTarget target;
     double fiducialId;
+    double height;
 
     public void CheckTarget(SwerveDrivePoseEstimator poseEstimator) {
         this.result = camera.getLatestResult();
@@ -35,7 +36,18 @@ public class PhotonVisionSubsystem extends SubsystemBase{
 
     public double getRange() {
         this.result = camera.getLatestResult();
-        double range = PhotonUtils.calculateDistanceToTargetMeters(Constants.CAMERA_HEIGHT, Constants.TAG_HEIGHT, 
+        this.target = result.getBestTarget();
+        double targetID = target.getFiducialId();
+        if (targetID == 1 || targetID == 2 || targetID == 9 || targetID == 10) {
+            this.height = Constants.SOURCE_TAG_HEIGHTS;
+        } else if (targetID == 3 || targetID == 4 || targetID == 7 || targetID == 8) {
+            this.height = Constants.SPEAKER_TAG_HEIGHTS;
+        } else if (targetID == 5 || targetID == 6) {
+            this.height = Constants.AMP_TAG_HEIGHTS;
+        } else if (targetID == 11 || targetID == 12 || targetID == 13 || targetID == 14 || targetID == 15 || targetID == 16) {
+            this.height = Constants.STAGE_TAG_HEIGHTS;
+        }
+        double range = PhotonUtils.calculateDistanceToTargetMeters(Constants.CAMERA_HEIGHT, height, 
             Units.degreesToRadians(Constants.CAMERA_PITCH), result.getBestTarget().getPitch());
         return range;
     }
