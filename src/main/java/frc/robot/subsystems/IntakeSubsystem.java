@@ -61,7 +61,7 @@ public class IntakeSubsystem extends SubsystemBase {
 
     public void autoIntake(double speed){
         switchValue = true;
-        intakeSolenoid.set(switchValue);
+        intakeSolenoid.set(DoubleSolenoid.Value.kForward);
         intakeMotor.set(speed);
     }
 

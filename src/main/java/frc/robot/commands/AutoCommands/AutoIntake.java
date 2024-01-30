@@ -27,7 +27,7 @@ public class AutoIntake extends Command{
 
     @Override
     public void end(boolean interrupted) {
-        intakeSubsystem.switchIntakeSolenoidState();
+        intakeSubsystem.close();
         intakeSubsystem.intakeMotorStop();
         internalMoverSubsystem.stop();
     }
