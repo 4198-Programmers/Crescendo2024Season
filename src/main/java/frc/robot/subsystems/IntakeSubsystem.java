@@ -4,6 +4,7 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.CANSparkLowLevel.MotorType;
 import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -15,7 +16,7 @@ public class IntakeSubsystem extends SubsystemBase {
 
     private RelativeEncoder intakeEncoder = intakeMotor.getEncoder();
 
-    private Solenoid intakeSolenoid = new Solenoid(PneumaticsModuleType.CTREPCM, Constants.INTAKE_PNEUMATIC_CHANNEL);
+    private DoubleSolenoid intakeSolenoid = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, Constants.INTAKE_PNEUMATIC_CHANNEL_FORWARD, Constants.INTAKE_PNEUMATIC_CHANNEL_REVERSE);
     private Compressor intakeCompresser = new Compressor(Constants.INTAKE_PNUEMATIC_INTEGER, PneumaticsModuleType.CTREPCM);
     private boolean switchValue = false;
     
@@ -37,12 +38,25 @@ public class IntakeSubsystem extends SubsystemBase {
         return motorPosition;
     }
 
-    public void switchIntakeSolenoidState(){
+    public void switchIntakeDoubleSolenoidState(){
         switchValue = !switchValue;
     }
 
+    public void open (){
+        intakeSolenoid.set(DoubleSolenoid.Value.kForward);
+    }
+
+    public void close (){
+        intakeSolenoid.set(DoubleSolenoid.Value.kReverse);
+    
+    }
+
+    public boolean isOpen (){
+        return this.intakeSolenoid.isFwdSolenoidDisabled();
+    }
+
     public void intakePneumaticKillSwitch(){
-        intakeSolenoid.set(false);
+        //intakeSolenoid.set(false);
     }
 
     public void autoIntake(double speed){
@@ -53,6 +67,6 @@ public class IntakeSubsystem extends SubsystemBase {
 
     public void initialize(){
         intakeCompresser.enableDigital();
-        intakeSolenoid.set(switchValue);
+        //intakeSolenoid.set(switchValue);
     }
 }
