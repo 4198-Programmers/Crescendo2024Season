@@ -108,6 +108,10 @@ public static final int INTERNAL_MOTOR_ID = 0;
   //General Subsystem Motor Constants
   public static final int INTAKE_MOTOR_ID = 0;
   public static final int SHOOTING_MOTOR_ID = 0;
+  public static final int CLIMB_MOTOR_LEFT_ID = 0;
+  public static final int CLIMB_MOTOR_RIGHT_ID = 0;
+  public static final int RIGHT_MOTOR_CLIMB_SPEED = 0;
+
   //Joystick Constants
   public static final int RIGHT_JOYSTICK_PORT = 0;
   public static final int MIDDLE_JOYSTICK_PORT = 1;
@@ -118,7 +122,11 @@ public static final int INTERNAL_MOTOR_ID = 0;
   public static final int CHANGE_INTAKE_PNEUMATIC_STATE_BUTTON = 1;
   public static final int CHANGE_CLIMB_STATE_BUTTON = 3;
   public static final int SHOOTING_ANGLE_BUTTON = 0;
-  
+  public static final int LEFT_MOTOR_CLIMB_UP_BUTTON = 0;
+  public static final int LEFT_MOTOR_CLIMB_DOWN_BUTTON = 0;
+  public static final int RIGHT_MOTOR_CLIMB_UP_BUTTON = 0;
+  public static final int RIGHT_MOTOR_CLIMB_DOWN_BUTTON = 0;
+
   //Deadband for joysticks
     public static final double DEADBAND = 0;
 
@@ -157,6 +165,9 @@ public static final int INTERNAL_MOTOR_ID = 0;
   public static final double SPEAKER_TAG_HEIGHTS = Units.inchesToMeters(57.125);
   public static final double AMP_TAG_HEIGHTS = Units.inchesToMeters(53.375);
   public static final double STAGE_TAG_HEIGHTS = Units.inchesToMeters(52);
+  public static final double LEFT_MOTOR_CLIMB_SPEED = 0;
+
+
 }
 
 

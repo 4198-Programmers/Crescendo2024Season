@@ -6,7 +6,10 @@ package frc.robot;
 
 import frc.robot.commands.InternalMoverDownCommand;
 import frc.robot.commands.InternalMoverUpCommand;
+import frc.robot.commands.LeftMotorClimbCommand;
+import frc.robot.commands.RightMotorClimbCommand;
 import frc.robot.subsystems.InternalMoverSubsystem;
+import frc.robot.subsystems.MotorClimbSubsystem;
 import frc.robot.commands.ChangeClimbStateCommand;
 import frc.robot.commands.IntakeMotorCommand;
 import frc.robot.commands.ShooterAngleCommand;
@@ -30,6 +33,7 @@ public class RobotContainer {
   private final ShootingSubsystem shootingSubsytem = new ShootingSubsystem();
   private final InternalMoverSubsystem internalMoverSubsystem = new InternalMoverSubsystem();
   private final ClimbSubsystem climbSubsystem = new ClimbSubsystem();
+  private final MotorClimbSubsystem motorClimbSubsystem = new MotorClimbSubsystem();
 
   //Commands
   private IntakeMotorCommand intakeMotorCommand = new IntakeMotorCommand(intakeSubsystem, Constants.INTAKE_MOTOR_SPEED);
@@ -38,6 +42,8 @@ public class RobotContainer {
   private InternalMoverDownCommand internalMoverDown = new InternalMoverDownCommand(internalMoverSubsystem);
   private ChangeClimbStateCommand climbStateChangeCommand = new ChangeClimbStateCommand(climbSubsystem);
   private ShooterAngleCommand shooterAngleCommand = new ShooterAngleCommand(shootingSubsytem, 0, 1, 0.05);
+  private LeftMotorClimbCommand leftMotorClimbCommand = new LeftMotorClimbCommand(motorClimbSubsystem, Constants.LEFT_MOTOR_CLIMB_SPEED);
+  private RightMotorClimbCommand RightMotorClimbCommand = new RightMotorClimbCommand(motorClimbSubsystem, Constants.RIGHT_MOTOR_CLIMB_SPEED);
 
   //Joysticks
   Joystick rightJoystick = new Joystick(Constants.RIGHT_JOYSTICK_PORT);
@@ -53,6 +59,10 @@ public class RobotContainer {
   JoystickButton changeIntakePneumaticStateButton = new JoystickButton(middleJoystick, Constants.CHANGE_INTAKE_PNEUMATIC_STATE_BUTTON);
   JoystickButton changeClimbStateButton = new JoystickButton(rightJoystick, Constants.CHANGE_CLIMB_STATE_BUTTON); 
   JoystickButton shootingAngleButton = new JoystickButton(rightJoystick, Constants.SHOOTING_ANGLE_BUTTON);
+  JoystickButton LeftMotorClimbButtonUp = new JoystickButton(middleJoystick, Constants.LEFT_MOTOR_CLIMB_UP_BUTTON);
+  JoystickButton LeftMotorClimbButtonDown = new JoystickButton(middleJoystick, Constants.LEFT_MOTOR_CLIMB_DOWN_BUTTON);
+  JoystickButton RightMotorClimbButtonUp = new JoystickButton(middleJoystick, Constants.RIGHT_MOTOR_CLIMB_UP_BUTTON);
+  JoystickButton RightMotorClimbButtonDown = new JoystickButton(middleJoystick, Constants.RIGHT_MOTOR_CLIMB_DOWN_BUTTON);
  
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -81,6 +91,11 @@ public class RobotContainer {
     internalMoverUpButton.whileTrue(internalMoverUp);
     internalMoverDownButton.whileTrue(internalMoverDown);
     shootingAngleButton.whileTrue(shooterAngleCommand);
+    LeftMotorClimbButtonUp.whileTrue(new LeftMotorClimbCommand(motorClimbSubsystem, Constants.LEFT_MOTOR_CLIMB_SPEED));
+    LeftMotorClimbButtonDown.whileTrue(new LeftMotorClimbCommand(motorClimbSubsystem, Constants.LEFT_MOTOR_CLIMB_SPEED));
+    RightMotorClimbButtonUp.whileTrue(new RightMotorClimbCommand(motorClimbSubsystem, Constants.RIGHT_MOTOR_CLIMB_SPEED));
+    RightMotorClimbButtonDown.whileTrue(new RightMotorClimbCommand(motorClimbSubsystem, Constants.RIGHT_MOTOR_CLIMB_SPEED));
+
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
 
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,

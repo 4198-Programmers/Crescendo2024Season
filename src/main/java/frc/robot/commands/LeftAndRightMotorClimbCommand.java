@@ -1,14 +1,13 @@
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.MotorClimbSubsystem;
 
-public class LeftMotorClimbCommand extends Command {
+public class LeftAndRightMotorClimbCommand {
 
     private MotorClimbSubsystem motorClimbSubsystem;
     private double speed;
 
-    public LeftMotorClimbCommand(MotorClimbSubsystem motorClimbSubsystem, double speed) {
+    public LeftAndRightMotorClimbCommand(MotorClimbSubsystem motorClimbSubsystem, double speed) {
         this.motorClimbSubsystem = motorClimbSubsystem;
         this.speed = speed;
         addRequirements(motorClimbSubsystem);
@@ -18,6 +17,7 @@ public class LeftMotorClimbCommand extends Command {
     @Override
     public void execute(){
         motorClimbSubsystem.setClimbMotorSpeedRight(speed);
+        motorClimbSubsystem.setClimbMotorSpeedLeft(speed);
     }
     
 }
