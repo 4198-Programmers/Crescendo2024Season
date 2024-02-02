@@ -2,7 +2,6 @@ package frc.robot.subsystems;
 
 import org.w3c.dom.css.RGBColor;
 
-import com.ctre.phoenix.led.RgbFadeAnimation;
 import com.revrobotics.CANSparkMax;
 
 import edu.wpi.first.hal.AddressableLEDJNI;
@@ -14,15 +13,20 @@ import frc.robot.Constants;
 
 public class LEDBaseSubsytem extends SubsystemBase {
 
+    private static final String LedBuffer = null;
+
+    private static final String m_ledBuffer = null;
+
     private AddressableLED driveBaseLED = new AddressableLED(Constants.DRIVE_BASE_LED_ID);
 
     // length(num of stips)
     private AddressableLEDBuffer driveBaseLEDBuffer = new AddressableLEDBuffer(Constants.AddressableLEDBuffer);
 
+    public double m_rainbowFirstPixelHue = 180;
+
     public LEDBaseSubsytem() {
          driveBaseLED.setLength(driveBaseLEDBuffer.getLength());
          driveBaseLED.setData(driveBaseLEDBuffer);
-         driveBaseLED.se
          driveBaseLED.start();
     }
 
@@ -49,25 +53,20 @@ public class LEDBaseSubsytem extends SubsystemBase {
     // }
 
 public static void changingColor(){
+   
+        for (var i = 0; i < LedBuffer.length(); i ++){
 
-    private void rainbow
-    {
-
-        for (var i = ; i < LedBuffer.getlength (); i ++){
-
-            final var hue = (m_rainbowFirstPixelHue + (i * 180 / m_ledBuffer.getlength()))
+            final var hue = (this.m_rainbowFirstPixelHue + (i * 180 / m_ledBuffer.length()));
 
             m_ledBuffer.setHSV(i, hue, 255, 128);
         }
         
-        m_rainbowFirstPixelHue +=3;
+        this.m_rainbowFirstPixelHue += 3;
 
-        m_rainbowFirstPixelHue %= 180;
+        this.m_rainbowFirstPixelHue %= 180;
+        
+        }
     }
-
-}
-
-}
 // No periodic 
 // change different sections of led seperatly 
 //
