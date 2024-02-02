@@ -1,8 +1,9 @@
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.MotorClimbSubsystem;
 
-public class LeftAndRightMotorClimbCommand {
+public class LeftAndRightMotorClimbCommand extends Command{
 
     private MotorClimbSubsystem motorClimbSubsystem;
     private double speed;
