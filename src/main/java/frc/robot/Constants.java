@@ -24,7 +24,7 @@ public final class Constants {
     public static final int kDriverControllerPort = 0;
   }
 
-public static final int INTERNAL_MOTOR_ID = 0;
+
   //Shooter Constants
   public static final double SHOOTER_ANGLE_OFFSET = 0;
   //Angle Constants
@@ -36,37 +36,37 @@ public static final int INTERNAL_MOTOR_ID = 0;
   public static final double ANGLE_KI = 0;
   public static final double ANGLE_KD = 0;
   //Drive Constants
-  public static final double DRIVE_VELOCITY_CONVERSION_FACTOR = 0;
-  public static final double DRIVE_POSITION_CONVERSION_FACTOR = 0;
-  public static final double ANGLE_POSITION_CONVERSION_FACTOR = 0;
+  public static final double DRIVE_VELOCITY_CONVERSION_FACTOR = 1;
+  public static final double DRIVE_POSITION_CONVERSION_FACTOR = 1/6.75;
+  public static final double ANGLE_POSITION_CONVERSION_FACTOR = 1/21.43;
   //Front Left Module Constants
-  public static final String FRONT_LEFT_MODULE_NAME = null;
+  public static final String FRONT_LEFT_MODULE_NAME = "Front Left Swerve Module";
   public static final int FRONT_LEFT_MODULE_NUMBER = 0;
-  public static final int FRONT_LEFT_DRIVE_MOTOR_ID = 0;
-  public static final int FRONT_LEFT_ANGLE_MOTOR_ID = 0;
-  public static final int FRONT_LEFT_ANGLE_ENCODER_ID = 0;
+  public static final int FRONT_LEFT_DRIVE_MOTOR_ID = 7;
+  public static final int FRONT_LEFT_ANGLE_MOTOR_ID = 8;
+  public static final int FRONT_LEFT_ANGLE_ENCODER_ID = 7;
   public static final double FRONT_LEFT_ANGLE_OFFSET_DEGREES = 0;
   //Front Right Module Constants
-  public static final String FRONT_RIGHT_MODULE_NAME = null;
-  public static final int FRONT_RIGHT_MODULE_NUMBER = 0;
-  public static final int FRONT_RIGHT_DRIVE_MOTOR_ID = 0;
-  public static final int FRONT_RIGHT_ANGLE_MOTOR_ID = 0;
-  public static final int FRONT_RIGHT_ANGLE_ENCODER_ID = 0;
+  public static final String FRONT_RIGHT_MODULE_NAME = "Front Right Swerve Module";
+  public static final int FRONT_RIGHT_MODULE_NUMBER = 1;
+  public static final int FRONT_RIGHT_DRIVE_MOTOR_ID = 1;
+  public static final int FRONT_RIGHT_ANGLE_MOTOR_ID = 2;
+  public static final int FRONT_RIGHT_ANGLE_ENCODER_ID = 2;
   public static final double FRONT_RIGHT_ANGLE_OFFSET_DEGREES = 0;
-  public static final int SHOOTING_MOTOR_ANGLE_ID = 0;
+  
   //Back Left Module Constants
-  public static final String BACK_LEFT_MODULE_NAME = null;
-  public static final int BACK_LEFT_MODULE_NUMBER = 0;
-  public static final int BACK_LEFT_DRIVE_MOTOR_ID = 0;
-  public static final int BACK_LEFT_ANGLE_MOTOR_ID = 0;
-  public static final int BACK_LEFT_ANGLE_ENCODER_ID = 0;
+  public static final String BACK_LEFT_MODULE_NAME = "Back Left Swerve Module";
+  public static final int BACK_LEFT_MODULE_NUMBER = 2;
+  public static final int BACK_LEFT_DRIVE_MOTOR_ID = 10;
+  public static final int BACK_LEFT_ANGLE_MOTOR_ID = 9;
+  public static final int BACK_LEFT_ANGLE_ENCODER_ID = 9;
   public static final double BACK_LEFT_ANGLE_OFFSET_DEGREES = 0;
   //Back Right Module Constants
-  public static final String BACK_RIGHT_MODULE_NAME = null;
-  public static final int BACK_RIGHT_MODULE_NUMBER = 0;
-  public static final int BACK_RIGHT_DRIVE_MOTOR_ID = 0;
-  public static final int BACK_RIGHT_ANGLE_MOTOR_ID = 0;
-  public static final int BACK_RIGHT_ANGLE_ENCODER_ID = 0;
+  public static final String BACK_RIGHT_MODULE_NAME = "Back Right Swerve Module";
+  public static final int BACK_RIGHT_MODULE_NUMBER = 3;
+  public static final int BACK_RIGHT_DRIVE_MOTOR_ID = 4;
+  public static final int BACK_RIGHT_ANGLE_MOTOR_ID = 3;
+  public static final int BACK_RIGHT_ANGLE_ENCODER_ID = 3;
   public static final double BACK_RIGHT_ANGLE_OFFSET_DEGREES = 0;
   //Swerve Drive Kinematics Constants
   public static final double ROBOT_BASE_WIDTH_METERS = 0.30;
@@ -105,27 +105,63 @@ public static final int INTERNAL_MOTOR_ID = 0;
   public static final int CLIMB_PNUEMATIC_INTEGER = 0;
   public static final int CLIMB_PNEUMATIC_CHANNEL_A = 0;
   public static final int CLIMB_PNEUMATIC_CHANNEL_B = 0;
+
   //General Subsystem Motor Constants
-  public static final int INTAKE_MOTOR_ID = 0;
-  public static final int SHOOTING_MOTOR_ID = 0;
+  public static final int INTAKE_MOTOR_ID = 5;
+  public static final int SHOOTING_MOTOR_ID = 6;
   public static final int CLIMB_MOTOR_LEFT_ID = 0;
   public static final int CLIMB_MOTOR_RIGHT_ID = 0;
   public static final int RIGHT_MOTOR_CLIMB_SPEED = 0;
+  public static final int INTERNAL_MOTOR_ID = 11;
+public static final int SHOOTING_MOTOR_ANGLE_ID = 12;
 
   //Joystick Constants
-  public static final int RIGHT_JOYSTICK_PORT = 0;
+  public static final int RIGHT_JOYSTICK_PORT = 2;
   public static final int MIDDLE_JOYSTICK_PORT = 1;
-  public static final int LEFT_JOYSTICK_PORT = 2;
-  //Joystick Button ID Constants
-  public static final int INTAKE_MOTOR_BUTTON_ID = 1;
-  public static final int SHOOTING_MOTOR_BUTTON_ID = 1;
-  public static final int CHANGE_INTAKE_PNEUMATIC_STATE_BUTTON = 1;
-  public static final int CHANGE_CLIMB_STATE_BUTTON = 3;
-  public static final int SHOOTING_ANGLE_BUTTON = 0;
-  public static final int LEFT_MOTOR_CLIMB_UP_BUTTON = 0;
-  public static final int LEFT_MOTOR_CLIMB_DOWN_BUTTON = 0;
-  public static final int RIGHT_MOTOR_CLIMB_UP_BUTTON = 0;
-  public static final int RIGHT_MOTOR_CLIMB_DOWN_BUTTON = 0;
+  public static final int LEFT_JOYSTICK_PORT = 0;
+  public static final int PLACEHOLDER_BUTTON_ID = 0;
+
+  //Left Joystick Button ID Constants
+  public static final int LEFT_JOYSTICK_BUTTON_1 = 1;
+  public static final int LEFT_JOYSTICK_BUTTON_2 = 2;
+  public static final int LEFT_JOYSTICK_BUTTON_3 = 3;
+  public static final int LEFT_JOYSTICK_BUTTON_4 = 4;
+  public static final int LEFT_JOYSTICK_BUTTON_5 = 5;
+  public static final int LEFT_JOYSTICK_BUTTON_6 = 6;
+  public static final int LEFT_JOYSTICK_BUTTON_7 = 7;
+  public static final int LEFT_JOYSTICK_BUTTON_8 = 8;
+  public static final int LEFT_JOYSTICK_BUTTON_9 = 9;
+  public static final int LEFT_JOYSTICK_BUTTON_10 = 10;
+  public static final int LEFT_JOYSTICK_BUTTON_11 = 12;
+  public static final int LEFT_JOYSTICK_BUTTON_12 = 13;
+
+  //Mid Joystick Button ID Constants
+  public static final int MID_JOYSTICK_BUTTON_1 = 1;
+  public static final int MID_JOYSTICK_BUTTON_2 = 2;
+  public static final int MID_JOYSTICK_BUTTON_3 = 3;
+  public static final int MID_JOYSTICK_BUTTON_4 = 4;
+  public static final int MID_JOYSTICK_BUTTON_5 = 5;
+  public static final int MID_JOYSTICK_BUTTON_6 = 6;
+  public static final int MID_JOYSTICK_BUTTON_7 = 7;
+  public static final int MID_JOYSTICK_BUTTON_8 = 8;
+  public static final int MID_JOYSTICK_BUTTON_9 = 9;
+  public static final int MID_JOYSTICK_BUTTON_10 = 10;
+  public static final int MID_JOYSTICK_BUTTON_11 = 12;
+  public static final int MID_JOYSTICK_BUTTON_12 = 13;
+
+  //Right Joystick Button ID Constants
+  public static final int RIGHT_JOYSTICK_BUTTON_1 = 1;
+  public static final int RIGHT_JOYSTICK_BUTTON_2 = 2;
+  public static final int RIGHT_JOYSTICK_BUTTON_3 = 3;
+  public static final int RIGHT_JOYSTICK_BUTTON_4 = 4;
+  public static final int RIGHT_JOYSTICK_BUTTON_5 = 5;
+  public static final int RIGHT_JOYSTICK_BUTTON_6 = 6;
+  public static final int RIGHT_JOYSTICK_BUTTON_7 = 7;
+  public static final int RIGHT_JOYSTICK_BUTTON_8 = 8;
+  public static final int RIGHT_JOYSTICK_BUTTON_9 = 9;
+  public static final int RIGHT_JOYSTICK_BUTTON_10 = 10;
+  public static final int RIGHT_JOYSTICK_BUTTON_11 = 12;
+  public static final int RIGHT_JOYSTICK_BUTTON_12 = 13;
 
   //Deadband for joysticks
     public static final double DEADBAND = 0;
