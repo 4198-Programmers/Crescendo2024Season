@@ -10,12 +10,10 @@ import frc.robot.commands.LeftMotorClimbCommand;
 import frc.robot.commands.RightMotorClimbCommand;
 import frc.robot.subsystems.InternalMoverSubsystem;
 import frc.robot.subsystems.MotorClimbSubsystem;
-import frc.robot.commands.ChangeClimbStateCommand;
 import frc.robot.commands.IntakeMotorCommand;
 import frc.robot.commands.ShooterAngleCommand;
 import frc.robot.commands.ShootingMotorCommand;
 import frc.robot.commands.SwerveTeleopDrive;
-import frc.robot.subsystems.ClimbSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.subsystems.ShootingSubsystem;
 import frc.robot.subsystems.Swerve.SwerveSubsystem;
@@ -32,7 +30,6 @@ public class RobotContainer {
   private final IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
   private final ShootingSubsystem shootingSubsytem = new ShootingSubsystem();
   private final InternalMoverSubsystem internalMoverSubsystem = new InternalMoverSubsystem();
-  private final ClimbSubsystem climbSubsystem = new ClimbSubsystem();
   private final MotorClimbSubsystem motorClimbSubsystem = new MotorClimbSubsystem();
 
   //Commands
@@ -40,11 +37,8 @@ public class RobotContainer {
   private ShootingMotorCommand shootingMotorCommand = new ShootingMotorCommand(shootingSubsytem, Constants.SHOOTING_MOTOR_SPEED);
   private InternalMoverUpCommand internalMoverUp = new InternalMoverUpCommand(internalMoverSubsystem);
   private InternalMoverDownCommand internalMoverDown = new InternalMoverDownCommand(internalMoverSubsystem);
-  private ChangeClimbStateCommand climbStateChangeCommand = new ChangeClimbStateCommand(climbSubsystem);
   private ShooterAngleCommand shooterAngleCommand = new ShooterAngleCommand(shootingSubsytem, 0, 1, 0.05);
-  private LeftMotorClimbCommand leftMotorClimbCommand = new LeftMotorClimbCommand(motorClimbSubsystem, Constants.LEFT_MOTOR_CLIMB_SPEED);
-  private RightMotorClimbCommand RightMotorClimbCommand = new RightMotorClimbCommand(motorClimbSubsystem, Constants.RIGHT_MOTOR_CLIMB_SPEED);
-
+  
   //Joysticks
   Joystick rightJoystick = new Joystick(Constants.RIGHT_JOYSTICK_PORT);
   Joystick middleJoystick = new Joystick(Constants.MIDDLE_JOYSTICK_PORT);
@@ -100,7 +94,6 @@ public class RobotContainer {
 
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
-    changeClimbStateButton.whileTrue(climbStateChangeCommand);
   }
 
   /**
