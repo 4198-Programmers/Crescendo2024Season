@@ -18,9 +18,9 @@ import frc.robot.subsystems.AprilTags.PhotonVisionSubsystem;
 public class SwerveSubsystem extends SubsystemBase{
     //This is how we determine the front of the field.
     private final AHRS gyro = new AHRS(SPI.Port.kMXP);
-    SwerveDrivePoseEstimator poseEstimator = 
-    new SwerveDrivePoseEstimator(Constants.SWERVE_DRIVE_KINEMATICS, gyro.getRotation2d(), getModulePositions(), null);
-    PhotonVisionSubsystem vision = new PhotonVisionSubsystem();
+    // SwerveDrivePoseEstimator poseEstimator = 
+    // new SwerveDrivePoseEstimator(Constants.SWERVE_DRIVE_KINEMATICS, gyro.getRotation2d(), getModulePositions(), null);
+    // PhotonVisionSubsystem vision = new PhotonVisionSubsystem();
 
     private final SwerveModule frontLeftModule, frontRightModule, backLeftModule, backRightModule;
     private SwerveDriveOdometry odometry;
@@ -70,7 +70,7 @@ public class SwerveSubsystem extends SubsystemBase{
     public void periodic() {
         //Constantly updating the position of the robot on the field
         odometry.update(gyro.getRotation2d(), getModulePositions());
-        vision.CheckTarget(poseEstimator);
+        // vision.CheckTarget(poseEstimator);
     }
 /**
  * Setting the speed of the drive and angle motors
