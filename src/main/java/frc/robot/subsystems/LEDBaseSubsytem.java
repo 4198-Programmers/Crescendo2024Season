@@ -1,5 +1,7 @@
 package frc.robot.subsystems;
 
+import java.util.Optional;
+
 import org.w3c.dom.css.RGBColor;
 
 import com.revrobotics.CANSparkMax;
@@ -7,6 +9,8 @@ import com.revrobotics.CANSparkMax;
 import edu.wpi.first.hal.AddressableLEDJNI;
 import edu.wpi.first.wpilibj.AddressableLED;
 import edu.wpi.first.wpilibj.AddressableLEDBuffer;
+import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj.util.Color;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
@@ -22,14 +26,16 @@ public class LEDBaseSubsytem extends SubsystemBase {
     // length(num of stips)
     private AddressableLEDBuffer driveBaseLEDBuffer = new AddressableLEDBuffer(Constants.AddressableLEDBuffer);
 
-    public double m_rainbowFirstPixelHue = 180;
+    public static int m_rainbowFirstPixelHue = 180;
+
+    private Optional<Alliance> alliance;
 
     public LEDBaseSubsytem() {
-         driveBaseLED.setLength(driveBaseLEDBuffer.getLength());
-         driveBaseLED.setData(driveBaseLEDBuffer);
-         driveBaseLED.start();
+        driveBaseLED.setLength(driveBaseLEDBuffer.getLength());
+        driveBaseLED.setData(driveBaseLEDBuffer);
+        driveBaseLED.start();
+        this.alliance = DriverStation.getAlliance();
     }
-
     // setHSV() -> color saturation
 
     // public void solidColors(){
@@ -52,21 +58,26 @@ public class LEDBaseSubsytem extends SubsystemBase {
     }
     // }
 
-public static void changingColor(){
-   
-        for (var i = 0; i < LedBuffer.length(); i ++){
+    public void changingColor() {
+//red = 0-60
+//yellow 61-120
+//green 121-180
+//cyan 181-240
+//blue 241-300
+//magenta 301-360
+        for (var i = 0; i < LedBuffer.length(); i++) {
 
-            final var hue = (this.m_rainbowFirstPixelHue + (i * 180 / m_ledBuffer.length()));
+            final var hue = (m_rainbowFirstPixelHue + (i * 180 / m_ledBuffer.length()));
 
-            m_ledBuffer.setHSV(i, hue, 255, 128);
+            driveBaseLEDBuffer.setHSV(i, hue, 255, 128);
         }
-        
-        this.m_rainbowFirstPixelHue += 3;
 
-        this.m_rainbowFirstPixelHue %= 180;
-        
-        }
+        m_rainbowFirstPixelHue += 3;
+
+        m_rainbowFirstPixelHue %= 180;
+
     }
-// No periodic 
-// change different sections of led seperatly 
+}
+// No periodic
+// change different sections of led seperatly
 //

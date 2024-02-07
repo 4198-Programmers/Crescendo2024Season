@@ -4,18 +4,21 @@
 
 package frc.robot;
 
-import frc.robot.Constants;
-import frc.robot.commands.Autos;
-import frc.robot.commands.ChangeIntakeSolenoidCommand;
-import frc.robot.commands.ExampleCommand;
-import frc.robot.commands.IntakeMotorCommand;
 import frc.robot.commands.InternalMoverDownCommand;
 import frc.robot.commands.InternalMoverUpCommand;
-import frc.robot.commands.ShootingMotorCommand;
-import frc.robot.subsystems.ExampleSubsystem;
-import frc.robot.subsystems.IntakeSubsystem;
+import frc.robot.commands.LeftMotorClimbCommand;
+import frc.robot.commands.RightMotorClimbCommand;
 import frc.robot.subsystems.InternalMoverSubsystem;
-import frc.robot.subsystems.ShootingSubsytem;
+import frc.robot.subsystems.MotorClimbSubsystem;
+import frc.robot.commands.ChangeClimbStateCommand;
+import frc.robot.commands.IntakeMotorCommand;
+import frc.robot.commands.ShooterAngleCommand;
+import frc.robot.commands.ShootingMotorCommand;
+import frc.robot.commands.SwerveTeleopDrive;
+import frc.robot.subsystems.ClimbSubsystem;
+import frc.robot.subsystems.IntakeSubsystem;
+import frc.robot.subsystems.ShootingSubsystem;
+import frc.robot.subsystems.Swerve.SwerveSubsystem;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
@@ -25,17 +28,22 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 public class RobotContainer {
   // Subsystems
-  private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
+  private final SwerveSubsystem swerveSubsystem = new SwerveSubsystem();
   private final IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
-  private final ShootingSubsytem shootingSubsytem = new ShootingSubsytem();
+  private final ShootingSubsystem shootingSubsytem = new ShootingSubsystem();
   private final InternalMoverSubsystem internalMoverSubsystem = new InternalMoverSubsystem();
+  private final ClimbSubsystem climbSubsystem = new ClimbSubsystem();
+  private final MotorClimbSubsystem motorClimbSubsystem = new MotorClimbSubsystem();
 
   //Commands
   private IntakeMotorCommand intakeMotorCommand = new IntakeMotorCommand(intakeSubsystem, Constants.INTAKE_MOTOR_SPEED);
   private ShootingMotorCommand shootingMotorCommand = new ShootingMotorCommand(shootingSubsytem, Constants.SHOOTING_MOTOR_SPEED);
-  private ChangeIntakeSolenoidCommand changeIntakeSolenoidCommand = new ChangeIntakeSolenoidCommand(intakeSubsystem);
   private InternalMoverUpCommand internalMoverUp = new InternalMoverUpCommand(internalMoverSubsystem);
   private InternalMoverDownCommand internalMoverDown = new InternalMoverDownCommand(internalMoverSubsystem);
+  private ChangeClimbStateCommand climbStateChangeCommand = new ChangeClimbStateCommand(climbSubsystem);
+  private ShooterAngleCommand shooterAngleCommand = new ShooterAngleCommand(shootingSubsytem, 0, 1, 0.05);
+  private LeftMotorClimbCommand leftMotorClimbCommand = new LeftMotorClimbCommand(motorClimbSubsystem, Constants.LEFT_MOTOR_CLIMB_SPEED);
+  private RightMotorClimbCommand RightMotorClimbCommand = new RightMotorClimbCommand(motorClimbSubsystem, Constants.RIGHT_MOTOR_CLIMB_SPEED);
 
   //Joysticks
   Joystick rightJoystick = new Joystick(Constants.RIGHT_JOYSTICK_PORT);
@@ -44,15 +52,30 @@ public class RobotContainer {
 
   
   //Buttons
-  JoystickButton intakeMotorButton = new JoystickButton(middleJoystick, Constants.INTAKE_MOTOR_BUTTON_ID);
-  JoystickButton shootingMotorButton = new JoystickButton(rightJoystick, Constants.SHOOTING_MOTOR_BUTTON_ID);
-  JoystickButton changeIntakePneumaticStateButton = new JoystickButton(middleJoystick, Constants.CHANGE_INTAKE_PNEUMATIC_STATE_BUTTON);
   JoystickButton internalMoverUpButton = new JoystickButton(middleJoystick, Constants.INTERNAL_MOVER_UP_BOTTON_ID);
   JoystickButton internalMoverDownButton = new JoystickButton(middleJoystick, Constants.INTERNAL_MOVER_DOWN_BOTTON_ID);
+  JoystickButton intakeMotorButton = new JoystickButton(leftJoystick, Constants.INTAKE_MOTOR_BUTTON_ID);
+  JoystickButton shootingMotorButton = new JoystickButton(rightJoystick, Constants.SHOOTING_MOTOR_BUTTON_ID);
+  JoystickButton changeIntakePneumaticStateButton = new JoystickButton(middleJoystick, Constants.CHANGE_INTAKE_PNEUMATIC_STATE_BUTTON);
+  JoystickButton changeClimbStateButton = new JoystickButton(rightJoystick, Constants.CHANGE_CLIMB_STATE_BUTTON); 
+  JoystickButton shootingAngleButton = new JoystickButton(rightJoystick, Constants.SHOOTING_ANGLE_BUTTON);
+  JoystickButton LeftMotorClimbButtonUp = new JoystickButton(middleJoystick, Constants.LEFT_MOTOR_CLIMB_UP_BUTTON);
+  JoystickButton LeftMotorClimbButtonDown = new JoystickButton(middleJoystick, Constants.LEFT_MOTOR_CLIMB_DOWN_BUTTON);
+  JoystickButton RightMotorClimbButtonUp = new JoystickButton(middleJoystick, Constants.RIGHT_MOTOR_CLIMB_UP_BUTTON);
+  JoystickButton RightMotorClimbButtonDown = new JoystickButton(middleJoystick, Constants.RIGHT_MOTOR_CLIMB_DOWN_BUTTON);
+  JoystickButton LeftAndRightMotorClimbButtonUp = new JoystickButton(middleJoystick, Constants.LEFT_AND_RIGHT_MOTOR_CLIMB_UP_BUTTON);
+  JoystickButton LeftAndRightMotorClimbButtonDown = new JoystickButton(middleJoystick, Constants.LEFT_AND_RIGHT_MOTOR_CLIMB_DOWN_BUTTON);
+ 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the trigger bindings
     configureBindings();
+    swerveSubsystem.setDefaultCommand(new SwerveTeleopDrive(
+      swerveSubsystem, 
+      () -> leftJoystick.getX(), 
+      () -> leftJoystick.getY(), 
+      () -> middleJoystick.getX(), 
+      () -> true));
   }
 
   /**
@@ -67,16 +90,21 @@ public class RobotContainer {
   private void configureBindings() {
     intakeMotorButton.whileTrue(intakeMotorCommand);
     shootingMotorButton.whileTrue(shootingMotorCommand);
-    changeIntakePneumaticStateButton.whileTrue(changeIntakeSolenoidCommand);
     internalMoverUpButton.whileTrue(internalMoverUp);
     internalMoverDownButton.whileTrue(internalMoverDown);
+    shootingAngleButton.whileTrue(shooterAngleCommand);
+    LeftMotorClimbButtonUp.whileTrue(new LeftMotorClimbCommand(motorClimbSubsystem, Constants.LEFT_MOTOR_CLIMB_SPEED));
+    LeftMotorClimbButtonDown.whileTrue(new LeftMotorClimbCommand(motorClimbSubsystem, Constants.LEFT_MOTOR_CLIMB_SPEED));
+    RightMotorClimbButtonUp.whileTrue(new RightMotorClimbCommand(motorClimbSubsystem, Constants.RIGHT_MOTOR_CLIMB_SPEED));
+    RightMotorClimbButtonDown.whileTrue(new RightMotorClimbCommand(motorClimbSubsystem, Constants.RIGHT_MOTOR_CLIMB_SPEED));
+    LeftAndRightMotorClimbButtonUp.whileTrue(new RightMotorClimbCommand(motorClimbSubsystem, Constants.RIGHT_MOTOR_CLIMB_SPEED));
+    LeftAndRightMotorClimbButtonDown.whileTrue(new RightMotorClimbCommand(motorClimbSubsystem, Constants.RIGHT_MOTOR_CLIMB_SPEED));
 
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
-    new Trigger(m_exampleSubsystem::exampleCondition)
-        .onTrue(new ExampleCommand(m_exampleSubsystem));
 
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
+    changeClimbStateButton.whileTrue(climbStateChangeCommand);
   }
 
   /**
@@ -86,6 +114,7 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An example command will be run in autonomous
-    return Autos.exampleAuto(m_exampleSubsystem);
+    return null;
+    //return Autos.exampleAuto();
   }
 }

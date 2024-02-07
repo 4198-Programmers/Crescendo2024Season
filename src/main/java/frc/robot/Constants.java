@@ -124,6 +124,19 @@ public static final int INTERNAL_MOTOR_ID = 0;
   public static final int AddressableLED = 0;
   //how long the stip is
   public static final int AddressableLEDBuffer = 0;
+
+  //Motor Climb
+  public static final double LEFT_MOTOR_CLIMB_SPEED = 0;
+  public static final double RIGHT_MOTOR_CLIMB_SPEED = 0;
+  public static final int RIGHT_MOTOR_CLIMB_UP_BUTTON = 0;
+  public static final int RIGHT_MOTOR_CLIMB_DOWN_BUTTON = 0;
+  public static final int LEFT_MOTOR_CLIMB_DOWN_BUTTON = 0;
+  public static final int LEFT_MOTOR_CLIMB_UP_BUTTON = 0;
+  public static final int CHANGE_CLIMB_STATE_BUTTON = 0;
+  public static final int LEFT_AND_RIGHT_MOTOR_CLIMB_UP_BUTTON = 0;
+  public static final int LEFT_AND_RIGHT_MOTOR_CLIMB_DOWN_BUTTON = 0;
+  public static final int SHOOTING_ANGLE_BUTTON = 0;
+public static final int DRIVE_BASE_LED_ID = 0;
 }
 
 
