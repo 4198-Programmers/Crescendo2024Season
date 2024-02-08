@@ -8,8 +8,7 @@ public class InternalMoverUpCommand extends Command{
 
     
     public InternalMoverUpCommand(InternalMoverSubsystem internalMoverSubsystem){
-        internalMoverSubsystem = m_internalMoverSubsystem;
-
+      m_internalMoverSubsystem = internalMoverSubsystem;
         addRequirements(internalMoverSubsystem);
     }
 

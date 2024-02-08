@@ -116,8 +116,8 @@ public final class Constants {
   //General Subsystem Motor Constants
   public static final int INTAKE_MOTOR_ID = 5;
   public static final int SHOOTING_MOTOR_ID = 6;
-  public static final int CLIMB_MOTOR_LEFT_ID = 0;
-  public static final int CLIMB_MOTOR_RIGHT_ID = 0;
+  public static final int CLIMB_MOTOR_LEFT_ID = 14;
+  public static final int CLIMB_MOTOR_RIGHT_ID = 13;
   public static final int RIGHT_MOTOR_CLIMB_SPEED = 0;
   public static final int INTERNAL_MOTOR_ID = 11;
 public static final int SHOOTING_MOTOR_ANGLE_ID = 12;
@@ -126,6 +126,7 @@ public static final int SHOOTING_MOTOR_ANGLE_ID = 12;
   public static final int RIGHT_JOYSTICK_PORT = 2;
   public static final int MIDDLE_JOYSTICK_PORT = 1;
   public static final int LEFT_JOYSTICK_PORT = 0;
+  
   public static final int PLACEHOLDER_BUTTON_ID = 0;
 
   //Left Joystick Button ID Constants

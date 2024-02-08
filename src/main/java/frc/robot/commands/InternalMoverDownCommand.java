@@ -7,7 +7,7 @@ public class InternalMoverDownCommand extends Command {
     private InternalMoverSubsystem m_InternalMoverSubsystem;
 
     public InternalMoverDownCommand(InternalMoverSubsystem internalMoverSubsystem){
-        internalMoverSubsystem = m_InternalMoverSubsystem;
+        m_InternalMoverSubsystem = internalMoverSubsystem;
         addRequirements(internalMoverSubsystem);
     }
 

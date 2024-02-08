@@ -5,7 +5,7 @@ import frc.robot.subsystems.ShootingSubsystem;
 
 
 public class ShooterAngleCommand extends Command{
-    ShootingSubsystem shooter = new ShootingSubsystem();
+    ShootingSubsystem shooter;
     double angle;
     double speed;
     double tolerance;
