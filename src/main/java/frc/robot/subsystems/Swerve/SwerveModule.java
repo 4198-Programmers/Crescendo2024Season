@@ -1,8 +1,8 @@
 package frc.robot.subsystems.Swerve;
 
-import com.ctre.phoenix.sensors.AbsoluteSensorRange;
-import com.ctre.phoenix.sensors.SensorInitializationStrategy;
-import com.ctre.phoenix.sensors.WPI_CANCoder;
+import com.ctre.phoenix6.StatusSignal;
+import com.ctre.phoenix6.configs.CANcoderConfiguration;
+import com.ctre.phoenix6.hardware.CANcoder;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.CANSparkBase.IdleMode;
@@ -23,30 +23,32 @@ public class SwerveModule {
   private CANSparkMax driveMotor;
   private CANSparkMax angleMotor;
   private RelativeEncoder driveEncoder;
-  private WPI_CANCoder angleEncoder;
+  private CANcoder angleEncoder;
+  private CANcoderConfiguration angleEncoderConfiguration;
   private PIDController angleController;
   private String moduleName;
   private int moduleNumber;
+
 
   public SwerveModule(String moduleName, int moduleNumber, int driveMotorID, int angleMotorID, int angleEncoderID, double angleOffsetDegrees){
     driveMotor = new CANSparkMax(driveMotorID, MotorType.kBrushless);
     driveEncoder = driveMotor.getEncoder();
 
     angleMotor = new CANSparkMax(angleMotorID, MotorType.kBrushless);
-    angleEncoder = new WPI_CANCoder(angleEncoderID);
+    angleEncoder = new CANcoder(angleEncoderID);
+    angleEncoderConfiguration = new CANcoderConfiguration();
 
     driveMotor.restoreFactoryDefaults();
     angleMotor.restoreFactoryDefaults();
-    angleEncoder.configFactoryDefault();
+
+    angleEncoderConfiguration.MagnetSensor.AbsoluteSensorRange = Constants.ANGLE_ENCODER_ABSOLUTE_SENSOR_RANGE;
+    angleEncoderConfiguration.MagnetSensor.MagnetOffset = angleOffsetDegrees;
+    angleEncoderConfiguration.MagnetSensor.SensorDirection = Constants.SENSOR_DIRECTION_VALUE;
+    angleEncoder.getConfigurator().apply(angleEncoderConfiguration);
 
     angleMotor.setInverted(Constants.ANGLE_MOTOR_INVERTED);
     angleMotor.enableVoltageCompensation(Constants.VOLTAGE_COMPENSATION);
     angleMotor.setIdleMode(IdleMode.kBrake);
-
-    angleEncoder.configAbsoluteSensorRange(AbsoluteSensorRange.Signed_PlusMinus180);
-    angleEncoder.configMagnetOffset(angleOffsetDegrees);
-    angleEncoder.configSensorDirection(Constants.ANGLE_ENCODER_DIRECTION);
-    angleEncoder.configSensorInitializationStrategy(SensorInitializationStrategy.BootToAbsolutePosition);
 
     angleController = new PIDController(Constants.ANGLE_KP, Constants.ANGLE_KI, Constants.ANGLE_KD);
     angleController.enableContinuousInput(-1, 1);
@@ -107,7 +109,8 @@ public class SwerveModule {
  * @return Aboslute position of angle encoders
  */
   public double getAngle(){
-    return angleEncoder.getAbsolutePosition();
+    StatusSignal<Double> anglePosition = angleEncoder.getAbsolutePosition();
+    return anglePosition.getValueAsDouble();
   }
 /**
  * Get the drive speed of the module
@@ -120,7 +123,7 @@ public class SwerveModule {
    * Get the angle speed of the module
    * @return Angle Speed
    */
-  public double getAngleSpeed(){
+  public StatusSignal<Double> getAngleSpeed(){
     return angleEncoder.getVelocity();
   }
 }

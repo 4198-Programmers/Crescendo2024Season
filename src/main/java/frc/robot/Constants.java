@@ -4,6 +4,10 @@
 
 package frc.robot;
 
+import com.ctre.phoenix.sensors.AbsoluteSensorRange;
+import com.ctre.phoenix6.signals.AbsoluteSensorRangeValue;
+import com.ctre.phoenix6.signals.SensorDirectionValue;
+
 import edu.wpi.first.math.geometry.Pose3d;
 import edu.wpi.first.math.geometry.Rotation3d;
 import edu.wpi.first.math.geometry.Translation2d;
@@ -24,6 +28,9 @@ public final class Constants {
     public static final int kDriverControllerPort = 0;
   }
 
+  //Phoenix v6 sensor constants
+  public static final AbsoluteSensorRangeValue ANGLE_ENCODER_ABSOLUTE_SENSOR_RANGE = AbsoluteSensorRangeValue.Signed_PlusMinusHalf;
+  public static final SensorDirectionValue SENSOR_DIRECTION_VALUE = SensorDirectionValue.CounterClockwise_Positive;
 
   //Shooter Constants
   public static final double SHOOTER_ANGLE_OFFSET = 0;
