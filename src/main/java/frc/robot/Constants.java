@@ -180,7 +180,7 @@ public static final int SHOOTING_MOTOR_ANGLE_ID = 12;
   
   //Internal Mover Direction/speed
   public static final int MIDDLE_LIMIT_SWITCH = 0;
-  public static final double INTERAL_MOVER_UP = 0;
+  public static final double INTERAL_MOVER_UP = 1;
   public static final double INTERNAL_MOVER_DOWN = 0;
   public static final int INTERNAL_MOVER_UP_BOTTON_ID = 0;
   public static final int INTERNAL_MOVER_DOWN_BOTTON_ID = 0;

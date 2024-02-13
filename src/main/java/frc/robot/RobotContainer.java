@@ -46,10 +46,10 @@ public class RobotContainer {
 
   
   //Buttons
-  JoystickButton internalMoverUpButton = new JoystickButton(middleJoystick, Constants.INTERNAL_MOVER_UP_BOTTON_ID);
-  JoystickButton internalMoverDownButton = new JoystickButton(middleJoystick, Constants.INTERNAL_MOVER_DOWN_BOTTON_ID);
-  JoystickButton intakeMotorButton = new JoystickButton(leftJoystick, Constants.PLACEHOLDER_BUTTON_ID);
-  JoystickButton shootingMotorButton = new JoystickButton(rightJoystick, Constants.PLACEHOLDER_BUTTON_ID);
+  JoystickButton internalMoverUpButton = new JoystickButton(middleJoystick, Constants.LEFT_JOYSTICK_BUTTON_1);
+  JoystickButton internalMoverDownButton = new JoystickButton(middleJoystick, Constants.LEFT_JOYSTICK_BUTTON_2);
+  JoystickButton intakeMotorButton = new JoystickButton(leftJoystick, Constants.LEFT_JOYSTICK_BUTTON_3);
+  JoystickButton shootingMotorButton = new JoystickButton(rightJoystick, Constants.LEFT_JOYSTICK_BUTTON_4);
   JoystickButton changeIntakePneumaticStateButton = new JoystickButton(middleJoystick, Constants.PLACEHOLDER_BUTTON_ID);
   JoystickButton changeClimbStateButton = new JoystickButton(rightJoystick, Constants.PLACEHOLDER_BUTTON_ID); 
   JoystickButton shootingAngleButton = new JoystickButton(rightJoystick, Constants.PLACEHOLDER_BUTTON_ID);
@@ -62,12 +62,12 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the trigger bindings
     configureBindings();
-    swerveSubsystem.setDefaultCommand(new SwerveTeleopDrive(
-      swerveSubsystem, 
-      () -> leftJoystick.getX(), 
-      () -> leftJoystick.getY(), 
-      () -> middleJoystick.getX(), 
-      () -> true));
+  //   swerveSubsystem.setDefaultCommand(new SwerveTeleopDrive(
+  //     swerveSubsystem, 
+  //     () -> leftJoystick.getX(), 
+  //     () -> leftJoystick.getY(), 
+  //     () -> middleJoystick.getX(), 
+  //     () -> true));
   }
 
   /**

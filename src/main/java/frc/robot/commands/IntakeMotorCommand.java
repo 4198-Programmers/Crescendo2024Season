@@ -10,7 +10,7 @@ public class IntakeMotorCommand extends Command{
 
     public IntakeMotorCommand(IntakeSubsystem intakesubsystem, double speed){
         this.intakeSubsystem = intakesubsystem;
-        this.speed = speed;
+        this.speed = -speed;
         addRequirements(intakeSubsystem);
     }
 
