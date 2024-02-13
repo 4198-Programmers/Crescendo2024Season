@@ -19,5 +19,10 @@ public class IntakeMotorCommand extends Command{
         intakeSubsystem.intakeMotorSpeed(speed);
     }
 
+    @Override
+    public void end(boolean interrupted) {
+        intakeSubsystem.intakeMotorSpeed(0);
+    }
+
     
 }

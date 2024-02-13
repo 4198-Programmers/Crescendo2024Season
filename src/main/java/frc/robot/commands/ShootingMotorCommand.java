@@ -19,4 +19,9 @@ public class ShootingMotorCommand extends Command {
         shootingSubsytem.shootingMotorSpeed(speed);
     }
 
+    @Override
+    public void end(boolean interrupted) {
+        shootingSubsytem.shootingMotorSpeed(0);
+    }
+
 }

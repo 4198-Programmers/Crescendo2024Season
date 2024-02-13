@@ -20,5 +20,10 @@ public class LeftAndRightMotorClimbCommand extends Command{
         motorClimbSubsystem.setClimbMotorSpeedRight(speed);
         motorClimbSubsystem.setClimbMotorSpeedLeft(speed);
     }
+
+    @Override
+    public void end(boolean interrupted) {
+        motorClimbSubsystem.stopBothClimbMotor();
+    }
     
 }
