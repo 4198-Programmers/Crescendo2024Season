@@ -44,19 +44,18 @@ public class RobotContainer {
   Joystick middleJoystick = new Joystick(Constants.MIDDLE_JOYSTICK_PORT);
   Joystick leftJoystick = new Joystick(Constants.LEFT_JOYSTICK_PORT);
 
-  
   //Buttons
-  JoystickButton internalMoverUpButton = new JoystickButton(leftJoystick, Constants.LEFT_JOYSTICK_BUTTON_3);
-  JoystickButton internalMoverDownButton = new JoystickButton(leftJoystick, Constants.LEFT_JOYSTICK_BUTTON_4);
+  JoystickButton internalMoverUpButton = new JoystickButton(leftJoystick, Constants.LEFT_JOYSTICK_BUTTON_9);
+  JoystickButton internalMoverDownButton = new JoystickButton(leftJoystick, Constants.LEFT_JOYSTICK_BUTTON_7);
   JoystickButton intakeMotorButton = new JoystickButton(leftJoystick, Constants.LEFT_JOYSTICK_BUTTON_5);
   JoystickButton shootingMotorButton = new JoystickButton(leftJoystick, Constants.LEFT_JOYSTICK_BUTTON_1);
   JoystickButton changeIntakePneumaticStateButton = new JoystickButton(middleJoystick, Constants.PLACEHOLDER_BUTTON_ID);
   JoystickButton changeClimbStateButton = new JoystickButton(rightJoystick, Constants.PLACEHOLDER_BUTTON_ID); 
   JoystickButton shootingAngleButton = new JoystickButton(rightJoystick, Constants.PLACEHOLDER_BUTTON_ID);
-  JoystickButton LeftMotorClimbButtonUp = new JoystickButton(middleJoystick, Constants.PLACEHOLDER_BUTTON_ID);
-  JoystickButton LeftMotorClimbButtonDown = new JoystickButton(middleJoystick, Constants.PLACEHOLDER_BUTTON_ID);
-  JoystickButton RightMotorClimbButtonUp = new JoystickButton(middleJoystick, Constants.PLACEHOLDER_BUTTON_ID);
-  JoystickButton RightMotorClimbButtonDown = new JoystickButton(middleJoystick, Constants.PLACEHOLDER_BUTTON_ID);
+  JoystickButton LeftMotorClimbButtonUp = new JoystickButton(middleJoystick, Constants.LEFT_JOYSTICK_BUTTON_5);
+  JoystickButton LeftMotorClimbButtonDown = new JoystickButton(middleJoystick, Constants.LEFT_JOYSTICK_BUTTON_3);
+  JoystickButton RightMotorClimbButtonUp = new JoystickButton(middleJoystick, Constants.LEFT_JOYSTICK_BUTTON_6);
+  JoystickButton RightMotorClimbButtonDown = new JoystickButton(middleJoystick, Constants.LEFT_JOYSTICK_BUTTON_4);
  
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
