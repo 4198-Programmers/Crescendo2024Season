@@ -6,6 +6,7 @@ package frc.robot;
 
 import frc.robot.commands.InternalMoverDownCommand;
 import frc.robot.commands.InternalMoverUpCommand;
+import frc.robot.commands.LeftAndRightMotorClimbCommand;
 import frc.robot.commands.LeftMotorClimbCommand;
 import frc.robot.commands.RightMotorClimbCommand;
 import frc.robot.subsystems.InternalMoverSubsystem;
@@ -33,6 +34,12 @@ public class RobotContainer {
   private final MotorClimbSubsystem motorClimbSubsystem = new MotorClimbSubsystem();
 
   //Commands
+  //TODO missing intakeCommand
+
+  private LeftAndRightMotorClimbCommand rightAndLeftMotorClimbCommand = new LeftAndRightMotorClimbCommand(motorClimbSubsystem, Constants.BOTH_CLIMB_SET_SPEED);
+  private LeftMotorClimbCommand leftMotorClimbCommand = new LeftMotorClimbCommand(motorClimbSubsystem, Constants.LEFT_CLIMB_SET_SPEED);
+  private RightMotorClimbCommand rightMotorClimbCommand = new RightMotorClimbCommand(motorClimbSubsystem, Constants.RIGHT_CLIMB_SET_SPEED);
+
   private IntakeMotorCommand intakeMotorCommand = new IntakeMotorCommand(intakeSubsystem, Constants.INTAKE_MOTOR_SPEED);
   private ShootingMotorCommand shootingMotorCommand = new ShootingMotorCommand(shootingSubsytem, Constants.SHOOTING_MOTOR_SPEED);
   private InternalMoverUpCommand internalMoverUp = new InternalMoverUpCommand(internalMoverSubsystem);
@@ -84,10 +91,10 @@ public class RobotContainer {
     internalMoverUpButton.whileTrue(internalMoverUp);
     internalMoverDownButton.whileTrue(internalMoverDown);
     shootingAngleButton.whileTrue(shooterAngleCommand);
-    LeftMotorClimbButtonUp.whileTrue(new LeftMotorClimbCommand(motorClimbSubsystem, Constants.LEFT_MOTOR_CLIMB_SPEED));
-    LeftMotorClimbButtonDown.whileTrue(new LeftMotorClimbCommand(motorClimbSubsystem, Constants.LEFT_MOTOR_CLIMB_SPEED));
-    RightMotorClimbButtonUp.whileTrue(new RightMotorClimbCommand(motorClimbSubsystem, Constants.RIGHT_MOTOR_CLIMB_SPEED));
-    RightMotorClimbButtonDown.whileTrue(new RightMotorClimbCommand(motorClimbSubsystem, Constants.RIGHT_MOTOR_CLIMB_SPEED));
+    LeftMotorClimbButtonUp.whileTrue(leftMotorClimbCommand);
+    LeftMotorClimbButtonDown.whileTrue(leftMotorClimbCommand);
+    RightMotorClimbButtonUp.whileTrue(rightMotorClimbCommand);
+    RightMotorClimbButtonDown.whileTrue(rightMotorClimbCommand);
 
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
 

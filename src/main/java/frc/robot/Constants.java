@@ -178,6 +178,10 @@ public static final int SHOOTING_MOTOR_ANGLE_ID = 12;
   public static final double INTAKE_MOTOR_SPEED = 1;
   public static final double SHOOTING_MOTOR_SPEED = 1;
   
+  public static final double BOTH_CLIMB_SET_SPEED = 0;
+  public static final double LEFT_CLIMB_SET_SPEED = 0;
+  public static final double RIGHT_CLIMB_SET_SPEED = 0;
+  
   //Internal Mover Direction/speed
   public static final int MIDDLE_LIMIT_SWITCH = 0;
   public static final double INTERAL_MOVER_UP = 1;
@@ -209,8 +213,6 @@ public static final int SHOOTING_MOTOR_ANGLE_ID = 12;
   public static final double SPEAKER_TAG_HEIGHTS = Units.inchesToMeters(57.125);
   public static final double AMP_TAG_HEIGHTS = Units.inchesToMeters(53.375);
   public static final double STAGE_TAG_HEIGHTS = Units.inchesToMeters(52);
-  public static final double LEFT_MOTOR_CLIMB_SPEED = 0;
-
 
 }
 
