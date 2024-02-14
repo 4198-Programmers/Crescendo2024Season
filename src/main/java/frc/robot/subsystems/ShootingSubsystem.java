@@ -11,7 +11,6 @@ public class ShootingSubsystem extends SubsystemBase {
 
     private CANSparkMax shootingMotor = new CANSparkMax(Constants.SHOOTING_MOTOR_ID, MotorType.kBrushless); //MotorType TBD
     private CANSparkMax shootingMotorAngle = new CANSparkMax(Constants.SHOOTING_MOTOR_ANGLE_ID, MotorType.kBrushless);
-    private RelativeEncoder shootingEncoder = shootingMotor.getEncoder();
     private RelativeEncoder shootingAngleEncoder = shootingMotorAngle.getEncoder();
 
     public ShootingSubsystem(){
@@ -39,18 +38,18 @@ public class ShootingSubsystem extends SubsystemBase {
         shootingMotorAngle.set(0);
     }
 
+//TODO SHOOTER_ANGLE_OFFSET is equal to 0 Delete?
     public double getShooterAngle(){
         double shooterAngle = (getShootingAnglePosition() / 360) + Constants.SHOOTER_ANGLE_OFFSET;
         return shooterAngle;
     }
-
-    
+//TODO setShooterAngle needs to be finished (check -speed to make sure it is right for the motor)
     public void setShooterAngle(double angle, double speed, double tolerance) {
         double currentAngle = getShooterAngle();
         if(currentAngle < (angle - tolerance)) {
             shootingMotorAngle.set(speed);
         } if(currentAngle > (angle + tolerance)) {
-            shootingMotorAngle.set(speed);
+            shootingMotorAngle.set(-speed);
         } else {
             shootingMotorAngle.set(0);
         }

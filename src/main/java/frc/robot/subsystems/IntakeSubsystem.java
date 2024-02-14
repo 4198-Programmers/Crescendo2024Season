@@ -53,7 +53,7 @@ public class IntakeSubsystem extends SubsystemBase {
     public boolean isOpen (){
         return this.intakeSolenoid.isFwdSolenoidDisabled();
     }
-
+  //TODO intakePneumaticKillSwitch unfinnished 
     public void intakePneumaticKillSwitch(){
         //intakeSolenoid.set(false);
     }
