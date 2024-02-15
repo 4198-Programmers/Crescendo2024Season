@@ -107,11 +107,13 @@ public final class Constants {
     new Translation2d(BACK_RIGHT_X_LOCATION, BACK_RIGHT_Y_LOCATION));
   //Pneumatic Values
   public static final int INTAKE_PNUEMATIC_INTEGER = 0;
-  public static final int INTAKE_PNEUMATIC_CHANNEL_FORWARD = 0;
-  public static final int INTAKE_PNEUMATIC_CHANNEL_REVERSE = 0;
-  public static final int CLIMB_PNUEMATIC_INTEGER = 0;
-  public static final int CLIMB_PNEUMATIC_CHANNEL_A = 0;
-  public static final int CLIMB_PNEUMATIC_CHANNEL_B = 0;
+  public static final int INTAKE_PNEUMATIC_CHANNEL = 5;
+  public static final int AMP_BAR_PNUEMATIC_INTEGER = 0;
+  public static final int AMP_BAR_PNEUMATIC_CHANNEL = 4;
+
+  //public static final int CLIMB_PNUEMATIC_INTEGER = 0;
+  //public static final int CLIMB_PNEUMATIC_CHANNEL_A = 0;
+  //public static final int CLIMB_PNEUMATIC_CHANNEL_B = 0;
 
   //General Subsystem Motor Constants
   public static final int INTAKE_MOTOR_ID = 5;
