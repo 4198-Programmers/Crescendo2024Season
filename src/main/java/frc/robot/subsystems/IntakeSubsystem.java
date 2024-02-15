@@ -16,7 +16,7 @@ public class IntakeSubsystem extends SubsystemBase {
 
     private RelativeEncoder intakeEncoder = intakeMotor.getEncoder();
 
-    private Solenoid intakeSolenoid = new Solenoid(PneumaticsModuleType.CTREPCM, Constants.INTAKE_PNEUMATIC_CHANNEL_FORWARD, Constants.INTAKE_PNEUMATIC_CHANNEL_REVERSE);
+    private Solenoid intakeSolenoid = new Solenoid(PneumaticsModuleType.CTREPCM, Constants.INTAKE_PNEUMATIC_CHANNEL);
     private Compressor intakeCompresser = new Compressor(Constants.INTAKE_PNUEMATIC_INTEGER, PneumaticsModuleType.CTREPCM);
     private boolean switchValue = false;
     
@@ -42,17 +42,13 @@ public class IntakeSubsystem extends SubsystemBase {
         switchValue = !switchValue;
     }
 
-    public boolean isOpen (){
-        return this.intakeSolenoid.isFwdSolenoidDisabled();
-    }
-
     public void intakePneumaticKillSwitch(){
         intakeSolenoid.set(false);
     }
 
     public void autoIntake(double speed){
         switchValue = true;
-        intakeSolenoid.set(DoubleSolenoid.Value.kForward);
+        intakeSolenoid.set(true);
         intakeMotor.set(speed);
     }
 
