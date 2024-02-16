@@ -8,6 +8,8 @@ import frc.robot.commands.InternalMoverDownCommand;
 import frc.robot.commands.InternalMoverUpCommand;
 import frc.robot.subsystems.InternalMoverSubsystem;
 import frc.robot.subsystems.MotorClimbSubsystem;
+import frc.robot.commands.AimAngleDownCommand;
+import frc.robot.commands.AimAngleupCommand;
 import frc.robot.commands.IntakeMotorCommand;
 import frc.robot.commands.ShooterAngleCommand;
 import frc.robot.commands.ShootingMotorCommand;
@@ -53,7 +55,11 @@ public class RobotContainer {
   private InternalMoverUpCommand internalMoverUp = new InternalMoverUpCommand(internalMoverSubsystem);
   private InternalMoverDownCommand internalMoverDown = new InternalMoverDownCommand(internalMoverSubsystem);
   private ShooterAngleCommand shooterAngleCommand = new ShooterAngleCommand(shootingSubsytem, 0, 1, 0.05);
-  
+  //TODO deleate AimAngleupCommand and AimAngleDownCommand when aim command finished
+  private AimAngleupCommand aimAngleupCommand = new AimAngleupCommand(shootingSubsytem);
+  private AimAngleDownCommand aimAngleDownCommand = new AimAngleDownCommand(shootingSubsytem);
+
+
   //Joysticks
   Joystick rightJoystick = new Joystick(Constants.RIGHT_JOYSTICK_PORT);
   Joystick middleJoystick = new Joystick(Constants.MIDDLE_JOYSTICK_PORT);
@@ -62,12 +68,16 @@ public class RobotContainer {
   //Buttons
   JoystickButton internalMoverUpButton = new JoystickButton(rightJoystick, Constants.LEFT_JOYSTICK_BUTTON_9);
   JoystickButton internalMoverDownButton = new JoystickButton(rightJoystick, Constants.LEFT_JOYSTICK_BUTTON_7);
+
   JoystickButton intakeMotorButton = new JoystickButton(rightJoystick, Constants.LEFT_JOYSTICK_BUTTON_5);
+  
   JoystickButton shootingMotorButton = new JoystickButton(rightJoystick, Constants.LEFT_JOYSTICK_BUTTON_1);
-  JoystickButton changeClimbStateButton = new JoystickButton(rightJoystick, Constants.LEFT_JOYSTICK_BUTTON_8); 
   JoystickButton shootingAngleButton = new JoystickButton(rightJoystick, Constants.LEFT_JOYSTICK_BUTTON_10);
+  JoystickButton aimAngleUpButton = new JoystickButton(rightJoystick, Constants.LEFT_JOYSTICK_BUTTON_6);
+  JoystickButton aimAngleDownButton = new JoystickButton(rightJoystick, Constants.LEFT_JOYSTICK_BUTTON_8);
 
   JoystickButton changeIntakePneumaticStateButton = new JoystickButton(middleJoystick, Constants.PLACEHOLDER_BUTTON_ID);
+
   JoystickButton LeftMotorClimbButtonUp = new JoystickButton(middleJoystick, Constants.LEFT_JOYSTICK_BUTTON_5);
   JoystickButton LeftMotorClimbButtonDown = new JoystickButton(middleJoystick, Constants.LEFT_JOYSTICK_BUTTON_3);
   JoystickButton RightMotorClimbButtonUp = new JoystickButton(middleJoystick, Constants.LEFT_JOYSTICK_BUTTON_6);

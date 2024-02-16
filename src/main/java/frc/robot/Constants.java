@@ -210,7 +210,9 @@ public final class Constants {
   public static final double SPEAKER_TAG_HEIGHTS = Units.inchesToMeters(57.125);
   public static final double AMP_TAG_HEIGHTS = Units.inchesToMeters(53.375);
   public static final double STAGE_TAG_HEIGHTS = Units.inchesToMeters(52);
-
+  
+  public static final double SHOOTING_ANGLE_INCREASE_SPEED = 0.2;
+  public static final double SHOOTING_ANGLE_DECREASE_SPEED = 0.2;
 }
 
 
