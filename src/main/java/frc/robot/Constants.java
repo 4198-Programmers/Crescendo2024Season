@@ -129,46 +129,19 @@ public final class Constants {
   public static final int PLACEHOLDER_BUTTON_ID = 0;
 
   //Left Joystick Button ID Constants
-  public static final int LEFT_JOYSTICK_BUTTON_1 = 1;
-  public static final int LEFT_JOYSTICK_BUTTON_2 = 2;
-  public static final int LEFT_JOYSTICK_BUTTON_3 = 3;
-  public static final int LEFT_JOYSTICK_BUTTON_4 = 4;
-  public static final int LEFT_JOYSTICK_BUTTON_5 = 5;
-  public static final int LEFT_JOYSTICK_BUTTON_6 = 6;
-  public static final int LEFT_JOYSTICK_BUTTON_7 = 7;
-  public static final int LEFT_JOYSTICK_BUTTON_8 = 8;
-  public static final int LEFT_JOYSTICK_BUTTON_9 = 9;
-  public static final int LEFT_JOYSTICK_BUTTON_10 = 10;
-  public static final int LEFT_JOYSTICK_BUTTON_11 = 12;
-  public static final int LEFT_JOYSTICK_BUTTON_12 = 13;
-
-  //Mid Joystick Button ID Constants
-  public static final int MID_JOYSTICK_BUTTON_1 = 1;
-  public static final int MID_JOYSTICK_BUTTON_2 = 2;
-  public static final int MID_JOYSTICK_BUTTON_3 = 3;
-  public static final int MID_JOYSTICK_BUTTON_4 = 4;
-  public static final int MID_JOYSTICK_BUTTON_5 = 5;
-  public static final int MID_JOYSTICK_BUTTON_6 = 6;
-  public static final int MID_JOYSTICK_BUTTON_7 = 7;
-  public static final int MID_JOYSTICK_BUTTON_8 = 8;
-  public static final int MID_JOYSTICK_BUTTON_9 = 9;
-  public static final int MID_JOYSTICK_BUTTON_10 = 10;
-  public static final int MID_JOYSTICK_BUTTON_11 = 12;
-  public static final int MID_JOYSTICK_BUTTON_12 = 13;
-
-  //Right Joystick Button ID Constants
-  public static final int RIGHT_JOYSTICK_BUTTON_1 = 1;
-  public static final int RIGHT_JOYSTICK_BUTTON_2 = 2;
-  public static final int RIGHT_JOYSTICK_BUTTON_3 = 3;
-  public static final int RIGHT_JOYSTICK_BUTTON_4 = 4;
-  public static final int RIGHT_JOYSTICK_BUTTON_5 = 5;
-  public static final int RIGHT_JOYSTICK_BUTTON_6 = 6;
-  public static final int RIGHT_JOYSTICK_BUTTON_7 = 7;
-  public static final int RIGHT_JOYSTICK_BUTTON_8 = 8;
-  public static final int RIGHT_JOYSTICK_BUTTON_9 = 9;
-  public static final int RIGHT_JOYSTICK_BUTTON_10 = 10;
-  public static final int RIGHT_JOYSTICK_BUTTON_11 = 12;
-  public static final int RIGHT_JOYSTICK_BUTTON_12 = 13;
+  public static final int JOYSTICK_BUTTON_1 = 1;
+  public static final int JOYSTICK_BUTTON_2 = 2;
+  public static final int JOYSTICK_BUTTON_3 = 3;
+  public static final int JOYSTICK_BUTTON_4 = 4;
+  public static final int JOYSTICK_BUTTON_5 = 5;
+  public static final int JOYSTICK_BUTTON_6 = 6;
+  public static final int JOYSTICK_BUTTON_7 = 7;
+  public static final int JOYSTICK_BUTTON_8 = 8;
+  public static final int JOYSTICK_BUTTON_9 = 9;
+  public static final int JOYSTICK_BUTTON_10 = 10;
+  //TODO is this constant joystick ID button for 11 suppost to be equal to 12 and 12 equal to 13
+  public static final int JOYSTICK_BUTTON_11 = 12;
+  public static final int JOYSTICK_BUTTON_12 = 13;
 
   //Deadband for joysticks
     public static final double DEADBAND = 0;
