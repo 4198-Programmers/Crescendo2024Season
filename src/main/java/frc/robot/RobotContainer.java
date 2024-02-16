@@ -31,7 +31,7 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 public class RobotContainer {
   //Singletons
-  private Compressor pneumaticsCompressor = new Compressor(PneumaticsModuleType.CTREPCM);
+  private Compressor pneumaticsCompressor = new Compressor(21, PneumaticsModuleType.CTREPCM);
   // Subsystems
   private final SwerveSubsystem swerveSubsystem = new SwerveSubsystem();
   private final IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
@@ -75,12 +75,12 @@ public class RobotContainer {
     pneumaticsCompressor.enableDigital();
     // Configure the trigger bindings
     configureBindings();
-    swerveSubsystem.setDefaultCommand(new SwerveTeleopDrive(
-      swerveSubsystem, 
-      () -> leftJoystick.getX(), 
-      () -> leftJoystick.getY(), 
-      () -> middleJoystick.getX(), 
-      () -> true));
+    // swerveSubsystem.setDefaultCommand(new SwerveTeleopDrive(
+    //   swerveSubsystem, 
+    //   () -> leftJoystick.getX(), 
+    //   () -> leftJoystick.getY(), 
+    //   () -> middleJoystick.getX(), 
+    //   () -> true));
   }
 
   /**

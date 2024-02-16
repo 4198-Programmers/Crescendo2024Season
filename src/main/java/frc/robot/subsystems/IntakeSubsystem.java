@@ -35,6 +35,14 @@ public class IntakeSubsystem extends SubsystemBase {
         return motorPosition;
     }
 
+    public void close(){
+        switchValue = false;
+    }
+
+    public void open(){
+        switchValue = true;
+    }
+
     public void switchIntakeSolenoidState(){
         switchValue = !switchValue;
     }
