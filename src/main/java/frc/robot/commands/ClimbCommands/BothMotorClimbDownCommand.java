@@ -1,13 +1,14 @@
 package frc.robot.commands.ClimbCommands;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.Constants;
 import frc.robot.subsystems.MotorClimbSubsystem;
 
-public class LeftAndRightMotorClimbDownCommand extends Command{
+public class BothMotorClimbDownCommand extends Command{
 
     private MotorClimbSubsystem motorClimbSubsystem;
 //TODO write relitive encoder print statments so that we can make climb limits 
-    public LeftAndRightMotorClimbDownCommand(MotorClimbSubsystem motorClimbSubsystem) {
+    public BothMotorClimbDownCommand(MotorClimbSubsystem motorClimbSubsystem) {
         this.motorClimbSubsystem = motorClimbSubsystem;
         addRequirements(motorClimbSubsystem);
     }
@@ -15,8 +16,8 @@ public class LeftAndRightMotorClimbDownCommand extends Command{
 
     @Override
     public void execute(){
-        motorClimbSubsystem.setClimbMotorSpeedRight(0.3);
-        motorClimbSubsystem.setClimbMotorSpeedLeft(0.3);
+        motorClimbSubsystem.setClimbMotorSpeedRight(Constants.BOTH_CLIMB_SET_SPEED);
+        motorClimbSubsystem.setClimbMotorSpeedLeft(Constants.BOTH_CLIMB_SET_SPEED);
     }
 
     @Override

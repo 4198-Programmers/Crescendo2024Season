@@ -16,7 +16,7 @@ public class LeftMotorClimbDownCommand extends Command {
 
     @Override
     public void execute(){
-        motorClimbSubsystem.setClimbMotorSpeedLeft(-Constants.LEFT_CLIMB_SET_SPEED);
+        motorClimbSubsystem.setClimbMotorSpeedLeft( - Constants.LEFT_CLIMB_SET_SPEED);
     }
  
     @Override
