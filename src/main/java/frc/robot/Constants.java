@@ -177,7 +177,7 @@ public final class Constants {
   public static final double STAGE_TAG_HEIGHTS = Units.inchesToMeters(52);
 
   //MotorSpeeds
-  public static final double INTAKE_MOTOR_SPEED = 1;
+  public static final double INTAKE_MOTOR_SPEED = 0.5;
   public static final double SHOOTING_MOTOR_SPEED = 1;
   
   public static final double BOTH_CLIMB_SET_SPEED = 0.1;
