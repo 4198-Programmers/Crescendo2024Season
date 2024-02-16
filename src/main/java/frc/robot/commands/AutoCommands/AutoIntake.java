@@ -16,6 +16,7 @@ public class AutoIntake extends Command{
     }
     @Override
     public void execute() {
+        //change switchValue to flase in autoIntake (test)
         intakeSubsystem.autoIntake(Constants.INTAKE_MOTOR_SPEED);
         internalMoverSubsystem.up();
     }
