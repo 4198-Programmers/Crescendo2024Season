@@ -24,7 +24,7 @@ public class MotorClimbSubsystem extends SubsystemBase {
         climbMotorLeft.set(speed);
     }
 
-    public void stopRightClimbMotor(  ){
+    public void stopRightClimbMotor(){
         climbMotorRight.set(0);
     }
 

@@ -6,24 +6,22 @@ import frc.robot.subsystems.MotorClimbSubsystem;
 public class LeftAndRightMotorClimbDownCommand extends Command{
 
     private MotorClimbSubsystem motorClimbSubsystem;
-    private double speed = 1;
 
-    public LeftAndRightMotorClimbDownCommand(MotorClimbSubsystem motorClimbSubsystem, double speed) {
+    public LeftAndRightMotorClimbDownCommand(MotorClimbSubsystem motorClimbSubsystem) {
         this.motorClimbSubsystem = motorClimbSubsystem;
-        this.speed = speed;
         addRequirements(motorClimbSubsystem);
     }
 
 
     @Override
     public void execute(){
-        motorClimbSubsystem.setClimbMotorSpeedRight(speed);
-        motorClimbSubsystem.setClimbMotorSpeedLeft(speed);
+        motorClimbSubsystem.setClimbMotorSpeedRight(0.3);
+        motorClimbSubsystem.setClimbMotorSpeedLeft(0.3);
     }
 
     @Override
     public void end(boolean interrupted) {
         motorClimbSubsystem.stopBothClimbMotor();
     }
-    
+
 }

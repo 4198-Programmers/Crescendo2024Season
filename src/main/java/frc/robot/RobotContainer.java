@@ -8,7 +8,6 @@ import frc.robot.commands.InternalMoverDownCommand;
 import frc.robot.commands.InternalMoverUpCommand;
 import frc.robot.commands.LeftAndRightMotorClimbDownCommand;
 import frc.robot.commands.LeftAndRightMotorClimbUpCommand;
-import frc.robot.commands.LeftAndRightMotorClimbUpCommandDown;
 import frc.robot.commands.LeftMotorClimbUpCommand;
 import frc.robot.commands.RightMotorClimbDownCommand;
 import frc.robot.commands.RightMotorClimbUpCommand;
@@ -107,10 +106,12 @@ public class RobotContainer {
     internalMoverUpButton.whileTrue(internalMoverUp);
     internalMoverDownButton.whileTrue(internalMoverDown);
     shootingAngleButton.whileTrue(shooterAngleCommand);
+
     LeftMotorClimbButtonUp.whileTrue(leftMotorClimbCommandUp);
     LeftMotorClimbButtonDown.whileTrue(leftMotorClimbCommandDown);
     RightMotorClimbButtonUp.whileTrue(rightMotorClimbUpCommand);
     RightMotorClimbButtonDown.whileTrue(rightMotorClimbDownCommand);
+
     RightAndLeftMotorClimbButtonDown.whileTrue(rightAndLeftMotorClimbCommandDown);
     RightAndLeftMotorClimbButtonUp.whileTrue(rightAndLeftMotorClimbCommandUp);
 
