@@ -52,11 +52,11 @@ public class RobotContainer {
 
   private IntakeMotorCommand intakeMotorCommand = new IntakeMotorCommand(intakeSubsystem, Constants.INTAKE_MOTOR_SPEED);
   private ShootingMotorCommand shootingMotorCommand = new ShootingMotorCommand(shootingSubsytem, Constants.SHOOTING_MOTOR_SPEED);
-  private InternalMoverUpCommand internalMoverUp = new InternalMoverUpCommand(internalMoverSubsystem);
-  private InternalMoverDownCommand internalMoverDown = new InternalMoverDownCommand(internalMoverSubsystem);
+  private InternalMoverUpCommand internalMoverUpCommand = new InternalMoverUpCommand(internalMoverSubsystem);
+  private InternalMoverDownCommand internalMoverDownCommand = new InternalMoverDownCommand(internalMoverSubsystem);
   private ShooterAngleCommand shooterAngleCommand = new ShooterAngleCommand(shootingSubsytem, 0, 1, 0.05);
   //TODO deleate AimAngleupCommand and AimAngleDownCommand when aim command finished
-  private AimAngleupCommand aimAngleupCommand = new AimAngleupCommand(shootingSubsytem);
+  private AimAngleupCommand aimAngleUpCommand = new AimAngleupCommand(shootingSubsytem);
   private AimAngleDownCommand aimAngleDownCommand = new AimAngleDownCommand(shootingSubsytem);
 
 
@@ -113,8 +113,8 @@ public class RobotContainer {
   private void configureBindings() {
     intakeMotorButton.whileTrue(intakeMotorCommand);
     shootingMotorButton.whileTrue(shootingMotorCommand);
-    internalMoverUpButton.whileTrue(internalMoverUp);
-    internalMoverDownButton.whileTrue(internalMoverDown);
+    internalMoverUpButton.whileTrue(internalMoverUpCommand);
+    internalMoverDownButton.whileTrue(internalMoverDownCommand);
     shootingAngleButton.whileTrue(shooterAngleCommand);
 
     LeftMotorClimbButtonUp.whileTrue(leftMotorClimbCommandUp);
@@ -124,6 +124,9 @@ public class RobotContainer {
 
     RightAndLeftMotorClimbButtonDown.whileTrue(rightAndLeftMotorClimbCommandDown);
     RightAndLeftMotorClimbButtonUp.whileTrue(rightAndLeftMotorClimbCommandUp);
+
+    aimAngleUpButton.whileTrue(aimAngleUpCommand);
+    aimAngleDownButton.whileTrue(aimAngleDownCommand);
 
 
 
