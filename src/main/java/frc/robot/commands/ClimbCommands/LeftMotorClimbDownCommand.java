@@ -1,6 +1,7 @@
 package frc.robot.commands.ClimbCommands;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.Constants;
 import frc.robot.subsystems.MotorClimbSubsystem;
 
 public class LeftMotorClimbDownCommand extends Command {
@@ -15,7 +16,7 @@ public class LeftMotorClimbDownCommand extends Command {
 
     @Override
     public void execute(){
-        motorClimbSubsystem.setClimbMotorSpeedRight(0.1);
+        motorClimbSubsystem.setClimbMotorSpeedLeft(-Constants.LEFT_CLIMB_SET_SPEED);
     }
  
     @Override

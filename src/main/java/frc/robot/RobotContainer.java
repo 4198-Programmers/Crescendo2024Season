@@ -14,8 +14,8 @@ import frc.robot.commands.IntakeMotorCommand;
 import frc.robot.commands.ShooterAngleCommand;
 import frc.robot.commands.ShootingMotorCommand;
 import frc.robot.commands.SwerveTeleopDrive;
-import frc.robot.commands.ClimbCommands.LeftAndRightMotorClimbDownCommand;
-import frc.robot.commands.ClimbCommands.LeftAndRightMotorClimbUpCommand;
+import frc.robot.commands.ClimbCommands.BothMotorClimbDownCommand;
+import frc.robot.commands.ClimbCommands.BothMotorClimbUpCommand;
 import frc.robot.commands.ClimbCommands.LeftMotorClimbUpCommand;
 import frc.robot.commands.ClimbCommands.RightMotorClimbDownCommand;
 import frc.robot.commands.ClimbCommands.RightMotorClimbUpCommand;
@@ -40,8 +40,8 @@ public class RobotContainer {
   //Commands
   //TODO missing intakeCommand
 
-  private LeftAndRightMotorClimbUpCommand rightAndLeftMotorClimbCommandUp = new LeftAndRightMotorClimbUpCommand(motorClimbSubsystem);
-  private LeftAndRightMotorClimbDownCommand rightAndLeftMotorClimbCommandDown = new LeftAndRightMotorClimbDownCommand(motorClimbSubsystem);
+  private BothMotorClimbUpCommand bothMotorClimbCommandUp = new BothMotorClimbUpCommand(motorClimbSubsystem);
+  private BothMotorClimbDownCommand bothMotorClimbCommandDown = new BothMotorClimbDownCommand(motorClimbSubsystem);
 
   private LeftMotorClimbUpCommand leftMotorClimbCommandUp = new LeftMotorClimbUpCommand(motorClimbSubsystem);
   private LeftMotorClimbUpCommand leftMotorClimbCommandDown = new LeftMotorClimbUpCommand(motorClimbSubsystem);
@@ -82,8 +82,8 @@ public class RobotContainer {
   JoystickButton LeftMotorClimbButtonDown = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_3);
   JoystickButton RightMotorClimbButtonUp = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_6);
   JoystickButton RightMotorClimbButtonDown = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_4);
-  JoystickButton RightAndLeftMotorClimbButtonDown = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_9);
-  JoystickButton RightAndLeftMotorClimbButtonUp = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_10);
+  JoystickButton bothMotorClimbButtonDown = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_9);
+  JoystickButton bothMotorClimbButtonUp = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_10);
 
 
 
@@ -122,8 +122,8 @@ public class RobotContainer {
     RightMotorClimbButtonUp.whileTrue(rightMotorClimbUpCommand);
     RightMotorClimbButtonDown.whileTrue(rightMotorClimbDownCommand);
 
-    RightAndLeftMotorClimbButtonDown.whileTrue(rightAndLeftMotorClimbCommandDown);
-    RightAndLeftMotorClimbButtonUp.whileTrue(rightAndLeftMotorClimbCommandUp);
+    bothMotorClimbButtonDown.whileTrue(bothMotorClimbCommandDown);
+    bothMotorClimbButtonUp.whileTrue(bothMotorClimbCommandUp);
 
     aimAngleUpButton.whileTrue(aimAngleUpCommand);
     aimAngleDownButton.whileTrue(aimAngleDownCommand);
