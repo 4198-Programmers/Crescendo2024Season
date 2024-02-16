@@ -56,8 +56,8 @@ public class RobotContainer {
   JoystickButton internalMoverDownButton = new JoystickButton(middleJoystick, Constants.PLACEHOLDER_BUTTON_ID);
   JoystickButton intakeMotorButton = new JoystickButton(leftJoystick, Constants.PLACEHOLDER_BUTTON_ID);
   JoystickButton shootingMotorButton = new JoystickButton(rightJoystick, Constants.PLACEHOLDER_BUTTON_ID);
-  JoystickButton changeIntakePneumaticStateButton = new JoystickButton(middleJoystick, Constants.PLACEHOLDER_BUTTON_ID);
-  JoystickButton changeAmpBarPneumaticStateButton = new JoystickButton(middleJoystick, Constants.PLACEHOLDER_BUTTON_ID);
+  JoystickButton changeIntakePneumaticStateButton = new JoystickButton(middleJoystick, Constants.MID_JOYSTICK_BUTTON_2);
+  JoystickButton changeAmpBarPneumaticStateButton = new JoystickButton(middleJoystick, Constants.MID_JOYSTICK_BUTTON_3);
   JoystickButton changeClimbStateButton = new JoystickButton(rightJoystick, Constants.PLACEHOLDER_BUTTON_ID); 
   JoystickButton shootingAngleButton = new JoystickButton(rightJoystick, Constants.PLACEHOLDER_BUTTON_ID);
   JoystickButton LeftMotorClimbButtonUp = new JoystickButton(middleJoystick, Constants.PLACEHOLDER_BUTTON_ID);
