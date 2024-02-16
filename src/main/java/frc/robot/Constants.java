@@ -145,14 +145,6 @@ public final class Constants {
 
   //Deadband for joysticks
     public static final double DEADBAND = 0;
-
-  //MotorSpeeds
-  public static final double INTAKE_MOTOR_SPEED = 1;
-  public static final double SHOOTING_MOTOR_SPEED = 1;
-  
-  public static final double BOTH_CLIMB_SET_SPEED = 0.1;
-  public static final double LEFT_CLIMB_SET_SPEED = 0.1;
-  public static final double RIGHT_CLIMB_SET_SPEED = 0.1;
   
   //Internal Mover Direction/speed
   public static final int MIDDLE_LIMIT_SWITCH = 0;
@@ -183,9 +175,22 @@ public final class Constants {
   public static final double SPEAKER_TAG_HEIGHTS = Units.inchesToMeters(57.125);
   public static final double AMP_TAG_HEIGHTS = Units.inchesToMeters(53.375);
   public static final double STAGE_TAG_HEIGHTS = Units.inchesToMeters(52);
+
+  //MotorSpeeds
+  public static final double INTAKE_MOTOR_SPEED = 1;
+  public static final double SHOOTING_MOTOR_SPEED = 1;
   
+  public static final double BOTH_CLIMB_SET_SPEED = 0.1;
+  public static final double LEFT_CLIMB_SET_SPEED = 0.1;
+  public static final double RIGHT_CLIMB_SET_SPEED = 0.1;
+
   public static final double SHOOTING_ANGLE_INCREASE_SPEED = 0.2;
   public static final double SHOOTING_ANGLE_DECREASE_SPEED = 0.2;
+  
+  //climb min and max
+  public static final double CLIMB_MOTOR_MAX = 0;
+  public static final double CLIMB_MOTOR_MIN = 0;
+
 }
 
 

@@ -6,8 +6,12 @@ import frc.robot.subsystems.MotorClimbSubsystem;
 
 public class BothMotorClimbDownCommand extends Command{
 
+
     private MotorClimbSubsystem motorClimbSubsystem;
-//TODO write relitive encoder print statments so that we can make climb limits 
+    double leftPosition = motorClimbSubsystem.getClimbMotorLeftPosition();
+    double rightPosition = motorClimbSubsystem.getClimbMotorRightPosition();
+    double climbMin = Constants.CLIMB_MOTOR_MIN;
+
     public BothMotorClimbDownCommand(MotorClimbSubsystem motorClimbSubsystem) {
         this.motorClimbSubsystem = motorClimbSubsystem;
         addRequirements(motorClimbSubsystem);
@@ -16,8 +20,19 @@ public class BothMotorClimbDownCommand extends Command{
 
     @Override
     public void execute(){
-        motorClimbSubsystem.setClimbMotorSpeedRight(Constants.BOTH_CLIMB_SET_SPEED);
-        motorClimbSubsystem.setClimbMotorSpeedLeft(Constants.BOTH_CLIMB_SET_SPEED);
+        
+        System.out.print("climb motor position Right(use to find limits)" + motorClimbSubsystem.getClimbMotorRightPosition());
+        System.out.print("climb motor position Left(use to find limits)" + motorClimbSubsystem.getClimbMotorLeftPosition());
+        if(climbMin <= leftPosition){
+            if(climbMin <= rightPosition){
+            motorClimbSubsystem.setClimbMotorSpeedRight(Constants.BOTH_CLIMB_SET_SPEED);
+            motorClimbSubsystem.setClimbMotorSpeedLeft(Constants.BOTH_CLIMB_SET_SPEED);
+        }
+        } else {
+            motorClimbSubsystem.stopBothClimbMotor();
+        }
+        
+
     }
 
     @Override

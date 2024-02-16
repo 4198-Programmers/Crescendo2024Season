@@ -7,6 +7,9 @@ import frc.robot.subsystems.MotorClimbSubsystem;
 public class BothMotorClimbUpCommand extends Command{
 
     private MotorClimbSubsystem motorClimbSubsystem;
+    double climbMax = Constants.CLIMB_MOTOR_MAX;
+    double leftPosition = motorClimbSubsystem.getClimbMotorLeftPosition();
+    double rightPosition = motorClimbSubsystem.getClimbMotorRightPosition();
 
     public BothMotorClimbUpCommand(MotorClimbSubsystem motorClimbSubsystem) {
         this.motorClimbSubsystem = motorClimbSubsystem;
@@ -16,8 +19,17 @@ public class BothMotorClimbUpCommand extends Command{
 
     @Override
     public void execute(){
-         motorClimbSubsystem.setClimbMotorSpeedRight( - Constants.BOTH_CLIMB_SET_SPEED);
-        motorClimbSubsystem.setClimbMotorSpeedLeft( - Constants.BOTH_CLIMB_SET_SPEED);
+        System.out.print("climb motor position Right(use to find limits)" + motorClimbSubsystem.getClimbMotorRightPosition());
+        System.out.print("climb motor position Left(use to find limits)" + motorClimbSubsystem.getClimbMotorLeftPosition());
+        if(climbMax >= leftPosition){
+            if(climbMax >= rightPosition){
+            motorClimbSubsystem.setClimbMotorSpeedRight( - Constants.BOTH_CLIMB_SET_SPEED);
+            motorClimbSubsystem.setClimbMotorSpeedLeft( - Constants.BOTH_CLIMB_SET_SPEED);
+            }
+        } else {
+            motorClimbSubsystem.stopBothClimbMotor();
+        }
+       
     }
  
     @Override
