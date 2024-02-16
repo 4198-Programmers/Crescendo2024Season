@@ -118,9 +118,8 @@ public final class Constants {
   public static final int SHOOTING_MOTOR_ID = 6;
   public static final int CLIMB_MOTOR_LEFT_ID = 14;
   public static final int CLIMB_MOTOR_RIGHT_ID = 13;
-  public static final int RIGHT_MOTOR_CLIMB_SPEED = 0;
   public static final int INTERNAL_MOTOR_ID = 11;
-public static final int SHOOTING_MOTOR_ANGLE_ID = 12;
+  public static final int SHOOTING_MOTOR_ANGLE_ID = 12;
 
   //Joystick Constants
   public static final int RIGHT_JOYSTICK_PORT = 2;
@@ -178,16 +177,14 @@ public static final int SHOOTING_MOTOR_ANGLE_ID = 12;
   public static final double INTAKE_MOTOR_SPEED = 1;
   public static final double SHOOTING_MOTOR_SPEED = 1;
   
-  public static final double BOTH_CLIMB_SET_SPEED = 0;
-  public static final double LEFT_CLIMB_SET_SPEED = 0;
-  public static final double RIGHT_CLIMB_SET_SPEED = 0;
+  public static final double BOTH_CLIMB_SET_SPEED = 0.1;
+  public static final double LEFT_CLIMB_SET_SPEED = 0.1;
+  public static final double RIGHT_CLIMB_SET_SPEED = 0.1;
   
   //Internal Mover Direction/speed
   public static final int MIDDLE_LIMIT_SWITCH = 0;
   public static final double INTERAL_MOVER_UP = 1;
-  public static final double INTERNAL_MOVER_DOWN = 0;
-  public static final int INTERNAL_MOVER_UP_BOTTON_ID = 0;
-  public static final int INTERNAL_MOVER_DOWN_BOTTON_ID = 0;
+  public static final double INTERNAL_MOVER_DOWN = 1;
 
   /*Game Target Location Constants: Y and X are measured from the corner of the red Source, 
   *and positive in their respective directions.*/

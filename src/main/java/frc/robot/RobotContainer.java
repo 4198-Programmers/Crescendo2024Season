@@ -6,9 +6,12 @@ package frc.robot;
 
 import frc.robot.commands.InternalMoverDownCommand;
 import frc.robot.commands.InternalMoverUpCommand;
-import frc.robot.commands.LeftAndRightMotorClimbCommand;
-import frc.robot.commands.LeftMotorClimbCommand;
-import frc.robot.commands.RightMotorClimbCommand;
+import frc.robot.commands.LeftAndRightMotorClimbDownCommand;
+import frc.robot.commands.LeftAndRightMotorClimbUpCommand;
+import frc.robot.commands.LeftAndRightMotorClimbUpCommandDown;
+import frc.robot.commands.LeftMotorClimbUpCommand;
+import frc.robot.commands.RightMotorClimbDownCommand;
+import frc.robot.commands.RightMotorClimbUpCommand;
 import frc.robot.subsystems.InternalMoverSubsystem;
 import frc.robot.subsystems.MotorClimbSubsystem;
 import frc.robot.commands.IntakeMotorCommand;
@@ -36,9 +39,15 @@ public class RobotContainer {
   //Commands
   //TODO missing intakeCommand
 
-  private LeftAndRightMotorClimbCommand rightAndLeftMotorClimbCommand = new LeftAndRightMotorClimbCommand(motorClimbSubsystem, Constants.BOTH_CLIMB_SET_SPEED);
-  private LeftMotorClimbCommand leftMotorClimbCommand = new LeftMotorClimbCommand(motorClimbSubsystem, Constants.LEFT_CLIMB_SET_SPEED);
-  private RightMotorClimbCommand rightMotorClimbCommand = new RightMotorClimbCommand(motorClimbSubsystem, Constants.RIGHT_CLIMB_SET_SPEED);
+  private LeftAndRightMotorClimbUpCommand rightAndLeftMotorClimbCommandUp = new LeftAndRightMotorClimbUpCommand(motorClimbSubsystem);
+  private LeftAndRightMotorClimbDownCommand rightAndLeftMotorClimbCommandDown = new LeftAndRightMotorClimbDownCommand(motorClimbSubsystem);
+
+  private LeftMotorClimbUpCommand leftMotorClimbCommandUp = new LeftMotorClimbUpCommand(motorClimbSubsystem);
+  private LeftMotorClimbUpCommand leftMotorClimbCommandDown = new LeftMotorClimbUpCommand(motorClimbSubsystem);
+
+  private RightMotorClimbUpCommand rightMotorClimbUpCommand = new RightMotorClimbUpCommand(motorClimbSubsystem);
+  private RightMotorClimbDownCommand rightMotorClimbDownCommand = new RightMotorClimbDownCommand(motorClimbSubsystem);
+
 
   private IntakeMotorCommand intakeMotorCommand = new IntakeMotorCommand(intakeSubsystem, Constants.INTAKE_MOTOR_SPEED);
   private ShootingMotorCommand shootingMotorCommand = new ShootingMotorCommand(shootingSubsytem, Constants.SHOOTING_MOTOR_SPEED);
@@ -52,17 +61,24 @@ public class RobotContainer {
   Joystick leftJoystick = new Joystick(Constants.LEFT_JOYSTICK_PORT);
 
   //Buttons
-  JoystickButton internalMoverUpButton = new JoystickButton(leftJoystick, Constants.LEFT_JOYSTICK_BUTTON_9);
-  JoystickButton internalMoverDownButton = new JoystickButton(leftJoystick, Constants.LEFT_JOYSTICK_BUTTON_7);
-  JoystickButton intakeMotorButton = new JoystickButton(leftJoystick, Constants.LEFT_JOYSTICK_BUTTON_5);
-  JoystickButton shootingMotorButton = new JoystickButton(leftJoystick, Constants.LEFT_JOYSTICK_BUTTON_1);
+  JoystickButton internalMoverUpButton = new JoystickButton(rightJoystick, Constants.LEFT_JOYSTICK_BUTTON_9);
+  JoystickButton internalMoverDownButton = new JoystickButton(rightJoystick, Constants.LEFT_JOYSTICK_BUTTON_7);
+  JoystickButton intakeMotorButton = new JoystickButton(rightJoystick, Constants.LEFT_JOYSTICK_BUTTON_5);
+  JoystickButton shootingMotorButton = new JoystickButton(rightJoystick, Constants.LEFT_JOYSTICK_BUTTON_1);
+  JoystickButton changeClimbStateButton = new JoystickButton(rightJoystick, Constants.LEFT_JOYSTICK_BUTTON_8); 
+  JoystickButton shootingAngleButton = new JoystickButton(rightJoystick, Constants.LEFT_JOYSTICK_BUTTON_10);
+
   JoystickButton changeIntakePneumaticStateButton = new JoystickButton(middleJoystick, Constants.PLACEHOLDER_BUTTON_ID);
-  JoystickButton changeClimbStateButton = new JoystickButton(rightJoystick, Constants.PLACEHOLDER_BUTTON_ID); 
-  JoystickButton shootingAngleButton = new JoystickButton(rightJoystick, Constants.PLACEHOLDER_BUTTON_ID);
   JoystickButton LeftMotorClimbButtonUp = new JoystickButton(middleJoystick, Constants.LEFT_JOYSTICK_BUTTON_5);
   JoystickButton LeftMotorClimbButtonDown = new JoystickButton(middleJoystick, Constants.LEFT_JOYSTICK_BUTTON_3);
   JoystickButton RightMotorClimbButtonUp = new JoystickButton(middleJoystick, Constants.LEFT_JOYSTICK_BUTTON_6);
   JoystickButton RightMotorClimbButtonDown = new JoystickButton(middleJoystick, Constants.LEFT_JOYSTICK_BUTTON_4);
+  JoystickButton RightAndLeftMotorClimbButtonDown = new JoystickButton(middleJoystick, Constants.LEFT_JOYSTICK_BUTTON_9);
+  JoystickButton RightAndLeftMotorClimbButtonUp = new JoystickButton(middleJoystick, Constants.LEFT_JOYSTICK_BUTTON_10);
+
+
+
+
  
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -91,10 +107,14 @@ public class RobotContainer {
     internalMoverUpButton.whileTrue(internalMoverUp);
     internalMoverDownButton.whileTrue(internalMoverDown);
     shootingAngleButton.whileTrue(shooterAngleCommand);
-    LeftMotorClimbButtonUp.whileTrue(leftMotorClimbCommand);
-    LeftMotorClimbButtonDown.whileTrue(leftMotorClimbCommand);
-    RightMotorClimbButtonUp.whileTrue(rightMotorClimbCommand);
-    RightMotorClimbButtonDown.whileTrue(rightMotorClimbCommand);
+    LeftMotorClimbButtonUp.whileTrue(leftMotorClimbCommandUp);
+    LeftMotorClimbButtonDown.whileTrue(leftMotorClimbCommandDown);
+    RightMotorClimbButtonUp.whileTrue(rightMotorClimbUpCommand);
+    RightMotorClimbButtonDown.whileTrue(rightMotorClimbDownCommand);
+    RightAndLeftMotorClimbButtonDown.whileTrue(rightAndLeftMotorClimbCommandDown);
+    RightAndLeftMotorClimbButtonUp.whileTrue(rightAndLeftMotorClimbCommandUp);
+
+
 
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
 
