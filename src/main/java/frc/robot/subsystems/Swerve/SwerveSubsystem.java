@@ -1,7 +1,7 @@
 package frc.robot.subsystems.Swerve;
 
 import com.kauailabs.navx.frc.AHRS;
-
+/* 
 import edu.wpi.first.math.estimator.SwerveDrivePoseEstimator;
 import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
@@ -80,6 +80,7 @@ public class SwerveSubsystem extends SubsystemBase{
  * @param zSpeed The zSpeed given from the joystick
  * @param fieldOriented If the robot's front is forward or if it is a certain direction on the field.
  */
+/* 
     public void drive(double xSpeed, double ySpeed, double zSpeed, boolean fieldOriented){
         SwerveModuleState[] states;
         if(fieldOriented){
@@ -100,6 +101,7 @@ public class SwerveSubsystem extends SubsystemBase{
  * this lets us know what the current drive speed is and angle of the wheels
  * @return
  */
+/* 
     public SwerveModuleState[] getModuleStates(){
         return new SwerveModuleState[]{
             frontLeftModule.getState(),
@@ -112,6 +114,7 @@ public class SwerveSubsystem extends SubsystemBase{
  * Lets us know how far the robot has traveled and what the current angle is
  * @return
  */
+/* 
     public SwerveModulePosition[] getModulePositions(){
         return new SwerveModulePosition[]{
             frontLeftModule.getPosition(),
@@ -124,6 +127,7 @@ public class SwerveSubsystem extends SubsystemBase{
  * Lets us set the speed and wanted angle for each module
  * @param desiredStates
  */
+/*
     public void setModuleStates(SwerveModuleState[] desiredStates){
         SwerveDriveKinematics.desaturateWheelSpeeds(desiredStates, 1);
         for(SwerveModule module: modules){
@@ -131,3 +135,4 @@ public class SwerveSubsystem extends SubsystemBase{
         }
     }
 }
+*/
