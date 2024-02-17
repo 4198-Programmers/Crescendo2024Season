@@ -189,7 +189,7 @@ public final class Constants {
   public static final double SHOOTING_ANGLE_DECREASE_SPEED = 0.2;
   
   //climb min and max
-  public static final double CLIMB_MOTOR_MAX = 0;
+  public static final double CLIMB_MOTOR_MAX = 10;
   public static final double CLIMB_MOTOR_MIN = 0;
 
 }
