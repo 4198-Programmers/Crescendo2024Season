@@ -15,11 +15,11 @@ public class AmpBarSubsystem extends SubsystemBase{
     public AmpBarSubsystem(){
         this.initialize();
     }
-    public void close(){
+    public void ampClose(){
         switchValue = false;
     }
 
-    public void open(){
+    public void ampOpen(){
         switchValue = true;
     }
 
