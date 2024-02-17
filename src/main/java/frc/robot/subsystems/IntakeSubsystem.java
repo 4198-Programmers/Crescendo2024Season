@@ -43,10 +43,6 @@ public class IntakeSubsystem extends SubsystemBase {
         switchValue = true;
     }
 
-    public void switchIntakeSolenoidState(){
-        switchValue = !switchValue;
-    }
-
     public void intakePneumaticKillSwitch(){
         intakeSolenoid.set(false);
     }

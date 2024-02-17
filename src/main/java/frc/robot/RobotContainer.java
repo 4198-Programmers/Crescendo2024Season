@@ -13,11 +13,12 @@ import frc.robot.subsystems.ShootingSubsystem;
 
 import frc.robot.commands.InternalMoverDownCommand;
 import frc.robot.commands.InternalMoverUpCommand;
+import frc.robot.commands.MoveAmpMotorDown;
+import frc.robot.commands.MoveAmpMotorUp;
+import frc.robot.commands.MoveIntakeDown;
+import frc.robot.commands.MoveIntakeUp;
 import frc.robot.commands.AimAngleDownCommand;
 import frc.robot.commands.AimAngleupCommand;
-import frc.robot.commands.ChangeAmpBarPneumaticStateCommandDown;
-import frc.robot.commands.ChangeAmpBarPneumaticStateCommandUp;
-import frc.robot.commands.ChangeIntakePneumaticStateCommand;
 import frc.robot.commands.ShooterAngleCommand;
 import frc.robot.commands.ShootingMotorCommand;
 import frc.robot.commands.ClimbCommands.BothMotorClimbDownCommand;
@@ -46,19 +47,18 @@ public class RobotContainer {
   private final AmpBarSubsystem ampBarSubsystem = new AmpBarSubsystem();
 
   //Commands
-  private ChangeIntakePneumaticStateCommand changeIntakeState = new ChangeIntakePneumaticStateCommand(intakeSubsystem);
-
+  private MoveIntakeDown moveIntakeDown = new MoveIntakeDown(intakeSubsystem);
+  private MoveIntakeUp moveIntakeUp = new MoveIntakeUp(intakeSubsystem);
   private ShootingMotorCommand shootingMotorCommand = new ShootingMotorCommand(shootingSubsytem);
 
   private InternalMoverUpCommand internalMoverUp = new InternalMoverUpCommand(internalMoverSubsystem);
   private InternalMoverDownCommand internalMoverDown = new InternalMoverDownCommand(internalMoverSubsystem);
+  private MoveAmpMotorUp moveAmpMotorUp = new MoveAmpMotorUp(ampBarSubsystem);
+  private MoveAmpMotorDown moveAmpMotorDown = new MoveAmpMotorDown(ampBarSubsystem);
   
   private ShooterAngleCommand shooterAngleCommand = new ShooterAngleCommand(shootingSubsytem, 0, 1, 0.05);
   private AimAngleDownCommand aimAngleDownCommand = new AimAngleDownCommand(shootingSubsytem); 
   private AimAngleupCommand aimAngleupCommand = new AimAngleupCommand(shootingSubsytem);
-
-  private ChangeAmpBarPneumaticStateCommandUp changeAmpBarStateUp = new ChangeAmpBarPneumaticStateCommandUp(ampBarSubsystem);
-  private ChangeAmpBarPneumaticStateCommandDown changeAmpBarStateDown = new ChangeAmpBarPneumaticStateCommandDown(ampBarSubsystem);
 
   private BothMotorClimbDownCommand bothMotorClimbDownCommand = new BothMotorClimbDownCommand(motorClimbSubsystem);
   private BothMotorClimbUpCommand bothMotorClimbUpCommand = new BothMotorClimbUpCommand(motorClimbSubsystem);
@@ -81,9 +81,10 @@ public class RobotContainer {
 
   JoystickButton shootingMotorButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_1);
 
-  JoystickButton changeIntakePneumaticStateButtonUp = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_1);
-  JoystickButton changeAmpBarPneumaticStateButtonDown = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_1);
-  JoystickButton changeAmpBarPneumaticStateButtonUp = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_1);
+  JoystickButton moveIntakeUpButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_3);
+  JoystickButton moveIntakeDownButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_4);
+  JoystickButton moveAmpBarUpButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_5);
+  JoystickButton moveAmpBarDownButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_6);
 
   JoystickButton shootingAngleButton = new JoystickButton(rightJoystick, Constants.PLACEHOLDER_BUTTON_ID);
   JoystickButton ShootingAngleUpButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_6);
@@ -102,12 +103,12 @@ public class RobotContainer {
     pneumaticsCompressor.enableDigital();
     // Configure the trigger bindings
     configureBindings();
-    // swerveSubsystem.setDefaultCommand(new SwerveTeleopDrive(
+    //  swerveSubsystem.setDefaultCommand(new SwerveTeleopDrive(
     //   swerveSubsystem, 
-    //   () -> leftJoystick.getX(), 
-    //   () -> leftJoystick.getY(), 
-    //   () -> middleJoystick.getX(), 
-    //   () -> true));
+    // () -> leftJoystick.getX(), 
+    //    () -> leftJoystick.getY(), 
+    //  () -> middleJoystick.getX(), 
+    //  () -> true));
   }
 
   /**
@@ -126,8 +127,10 @@ public class RobotContainer {
     internalMoverDownButton.whileTrue(internalMoverDown);
     shootingAngleButton.whileTrue(shooterAngleCommand);
     
-    changeAmpBarPneumaticStateButtonUp.whileTrue(changeAmpBarStateUp);
-    changeAmpBarPneumaticStateButtonDown.whileTrue(changeAmpBarStateDown);
+    moveAmpBarDownButton.whileTrue(moveAmpMotorDown);
+    moveAmpBarUpButton.whileTrue(moveAmpMotorUp);
+    moveIntakeDownButton.whileTrue(moveIntakeDown);
+    moveIntakeUpButton.whileTrue(moveIntakeUp);
 
     
     
