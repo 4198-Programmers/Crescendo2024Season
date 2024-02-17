@@ -4,23 +4,26 @@
 
 package frc.robot;
 
-import frc.robot.commands.InternalMoverDownCommand;
-import frc.robot.commands.InternalMoverUpCommand;
-import frc.robot.commands.LeftMotorClimbCommand;
-import frc.robot.commands.RightMotorClimbCommand;
 import frc.robot.subsystems.InternalMoverSubsystem;
 import frc.robot.subsystems.MotorClimbSubsystem;
-import frc.robot.commands.ChangeAmpBarPneumaticStateCommandDown;
-import frc.robot.commands.ChangeAmpBarPneumaticStateCommandUp;
-import frc.robot.commands.ChangeIntakePneumaticStateCommand;
-import frc.robot.commands.IntakeMotorCommand;
-import frc.robot.commands.ShooterAngleCommand;
-import frc.robot.commands.ShootingMotorCommand;
-import frc.robot.commands.SwerveTeleopDrive;
 import frc.robot.subsystems.AmpBarSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.subsystems.ShootingSubsystem;
-import frc.robot.subsystems.Swerve.SwerveSubsystem;
+
+
+import frc.robot.commands.InternalMoverDownCommand;
+import frc.robot.commands.InternalMoverUpCommand;
+import frc.robot.commands.ChangeAmpBarPneumaticStateCommandDown;
+import frc.robot.commands.ChangeAmpBarPneumaticStateCommandUp;
+import frc.robot.commands.ChangeIntakePneumaticStateCommand;
+import frc.robot.commands.ShooterAngleCommand;
+import frc.robot.commands.ShootingMotorCommand;
+import frc.robot.commands.ClimbCommands.BothMotorClimbDownCommand;
+import frc.robot.commands.ClimbCommands.BothMotorClimbUpCommand;
+import frc.robot.commands.ClimbCommands.LeftMotorClimbDownCommand;
+import frc.robot.commands.ClimbCommands.LeftMotorClimbUpCommand;
+import frc.robot.commands.ClimbCommands.RightMotorClimbDownCommand;
+import frc.robot.commands.ClimbCommands.RightMotorClimbUpCommand;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
@@ -34,7 +37,6 @@ public class RobotContainer {
   //Singletons
   private Compressor pneumaticsCompressor = new Compressor(21, PneumaticsModuleType.CTREPCM);
   // Subsystems
-  private final SwerveSubsystem swerveSubsystem = new SwerveSubsystem();
   private final IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
   private final ShootingSubsystem shootingSubsytem = new ShootingSubsystem();
   private final InternalMoverSubsystem internalMoverSubsystem = new InternalMoverSubsystem();
@@ -42,7 +44,6 @@ public class RobotContainer {
   private final AmpBarSubsystem ampBarSubsystem = new AmpBarSubsystem();
 
   //Commands
-  private IntakeMotorCommand intakeMotorCommand = new IntakeMotorCommand(intakeSubsystem, Constants.INTAKE_MOTOR_SPEED);
   private ChangeIntakePneumaticStateCommand changeIntakeState = new ChangeIntakePneumaticStateCommand(intakeSubsystem);
   private ShootingMotorCommand shootingMotorCommand = new ShootingMotorCommand(shootingSubsytem, Constants.SHOOTING_MOTOR_SPEED);
   private InternalMoverUpCommand internalMoverUp = new InternalMoverUpCommand(internalMoverSubsystem);
@@ -51,6 +52,12 @@ public class RobotContainer {
   private ChangeAmpBarPneumaticStateCommandUp changeAmpBarStateUp = new ChangeAmpBarPneumaticStateCommandUp(ampBarSubsystem);
   private ChangeAmpBarPneumaticStateCommandDown changeAmpBarStateDown = new ChangeAmpBarPneumaticStateCommandDown(ampBarSubsystem);
 
+  private BothMotorClimbDownCommand bothMotorClimbDownCommand = new BothMotorClimbDownCommand(motorClimbSubsystem);
+  private BothMotorClimbUpCommand bothMotorClimbUpCommand = new BothMotorClimbUpCommand(motorClimbSubsystem);
+  private LeftMotorClimbDownCommand leftMotorClimbDownCommand = new LeftMotorClimbDownCommand(motorClimbSubsystem);
+  private LeftMotorClimbUpCommand leftMotorClimbUpCommand = new LeftMotorClimbUpCommand(motorClimbSubsystem);
+  private RightMotorClimbDownCommand rightMotorClimbDownCommand = new RightMotorClimbDownCommand(motorClimbSubsystem);
+  private RightMotorClimbUpCommand rightMotorClimbUpCommand = new RightMotorClimbUpCommand(motorClimbSubsystem);
 
   //Joysticks
   Joystick rightJoystick = new Joystick(Constants.RIGHT_JOYSTICK_PORT);
@@ -68,8 +75,9 @@ public class RobotContainer {
   JoystickButton changeAmpBarPneumaticStateButtonDown = new JoystickButton(middleJoystick, Constants.MID_JOYSTICK_BUTTON_3);
   JoystickButton changeAmpBarPneumaticStateButtonUp = new JoystickButton(middleJoystick, Constants.MID_JOYSTICK_BUTTON_5);
 
-  JoystickButton changeClimbStateButton = new JoystickButton(rightJoystick, Constants.PLACEHOLDER_BUTTON_ID); 
   JoystickButton shootingAngleButton = new JoystickButton(rightJoystick, Constants.PLACEHOLDER_BUTTON_ID);
+  
+  JoystickButton BothMotorClimbDownButton = new JoystickButton(middleJoystick, Constants.)
   JoystickButton LeftMotorClimbButtonUp = new JoystickButton(middleJoystick, Constants.PLACEHOLDER_BUTTON_ID);
   JoystickButton LeftMotorClimbButtonDown = new JoystickButton(middleJoystick, Constants.PLACEHOLDER_BUTTON_ID);
   JoystickButton RightMotorClimbButtonUp = new JoystickButton(middleJoystick, Constants.PLACEHOLDER_BUTTON_ID);
@@ -99,7 +107,7 @@ public class RobotContainer {
    * joysticks}.
    */
   private void configureBindings() {
-    intakeMotorButton.whileTrue(intakeMotorCommand);
+
     shootingMotorButton.whileTrue(shootingMotorCommand);
     internalMoverUpButton.whileTrue(internalMoverUp);
     internalMoverDownButton.whileTrue(internalMoverDown);

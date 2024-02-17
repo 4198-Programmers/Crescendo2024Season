@@ -141,9 +141,8 @@ public final class Constants {
   public static final int JOYSTICK_BUTTON_8 = 8;
   public static final int JOYSTICK_BUTTON_9 = 9;
   public static final int JOYSTICK_BUTTON_10 = 10;
-  //TODO is this constant joystick ID button for 11 suppost to be equal to 12 and 12 equal to 13
-  public static final int JOYSTICK_BUTTON_11 = 12;
-  public static final int JOYSTICK_BUTTON_12 = 13;
+  public static final int JOYSTICK_BUTTON_11 = 11;
+  public static final int JOYSTICK_BUTTON_12 = 12;
 
   //Deadband for joysticks
     public static final double DEADBAND = 0;
