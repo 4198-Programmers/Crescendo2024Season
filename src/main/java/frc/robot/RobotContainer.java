@@ -80,7 +80,6 @@ public class RobotContainer {
   JoystickButton changeAmpBarPneumaticStateButtonDown = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_1);
   JoystickButton changeAmpBarPneumaticStateButtonUp = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_1);
 
-  JoystickButton shootingAngleButton = new JoystickButton(rightJoystick, Constants.PLACEHOLDER_BUTTON_ID);
   JoystickButton ShootingAngleUpButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_6);
   JoystickButton ShootingAngleDownButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_4);
 
@@ -127,6 +126,9 @@ public class RobotContainer {
     RightMotorClimbButtonDown.whileTrue(rightMotorClimbDownCommand);
     BothMotorClimbDownButton.whileTrue(bothMotorClimbDownCommand);
     BothMotorClimbUpButton.whileTrue(bothMotorClimbUpCommand);
+
+    ShootingAngleUpButton.whileTrue(aimAngleupCommand);
+    ShootingAngleDownButton.whileTrue(aimAngleDownCommand);
 
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
 
