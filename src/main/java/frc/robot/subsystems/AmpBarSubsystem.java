@@ -9,14 +9,16 @@ public class AmpBarSubsystem extends SubsystemBase{
 
     private Solenoid ampBarSolenoid = new Solenoid(PneumaticsModuleType.CTREPCM, Constants.AMP_BAR_PNEUMATIC_CHANNEL);
 
-    private boolean switchValue = false;
-
     public AmpBarSubsystem(){
         this.initialize();
     }
 
-    public void changeAmpBarState(){
-        switchValue =! switchValue;
+    public void pullAmpBarUp(){
+        ampBarSolenoid.set(true);
+    }
+    
+    public void pushAmpBarDown(){
+        ampBarSolenoid.set(false);
     }
 
     public void ampBarKillSwitch(){
@@ -24,6 +26,6 @@ public class AmpBarSubsystem extends SubsystemBase{
     }
     
     public void initialize(){
-        ampBarSolenoid.set(switchValue);
+        ampBarSolenoid.set(false);
     }
 }
