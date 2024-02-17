@@ -5,7 +5,6 @@ import com.revrobotics.RelativeEncoder;
 import com.revrobotics.CANSparkLowLevel.MotorType;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
@@ -54,7 +53,7 @@ public class IntakeSubsystem extends SubsystemBase {
     public boolean isOpen (){
         return this.intakeSolenoid.isFwdSolenoidDisabled();
     }
-
+  //TODO intakePneumaticKillSwitch unfinnished 
     public void intakePneumaticKillSwitch(){
         //intakeSolenoid.set(false);
     }

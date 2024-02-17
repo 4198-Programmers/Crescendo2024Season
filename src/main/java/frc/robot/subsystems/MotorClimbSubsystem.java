@@ -1,7 +1,5 @@
 package frc.robot.subsystems;
 
-import javax.management.relation.RelationException;
-
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.CANSparkLowLevel.MotorType;
@@ -26,7 +24,7 @@ public class MotorClimbSubsystem extends SubsystemBase {
         climbMotorLeft.set(speed);
     }
 
-    public void stopRightClimbMotor(  ){
+    public void stopRightClimbMotor(){
         climbMotorRight.set(0);
     }
 

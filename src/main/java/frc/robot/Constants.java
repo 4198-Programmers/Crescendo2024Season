@@ -118,9 +118,8 @@ public final class Constants {
   public static final int SHOOTING_MOTOR_ID = 6;
   public static final int CLIMB_MOTOR_LEFT_ID = 14;
   public static final int CLIMB_MOTOR_RIGHT_ID = 13;
-  public static final int RIGHT_MOTOR_CLIMB_SPEED = 0;
   public static final int INTERNAL_MOTOR_ID = 11;
-public static final int SHOOTING_MOTOR_ANGLE_ID = 12;
+  public static final int SHOOTING_MOTOR_ANGLE_ID = 12;
 
   //Joystick Constants
   public static final int RIGHT_JOYSTICK_PORT = 2;
@@ -130,60 +129,27 @@ public static final int SHOOTING_MOTOR_ANGLE_ID = 12;
   public static final int PLACEHOLDER_BUTTON_ID = 0;
 
   //Left Joystick Button ID Constants
-  public static final int LEFT_JOYSTICK_BUTTON_1 = 1;
-  public static final int LEFT_JOYSTICK_BUTTON_2 = 2;
-  public static final int LEFT_JOYSTICK_BUTTON_3 = 3;
-  public static final int LEFT_JOYSTICK_BUTTON_4 = 4;
-  public static final int LEFT_JOYSTICK_BUTTON_5 = 5;
-  public static final int LEFT_JOYSTICK_BUTTON_6 = 6;
-  public static final int LEFT_JOYSTICK_BUTTON_7 = 7;
-  public static final int LEFT_JOYSTICK_BUTTON_8 = 8;
-  public static final int LEFT_JOYSTICK_BUTTON_9 = 9;
-  public static final int LEFT_JOYSTICK_BUTTON_10 = 10;
-  public static final int LEFT_JOYSTICK_BUTTON_11 = 12;
-  public static final int LEFT_JOYSTICK_BUTTON_12 = 13;
-
-  //Mid Joystick Button ID Constants
-  public static final int MID_JOYSTICK_BUTTON_1 = 1;
-  public static final int MID_JOYSTICK_BUTTON_2 = 2;
-  public static final int MID_JOYSTICK_BUTTON_3 = 3;
-  public static final int MID_JOYSTICK_BUTTON_4 = 4;
-  public static final int MID_JOYSTICK_BUTTON_5 = 5;
-  public static final int MID_JOYSTICK_BUTTON_6 = 6;
-  public static final int MID_JOYSTICK_BUTTON_7 = 7;
-  public static final int MID_JOYSTICK_BUTTON_8 = 8;
-  public static final int MID_JOYSTICK_BUTTON_9 = 9;
-  public static final int MID_JOYSTICK_BUTTON_10 = 10;
-  public static final int MID_JOYSTICK_BUTTON_11 = 12;
-  public static final int MID_JOYSTICK_BUTTON_12 = 13;
-
-  //Right Joystick Button ID Constants
-  public static final int RIGHT_JOYSTICK_BUTTON_1 = 1;
-  public static final int RIGHT_JOYSTICK_BUTTON_2 = 2;
-  public static final int RIGHT_JOYSTICK_BUTTON_3 = 3;
-  public static final int RIGHT_JOYSTICK_BUTTON_4 = 4;
-  public static final int RIGHT_JOYSTICK_BUTTON_5 = 5;
-  public static final int RIGHT_JOYSTICK_BUTTON_6 = 6;
-  public static final int RIGHT_JOYSTICK_BUTTON_7 = 7;
-  public static final int RIGHT_JOYSTICK_BUTTON_8 = 8;
-  public static final int RIGHT_JOYSTICK_BUTTON_9 = 9;
-  public static final int RIGHT_JOYSTICK_BUTTON_10 = 10;
-  public static final int RIGHT_JOYSTICK_BUTTON_11 = 12;
-  public static final int RIGHT_JOYSTICK_BUTTON_12 = 13;
+  public static final int JOYSTICK_BUTTON_1 = 1;
+  public static final int JOYSTICK_BUTTON_2 = 2;
+  public static final int JOYSTICK_BUTTON_3 = 3;
+  public static final int JOYSTICK_BUTTON_4 = 4;
+  public static final int JOYSTICK_BUTTON_5 = 5;
+  public static final int JOYSTICK_BUTTON_6 = 6;
+  public static final int JOYSTICK_BUTTON_7 = 7;
+  public static final int JOYSTICK_BUTTON_8 = 8;
+  public static final int JOYSTICK_BUTTON_9 = 9;
+  public static final int JOYSTICK_BUTTON_10 = 10;
+  //TODO is this constant joystick ID button for 11 suppost to be equal to 12 and 12 equal to 13
+  public static final int JOYSTICK_BUTTON_11 = 12;
+  public static final int JOYSTICK_BUTTON_12 = 13;
 
   //Deadband for joysticks
     public static final double DEADBAND = 0;
-
-  //MotorSpeeds
-  public static final double INTAKE_MOTOR_SPEED = 1;
-  public static final double SHOOTING_MOTOR_SPEED = 1;
   
   //Internal Mover Direction/speed
-  public static final int MIDDLE_LIMIT_SWITCH = 0;
-  public static final double INTERAL_MOVER_UP = 0;
-  public static final double INTERNAL_MOVER_DOWN = 0;
-  public static final int INTERNAL_MOVER_UP_BOTTON_ID = 0;
-  public static final int INTERNAL_MOVER_DOWN_BOTTON_ID = 0;
+  public static final int MIDDLE_LIMIT_SWITCH = 9;
+  public static final double INTERAL_MOVER_UP = 1;
+  public static final double INTERNAL_MOVER_DOWN = 1;
 
   /*Game Target Location Constants: Y and X are measured from the corner of the red Source, 
   *and positive in their respective directions.*/
@@ -209,8 +175,21 @@ public static final int SHOOTING_MOTOR_ANGLE_ID = 12;
   public static final double SPEAKER_TAG_HEIGHTS = Units.inchesToMeters(57.125);
   public static final double AMP_TAG_HEIGHTS = Units.inchesToMeters(53.375);
   public static final double STAGE_TAG_HEIGHTS = Units.inchesToMeters(52);
-  public static final double LEFT_MOTOR_CLIMB_SPEED = 0;
 
+  //MotorSpeeds
+  public static final double INTAKE_MOTOR_SPEED = 0.5;
+  public static final double SHOOTING_MOTOR_SPEED = 1;
+  
+  public static final double BOTH_CLIMB_SET_SPEED = 0.1;
+  public static final double LEFT_CLIMB_SET_SPEED = 0.1;
+  public static final double RIGHT_CLIMB_SET_SPEED = 0.1;
+
+  public static final double SHOOTING_ANGLE_INCREASE_SPEED = 0.2;
+  public static final double SHOOTING_ANGLE_DECREASE_SPEED = 0.2;
+  
+  //climb min and max
+  public static final double CLIMB_MOTOR_MAX = 0;
+  public static final double CLIMB_MOTOR_MIN = 0;
 
 }
 

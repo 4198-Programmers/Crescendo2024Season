@@ -16,12 +16,16 @@ public class AutoIntake extends Command{
     }
     @Override
     public void execute() {
+        //change switchValue to flase in autoIntake (test)
+       // if (internalMoverSubsystem.noteStatus() == true) { }
         intakeSubsystem.autoIntake(Constants.INTAKE_MOTOR_SPEED);
-        internalMoverSubsystem.up();
+        internalMoverSubsystem.up(); 
     }
     
     @Override
     public boolean isFinished() {
+//TODO notestatus if else stament in execute
+
         return internalMoverSubsystem.noteStatus();
     }
 

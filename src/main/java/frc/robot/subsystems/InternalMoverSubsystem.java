@@ -17,14 +17,14 @@ DigitalInput MiddleLimitSwitch = new DigitalInput(Constants.MIDDLE_LIMIT_SWITCH)
  * transfer to shooter
  */
 public void up() {
-    internalMotor.set(Constants.INTERAL_MOVER_UP);
+    internalMotor.set(Math.abs(Constants.INTERAL_MOVER_UP));
 }
 
 /**
  * transfer out
  */
 public void down() {
-    internalMotor.set(Constants.INTERNAL_MOVER_DOWN);
+    internalMotor.set(-Math.abs(Constants.INTERNAL_MOVER_DOWN));
 }
 
 public void stop(){

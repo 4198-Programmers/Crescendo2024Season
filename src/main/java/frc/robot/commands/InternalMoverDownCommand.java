@@ -17,7 +17,7 @@ public class InternalMoverDownCommand extends Command {
     }
 
     @Override
-  public boolean isFinished() {
-    return false;
-  }
+    public void end(boolean interrupted) {
+        m_InternalMoverSubsystem.stop();
+    }
 }

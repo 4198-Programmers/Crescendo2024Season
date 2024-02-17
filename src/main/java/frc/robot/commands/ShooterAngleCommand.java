@@ -21,4 +21,5 @@ public class ShooterAngleCommand extends Command{
     public void execute() {
         shooter.setShooterAngle(angle, speed, tolerance);
     }
+
 }
