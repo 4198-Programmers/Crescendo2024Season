@@ -40,11 +40,11 @@ public class AmpBarSubsystem extends SubsystemBase{
         intakeSolenoid.set(switchValue);
     }
     public void pullAmpBarUp() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'pullAmpBarUp'");
+        switchValue = false;
     }
-    public void ampBarKillSwitch() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'ampBarKillSwitch'");
+
+    public void pushAmpBarDown(){
+        switchValue = true;
     }
+    
 }
