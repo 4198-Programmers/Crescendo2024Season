@@ -10,8 +10,8 @@ public class LeftMotorClimbDownCommand extends Command {
     double climbMin = Constants.CLIMB_MOTOR_MIN;
     double leftPosition = motorClimbSubsystem.getClimbMotorLeftPosition();
 
-    public LeftMotorClimbDownCommand(MotorClimbSubsystem motorClimbSubsystem) {
-        this.motorClimbSubsystem = motorClimbSubsystem;
+    public LeftMotorClimbDownCommand(MotorClimbSubsystem m_motorClimbSubsystem) {
+        this.motorClimbSubsystem = m_motorClimbSubsystem;
         addRequirements(motorClimbSubsystem);
     }
 

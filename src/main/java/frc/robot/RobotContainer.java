@@ -10,13 +10,11 @@ import frc.robot.subsystems.AmpBarSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.subsystems.ShootingSubsystem;
 
-
 import frc.robot.commands.InternalMoverDownCommand;
 import frc.robot.commands.InternalMoverUpCommand;
 import frc.robot.commands.AimAngleDownCommand;
 import frc.robot.commands.AimAngleupCommand;
-import frc.robot.commands.ChangeAmpBarPneumaticStateCommandDown;
-import frc.robot.commands.ChangeAmpBarPneumaticStateCommandUp;
+
 import frc.robot.commands.ChangeIntakePneumaticStateCommand;
 import frc.robot.commands.ShooterAngleCommand;
 import frc.robot.commands.ShootingMotorCommand;
@@ -56,9 +54,6 @@ public class RobotContainer {
   private ShooterAngleCommand shooterAngleCommand = new ShooterAngleCommand(shootingSubsytem, 0, 1, 0.05);
   private AimAngleDownCommand aimAngleDownCommand = new AimAngleDownCommand(shootingSubsytem); 
   private AimAngleupCommand aimAngleupCommand = new AimAngleupCommand(shootingSubsytem);
-
-  private ChangeAmpBarPneumaticStateCommandUp changeAmpBarStateUp = new ChangeAmpBarPneumaticStateCommandUp(ampBarSubsystem);
-  private ChangeAmpBarPneumaticStateCommandDown changeAmpBarStateDown = new ChangeAmpBarPneumaticStateCommandDown(ampBarSubsystem);
 
   private BothMotorClimbDownCommand bothMotorClimbDownCommand = new BothMotorClimbDownCommand(motorClimbSubsystem);
   private BothMotorClimbUpCommand bothMotorClimbUpCommand = new BothMotorClimbUpCommand(motorClimbSubsystem);
@@ -125,11 +120,6 @@ public class RobotContainer {
     internalMoverUpButton.whileTrue(internalMoverUp);
     internalMoverDownButton.whileTrue(internalMoverDown);
     shootingAngleButton.whileTrue(shooterAngleCommand);
-    
-    changeAmpBarPneumaticStateButtonUp.whileTrue(changeAmpBarStateUp);
-    changeAmpBarPneumaticStateButtonDown.whileTrue(changeAmpBarStateDown);
-
-    
     
     LeftMotorClimbButtonUp.whileTrue(leftMotorClimbUpCommand);
     LeftMotorClimbButtonDown.whileTrue(leftMotorClimbDownCommand);
