@@ -13,6 +13,8 @@ import frc.robot.subsystems.ShootingSubsystem;
 
 import frc.robot.commands.InternalMoverDownCommand;
 import frc.robot.commands.InternalMoverUpCommand;
+import frc.robot.commands.AimAngleDownCommand;
+import frc.robot.commands.AimAngleupCommand;
 import frc.robot.commands.ChangeAmpBarPneumaticStateCommandDown;
 import frc.robot.commands.ChangeAmpBarPneumaticStateCommandUp;
 import frc.robot.commands.ChangeIntakePneumaticStateCommand;
@@ -45,10 +47,16 @@ public class RobotContainer {
 
   //Commands
   private ChangeIntakePneumaticStateCommand changeIntakeState = new ChangeIntakePneumaticStateCommand(intakeSubsystem);
-  private ShootingMotorCommand shootingMotorCommand = new ShootingMotorCommand(shootingSubsytem, Constants.SHOOTING_MOTOR_SPEED);
+
+  private ShootingMotorCommand shootingMotorCommand = new ShootingMotorCommand(shootingSubsytem);
+
   private InternalMoverUpCommand internalMoverUp = new InternalMoverUpCommand(internalMoverSubsystem);
   private InternalMoverDownCommand internalMoverDown = new InternalMoverDownCommand(internalMoverSubsystem);
+  
   private ShooterAngleCommand shooterAngleCommand = new ShooterAngleCommand(shootingSubsytem, 0, 1, 0.05);
+  private AimAngleDownCommand aimAngleDownCommand = new AimAngleDownCommand(shootingSubsytem); 
+  private AimAngleupCommand aimAngleupCommand = new AimAngleupCommand(shootingSubsytem);
+
   private ChangeAmpBarPneumaticStateCommandUp changeAmpBarStateUp = new ChangeAmpBarPneumaticStateCommandUp(ampBarSubsystem);
   private ChangeAmpBarPneumaticStateCommandDown changeAmpBarStateDown = new ChangeAmpBarPneumaticStateCommandDown(ampBarSubsystem);
 
@@ -68,7 +76,9 @@ public class RobotContainer {
   //Buttons
   JoystickButton internalMoverUpButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_5);
   JoystickButton internalMoverDownButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_3);
+
   JoystickButton intakeMotorButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_2);
+
   JoystickButton shootingMotorButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_1);
 
   JoystickButton changeIntakePneumaticStateButtonUp = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_1);
@@ -76,7 +86,9 @@ public class RobotContainer {
   JoystickButton changeAmpBarPneumaticStateButtonUp = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_1);
 
   JoystickButton shootingAngleButton = new JoystickButton(rightJoystick, Constants.PLACEHOLDER_BUTTON_ID);
-  
+  JoystickButton ShootingAngleUpButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_6);
+  JoystickButton ShootingAngleDownButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_4);
+
   JoystickButton BothMotorClimbUpButton = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_8);
   JoystickButton BothMotorClimbDownButton = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_7);
   JoystickButton LeftMotorClimbButtonUp = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_5);
@@ -113,15 +125,18 @@ public class RobotContainer {
     internalMoverUpButton.whileTrue(internalMoverUp);
     internalMoverDownButton.whileTrue(internalMoverDown);
     shootingAngleButton.whileTrue(shooterAngleCommand);
+    
     changeAmpBarPneumaticStateButtonUp.whileTrue(changeAmpBarStateUp);
     changeAmpBarPneumaticStateButtonDown.whileTrue(changeAmpBarStateDown);
+
+    
     
     LeftMotorClimbButtonUp.whileTrue(leftMotorClimbUpCommand);
     LeftMotorClimbButtonDown.whileTrue(leftMotorClimbDownCommand);
     RightMotorClimbButtonUp.whileTrue(rightMotorClimbUpCommand);
     RightMotorClimbButtonDown.whileTrue(rightMotorClimbDownCommand);
     BothMotorClimbDownButton.whileTrue(bothMotorClimbDownCommand);
-    BothMotorClimbUpButton.whileTrue(bothMotorClimbDownCommand);
+    BothMotorClimbUpButton.whileTrue(bothMotorClimbUpCommand);
 
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
 
