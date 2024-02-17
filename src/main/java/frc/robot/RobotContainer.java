@@ -115,12 +115,13 @@ public class RobotContainer {
     shootingAngleButton.whileTrue(shooterAngleCommand);
     changeAmpBarPneumaticStateButtonUp.whileTrue(changeAmpBarStateUp);
     changeAmpBarPneumaticStateButtonDown.whileTrue(changeAmpBarStateDown);
-
-    changeIntakePneumaticStateButtonDown.whileTrue(changeIntakeStateDown);
-    LeftMotorClimbButtonUp.whileTrue(new LeftMotorClimbCommand(motorClimbSubsystem, Constants.LEFT_MOTOR_CLIMB_SPEED));
-    LeftMotorClimbButtonDown.whileTrue(new LeftMotorClimbCommand(motorClimbSubsystem, Constants.LEFT_MOTOR_CLIMB_SPEED));
-    RightMotorClimbButtonUp.whileTrue(new RightMotorClimbCommand(motorClimbSubsystem, Constants.RIGHT_MOTOR_CLIMB_SPEED));
-    RightMotorClimbButtonDown.whileTrue(new RightMotorClimbCommand(motorClimbSubsystem, Constants.RIGHT_MOTOR_CLIMB_SPEED));
+    
+    LeftMotorClimbButtonUp.whileTrue(leftMotorClimbUpCommand);
+    LeftMotorClimbButtonDown.whileTrue(leftMotorClimbDownCommand);
+    RightMotorClimbButtonUp.whileTrue(rightMotorClimbUpCommand);
+    RightMotorClimbButtonDown.whileTrue(rightMotorClimbDownCommand);
+    BothMotorClimbDownButton.whileTrue(bothMotorClimbDownCommand);
+    BothMotorClimbUpButton.whileTrue(bothMotorClimbDownCommand);
 
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
 
