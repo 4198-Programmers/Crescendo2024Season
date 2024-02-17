@@ -66,22 +66,23 @@ public class RobotContainer {
 
   
   //Buttons
-  JoystickButton internalMoverUpButton = new JoystickButton(middleJoystick, Constants.PLACEHOLDER_BUTTON_ID);
-  JoystickButton internalMoverDownButton = new JoystickButton(middleJoystick, Constants.PLACEHOLDER_BUTTON_ID);
-  JoystickButton intakeMotorButton = new JoystickButton(leftJoystick, Constants.PLACEHOLDER_BUTTON_ID);
-  JoystickButton shootingMotorButton = new JoystickButton(rightJoystick, Constants.PLACEHOLDER_BUTTON_ID);
+  JoystickButton internalMoverUpButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_1);
+  JoystickButton internalMoverDownButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_1);
+  JoystickButton intakeMotorButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_1);
+  JoystickButton shootingMotorButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_1);
 
-  JoystickButton changeIntakePneumaticStateButtonUp = new JoystickButton(middleJoystick, Constants.MID_JOYSTICK_BUTTON_2);
-  JoystickButton changeAmpBarPneumaticStateButtonDown = new JoystickButton(middleJoystick, Constants.MID_JOYSTICK_BUTTON_3);
-  JoystickButton changeAmpBarPneumaticStateButtonUp = new JoystickButton(middleJoystick, Constants.MID_JOYSTICK_BUTTON_5);
+  JoystickButton changeIntakePneumaticStateButtonUp = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_1);
+  JoystickButton changeAmpBarPneumaticStateButtonDown = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_1);
+  JoystickButton changeAmpBarPneumaticStateButtonUp = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_1);
 
   JoystickButton shootingAngleButton = new JoystickButton(rightJoystick, Constants.PLACEHOLDER_BUTTON_ID);
   
-  JoystickButton BothMotorClimbDownButton = new JoystickButton(middleJoystick, Constants.)
-  JoystickButton LeftMotorClimbButtonUp = new JoystickButton(middleJoystick, Constants.PLACEHOLDER_BUTTON_ID);
-  JoystickButton LeftMotorClimbButtonDown = new JoystickButton(middleJoystick, Constants.PLACEHOLDER_BUTTON_ID);
-  JoystickButton RightMotorClimbButtonUp = new JoystickButton(middleJoystick, Constants.PLACEHOLDER_BUTTON_ID);
-  JoystickButton RightMotorClimbButtonDown = new JoystickButton(middleJoystick, Constants.PLACEHOLDER_BUTTON_ID);
+  JoystickButton BothMotorClimbUpButton = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_1)
+  JoystickButton BothMotorClimbDownButton = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_1)
+  JoystickButton LeftMotorClimbButtonUp = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_1);
+  JoystickButton LeftMotorClimbButtonDown = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_1);
+  JoystickButton RightMotorClimbButtonUp = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_1);
+  JoystickButton RightMotorClimbButtonDown = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_1);
  
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
