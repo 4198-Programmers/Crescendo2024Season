@@ -11,8 +11,8 @@ public class BothMotorClimbUpCommand extends Command{
     double leftPosition = motorClimbSubsystem.getClimbMotorLeftPosition();
     double rightPosition = motorClimbSubsystem.getClimbMotorRightPosition();
 
-    public BothMotorClimbUpCommand(MotorClimbSubsystem motorClimbSubsystem) {
-        this.motorClimbSubsystem = motorClimbSubsystem;
+    public BothMotorClimbUpCommand(MotorClimbSubsystem m_motorClimbSubsystem) {
+        this.motorClimbSubsystem = m_motorClimbSubsystem;
         addRequirements(motorClimbSubsystem);
     }
 

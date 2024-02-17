@@ -10,7 +10,6 @@ import frc.robot.subsystems.AmpBarSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.subsystems.ShootingSubsystem;
 
-
 import frc.robot.commands.InternalMoverDownCommand;
 import frc.robot.commands.InternalMoverUpCommand;
 import frc.robot.commands.MoveAmpMotorDown;
@@ -19,6 +18,11 @@ import frc.robot.commands.MoveIntakeDown;
 import frc.robot.commands.MoveIntakeUp;
 import frc.robot.commands.AimAngleDownCommand;
 import frc.robot.commands.AimAngleupCommand;
+<<<<<<< HEAD
+=======
+
+import frc.robot.commands.ChangeIntakePneumaticStateCommand;
+>>>>>>> 2eb5539959f237a217abd92942b47dfd52f92ba3
 import frc.robot.commands.ShooterAngleCommand;
 import frc.robot.commands.ShootingMotorCommand;
 import frc.robot.commands.ClimbCommands.BothMotorClimbDownCommand;
@@ -132,7 +136,6 @@ public class RobotContainer {
     moveIntakeDownButton.whileTrue(moveIntakeDown);
     moveIntakeUpButton.whileTrue(moveIntakeUp);
 
-    
     
     LeftMotorClimbButtonUp.whileTrue(leftMotorClimbUpCommand);
     LeftMotorClimbButtonDown.whileTrue(leftMotorClimbDownCommand);
