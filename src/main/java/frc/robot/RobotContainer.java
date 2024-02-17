@@ -18,11 +18,7 @@ import frc.robot.commands.MoveIntakeDown;
 import frc.robot.commands.MoveIntakeUp;
 import frc.robot.commands.AimAngleDownCommand;
 import frc.robot.commands.AimAngleupCommand;
-<<<<<<< HEAD
-=======
 
-import frc.robot.commands.ChangeIntakePneumaticStateCommand;
->>>>>>> 2eb5539959f237a217abd92942b47dfd52f92ba3
 import frc.robot.commands.ShooterAngleCommand;
 import frc.robot.commands.ShootingMotorCommand;
 import frc.robot.commands.ClimbCommands.BothMotorClimbDownCommand;
@@ -128,7 +124,7 @@ public class RobotContainer {
     shootingMotorButton.whileTrue(shootingMotorCommand);
     internalMoverUpButton.whileTrue(internalMoverUp);
     internalMoverDownButton.whileTrue(internalMoverDown);
-    shootingAngleButton.whileTrue(shooterAngleCommand);
+   // shootingAngleButton.whileTrue(shooterAngleCommand);
     
     moveAmpBarDownButton.whileTrue(moveAmpMotorDown);
     moveAmpBarUpButton.whileTrue(moveAmpMotorUp);
