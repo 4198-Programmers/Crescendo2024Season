@@ -147,7 +147,7 @@ public final class Constants {
     public static final double DEADBAND = 0;
   
   //Internal Mover Direction/speed
-  public static final int MIDDLE_LIMIT_SWITCH = 0;
+  public static final int MIDDLE_LIMIT_SWITCH = 9;
   public static final double INTERAL_MOVER_UP = 1;
   public static final double INTERNAL_MOVER_DOWN = 1;
 
