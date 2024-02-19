@@ -1,5 +1,6 @@
 package frc.robot.commands.swervedrive;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.swervedrive.IntakeSubsystem;
@@ -9,7 +10,8 @@ public class IntakeCommand extends Command{
     public IntakeSubsystem intakeSubsystem;
     public InternalMoverSubsystem internalMoverSubsystem; 
     public double speed; 
-//TODO check if speed should be set negative here
+    public DigitalInput digitalInput;
+
     public IntakeCommand(IntakeSubsystem intakeSubsystem, InternalMoverSubsystem internalMoverSubsystem, double speed){
         this.intakeSubsystem = intakeSubsystem; 
         this.internalMoverSubsystem = internalMoverSubsystem;
