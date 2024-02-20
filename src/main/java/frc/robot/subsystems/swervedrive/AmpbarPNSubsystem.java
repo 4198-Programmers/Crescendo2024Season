@@ -1,6 +1,5 @@
 package frc.robot.subsystems.swervedrive;
 
-import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -9,11 +8,10 @@ import frc.robot.Constants;
 public class AmpbarPNSubsystem extends SubsystemBase {
     private Solenoid ampbarPN = new Solenoid(PneumaticsModuleType.CTREPCM, Constants.AMP_BAR_PN_ID);
     public boolean switchValue = false;
-    Compressor compressor;
+    //compressor is enabled in the constructor for robot container
     
-    public AmpbarPNSubsystem(Compressor compressor){
+    public AmpbarPNSubsystem(){
         this.initialize();
-        this.compressor = compressor;
     }
 
     public void initialize(){
@@ -25,10 +23,6 @@ public class AmpbarPNSubsystem extends SubsystemBase {
     }
     public void pullAmpBarUp(){
         ampbarPN.set(true);
-    }
-
-    public void toggle(){
-        ampbarPN.toggle();
     }
     
     public void pushAmpBarChoose(boolean switchValue){
