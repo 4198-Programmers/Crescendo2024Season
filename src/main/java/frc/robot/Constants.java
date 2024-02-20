@@ -93,6 +93,7 @@ public static final int JOYSTICK_BUTTON_10 = 10;
 public static final int JOYSTICK_BUTTON_11 = 11;
 public static final int JOYSTICK_BUTTON_12 = 12;
 public static final int INTAKE_SENOR = 0;
+public static final int MAX_SHOOTING_SPEED = 0;
 
 
 
