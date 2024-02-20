@@ -14,7 +14,6 @@ import frc.robot.Constants;
 public class IntakeSubsystem extends SubsystemBase {
     private CANSparkMax intakeMotor = new CANSparkMax(Constants.INTAKE_MOTOR_ID, MotorType.kBrushless);
     
-    private Solenoid intakeSolenoid = new Solenoid(PneumaticsModuleType.CTREPCM, Constants.INTAKE_PNEUMATIC_CHANNEL);
     DigitalInput intakeSenor = new DigitalInput(Constants.INTAKE_SENOR);
         
     
@@ -31,31 +30,7 @@ public class IntakeSubsystem extends SubsystemBase {
         intakeMotor.set(0);
     }
 
-//pnumatics 
-public void PnClose(){
-    intakeSolenoid.set(false);
 
-}
-
-public void PnOpen(){
-    intakeSolenoid.set(true);
-
-}
-
-public void intakePnKillSwitch(){
-    intakeSolenoid.set(false);
-}
-
-//combined
-
-public void autoIntake(double speed){
-    intakeSolenoid.set(true);
-    intakeMotor.set(speed);
-}
-
-
-public void initialize(){
-    intakeSolenoid.set(false);
-}
+public void initialize(){}
     
 }
