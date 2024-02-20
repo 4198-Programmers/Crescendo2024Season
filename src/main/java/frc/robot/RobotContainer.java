@@ -4,6 +4,7 @@
 
 package frc.robot;
 
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
@@ -99,6 +100,7 @@ public class RobotContainer
 
    public RobotContainer()
   {
+    CameraServer.startAutomaticCapture();
     compressor.enableDigital();
     // Configure the trigger bindings
     configureBindings();
