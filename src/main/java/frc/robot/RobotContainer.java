@@ -99,6 +99,7 @@ public class RobotContainer
 
    public RobotContainer()
   {
+    compressor.enableDigital();
     // Configure the trigger bindings
     configureBindings();
 //Swerve buttons (DO NOT TOUCH)
