@@ -9,10 +9,12 @@ import frc.robot.Constants;
 
 public class ShootingSubsystem extends SubsystemBase{
     private CANSparkMax shootingMotor = new CANSparkMax(Constants.SHOOTER_MOTOR_ID, MotorType.kBrushless);
+    private CANSparkMax shootingMotor2 = new CANSparkMax(Constants.SHOOTER_MOTOR_2_ID, MotorType.kBrushless);
     private RelativeEncoder shooterEncoder = shootingMotor.getEncoder();
 
 public void shootOut(double speed){
     shootingMotor.set(speed);
+    shootingMotor2.set(- speed);
 }
 
 public void stop(){
