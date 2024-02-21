@@ -4,6 +4,7 @@
 
 package frc.robot;
 
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
@@ -22,8 +23,11 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Constants.OperatorConstants;
-import frc.robot.commands.swervedrive.AmpbarPNCommand;
+import frc.robot.commands.swervedrive.ChangeAmpBarPneumaticStateCommandDown;
+import frc.robot.commands.swervedrive.ChangeAmpBarPneumaticStateCommandUp;
 import frc.robot.commands.swervedrive.IntakeCommand;
+import frc.robot.commands.swervedrive.IntakePneumaticsDown;
+import frc.robot.commands.swervedrive.IntakePneumaticsUp;
 import frc.robot.commands.swervedrive.InternalMoverCommand;
 import frc.robot.commands.swervedrive.LeftClimbCommand;
 import frc.robot.commands.swervedrive.RightClimbCommand;
@@ -32,6 +36,7 @@ import frc.robot.commands.swervedrive.ShootingCommand;
 import frc.robot.commands.swervedrive.zeroGyro;
 import frc.robot.commands.swervedrive.drivebase.AbsoluteDriveAdv;
 import frc.robot.subsystems.swervedrive.AmpbarPNSubsystem;
+import frc.robot.subsystems.swervedrive.IntakePneumaticsSubsystem;
 import frc.robot.subsystems.swervedrive.IntakeSubsystem;
 import frc.robot.subsystems.swervedrive.InternalMoverSubsystem;
 import frc.robot.subsystems.swervedrive.LeftClimbSubsystem;
@@ -78,8 +83,8 @@ public class RobotContainer
   //commands
   private IntakePneumaticsDown intakePneumaticsDown = new IntakePneumaticsDown(intakePneumaticsSubsystem);
   private IntakePneumaticsUp intakePneumaticsUp = new IntakePneumaticsUp(intakePneumaticsSubsystem);
-  private ChangeAmpBarPneumaticStateCommandDown pullAmpBarDown = new ChangeAmpBarPneumaticStateCommandDown(AmpBarPNSubsystem);
-  private ChangeAmpBarPneumaticStateCommandUp pushAmpBarUp = new ChangeAmpBarPneumaticStateCommandUp(AmpbarPNSubsystem);
+  private ChangeAmpBarPneumaticStateCommandDown pullAmpBarDown = new ChangeAmpBarPneumaticStateCommandDown(ampbarPNSubsystem);
+  private ChangeAmpBarPneumaticStateCommandUp pushAmpBarUp = new ChangeAmpBarPneumaticStateCommandUp(ampbarPNSubsystem);
 
 
   //Joysticks 
@@ -91,6 +96,10 @@ public class RobotContainer
     JoystickButton intakeInButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_1);
     JoystickButton intakeOutButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_2);
     JoystickButton zeroGyroButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_11);
+    JoystickButton ampDownButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_2);
+    JoystickButton ampUpButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_3);
+    JoystickButton intakePneumaticsUpButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_4);
+    JoystickButton intakePneumaticsDownButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_5);
 
     JoystickButton interalMoverUpButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_5);
     JoystickButton interalMoverDownButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_3);
@@ -103,14 +112,12 @@ public class RobotContainer
     JoystickButton lClimbDownButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_7);
     JoystickButton bClimbDownButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_11);
     JoystickButton bClimbUpButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_12);
-    JoystickButton ampDownButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_2);
-    JoystickButton ampUpButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_3);
-    JoystickButton intakePneumaticUpButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_4);
-    JoystickButton intakePneumaticsDownButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_5);
+
 
 
    public RobotContainer()
   {
+    CameraServer.startAutomaticCapture();
     compressor.enableDigital();
     // Configure the trigger bindings
     configureBindings();
@@ -186,19 +193,19 @@ interalMoverDownButton.whileTrue(new InternalMoverCommand(internalMoverSubsystem
 shooterAngleUpButton.whileTrue(new ShootingAngleCommand(shootingAngleSubsytems, -Constants.SHOOTING_MOTOR_SPEED));
 shooterAngleDownButton.whileTrue(new ShootingAngleCommand(shootingAngleSubsytems, Constants.SHOOTING_MOTOR_SPEED));
 shootingButton.whileTrue(new ShootingCommand(shootingSubsystem, Constants.SHOOTING_MOTOR_SPEED));
-lClimbUpButton.whileTrue(new LeftClimbCommand(leftClimbSubsystem, Constants.CLIMB_SPEED));
-lClimbDownButton.whileTrue(new LeftClimbCommand(leftClimbSubsystem, -Constants.CLIMB_SPEED));
-rClimbUpButton.whileTrue(new RightClimbCommand(rightClimbSubsystem, Constants.CLIMB_SPEED));
-rClimbDownButton.whileTrue(new RightClimbCommand(rightClimbSubsystem, -Constants.CLIMB_SPEED));
-bClimbUpButton.whileTrue(new RightClimbCommand(rightClimbSubsystem, Constants.CLIMB_SPEED)
-  .alongWith(new LeftClimbCommand(leftClimbSubsystem, Constants.CLIMB_SPEED)));
-bClimbDownButton.whileTrue(new RightClimbCommand(rightClimbSubsystem, -Constants.CLIMB_SPEED)
-  .alongWith(new LeftClimbCommand(leftClimbSubsystem, -Constants.CLIMB_SPEED)));
+lClimbUpButton.whileTrue(new LeftClimbCommand(leftClimbSubsystem, Constants.CLIMB_SPEED, rightJoystick.getThrottle()));
+lClimbDownButton.whileTrue(new LeftClimbCommand(leftClimbSubsystem, -Constants.CLIMB_SPEED, rightJoystick.getThrottle()));
+rClimbUpButton.whileTrue(new RightClimbCommand(rightClimbSubsystem, Constants.CLIMB_SPEED, rightJoystick.getThrottle()));
+rClimbDownButton.whileTrue(new RightClimbCommand(rightClimbSubsystem, -Constants.CLIMB_SPEED, rightJoystick.getThrottle()));
+bClimbUpButton.whileTrue(new RightClimbCommand(rightClimbSubsystem, Constants.CLIMB_SPEED, rightJoystick.getThrottle())
+  .alongWith(new LeftClimbCommand(leftClimbSubsystem, Constants.CLIMB_SPEED, rightJoystick.getThrottle())));
+bClimbDownButton.whileTrue(new RightClimbCommand(rightClimbSubsystem, -Constants.CLIMB_SPEED, rightJoystick.getThrottle())
+  .alongWith(new LeftClimbCommand(leftClimbSubsystem, -Constants.CLIMB_SPEED, rightJoystick.getThrottle())));
+
   ampDownButton.whileTrue(pullAmpBarDown);
   ampUpButton.whileTrue(pushAmpBarUp);
   intakePneumaticsDownButton.whileTrue(intakePneumaticsDown);
   intakePneumaticsUpButton.whileTrue(intakePneumaticsUp);
-
 }
 
   /**
