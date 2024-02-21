@@ -99,8 +99,8 @@ public class RobotContainer
     JoystickButton intakeInButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_1);
     JoystickButton intakeOutButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_2);
     JoystickButton zeroGyroButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_11);
-    JoystickButton ampDownButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_2);
-    JoystickButton ampUpButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_3);
+    JoystickButton ampDownButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_7);
+    JoystickButton ampUpButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_8);
     JoystickButton intakePneumaticsUpButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_4);
     JoystickButton intakePneumaticsDownButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_5);
 
@@ -211,7 +211,7 @@ bClimbDownButton.whileTrue(new RightClimbCommand(rightClimbSubsystem, -Constants
   ampUpButton.whileTrue(pushAmpBarUp);
   intakePneumaticsDownButton.whileTrue(intakePneumaticsDown);
   intakePneumaticsUpButton.whileTrue(intakePneumaticsUp);
-  
+
   autoShoot.whileTrue(new AutoShootingCommand(shootingSubsystem, internalMoverSubsystem, 1, 0.5));
 }
 
