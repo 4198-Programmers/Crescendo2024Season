@@ -89,7 +89,6 @@ public class RobotContainer
   private ChangeAmpBarPneumaticStateCommandDown pullAmpBarDown = new ChangeAmpBarPneumaticStateCommandDown(ampbarPNSubsystem);
   private ChangeAmpBarPneumaticStateCommandUp pushAmpBarUp = new ChangeAmpBarPneumaticStateCommandUp(ampbarPNSubsystem);
 
-
   //Joysticks 
    Joystick rightJoystick = new Joystick(Constants.RIGHT_JOYSTICK_ID);
    Joystick middleJoystick = new Joystick(Constants.MIDDLE_JOYSTICK_ID);
@@ -115,9 +114,7 @@ public class RobotContainer
     JoystickButton lClimbDownButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_7);
     JoystickButton bClimbDownButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_11);
     JoystickButton bClimbUpButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_12);
-
-
-    
+   
     JoystickButton autoShoot = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_1);
 
    public RobotContainer()
