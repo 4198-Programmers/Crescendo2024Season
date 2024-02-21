@@ -12,16 +12,16 @@ public class RightClimbCommand extends Command{
         this.rightClimbSubsystem = rightClimbSubsystem;
         this.speed = speed;
         this.throttle = throttle;
-        addRequirements(rightClimbSubsystem);
+        addRequirements(this.rightClimbSubsystem);
     }
      
     @Override
     public void execute() {
-        rightClimbSubsystem.move(this.speed * this.throttle);
+        this.rightClimbSubsystem.move(this.speed * this.throttle);
     }
 
     @Override
     public void end(boolean interrupted) {
-        rightClimbSubsystem.stop();
+        this.rightClimbSubsystem.stop();
     }
 }

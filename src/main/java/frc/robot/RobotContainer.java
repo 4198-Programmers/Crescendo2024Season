@@ -34,6 +34,7 @@ import frc.robot.commands.swervedrive.RightClimbCommand;
 import frc.robot.commands.swervedrive.ShootingAngleCommand;
 import frc.robot.commands.swervedrive.ShootingCommand;
 import frc.robot.commands.swervedrive.zeroGyro;
+import frc.robot.commands.swervedrive.auto.AutoShootingCommand;
 import frc.robot.commands.swervedrive.drivebase.AbsoluteDriveAdv;
 import frc.robot.subsystems.swervedrive.AmpbarPNSubsystem;
 import frc.robot.subsystems.swervedrive.IntakePneumaticsSubsystem;
@@ -77,6 +78,8 @@ public class RobotContainer
   private final ShootingSubsystem shootingSubsystem = new ShootingSubsystem();
   private final LeftClimbSubsystem leftClimbSubsystem = new LeftClimbSubsystem();
   private final RightClimbSubsystem rightClimbSubsystem = new RightClimbSubsystem();
+
+  private final AutoShootingCommand autoShootingCommand = new AutoShootingCommand(shootingSubsystem, internalMoverSubsystem, 1, 0.5);
   private AmpbarPNSubsystem ampbarPNSubsystem = new AmpbarPNSubsystem();
   private IntakePneumaticsSubsystem intakePneumaticsSubsystem = new IntakePneumaticsSubsystem();
 
@@ -114,6 +117,8 @@ public class RobotContainer
     JoystickButton bClimbUpButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_12);
 
 
+    
+    JoystickButton autoShoot = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_1);
 
    public RobotContainer()
   {
@@ -192,7 +197,7 @@ interalMoverUpButton.whileTrue(new InternalMoverCommand(internalMoverSubsystem, 
 interalMoverDownButton.whileTrue(new InternalMoverCommand(internalMoverSubsystem, -Constants.INTERNAL_MOVER_SPEED));
 shooterAngleUpButton.whileTrue(new ShootingAngleCommand(shootingAngleSubsytems, -Constants.SHOOTING_MOTOR_SPEED));
 shooterAngleDownButton.whileTrue(new ShootingAngleCommand(shootingAngleSubsytems, Constants.SHOOTING_MOTOR_SPEED));
-shootingButton.whileTrue(new ShootingCommand(shootingSubsystem, Constants.SHOOTING_MOTOR_SPEED));
+//shootingButton.whileTrue(new ShootingCommand(shootingSubsystem, Constants.SHOOTING_MOTOR_SPEED));
 lClimbUpButton.whileTrue(new LeftClimbCommand(leftClimbSubsystem, Constants.CLIMB_SPEED, rightJoystick.getThrottle()));
 lClimbDownButton.whileTrue(new LeftClimbCommand(leftClimbSubsystem, -Constants.CLIMB_SPEED, rightJoystick.getThrottle()));
 rClimbUpButton.whileTrue(new RightClimbCommand(rightClimbSubsystem, Constants.CLIMB_SPEED, rightJoystick.getThrottle()));
@@ -206,6 +211,8 @@ bClimbDownButton.whileTrue(new RightClimbCommand(rightClimbSubsystem, -Constants
   ampUpButton.whileTrue(pushAmpBarUp);
   intakePneumaticsDownButton.whileTrue(intakePneumaticsDown);
   intakePneumaticsUpButton.whileTrue(intakePneumaticsUp);
+  
+  autoShoot.whileTrue(new AutoShootingCommand(shootingSubsystem, internalMoverSubsystem, 1, 0.5));
 }
 
   /**
