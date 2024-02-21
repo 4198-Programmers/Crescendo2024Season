@@ -18,7 +18,7 @@ public class AutoIntakeCommand extends Command{
         this.intakeSubsystem = intakeSubsystem; 
         this.internalMoverSubsystem = internalMoverSubsystem;
         this.speed = speed; 
-    addRequirements(intakeSubsystem);
+    addRequirements(intakeSubsystem, internalMoverSubsystem);
     }
 
     @Override

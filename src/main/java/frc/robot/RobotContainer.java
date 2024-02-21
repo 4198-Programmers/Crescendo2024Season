@@ -34,6 +34,7 @@ import frc.robot.commands.swervedrive.RightClimbCommand;
 import frc.robot.commands.swervedrive.ShootingAngleCommand;
 import frc.robot.commands.swervedrive.ShootingCommand;
 import frc.robot.commands.swervedrive.zeroGyro;
+import frc.robot.commands.swervedrive.auto.AutoIntakeCommand;
 import frc.robot.commands.swervedrive.auto.AutoShootingCommand;
 import frc.robot.commands.swervedrive.drivebase.AbsoluteDriveAdv;
 import frc.robot.subsystems.swervedrive.AmpbarPNSubsystem;
@@ -95,13 +96,14 @@ public class RobotContainer
    Joystick leftJoystick = new Joystick(Constants.LEFT_JOYSTICK_ID);
 
    //buttons 
-    JoystickButton intakeInButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_1);
+    //JoystickButton intakeInButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_1);
     JoystickButton intakeOutButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_2);
     JoystickButton zeroGyroButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_11);
     JoystickButton ampDownButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_7);
     JoystickButton ampUpButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_8);
     JoystickButton intakePneumaticsUpButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_4);
     JoystickButton intakePneumaticsDownButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_5);
+    JoystickButton autoIntakeButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_1);
 
     JoystickButton interalMoverUpButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_5);
     JoystickButton interalMoverDownButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_3);
@@ -188,7 +190,7 @@ public class RobotContainer
   
 //non swerve button binding
 zeroGyroButton.whileTrue(new zeroGyro(drivebase));
-intakeInButton.whileTrue(new IntakeCommand(intakeSubsystem, internalMoverSubsystem, -Constants.INTAKE_MOTOR_SPEED));
+//intakeInButton.whileTrue(new IntakeCommand(intakeSubsystem, internalMoverSubsystem, -Constants.INTAKE_MOTOR_SPEED));
 intakeOutButton.whileTrue(new IntakeCommand(intakeSubsystem, internalMoverSubsystem,  Constants.INTAKE_MOTOR_SPEED));
 interalMoverUpButton.whileTrue(new InternalMoverCommand(internalMoverSubsystem, Constants.INTERNAL_MOVER_SPEED));
 interalMoverDownButton.whileTrue(new InternalMoverCommand(internalMoverSubsystem, -Constants.INTERNAL_MOVER_SPEED));
@@ -210,6 +212,9 @@ bClimbDownButton.whileTrue(new RightClimbCommand(rightClimbSubsystem, -Constants
   intakePneumaticsUpButton.whileTrue(intakePneumaticsUp);
 
   autoShootButton.whileTrue(new AutoShootingCommand(shootingSubsystem, internalMoverSubsystem, 1, 0.5));
+  
+  autoIntakeButton.whileTrue(new AutoIntakeCommand(intakeSubsystem, internalMoverSubsystem, 1));
+
 }
 
   /**

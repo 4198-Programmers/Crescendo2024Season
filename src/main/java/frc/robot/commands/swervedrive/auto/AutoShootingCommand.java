@@ -15,12 +15,12 @@ public class AutoShootingCommand extends Command {
         this.shootingSubsystem = shootingSubsytems;
         this.internalMoverSubsystem = internalMoverSubsystem;
         this.speedShoot = speedShoot;
+        this.speedInteralMover = speedInteralMover;
         addRequirements(shootingSubsytems, internalMoverSubsystem);
     }
 
     @Override
     public void execute() {
-
         shootingSubsystem.shootOut(speedShoot);
 
         System.out.println("shooter speed" + shootingSubsystem.getSpeed());
