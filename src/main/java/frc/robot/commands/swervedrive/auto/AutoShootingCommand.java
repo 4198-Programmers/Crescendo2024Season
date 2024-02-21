@@ -21,8 +21,10 @@ public class AutoShootingCommand extends Command {
     public void execute() {
 
         shootingSubsystem.shootOut(speedShoot);
-        
-        if (Constants.MAX_SHOOTING_SPEED >= shootingSubsystem.getSpeed()){
+
+        System.out.println("shooter speed" + shootingSubsystem.getSpeed());
+
+        if (Constants.MAX_SHOOTING_SPEED <= shootingSubsystem.getSpeed()){
             internalMoverSubsystem.move(speedInteralMover);
         }
     }
@@ -30,5 +32,6 @@ public class AutoShootingCommand extends Command {
     @Override
     public void end(boolean interrupted) {
         shootingSubsystem.stop();
+        internalMoverSubsystem.stop();
     }
 }
