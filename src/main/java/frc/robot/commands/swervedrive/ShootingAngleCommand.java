@@ -21,7 +21,9 @@ public class ShootingAngleCommand extends Command {
     @Override
     public void execute(){
         if(!shootingAngleSubsytems.checkSwitch()) {
-        shootingAngleSubsytems.move(this.speed);   
+        shootingAngleSubsytems.move(this.speed);
+        } else {
+            shootingAngleSubsytems.resetAngle();
         }
      }
 

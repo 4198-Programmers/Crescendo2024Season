@@ -14,7 +14,7 @@ public class AutoShootingCommand extends Command {
     public AutoShootingCommand(ShootingSubsystem shootingSubsytems, InternalMoverSubsystem internalMoverSubsystem, double speedShoot, double speedInteralMover){
         this.shootingSubsystem = shootingSubsytems;
         this.internalMoverSubsystem = internalMoverSubsystem;
-        this.speedShoot = speedShoot;
+        this.speedShoot = -speedShoot;
         this.speedInteralMover = speedInteralMover;
         addRequirements(shootingSubsytems, internalMoverSubsystem);
     }
