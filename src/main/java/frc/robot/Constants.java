@@ -56,7 +56,7 @@ public static final int SHOOTER__ANGLE_MOTOR_ID = 12;
 public static final int SHOOTER_MOTOR_ID = 6;
 public static final int LEFT_CLIMB_MOTOR_ID = 14;
 public static final int RIGHT_CLIMB_MOTOR_ID = 13;
-public static final int AMP_BAR_PN_ID = 4;
+public static final int AMP_BAR_PN_ID = 5;
 public static final int BOTTOM_LIMIT_SWITCH_ID = 0;
 
 //motor speeds
