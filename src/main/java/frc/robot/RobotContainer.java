@@ -107,7 +107,7 @@ public class RobotContainer
     JoystickButton interalMoverDownButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_3);
     JoystickButton shooterAngleUpButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_6);
     JoystickButton shooterAngleDownButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_4);
-    JoystickButton shootingButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_1);
+    //JoystickButton shootingButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_1);
     JoystickButton rClimbUpButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_10);
     JoystickButton rClimbDownButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_9);
     JoystickButton lClimbUpButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_8);
