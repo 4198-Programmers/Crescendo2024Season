@@ -19,6 +19,7 @@ public void shootOut(double speed){
 
 public void stop(){
     shootingMotor.set(0);
+    shootingMotor2.set(getSpeed());
 }
 
 public double getSpeed(){
