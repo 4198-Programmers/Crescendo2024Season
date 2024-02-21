@@ -23,7 +23,6 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Constants.OperatorConstants;
-import frc.robot.commands.swervedrive.AmpbarPNCommand;
 import frc.robot.commands.swervedrive.IntakeCommand;
 import frc.robot.commands.swervedrive.InternalMoverCommand;
 import frc.robot.commands.swervedrive.LeftClimbCommand;
@@ -74,9 +73,8 @@ public class RobotContainer
   private final ShootingSubsystem shootingSubsystem = new ShootingSubsystem();
   private final LeftClimbSubsystem leftClimbSubsystem = new LeftClimbSubsystem();
   private final RightClimbSubsystem rightClimbSubsystem = new RightClimbSubsystem();
-  private final AmpbarPNSubsystem ampbarPNSubsystem = new AmpbarPNSubsystem(compressor);
 
-  private final AutoShootingCommand autoShootingCommand = new AutoShootingCommand(shootingSubsystem, internalMoverSubsystem, 1, 0.5)
+  private final AutoShootingCommand autoShootingCommand = new AutoShootingCommand(shootingSubsystem, internalMoverSubsystem, 1, 0.5);
 
   //Joysticks 
    Joystick rightJoystick = new Joystick(Constants.RIGHT_JOYSTICK_ID);
@@ -189,7 +187,7 @@ bClimbUpButton.whileTrue(new RightClimbCommand(rightClimbSubsystem, Constants.CL
   .alongWith(new LeftClimbCommand(leftClimbSubsystem, Constants.CLIMB_SPEED, rightJoystick.getThrottle())));
 bClimbDownButton.whileTrue(new RightClimbCommand(rightClimbSubsystem, -Constants.CLIMB_SPEED, rightJoystick.getThrottle())
   .alongWith(new LeftClimbCommand(leftClimbSubsystem, -Constants.CLIMB_SPEED, rightJoystick.getThrottle())));
-ampButton.onTrue(new AmpbarPNCommand(ampbarPNSubsystem));
+//ampButton.onTrue(new AmpbarPNCommand(ampbarPNSubsystem));
 
 autoShoot.whileTrue(new AutoShootingCommand(shootingSubsystem, internalMoverSubsystem, 1, 0.5));
 }
