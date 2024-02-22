@@ -80,7 +80,6 @@ public class RobotContainer
   private final LeftClimbSubsystem leftClimbSubsystem = new LeftClimbSubsystem();
   private final RightClimbSubsystem rightClimbSubsystem = new RightClimbSubsystem();
 
-  private final AutoShootingCommand autoShootingCommand = new AutoShootingCommand(shootingSubsystem, internalMoverSubsystem, 1, 0.5);
   private AmpbarPNSubsystem ampbarPNSubsystem = new AmpbarPNSubsystem();
   private IntakePneumaticsSubsystem intakePneumaticsSubsystem = new IntakePneumaticsSubsystem();
 
@@ -103,6 +102,7 @@ public class RobotContainer
     JoystickButton ampUpButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_8);
     JoystickButton intakePneumaticsUpButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_4);
     JoystickButton intakePneumaticsDownButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_5);
+    
     JoystickButton autoIntakeButton = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_1);
 
     JoystickButton interalMoverUpButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_5);
