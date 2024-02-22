@@ -20,6 +20,8 @@ public class ShootingAngleCommand extends Command {
 
     @Override
     public void execute(){
+        System.out.println("limitSwitch" + shootingAngleSubsytems.checkSwitch());
+        
         if(!shootingAngleSubsytems.checkSwitch()) {
         shootingAngleSubsytems.move(this.speed);
         } else {
