@@ -66,7 +66,7 @@ public static final double SHOOTING_MOTOR_SPEED = 1;
 public static final double CLIMB_SPEED = 0.5;
 
 // max 
-public static final double MAX_SHOOTING_SPEED = 100;
+public static final double MAX_SHOOTING_SPEED = 5000;
 
 //swtiches 
 public static final int MIDDLE_LIMIT_SWITCH_ID = 8;

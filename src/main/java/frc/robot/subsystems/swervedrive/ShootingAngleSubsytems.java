@@ -11,7 +11,7 @@ import frc.robot.Constants;
 public class ShootingAngleSubsytems extends SubsystemBase{
     private CANSparkMax shootingAngleMotor = new CANSparkMax(Constants.SHOOTER__ANGLE_MOTOR_ID, MotorType.kBrushless);
     private RelativeEncoder shootingAngleEncoder = shootingAngleMotor.getEncoder();
-    //TODO add limit swtich that prevents it from runnign into the electronic pannels in the front
+    //TODO add limit swtich that prevents it from running into the electronic pannels in the front
     private DigitalInput bottomlimitSwitch = new DigitalInput(Constants.BOTTOM_LIMIT_SWITCH_ID);
     public void move(double speed){
         shootingAngleMotor.set(speed);
@@ -22,6 +22,7 @@ public class ShootingAngleSubsytems extends SubsystemBase{
     }
 
     public boolean checkSwitch() {
+        
         return bottomlimitSwitch.get();
     }
 

@@ -15,6 +15,7 @@ public class InternalMoverSubsystem extends SubsystemBase{
         internalMoverMotor.set(speed);
     }
 
+
     public void stop(){
         internalMoverMotor.set(0);
     }

@@ -103,7 +103,7 @@ public class RobotContainer
     JoystickButton ampUpButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_8);
     JoystickButton intakePneumaticsUpButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_4);
     JoystickButton intakePneumaticsDownButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_5);
-    JoystickButton autoIntakeButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_1);
+    JoystickButton autoIntakeButton = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_1);
 
     JoystickButton interalMoverUpButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_5);
     JoystickButton interalMoverDownButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_3);
@@ -226,6 +226,7 @@ bClimbDownButton.whileTrue(new RightClimbCommand(rightClimbSubsystem, -Constants
   {
     // An example command will be run in autonomous
     //return drivebase.getAutonomousCommand("New Auto");
+    
     return null;
   }
 
