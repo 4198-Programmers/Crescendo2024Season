@@ -17,15 +17,14 @@ public class LeftClimbSubsystem extends SubsystemBase{
         initialize();
     }
 
-public void initialize(){
-    leftClimbMotorPosition.setPosition(0);
-}
+    public void initialize(){
+        leftClimbMotorPosition.setPosition(0);
+    }
 
     public double getPosition(){
         return leftClimbMotorPosition.getPosition();
     }
     
-
     public void move(double speed) {
         leftClimbMotor.set(speed);
     }
