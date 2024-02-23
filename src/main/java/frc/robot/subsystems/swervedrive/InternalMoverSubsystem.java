@@ -9,7 +9,7 @@ import frc.robot.Constants;
 
 public class InternalMoverSubsystem extends SubsystemBase{
     private CANSparkMax internalMoverMotor = new CANSparkMax(Constants.INTERNAL_MOVER_MOTOR_ID, MotorType.kBrushless);
-    DigitalInput MiddleLimitSwitch = new DigitalInput(Constants.MIDDLE_LIMIT_SWITCH_ID);
+    DigitalInput middleLimitSwitch = new DigitalInput(Constants.MIDDLE_LIMIT_SWITCH_ID);
 
     public void move(double speed){
         internalMoverMotor.set(speed);
@@ -21,7 +21,7 @@ public class InternalMoverSubsystem extends SubsystemBase{
     }
 
     public boolean middleLimitStatus(){
-        return MiddleLimitSwitch.get();
+        return middleLimitSwitch.get();
     }
 
 
