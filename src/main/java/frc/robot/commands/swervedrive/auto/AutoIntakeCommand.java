@@ -23,7 +23,8 @@ public class AutoIntakeCommand extends Command{
 
     @Override
     public void execute(){
-        System.out.println("Sensor Status: " + internalMoverSubsystem.middleLimitStatus());
+        //System.out.println("Sensor Status: " + internalMoverSubsystem.middleLimitStatus());
+        
         if(!internalMoverSubsystem.middleLimitStatus()) {
         intakeSubsystem.intakeMotorSpeed(speed);
         internalMoverSubsystem.move(- speed);

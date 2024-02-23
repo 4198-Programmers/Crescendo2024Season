@@ -57,7 +57,8 @@ public static final int SHOOTER_MOTOR_ID = 6;
 public static final int LEFT_CLIMB_MOTOR_ID = 14;
 public static final int RIGHT_CLIMB_MOTOR_ID = 13;
 public static final int AMP_BAR_PN_ID = 5;
-public static final int BOTTOM_LIMIT_SWITCH_ID = 0;
+
+public static final int BOTTOM_LIMIT_SWITCH_ID = 8;
 
 //motor speeds
 public static final double INTAKE_MOTOR_SPEED = 1;
@@ -71,7 +72,7 @@ public static final double SHOOTING_ANGLE_MOTOR_SPEED = 0.2;
 public static final double MAX_SHOOTING_SPEED = 5000;
 
 //swtiches 
-public static final int MIDDLE_LIMIT_SWITCH_ID = 8;
+public static final int MIDDLE_LIMIT_SWITCH_ID = 9;
 
 //Pneumatic channel
 public static final int INTAKE_PNEUMATIC_CHANNEL = 0;
@@ -95,6 +96,6 @@ public static final int JOYSTICK_BUTTON_9 = 9;
 public static final int JOYSTICK_BUTTON_10 = 10;
 public static final int JOYSTICK_BUTTON_11 = 11;
 public static final int JOYSTICK_BUTTON_12 = 12;
-public static final int INTAKE_SENOR = 9;
+
 public static final int SHOOTER_MOTOR_2_ID = 15;
 }

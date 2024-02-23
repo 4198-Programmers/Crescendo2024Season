@@ -21,9 +21,9 @@ public class ShootingAngleSubsytems extends SubsystemBase{
         shootingAngleMotor.set(0);
     }
 
-    public boolean checkSwitch() {
-        
+    public boolean checkSwitch() {  
         return bottomlimitSwitch.get();
+   
     }
 
     public double encoderPosition() {
