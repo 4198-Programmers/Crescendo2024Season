@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.Filesystem;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.RobotBase;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
@@ -23,8 +24,7 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Constants.OperatorConstants;
-import frc.robot.commands.swervedrive.ChangeAmpBarPneumaticStateCommandDown;
-import frc.robot.commands.swervedrive.ChangeAmpBarPneumaticStateCommandUp;
+import frc.robot.commands.swervedrive.AmpBarPneumaticStateCommand;
 import frc.robot.commands.swervedrive.IntakeCommand;
 import frc.robot.commands.swervedrive.IntakePneumaticsDown;
 import frc.robot.commands.swervedrive.IntakePneumaticsUp;
@@ -71,7 +71,9 @@ public class RobotContainer
    */
 
    private Compressor compressor = new Compressor(21, PneumaticsModuleType.CTREPCM);
-   
+  
+   //private final Solenoid ampSolenoid = new Solenoid(21, PneumaticsModuleType.CTREPCM, Constants.AMP_BAR_PN_ID);
+
    //subsystems 
    private final IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
   private final InternalMoverSubsystem internalMoverSubsystem = new InternalMoverSubsystem();
@@ -86,8 +88,6 @@ public class RobotContainer
   //commands
   private IntakePneumaticsDown intakePneumaticsDown = new IntakePneumaticsDown(intakePneumaticsSubsystem);
   private IntakePneumaticsUp intakePneumaticsUp = new IntakePneumaticsUp(intakePneumaticsSubsystem);
-  private ChangeAmpBarPneumaticStateCommandDown pullAmpBarDown = new ChangeAmpBarPneumaticStateCommandDown(ampbarPNSubsystem);
-  private ChangeAmpBarPneumaticStateCommandUp pushAmpBarUp = new ChangeAmpBarPneumaticStateCommandUp(ampbarPNSubsystem);
 
   //Joysticks 
    Joystick rightJoystick = new Joystick(Constants.RIGHT_JOYSTICK_ID);
@@ -99,7 +99,8 @@ public class RobotContainer
     JoystickButton intakeOutButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_2);
     JoystickButton zeroGyroButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_11);
     JoystickButton ampDownButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_7);
-    JoystickButton ampUpButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_8);
+    JoystickButton ampButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_8);
+    
     JoystickButton intakePneumaticsUpButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_4);
     JoystickButton intakePneumaticsDownButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_5);
     
@@ -206,15 +207,18 @@ bClimbUpButton.whileTrue(new RightClimbCommand(rightClimbSubsystem, Constants.CL
 bClimbDownButton.whileTrue(new RightClimbCommand(rightClimbSubsystem, -Constants.CLIMB_SPEED, rightJoystick.getThrottle())
   .alongWith(new LeftClimbCommand(leftClimbSubsystem, -Constants.CLIMB_SPEED, rightJoystick.getThrottle())));
 
-  ampDownButton.whileTrue(pullAmpBarDown);
-  ampUpButton.whileTrue(pushAmpBarUp);
-  intakePneumaticsDownButton.whileTrue(intakePneumaticsDown);
-  intakePneumaticsUpButton.whileTrue(intakePneumaticsUp);
+  ampButton.toggleOnTrue(new AmpBarPneumaticStateCommand(ampbarPNSubsystem));
+
+
+  intakePneumaticsDownButton.onTrue(intakePneumaticsDown);
+  intakePneumaticsUpButton.onTrue(intakePneumaticsUp);
 
   autoShootButton.whileTrue(new AutoShootingCommand(shootingSubsystem, internalMoverSubsystem, 1, 0.5));
   
-  autoIntakeButton.whileTrue(new AutoIntakeCommand(intakeSubsystem, internalMoverSubsystem, 1));
+  autoIntakeButton.whileTrue(new AutoIntakeCommand(intakeSubsystem, internalMoverSubsystem, intakePneumaticsSubsystem, 1));
 
+
+  //ampSolenoid.set(leftJoystick.getRawButton(4));
 }
 
   /**

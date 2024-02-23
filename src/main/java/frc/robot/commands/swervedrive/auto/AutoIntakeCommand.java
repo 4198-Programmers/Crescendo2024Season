@@ -14,22 +14,23 @@ public class AutoIntakeCommand extends Command{
     public double speed; 
     public DigitalInput digitalInput;
 
-    public AutoIntakeCommand(IntakeSubsystem intakeSubsystem, InternalMoverSubsystem internalMoverSubsystem, double speed){
+    public AutoIntakeCommand(IntakeSubsystem intakeSubsystem, InternalMoverSubsystem internalMoverSubsystem, IntakePneumaticsSubsystem intakePneumaticsSubsystem, double speed){
         this.intakeSubsystem = intakeSubsystem; 
         this.internalMoverSubsystem = internalMoverSubsystem;
+        this.intakePneumaticsSubsystem = intakePneumaticsSubsystem;
         this.speed = speed; 
-    addRequirements(intakeSubsystem, internalMoverSubsystem);
+    addRequirements(intakeSubsystem, internalMoverSubsystem, intakePneumaticsSubsystem);
     }
 
     @Override
     public void execute(){
         System.out.println("Sensor Status: " + internalMoverSubsystem.middleLimitStatus());
         
-        if(internalMoverSubsystem.middleLimitStatus()) {
-        intakeSubsystem.intakeMotorSpeed(speed);
+    //    if(!internalMoverSubsystem.middleLimitStatus()) {
+        intakeSubsystem.intakeMotorSpeed(-speed);
         internalMoverSubsystem.move(- speed);
-        intakePneumaticsSubsystem.intakeUp();
-        }
+        intakePneumaticsSubsystem.intakeDown();
+    //    }
     }
 
     @Override

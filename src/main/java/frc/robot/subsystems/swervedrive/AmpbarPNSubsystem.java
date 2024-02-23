@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 public class AmpbarPNSubsystem extends SubsystemBase {
-    private Solenoid ampbarPN = new Solenoid(PneumaticsModuleType.CTREPCM, Constants.AMP_BAR_PN_ID);
+    private Solenoid ampbarPN = new Solenoid(21, PneumaticsModuleType.CTREPCM, Constants.AMP_BAR_PN_ID);
     public boolean switchValue = false;
     //compressor is enabled in the constructor for robot container
     
@@ -18,18 +18,15 @@ public class AmpbarPNSubsystem extends SubsystemBase {
         ampbarPN.set(false);
     }
 
-    public void pullAmpBarDown(){
-        ampbarPN.set(false);
-    }
     public void pullAmpBarUp(){
-        ampbarPN.set(true);
+        ampbarPN.toggle();
     }
-    
-    public void pushAmpBarChoose(boolean switchValue){
-        ampbarPN.set(switchValue);
+    public boolean solenoidPosition(){
+        return ampbarPN.get();
     }
 
-    public void ampBarKillSwitch(){
-        ampbarPN.set(false);
+    public void ended(){
+        ampbarPN.set(!solenoidPosition());
     }
+    
 }

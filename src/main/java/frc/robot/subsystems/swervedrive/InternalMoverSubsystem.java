@@ -24,6 +24,4 @@ public class InternalMoverSubsystem extends SubsystemBase{
         return middleLimitSwitch.get();
     }
 
-
-
 }
