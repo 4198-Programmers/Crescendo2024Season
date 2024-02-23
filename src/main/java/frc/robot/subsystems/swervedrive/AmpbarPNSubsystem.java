@@ -15,18 +15,27 @@ public class AmpbarPNSubsystem extends SubsystemBase {
     }
 
     public void initialize(){
-        ampbarPN.set(false);
+        ampbarPN.set(true);
     }
 
     public void pullAmpBarUp(){
+        if(ampbarPN.get()){
         ampbarPN.toggle();
+        }
     }
+    
+    public void pullAmpBarDown() {
+        if(!ampbarPN.get()) {
+        ampbarPN.toggle();
+        }
+    }
+
     public boolean solenoidPosition(){
         return ampbarPN.get();
     }
 
     public void ended(){
-        ampbarPN.set(!solenoidPosition());
+        ampbarPN.set(false);
     }
     
 }

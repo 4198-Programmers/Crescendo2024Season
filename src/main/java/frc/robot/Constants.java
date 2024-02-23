@@ -57,6 +57,7 @@ public static final int SHOOTER_MOTOR_ID = 6;
 public static final int LEFT_CLIMB_MOTOR_ID = 14;
 public static final int RIGHT_CLIMB_MOTOR_ID = 13;
 public static final int AMP_BAR_PN_ID = 4;
+public static final int SHOOTER_MOTOR_2_ID = 15;
 
 public static final int BOTTOM_LIMIT_SWITCH_ID = 7;
 
@@ -68,8 +69,11 @@ public static final double CLIMB_SPEED = 0.5;
 public static final double SHOOTING_ANGLE_MOTOR_SPEED = 0.2;
 
 
-// max 
+// limits
 public static final double MAX_SHOOTING_SPEED = 5000;
+public static final double MAX_CLIMB_POSITION = 0;
+public static final double MIN_CLIMB_POSITION = 0;
+
 
 //swtiches 
 public static final int MIDDLE_LIMIT_SWITCH_ID = 0;
@@ -97,5 +101,5 @@ public static final int JOYSTICK_BUTTON_10 = 10;
 public static final int JOYSTICK_BUTTON_11 = 11;
 public static final int JOYSTICK_BUTTON_12 = 12;
 
-public static final int SHOOTER_MOTOR_2_ID = 15;
+
 }

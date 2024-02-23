@@ -10,14 +10,19 @@ public class IntakePneumaticsSubsystem extends SubsystemBase {
     private Solenoid intakeSolenoid = new Solenoid(21, PneumaticsModuleType.CTREPCM, Constants.INTAKE_PNEUMATIC_CHANNEL);
 
     public void intakeDown(){
-        intakeSolenoid.toggle();
-    
         System.out.println("Intake Solenoid Status: " + intakeSolenoid.get());
+
+        if(intakeSolenoid.get()){
+            intakeSolenoid.toggle();
+        }
     }
 
     public void intakeUp(){
-        intakeSolenoid.toggle();
         System.out.println("Intake Solenoid Status: " + intakeSolenoid.get());
+
+        if (!intakeSolenoid.get()){
+        intakeSolenoid.toggle();
+        }
 
     }
 }

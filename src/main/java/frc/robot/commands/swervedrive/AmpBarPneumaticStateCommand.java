@@ -19,11 +19,11 @@ public void initialize(){
     @Override
     public void execute(){
         ampBarSubsystem.pullAmpBarUp();
-        
     }
     //Did you know that the altitude on airplanes dries out your taste buds and makes food taste more bland?
 
     @Override
     public void end(boolean interrupted){
+        ampBarSubsystem.pullAmpBarDown();
     }
 }

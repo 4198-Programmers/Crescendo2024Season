@@ -37,6 +37,7 @@ public class AutoIntakeCommand extends Command{
     public void end(boolean interrupted){
         intakeSubsystem.stop();
         internalMoverSubsystem.stop();
+        intakePneumaticsSubsystem.intakeUp();
     }
     
 }

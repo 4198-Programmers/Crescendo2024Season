@@ -1,6 +1,7 @@
 package frc.robot.commands.swervedrive;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.Constants;
 import frc.robot.subsystems.swervedrive.LeftClimbSubsystem;
 
 public class LeftClimbCommand extends Command{
@@ -17,8 +18,11 @@ public class LeftClimbCommand extends Command{
     
     @Override
     public void execute() {
+        System.out.println("left Climb Position:" + leftClimbSubsystem.getPosition());
+        //if(leftClimbSubsystem.getPosition() <= Constants.MAX_CLIMB_POSITION && leftClimbSubsystem.getPosition() >= Constants.MIN_CLIMB_POSITION){
         leftClimbSubsystem.move(this.speed * this.throttle);
-    }
+   // }
+   }
 
     @Override
     public void end(boolean interrupted) {
