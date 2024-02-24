@@ -7,7 +7,6 @@ import frc.robot.Constants;
 
 public class AmpbarPNSubsystem extends SubsystemBase {
     private Solenoid ampbarPN = new Solenoid(21, PneumaticsModuleType.CTREPCM, Constants.AMP_BAR_PN_ID);
-    public boolean switchValue = false;
     //compressor is enabled in the constructor for robot container
     
     public AmpbarPNSubsystem(){
@@ -15,7 +14,7 @@ public class AmpbarPNSubsystem extends SubsystemBase {
     }
 
     public void initialize(){
-        ampbarPN.set(true);
+        ampbarPN.set(false);
     }
 
     public void pullAmpBarUp(){

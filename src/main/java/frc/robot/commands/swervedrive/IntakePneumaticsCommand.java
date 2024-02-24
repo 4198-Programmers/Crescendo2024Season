@@ -13,12 +13,17 @@ public class IntakePneumaticsCommand extends Command{
     }
 
     @Override
+    public void initialize(){
+        intakePneumatics.initialize();
+    }
+
+    @Override
     public void execute(){
-        intakePneumatics.intakeDown();
+        intakePneumatics.intakeUp();
     }
 
     @Override
     public void end(boolean interrupted){
-        intakePneumatics.intakeUp();
+        intakePneumatics.intakeDown();
     }
 }

@@ -14,7 +14,7 @@ import frc.robot.Constants;
 public class IntakeSubsystem extends SubsystemBase {
     private CANSparkMax intakeMotor = new CANSparkMax(Constants.INTAKE_MOTOR_ID, MotorType.kBrushless);
     
-    //DigitalInput middleDigitalInput = new DigitalInput(Constants.MIDDLE_LIMIT_SWITCH_ID);
+   // DigitalInput intakeSenor = new DigitalInput(Constants.INTAKE_SENOR);
         
     
     public IntakeSubsystem() {

@@ -72,7 +72,7 @@ public class RobotContainer
    private Compressor compressor = new Compressor(21, PneumaticsModuleType.CTREPCM);
   
    //subsystems 
-   private final IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
+  private final IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
   private final InternalMoverSubsystem internalMoverSubsystem = new InternalMoverSubsystem();
   private final ShootingAngleSubsytems shootingAngleSubsytems = new ShootingAngleSubsytems();
   private final ShootingSubsystem shootingSubsystem = new ShootingSubsystem();
@@ -89,7 +89,7 @@ public class RobotContainer
 
    //buttons 
     //JoystickButton intakeInButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_1);
-    JoystickButton intakeOutButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_2);
+    JoystickButton intakeButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_2);
     JoystickButton zeroGyroButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_11);
     JoystickButton ampDownButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_7);
     JoystickButton ampButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_8);
@@ -184,7 +184,7 @@ public class RobotContainer
 //non swerve button binding
 zeroGyroButton.whileTrue(new zeroGyro(drivebase));
 //intakeInButton.whileTrue(new IntakeCommand(intakeSubsystem, internalMoverSubsystem, -Constants.INTAKE_MOTOR_SPEED));
-intakeOutButton.whileTrue(new IntakeCommand(intakeSubsystem, internalMoverSubsystem,  Constants.INTAKE_MOTOR_SPEED));
+intakeButton.whileTrue(new IntakeCommand(intakeSubsystem, internalMoverSubsystem,  Constants.INTAKE_MOTOR_SPEED));
 interalMoverUpButton.whileTrue(new InternalMoverCommand(internalMoverSubsystem, Constants.INTERNAL_MOVER_SPEED));
 interalMoverDownButton.whileTrue(new InternalMoverCommand(internalMoverSubsystem, -Constants.INTERNAL_MOVER_SPEED));
 shooterAngleUpButton.whileTrue(new ShootingAngleCommand(shootingAngleSubsytems, -Constants.SHOOTING_ANGLE_MOTOR_SPEED));
