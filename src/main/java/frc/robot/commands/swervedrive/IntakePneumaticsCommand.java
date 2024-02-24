@@ -24,5 +24,6 @@ public class IntakePneumaticsCommand extends Command{
 
     @Override
     public void end(boolean interrupted){
+        intakePneumatics.intakeUp();
     }
 }

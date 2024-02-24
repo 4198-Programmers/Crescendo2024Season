@@ -13,6 +13,10 @@ public class RightClimbSubsystem extends SubsystemBase{
     RelativeEncoder rightClimbPosition = rightClimbMotor.getEncoder();
 
     public RightClimbSubsystem() {
+    }
+
+    
+    public void initialize(){
         rightClimbPosition.setPosition(0);
     }
 
