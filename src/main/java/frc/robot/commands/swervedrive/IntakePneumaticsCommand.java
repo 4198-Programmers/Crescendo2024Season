@@ -19,11 +19,10 @@ public class IntakePneumaticsCommand extends Command{
 
     @Override
     public void execute(){
-        intakePneumatics.intakeUp();
+        intakePneumatics.intakeDown();
     }
 
     @Override
     public void end(boolean interrupted){
-        intakePneumatics.intakeDown();
     }
 }

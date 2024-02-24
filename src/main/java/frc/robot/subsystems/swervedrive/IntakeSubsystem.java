@@ -15,11 +15,6 @@ public class IntakeSubsystem extends SubsystemBase {
     private CANSparkMax intakeMotor = new CANSparkMax(Constants.INTAKE_MOTOR_ID, MotorType.kBrushless);
     
    // DigitalInput intakeSenor = new DigitalInput(Constants.INTAKE_SENOR);
-        
-    
-    public IntakeSubsystem() {
-        this.initialize();
-    } 
 
 //motor
     public void intakeMotorSpeed(double speed){
@@ -31,6 +26,5 @@ public class IntakeSubsystem extends SubsystemBase {
     }
 
 
-public void initialize(){}
     
 }

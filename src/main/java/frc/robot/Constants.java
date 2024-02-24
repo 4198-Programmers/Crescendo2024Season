@@ -63,10 +63,10 @@ public static final int BOTTOM_LIMIT_SWITCH_ID = 7;
 
 //motor speeds
 public static final double INTAKE_MOTOR_SPEED = 1;
-public static final double INTERNAL_MOVER_SPEED = 1;
+public static final double INTERNAL_MOVER_SPEED = 0.5;
 public static final double SHOOTING_MOTOR_SPEED = 1;
 public static final double CLIMB_SPEED = 0.5;
-public static final double SHOOTING_ANGLE_MOTOR_SPEED = 0.2;
+public static final double SHOOTING_ANGLE_MOTOR_SPEED = 0.5;
 
 
 // limits

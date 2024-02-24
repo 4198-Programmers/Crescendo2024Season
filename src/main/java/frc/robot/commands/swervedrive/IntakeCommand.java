@@ -16,7 +16,7 @@ public class IntakeCommand extends Command{
         this.intakeSubsystem = intakeSubsystem; 
         this.internalMoverSubsystem = internalMoverSubsystem;
         this.speed = speed; 
-    addRequirements(intakeSubsystem);
+    addRequirements(intakeSubsystem, internalMoverSubsystem);
     }
 
     @Override
@@ -29,7 +29,7 @@ public class IntakeCommand extends Command{
     public void end(boolean interrupted){
         intakeSubsystem.stop();
    //     intakeSubsystem.PnClose();
-    internalMoverSubsystem.stop();
+        internalMoverSubsystem.stop();
     }
     
 }

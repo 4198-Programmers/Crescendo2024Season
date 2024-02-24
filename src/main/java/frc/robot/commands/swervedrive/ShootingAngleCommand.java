@@ -22,11 +22,11 @@ public class ShootingAngleCommand extends Command {
     public void execute(){
         System.out.println("limitSwitch: " + shootingAngleSubsytems.checkSwitch());
         
-        if(!shootingAngleSubsytems.checkSwitch()) {
-        shootingAngleSubsytems.move(this.speed);
-        } else {
-            shootingAngleSubsytems.resetAngle();
-        }
+        //if(!shootingAngleSubsytems.checkSwitch()) {
+        shootingAngleSubsytems.move(speed);
+       // } else {
+        //    shootingAngleSubsytems.resetAngle();
+        //}
      }
 
     @Override

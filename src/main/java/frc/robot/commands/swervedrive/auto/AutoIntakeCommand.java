@@ -28,8 +28,8 @@ public class AutoIntakeCommand extends Command{
         
     //    if(!internalMoverSubsystem.middleLimitStatus()) {
         intakeSubsystem.intakeMotorSpeed(-speed);
-        internalMoverSubsystem.move(- speed);
-        intakePneumaticsSubsystem.intakeDown();
+        internalMoverSubsystem.move(speed);
+        intakePneumaticsSubsystem.intakeUp();
     //    }
     }
 
@@ -37,7 +37,7 @@ public class AutoIntakeCommand extends Command{
     public void end(boolean interrupted){
         intakeSubsystem.stop();
         internalMoverSubsystem.stop();
-        intakePneumaticsSubsystem.intakeUp();
+        intakePneumaticsSubsystem.intakeDown();
     }
     
 }

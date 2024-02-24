@@ -23,7 +23,6 @@ public class ShootingAngleSubsytems extends SubsystemBase{
 
     public boolean checkSwitch() {  
         return bottomlimitSwitch.get();
-   
     }
 
     public double encoderPosition() {
