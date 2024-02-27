@@ -21,12 +21,13 @@ public class ShootingAngleCommand extends Command {
     @Override
     public void execute(){
         System.out.println("limitSwitch: " + shootingAngleSubsytems.checkSwitch());
-        
-        //if(!shootingAngleSubsytems.checkSwitch()) {
+        System.out.println("shooting Angle encoder: " + shootingAngleSubsytems.encoderPosition());
+
+        if(shootingAngleSubsytems.checkSwitch()) {
         shootingAngleSubsytems.move(speed);
-       // } else {
-        //    shootingAngleSubsytems.resetAngle();
-        //}
+        } else {
+            shootingAngleSubsytems.resetAngle();
+        }
      }
 
     @Override

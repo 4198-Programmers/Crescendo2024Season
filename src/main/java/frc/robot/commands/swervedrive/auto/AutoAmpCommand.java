@@ -2,19 +2,21 @@ package frc.robot.commands.swervedrive.auto;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Constants;
+import frc.robot.subsystems.swervedrive.AmpbarPNSubsystem;
 import frc.robot.subsystems.swervedrive.InternalMoverSubsystem;
 import frc.robot.subsystems.swervedrive.ShootingAngleSubsytems;
 import frc.robot.subsystems.swervedrive.ShootingSubsystem;
 
-public class AutoShootingCommand extends Command {
+public class AutoAmpCommand extends Command {
     ShootingSubsystem shootingSubsystem;
     InternalMoverSubsystem internalMoverSubsystem; 
     ShootingAngleSubsytems shootingAngleSubsytems;
+    AmpbarPNSubsystem ampbarPNSubsystem;
     double speedInteralMover;
     double speedShoot;
     double anglePosition;
 
-    public AutoShootingCommand(ShootingSubsystem shootingSubsytems, InternalMoverSubsystem internalMoverSubsystem, ShootingAngleSubsytems shootingAngleSubsytems, double anglePosition, double speedShoot, double speedInteralMover){
+    public AutoAmpCommand(ShootingSubsystem shootingSubsytems, InternalMoverSubsystem internalMoverSubsystem, ShootingAngleSubsytems shootingAngleSubsytems, AmpbarPNSubsystem ampbarPNSubsystem, double anglePosition, double speedShoot, double speedInteralMover){
         this.shootingSubsystem = shootingSubsytems;
         this.internalMoverSubsystem = internalMoverSubsystem;
         this.shootingAngleSubsytems = shootingAngleSubsytems;
@@ -37,6 +39,7 @@ public class AutoShootingCommand extends Command {
         }
 
         shootingSubsystem.shootOut(speedShoot);
+        ampbarPNSubsystem.pullAmpBarUp();
 
         System.out.println("shooter speed" + shootingSubsystem.getSpeed());
 
@@ -50,5 +53,6 @@ public class AutoShootingCommand extends Command {
         shootingSubsystem.stop();
         internalMoverSubsystem.stop();
         shootingAngleSubsytems.stop();
+        ampbarPNSubsystem.pullAmpBarDown();
     }
 }
