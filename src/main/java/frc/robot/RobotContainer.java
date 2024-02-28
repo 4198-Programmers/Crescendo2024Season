@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.RobotBase;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
@@ -37,6 +38,7 @@ import frc.robot.commands.swervedrive.auto.AutoAmpCommand;
 import frc.robot.commands.swervedrive.auto.AutoIntakeCommand;
 import frc.robot.commands.swervedrive.auto.AutoShootingCommand;
 import frc.robot.commands.swervedrive.drivebase.AbsoluteDriveAdv;
+import frc.robot.subsystems.AutoContainer;
 import frc.robot.subsystems.swervedrive.AmpbarPNSubsystem;
 import frc.robot.subsystems.swervedrive.IntakePneumaticsSubsystem;
 import frc.robot.subsystems.swervedrive.IntakeSubsystem;
@@ -109,11 +111,16 @@ public class RobotContainer
     JoystickButton lClimbDownButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_7);
     JoystickButton bClimbDownButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_11);
     JoystickButton bClimbUpButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_12);
+
+    SendableChooser<Command> autoChooser = new SendableChooser<>();
+    AutoContainer autoContainer = new AutoContainer(intakeSubsystem, shootingAngleSubsytems, shootingSubsystem, drivebase, 
+    leftClimbSubsystem, rightClimbSubsystem, internalMoverSubsystem, ampbarPNSubsystem, intakePneumaticsSubsystem);
     JoystickButton autoShootButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_1);
     JoystickButton autoAmpButton = new JoystickButton(rightJoystick, 2);
 
    public RobotContainer()
   {
+    this.autoContainer.SetupAutoOptions(autoChooser);
     CameraServer.startAutomaticCapture();
     compressor.enableDigital();
     // Configure the trigger bindings
@@ -216,8 +223,7 @@ bClimbDownButton.whileTrue(new RightClimbCommand(rightClimbSubsystem, -Constants
   {
     // An example command will be run in autonomous
     //return drivebase.getAutonomousCommand("New Auto");
-    
-    return null;
+    return autoChooser.getSelected();
   }
 
   public void setDriveMode()
