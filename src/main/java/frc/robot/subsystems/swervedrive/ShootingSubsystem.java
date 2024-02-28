@@ -25,4 +25,8 @@ public void stop(){
 public double getSpeed(){
     return shooterEncoder.getVelocity();
 }
+
+public double getVelocity(){
+    return shooterEncoder.getVelocity();
+}
 }
