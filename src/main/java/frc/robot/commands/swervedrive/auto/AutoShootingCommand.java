@@ -28,22 +28,22 @@ public class AutoShootingCommand extends Command {
     public void execute() {
         System.out.println("shootingAngle: " + shootingAngleSubsytems.encoderPosition());
         
-        if (shootingAngleSubsytems.encoderPosition() <= anglePosition){
+        double gap = shootingAngleSubsytems.encoderPosition() - anglePosition;
+
+       if (gap > 0.5) {
+            System.out.println("lowering shooter");
+            shootingAngleSubsytems.move(-speedInteralMover);
+        } else if (gap < -0.5) {
+            System.out.println("raising shooter");
             shootingAngleSubsytems.move(speedInteralMover);
-        } else if (shootingAngleSubsytems.encoderPosition() >= anglePosition){
-                shootingAngleSubsytems.move( - speedInteralMover);
         } else {
             shootingAngleSubsytems.stop();
-        }
-
-        shootingSubsystem.shootOut(speedShoot);
-
-        System.out.println("shooter speed" + shootingSubsystem.getSpeed());
-
-        if (Constants.MAX_SHOOTING_SPEED <= shootingSubsystem.getSpeed() && shootingAngleSubsytems.encoderPosition() == anglePosition){
+            shootingSubsystem.shootOut(speedShoot);
+             if (Constants.MAX_SHOOTING_SPEED <= shootingSubsystem.getSpeed()){
             internalMoverSubsystem.move(speedInteralMover);
         }
     }
+}
     
     @Override
     public void end(boolean interrupted) {

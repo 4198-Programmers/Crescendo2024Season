@@ -1,5 +1,7 @@
 package frc.robot.commands.swervedrive;
 
+import java.util.function.DoubleSupplier;
+
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Constants;
 import frc.robot.subsystems.swervedrive.RightClimbSubsystem;
@@ -7,9 +9,9 @@ import frc.robot.subsystems.swervedrive.RightClimbSubsystem;
 public class RightClimbCommand extends Command{
     RightClimbSubsystem rightClimbSubsystem;
     double speed;
-    double throttle;
+    DoubleSupplier throttle;
     
-    public RightClimbCommand(RightClimbSubsystem rightClimbSubsystem, double speed, double throttle) {
+    public RightClimbCommand(RightClimbSubsystem rightClimbSubsystem, double speed, DoubleSupplier throttle) {
         this.rightClimbSubsystem = rightClimbSubsystem;
         this.speed = speed;
         this.throttle = throttle;
@@ -21,7 +23,7 @@ public class RightClimbCommand extends Command{
         System.out.println("Right Climb Position:" + rightClimbSubsystem.rightClimbMotorPosition());
 
        if (rightClimbSubsystem.rightClimbMotorPosition() <= Constants.RIGHT_CLIMB_MOTOR_MAX && rightClimbSubsystem.rightClimbMotorPosition() >= Constants.RIGHT_CLIMB_MOTOR_MIN){
-        this.rightClimbSubsystem.move(this.speed * this.throttle);
+        this.rightClimbSubsystem.move(this.speed * this.throttle.getAsDouble());
        }
     }
 

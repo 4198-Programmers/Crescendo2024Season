@@ -9,17 +9,20 @@ import frc.robot.subsystems.swervedrive.ShootingSubsystem;
 
 public class AutoAmpCommand extends Command {
     ShootingSubsystem shootingSubsystem;
-    InternalMoverSubsystem internalMoverSubsystem; 
+    InternalMoverSubsystem internalMoverSubsystem;
     ShootingAngleSubsytems shootingAngleSubsytems;
     AmpbarPNSubsystem ampbarPNSubsystem;
     double speedInteralMover;
     double speedShoot;
     double anglePosition;
 
-    public AutoAmpCommand(ShootingSubsystem shootingSubsytems, InternalMoverSubsystem internalMoverSubsystem, ShootingAngleSubsytems shootingAngleSubsytems, AmpbarPNSubsystem ampbarPNSubsystem, double anglePosition, double speedShoot, double speedInteralMover){
+    public AutoAmpCommand(ShootingSubsystem shootingSubsytems, InternalMoverSubsystem internalMoverSubsystem,
+            ShootingAngleSubsytems shootingAngleSubsytems, AmpbarPNSubsystem ampbarPNSubsystem, double anglePosition,
+            double speedShoot, double speedInteralMover) {
         this.shootingSubsystem = shootingSubsytems;
         this.internalMoverSubsystem = internalMoverSubsystem;
         this.shootingAngleSubsytems = shootingAngleSubsytems;
+        this.ampbarPNSubsystem = ampbarPNSubsystem;
         this.speedShoot = -speedShoot;
         this.speedInteralMover = speedInteralMover;
         this.anglePosition = anglePosition;
@@ -29,30 +32,34 @@ public class AutoAmpCommand extends Command {
     @Override
     public void execute() {
         System.out.println("shootingAngle: " + shootingAngleSubsytems.encoderPosition());
+        // speedInteralMover = shootingAngleSubsytems.encoderPosition() >= -20 ?
+        // speedInteralMover/-20 : speedInteralMover;
+        double gap = shootingAngleSubsytems.encoderPosition() - anglePosition;
         
-        if (shootingAngleSubsytems.encoderPosition() <= anglePosition){
+        ampbarPNSubsystem.pullAmpBarDown();
+        if (gap > 0.5) {
+            System.out.println("lowering shooter");
+            shootingAngleSubsytems.move(-speedInteralMover);
+        } else if (gap < -0.5) {
+            System.out.println("raising shooter");
             shootingAngleSubsytems.move(speedInteralMover);
-        } else if (shootingAngleSubsytems.encoderPosition() >= anglePosition){
-                shootingAngleSubsytems.move( - speedInteralMover);
         } else {
             shootingAngleSubsytems.stop();
+            shootingSubsystem.shootOut(speedShoot);
+            if (4000 <= shootingSubsystem.getSpeed()) {
+                internalMoverSubsystem.move(speedInteralMover);
+            }
         }
-
-        shootingSubsystem.shootOut(speedShoot);
-        ampbarPNSubsystem.pullAmpBarUp();
 
         System.out.println("shooter speed" + shootingSubsystem.getSpeed());
-
-        if (Constants.MAX_SHOOTING_SPEED <= shootingSubsystem.getSpeed() && shootingAngleSubsytems.encoderPosition() == anglePosition){
-            internalMoverSubsystem.move(speedInteralMover);
-        }
     }
-    
+
     @Override
     public void end(boolean interrupted) {
+
         shootingSubsystem.stop();
         internalMoverSubsystem.stop();
         shootingAngleSubsytems.stop();
-        ampbarPNSubsystem.pullAmpBarDown();
+        ampbarPNSubsystem.pullAmpBarUp();
     }
 }

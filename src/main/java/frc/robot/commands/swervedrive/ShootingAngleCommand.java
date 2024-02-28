@@ -26,6 +26,7 @@ public class ShootingAngleCommand extends Command {
         if(shootingAngleSubsytems.checkSwitch()) {
         shootingAngleSubsytems.move(speed);
         } else {
+            shootingAngleSubsytems.move(-Math.abs(speed));
             shootingAngleSubsytems.resetAngle();
         }
      }
