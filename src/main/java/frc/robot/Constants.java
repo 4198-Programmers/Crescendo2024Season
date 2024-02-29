@@ -103,9 +103,9 @@ public static final int JOYSTICK_BUTTON_11 = 11;
 public static final int JOYSTICK_BUTTON_12 = 12;
 
 //shooter angle math constants
-public static final double SHOOTER_ANGLE_A = 0;
-public static final double SHOOTER_ANGLE_B = 0;
-public static final double SHOOTER_ANGLE_C = 0;
+public static final double SHOOTER_ANGLE_A = -0.0235642;
+public static final double SHOOTER_ANGLE_B = -1.52065;
+public static final double SHOOTER_ANGLE_C = 43.2451;
 
 
 }
