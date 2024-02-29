@@ -33,4 +33,11 @@ public class ShootingAngleSubsytems extends SubsystemBase{
     public void resetAngle() {
         shootingAngleEncoder.setPosition(0);
     }
+
+    public double getAngle() {
+        double angle = (Constants.SHOOTER_ANGLE_A * Math.pow(encoderPosition(), 2) 
+        + (Constants.SHOOTER_ANGLE_B * encoderPosition()) + Constants.SHOOTER_ANGLE_C);
+        return angle;
+    }
+
 }

@@ -1,9 +1,5 @@
 package frc.robot.commands.swervedrive;
 
-import com.revrobotics.CANDigitalInput.LimitSwitchPolarity;
-
-import edu.wpi.first.wpilibj.DigitalInput;
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Constants;
 import frc.robot.subsystems.swervedrive.ShootingAngleSubsytems;
