@@ -69,8 +69,8 @@ public class AutoContainer {
     }
 
     public void SetupAutoOptions(SendableChooser<Command> sendableChooser) {
-        sendableChooser.setDefaultOption("Intake", new IntakeCommand(intakeSubsystem, internalMoverSubsystem, 0));
-        sendableChooser.setDefaultOption("Test Auto 1", this.swerveSubsystem.getAutonomousCommand("Test Auto 1"));
+        sendableChooser.addOption("Intake", new IntakeCommand(intakeSubsystem, internalMoverSubsystem, 0));
+        sendableChooser.addOption("Test Auto 1", this.swerveSubsystem.getAutonomousCommand("Test Auto 1"));
         sendableChooser.addOption("GameAutoIntakeCommand",
                 new GameAutoIntakeCommand(intakeSubsystem, intakePneumaticsSubsystem, internalMoverSubsystem, 0.5, 15000));
 
@@ -79,6 +79,7 @@ public class AutoContainer {
                 .andThen(this.swerveSubsystem.driveToPose(thirdPose))
                 .andThen(this.swerveSubsystem.driveToPose(lastPose)));
 
+        sendableChooser.addOption("red Default Auto", redDefaultAuto);
     }
 
     SequentialCommandGroup redDefaultAuto = new SequentialCommandGroup(
