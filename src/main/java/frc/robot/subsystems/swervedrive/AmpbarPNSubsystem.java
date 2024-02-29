@@ -13,6 +13,7 @@ public class AmpbarPNSubsystem extends SubsystemBase {
     public AmpbarPNSubsystem(){
         this.initialize();
     }
+    
 
     public void initialize(){
         ampbarPN.set(false);
