@@ -52,8 +52,6 @@ import java.io.File;
 
 import javax.swing.JOptionPane;
 
-import com.fasterxml.jackson.databind.ser.std.StdKeySerializers.Default;
-
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a "declarative" paradigm, very
  * little robot logic should actually be handled in the {@link Robot} periodic methods (other than the scheduler calls).
@@ -113,17 +111,16 @@ public class RobotContainer
     JoystickButton lClimbDownButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_7);
     JoystickButton bClimbDownButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_11);
     JoystickButton bClimbUpButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_12);
+
+    SendableChooser<Command> autoChooser = new SendableChooser<>();
+    AutoContainer autoContainer = new AutoContainer(intakeSubsystem, shootingAngleSubsytems, shootingSubsystem, drivebase, 
+    leftClimbSubsystem, rightClimbSubsystem, internalMoverSubsystem, ampbarPNSubsystem, intakePneumaticsSubsystem);
     JoystickButton autoShootButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_1);
     JoystickButton autoAmpButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_2);
 
-    SendableChooser<Command> sendableChooser = new SendableChooser<>();
-    AutoContainer autoContainer = new AutoContainer(intakeSubsystem, shootingAngleSubsytems, shootingSubsystem, drivebase, 
-    leftClimbSubsystem, rightClimbSubsystem, internalMoverSubsystem, ampbarPNSubsystem, intakePneumaticsSubsystem);
-   
-
    public RobotContainer()
   {
-    this.autoContainer.SetupAutoOptions(sendableChooser);
+    this.autoContainer.SetupAutoOptions(autoChooser);
     CameraServer.startAutomaticCapture();
     CameraServer.startAutomaticCapture(1);
 
@@ -228,10 +225,7 @@ bClimbDownButton.whileTrue(new RightClimbCommand(rightClimbSubsystem, -Constants
   {
     // An example command will be run in autonomous
     //return drivebase.getAutonomousCommand("New Auto");
-
-    return drivebase.getAutonomousCommand("command");
-
-    //return autoChooser.getSelected();
+    return autoChooser.getSelected();
   }
 
   public void setDriveMode()
