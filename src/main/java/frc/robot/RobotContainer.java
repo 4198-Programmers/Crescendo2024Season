@@ -229,6 +229,9 @@ bClimbDownButton.whileTrue(new RightClimbCommand(rightClimbSubsystem, -Constants
   {
     // An example command will be run in autonomous
     //return drivebase.getAutonomousCommand("New Auto");
+
+    //return drivebase.getAutonomousCommand("command");
+
     return autoChooser.getSelected();
   }
 

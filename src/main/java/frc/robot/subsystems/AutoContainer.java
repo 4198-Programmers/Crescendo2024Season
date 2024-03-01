@@ -55,7 +55,6 @@ public class AutoContainer extends SubsystemBase{
         Pose2d lastPose = new Pose2d(new Translation2d(Units.Meters.of(-1), Units.Meters.of(0)),
                 Rotation2d.fromDegrees(0));
 
-
     public AutoContainer(IntakeSubsystem intakeSubsystem, ShootingAngleSubsytems shootingAngleSubsytems,
             ShootingSubsystem shootingSubsystem, SwerveSubsystem swerveSubsystem, LeftClimbSubsystem leftClimbSubsystem,
             RightClimbSubsystem rightClimbSubsystem, InternalMoverSubsystem internalMoverSubsystem,
@@ -100,5 +99,19 @@ public class AutoContainer extends SubsystemBase{
         sendableChooser.addOption("Red Auto 1", this.redDefaultAuto);
     }
     
-   
+
+    SequentialCommandGroup redDefaultAuto = new SequentialCommandGroup(
+        new GameAutoShootingAngleCommand(shootingAngleSubsytems, 1, 40, 2)
+        .andThen(new GameAutoShootingCommand(shootingSubsystem, internalMoverSubsystem, 1, 1000))
+        .andThen(this.swerveSubsystem.driveToPose(firstPose))
+        .andThen(new GameAutoIntakeCommand(intakeSubsystem, intakePneumaticsSubsystem, internalMoverSubsystem, 0, 0))
+        .andThen(this.swerveSubsystem.driveToPose(secondPose))
+        .andThen(this.swerveSubsystem.driveToPose(secondPose))
+        .andThen(new GameAutoShootingCommand(shootingSubsystem, internalMoverSubsystem, 0, 0))
+        .andThen(this.swerveSubsystem.driveToPose(thirdPose))
+        .andThen(this.swerveSubsystem.driveToPose(thirdPose))
+        .andThen(new GameAutoIntakeCommand(intakeSubsystem, intakePneumaticsSubsystem, internalMoverSubsystem, 0, 0))
+        .andThen(this.swerveSubsystem.driveToPose(lastPose))
+        .andThen(this.swerveSubsystem.driveToPose(lastPose))
+        .andThen(new GameAutoShootingCommand(shootingSubsystem, internalMoverSubsystem, 0, 0)));
 }
