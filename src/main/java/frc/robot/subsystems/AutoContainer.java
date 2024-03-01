@@ -52,7 +52,6 @@ public class AutoContainer {
         Pose2d lastPose = new Pose2d(new Translation2d(Units.Meters.of(-1), Units.Meters.of(0)),
                 Rotation2d.fromDegrees(0));
 
-/* 
     public AutoContainer(IntakeSubsystem intakeSubsystem, ShootingAngleSubsytems shootingAngleSubsytems,
             ShootingSubsystem shootingSubsystem, SwerveSubsystem swerveSubsystem, LeftClimbSubsystem leftClimbSubsystem,
             RightClimbSubsystem rightClimbSubsystem, InternalMoverSubsystem internalMoverSubsystem,
@@ -80,7 +79,7 @@ public class AutoContainer {
                 .andThen(this.swerveSubsystem.driveToPose(lastPose)));
 
     }
-    */
+    
 
     SequentialCommandGroup redDefaultAuto = new SequentialCommandGroup(
         new GameAutoShootingAngleCommand(shootingAngleSubsytems, 1, 40, 2)
