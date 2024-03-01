@@ -21,7 +21,7 @@ public class GameAutoIntakeCommand extends Command{
         this.intakePneumaticsSubsystem = intakePneumaticsSubsystem;
         this.speed = speed; 
         this.time = time;
-    addRequirements(intakeSubsystem, internalMoverSubsystem);
+    addRequirements(intakeSubsystem, internalMoverSubsystem, intakePneumaticsSubsystem);
     }
 
     @Override 

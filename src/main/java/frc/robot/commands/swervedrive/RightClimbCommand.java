@@ -22,9 +22,9 @@ public class RightClimbCommand extends Command{
     public void execute() {
         System.out.println("Right Climb Position:" + rightClimbSubsystem.rightClimbMotorPosition());
 
-       if (rightClimbSubsystem.rightClimbMotorPosition() <= Constants.RIGHT_CLIMB_MOTOR_MAX && rightClimbSubsystem.rightClimbMotorPosition() >= Constants.RIGHT_CLIMB_MOTOR_MIN){
+       //if (rightClimbSubsystem.rightClimbMotorPosition() <= Constants.RIGHT_CLIMB_MOTOR_MAX && rightClimbSubsystem.rightClimbMotorPosition() >= Constants.RIGHT_CLIMB_MOTOR_MIN){
         this.rightClimbSubsystem.move(this.speed * this.throttle.getAsDouble());
-       }
+       //}
     }
 
     @Override
