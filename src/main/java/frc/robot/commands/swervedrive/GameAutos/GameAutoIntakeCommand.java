@@ -21,10 +21,15 @@ public class GameAutoIntakeCommand extends Command{
         this.intakePneumaticsSubsystem = intakePneumaticsSubsystem;
         this.speed = speed; 
         this.time = time;
-        this.startTime = System.currentTimeMillis();
-        this.isFinished = false;
     addRequirements(intakeSubsystem, internalMoverSubsystem);
     }
+
+    @Override 
+    public void initialize(){
+     this.startTime = System.currentTimeMillis();
+    this.isFinished = false;
+    System.out.println("botAutoIntake initake");
+}
 
     @Override
     public void execute(){
@@ -38,10 +43,13 @@ public class GameAutoIntakeCommand extends Command{
             intakePneumaticsSubsystem.intakeUp();
             this.isFinished = true;
         }
+        System.out.println("botAutoIntake execute");
+
     }
 
     @Override
     public boolean isFinished() {
         return this.isFinished;
+
     }
 }

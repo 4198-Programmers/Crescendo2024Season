@@ -84,6 +84,21 @@ public class AutoContainer extends SubsystemBase{
         //.andThen(this.swerveSubsystem.driveToPose(lastPose))
         .andThen(new GameAutoShootingCommand(shootingSubsystem, internalMoverSubsystem, 0, 0)));
         
+        
+    SequentialCommandGroup redDefaultAuto = new SequentialCommandGroup(
+        new GameAutoShootingAngleCommand(shootingAngleSubsytems, 1, 40, 2)
+        .andThen(new GameAutoShootingCommand(shootingSubsystem, internalMoverSubsystem, 1, 1000))
+        .andThen(this.swerveSubsystem.driveToPose(firstPose))
+        .andThen(new GameAutoIntakeCommand(intakeSubsystem, intakePneumaticsSubsystem, internalMoverSubsystem, 0, 0))
+        .andThen(this.swerveSubsystem.driveToPose(secondPose))
+        .andThen(this.swerveSubsystem.driveToPose(secondPose))
+        .andThen(new GameAutoShootingCommand(shootingSubsystem, internalMoverSubsystem, 0, 0))
+        .andThen(this.swerveSubsystem.driveToPose(thirdPose))
+        .andThen(this.swerveSubsystem.driveToPose(thirdPose))
+        .andThen(new GameAutoIntakeCommand(intakeSubsystem, intakePneumaticsSubsystem, internalMoverSubsystem, 0, 0))
+        .andThen(this.swerveSubsystem.driveToPose(lastPose))
+        .andThen(this.swerveSubsystem.driveToPose(lastPose))
+        .andThen(new GameAutoShootingCommand(shootingSubsystem, internalMoverSubsystem, 0, 0)));
     }
 
     public void SetupAutoOptions(SendableChooser<Command> sendableChooser) {
@@ -100,18 +115,4 @@ public class AutoContainer extends SubsystemBase{
     }
     
 
-    SequentialCommandGroup redDefaultAuto = new SequentialCommandGroup(
-        new GameAutoShootingAngleCommand(shootingAngleSubsytems, 1, 40, 2)
-        .andThen(new GameAutoShootingCommand(shootingSubsystem, internalMoverSubsystem, 1, 1000))
-        .andThen(this.swerveSubsystem.driveToPose(firstPose))
-        .andThen(new GameAutoIntakeCommand(intakeSubsystem, intakePneumaticsSubsystem, internalMoverSubsystem, 0, 0))
-        .andThen(this.swerveSubsystem.driveToPose(secondPose))
-        .andThen(this.swerveSubsystem.driveToPose(secondPose))
-        .andThen(new GameAutoShootingCommand(shootingSubsystem, internalMoverSubsystem, 0, 0))
-        .andThen(this.swerveSubsystem.driveToPose(thirdPose))
-        .andThen(this.swerveSubsystem.driveToPose(thirdPose))
-        .andThen(new GameAutoIntakeCommand(intakeSubsystem, intakePneumaticsSubsystem, internalMoverSubsystem, 0, 0))
-        .andThen(this.swerveSubsystem.driveToPose(lastPose))
-        .andThen(this.swerveSubsystem.driveToPose(lastPose))
-        .andThen(new GameAutoShootingCommand(shootingSubsystem, internalMoverSubsystem, 0, 0)));
 }
