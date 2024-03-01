@@ -28,7 +28,7 @@ public class GameAutoIntakeCommand extends Command{
     public void initialize(){
      this.startTime = System.currentTimeMillis();
     this.isFinished = false;
-    System.out.println("botAutoIntake initake");
+    System.out.println("GameAutoIntakeCommand Initialize");
 }
 
     @Override
@@ -43,13 +43,14 @@ public class GameAutoIntakeCommand extends Command{
             intakePneumaticsSubsystem.intakeUp();
             this.isFinished = true;
         }
-        System.out.println("botAutoIntake execute");
+        System.out.println("GameAutoIntakeCommand Execute");
 
     }
 
     @Override
     public boolean isFinished() {
+        System.out.println("GameAutoIntakeCommand isFinished");
         return this.isFinished;
-
+        
     }
 }
