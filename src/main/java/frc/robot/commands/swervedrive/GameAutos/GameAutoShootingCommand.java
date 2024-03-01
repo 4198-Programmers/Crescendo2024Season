@@ -13,6 +13,7 @@ public class GameAutoShootingCommand extends Command {
     double startTime;
     private boolean isFinished;
 
+    
     public GameAutoShootingCommand(ShootingSubsystem shootingSubsystem, InternalMoverSubsystem internalMoverSubsystem, double speed, double time){
         this.shootingSubsystem = shootingSubsystem;
         this.internalMoverSubsystem = internalMoverSubsystem;
@@ -20,7 +21,7 @@ public class GameAutoShootingCommand extends Command {
         this.time = time;
         this.startTime = System.currentTimeMillis();
         this.isFinished = false;
-        addRequirements(shootingSubsystem);
+        addRequirements(shootingSubsystem, internalMoverSubsystem);
     }
 
     @Override
