@@ -116,14 +116,14 @@ public class RobotContainer
     JoystickButton autoShootButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_1);
     JoystickButton autoAmpButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_2);
 
-    SendableChooser<Command> sendableChooser = new SendableChooser<>();
+    SendableChooser<Command> autoChooser = new SendableChooser<>();
     AutoContainer autoContainer = new AutoContainer(intakeSubsystem, shootingAngleSubsytems, shootingSubsystem, drivebase, 
     leftClimbSubsystem, rightClimbSubsystem, internalMoverSubsystem, ampbarPNSubsystem, intakePneumaticsSubsystem);
    
 
    public RobotContainer()
   {
-    this.autoContainer.SetupAutoOptions(sendableChooser);
+    this.autoContainer.SetupAutoOptions(autoChooser);
     CameraServer.startAutomaticCapture();
     CameraServer.startAutomaticCapture(1);
 
@@ -229,9 +229,9 @@ bClimbDownButton.whileTrue(new RightClimbCommand(rightClimbSubsystem, -Constants
     // An example command will be run in autonomous
     //return drivebase.getAutonomousCommand("New Auto");
 
-    return drivebase.getAutonomousCommand("command");
+    //return drivebase.getAutonomousCommand("command");
 
-    //return autoChooser.getSelected();
+    return autoChooser.getSelected();
   }
 
   public void setDriveMode()

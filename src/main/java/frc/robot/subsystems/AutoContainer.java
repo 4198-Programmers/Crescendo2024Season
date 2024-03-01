@@ -52,7 +52,7 @@ public class AutoContainer {
         Pose2d lastPose = new Pose2d(new Translation2d(Units.Meters.of(-1), Units.Meters.of(0)),
                 Rotation2d.fromDegrees(0));
 
-
+/* 
     public AutoContainer(IntakeSubsystem intakeSubsystem, ShootingAngleSubsytems shootingAngleSubsytems,
             ShootingSubsystem shootingSubsystem, SwerveSubsystem swerveSubsystem, LeftClimbSubsystem leftClimbSubsystem,
             RightClimbSubsystem rightClimbSubsystem, InternalMoverSubsystem internalMoverSubsystem,
@@ -69,8 +69,8 @@ public class AutoContainer {
     }
 
     public void SetupAutoOptions(SendableChooser<Command> sendableChooser) {
-        sendableChooser.addOption("Intake", new IntakeCommand(intakeSubsystem, internalMoverSubsystem, 0));
-        sendableChooser.addOption("Test Auto 1", this.swerveSubsystem.getAutonomousCommand("Test Auto 1"));
+        sendableChooser.setDefaultOption("Intake", new IntakeCommand(intakeSubsystem, internalMoverSubsystem, 0));
+        sendableChooser.setDefaultOption("Test Auto 1", this.swerveSubsystem.getAutonomousCommand("Test Auto 1"));
         sendableChooser.addOption("GameAutoIntakeCommand",
                 new GameAutoIntakeCommand(intakeSubsystem, intakePneumaticsSubsystem, internalMoverSubsystem, 0.5, 15000));
 
@@ -81,6 +81,7 @@ public class AutoContainer {
 
         sendableChooser.addOption("red Default Auto", redDefaultAuto);
     }
+    */
 
     SequentialCommandGroup redDefaultAuto = new SequentialCommandGroup(
         new GameAutoShootingAngleCommand(shootingAngleSubsytems, 1, 40, 2)
