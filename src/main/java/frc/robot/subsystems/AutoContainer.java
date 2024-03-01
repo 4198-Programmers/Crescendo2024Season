@@ -79,7 +79,6 @@ public class AutoContainer {
                 .andThen(this.swerveSubsystem.driveToPose(thirdPose))
                 .andThen(this.swerveSubsystem.driveToPose(lastPose)));
 
-        sendableChooser.addOption("red Default Auto", redDefaultAuto);
     }
     */
 

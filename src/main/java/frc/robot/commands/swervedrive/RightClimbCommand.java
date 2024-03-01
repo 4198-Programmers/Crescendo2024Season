@@ -15,7 +15,7 @@ public class RightClimbCommand extends Command{
         this.rightClimbSubsystem = rightClimbSubsystem;
         this.speed = speed;
         this.throttle = throttle;
-        addRequirements(this.rightClimbSubsystem);
+        addRequirements(rightClimbSubsystem);
     }
      
     @Override
