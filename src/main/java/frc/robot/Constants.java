@@ -71,10 +71,10 @@ public static final double SHOOTING_ANGLE_MOTOR_SPEED = 0.5;
 
 // limits
 public static final double MAX_SHOOTING_SPEED = 5000;
-public static final double MAX_LEFT_CLIMB_POSITION = -90;
-public static final double MIN_LEFT_CLIMB_POSITION = -10;
-public static final double RIGHT_CLIMB_MOTOR_MAX = -65;
-public static final double RIGHT_CLIMB_MOTOR_MIN = -10;
+public static final double MAX_LEFT_CLIMB_POSITION = 100;
+public static final double MIN_LEFT_CLIMB_POSITION = -1;
+public static final double RIGHT_CLIMB_MOTOR_MAX = 100;
+public static final double RIGHT_CLIMB_MOTOR_MIN = -1;
 
 //swtiches 
 public static final int MIDDLE_LIMIT_SWITCH_ID = 9;
