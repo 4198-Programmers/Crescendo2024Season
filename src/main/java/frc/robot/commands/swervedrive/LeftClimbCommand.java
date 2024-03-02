@@ -21,13 +21,19 @@ public class LeftClimbCommand extends Command{
     @Override
     public void execute() {
         System.out.println("left Climb Position:" + leftClimbSubsystem.getPosition());
-        //if(leftClimbSubsystem.getPosition() <= Constants.MAX_LEFT_CLIMB_POSITION && leftClimbSubsystem.getPosition() >= Constants.MIN_LEFT_CLIMB_POSITION){
+        if(leftClimbSubsystem.getPosition() <= Constants.MAX_LEFT_CLIMB_POSITION){
+        leftClimbSubsystem.move( this.speed * this.throttle.getAsDouble());
+            
+        if(leftClimbSubsystem.getPosition() >= Constants.MIN_LEFT_CLIMB_POSITION){
+                leftClimbSubsystem.move(  (this.speed * this.throttle.getAsDouble()));
+        }
+    } else {
         leftClimbSubsystem.move(this.speed * this.throttle.getAsDouble());
-        //}
+    }
    }
 
     @Override
     public void end(boolean interrupted) {
-        leftClimbSubsystem.stop();
+        leftClimbSubsystem.move(0);
+       }
     }
-}
