@@ -1,11 +1,11 @@
-package frc.robot.commands.swervedrive.auto;
+package frc.robot.commands.complexCommands;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.subsystems.swervedrive.IntakePneumaticsSubsystem;
-import frc.robot.subsystems.swervedrive.IntakeSubsystem;
-import frc.robot.subsystems.swervedrive.InternalMoverSubsystem;
+import frc.robot.subsystems.IntakePneumaticsSubsystem;
+import frc.robot.subsystems.IntakeSubsystem;
+import frc.robot.subsystems.InternalMoverSubsystem;
 
 public class AutoIntakeCommand extends Command{
     public IntakeSubsystem intakeSubsystem;

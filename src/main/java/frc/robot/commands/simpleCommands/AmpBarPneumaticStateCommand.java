@@ -1,6 +1,6 @@
-package frc.robot.commands.swervedrive;
+package frc.robot.commands.simpleCommands;
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.subsystems.swervedrive.AmpbarPNSubsystem;
+import frc.robot.subsystems.AmpbarPNSubsystem;
 
 public class AmpBarPneumaticStateCommand extends Command{
 

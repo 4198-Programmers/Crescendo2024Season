@@ -1,4 +1,4 @@
-package frc.robot.commands.swervedrive.GameAutos;
+package frc.robot.commands.GameAutos;
 
 import java.util.function.DoubleSupplier;
 

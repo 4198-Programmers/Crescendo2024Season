@@ -1,7 +1,7 @@
-package frc.robot.commands.swervedrive.GameAutos;
+package frc.robot.commands.GameAutos;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.subsystems.swervedrive.RightClimbSubsystem;
+import frc.robot.subsystems.RightClimbSubsystem;
 
 public class GameAutoRightClimbCommand extends Command{
     RightClimbSubsystem rightClimbSubsystem;

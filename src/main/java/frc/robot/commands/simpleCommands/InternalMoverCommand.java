@@ -1,7 +1,7 @@
-package frc.robot.commands.swervedrive;
+package frc.robot.commands.simpleCommands;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.subsystems.swervedrive.InternalMoverSubsystem;
+import frc.robot.subsystems.InternalMoverSubsystem;
 
 public class InternalMoverCommand extends Command {
     public InternalMoverSubsystem internalMoverSubsystem; 

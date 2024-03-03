@@ -1,9 +1,9 @@
-package frc.robot.commands.swervedrive.GameAutos;
+package frc.robot.commands.GameAutos;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.subsystems.swervedrive.IntakePneumaticsSubsystem;
-import frc.robot.subsystems.swervedrive.IntakeSubsystem;
-import frc.robot.subsystems.swervedrive.InternalMoverSubsystem;
+import frc.robot.subsystems.IntakePneumaticsSubsystem;
+import frc.robot.subsystems.IntakeSubsystem;
+import frc.robot.subsystems.InternalMoverSubsystem;
 
 public class GameAutoIntakeCommand extends Command{
     IntakeSubsystem intakeSubsystem;

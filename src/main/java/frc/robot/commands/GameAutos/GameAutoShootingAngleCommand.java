@@ -1,7 +1,7 @@
-package frc.robot.commands.swervedrive.GameAutos;
+package frc.robot.commands.GameAutos;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.subsystems.swervedrive.ShootingAngleSubsytems;
+import frc.robot.subsystems.ShootingAngleSubsytems;
 
 public class GameAutoShootingAngleCommand extends Command {
     ShootingAngleSubsytems shootingAngleSubsytems;

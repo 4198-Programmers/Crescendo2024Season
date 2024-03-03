@@ -13,22 +13,14 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
-import frc.robot.commands.swervedrive.IntakeCommand;
-import frc.robot.commands.swervedrive.LeftClimbCommand;
-import frc.robot.subsystems.swervedrive.AmpbarPNSubsystem;
-import frc.robot.subsystems.swervedrive.IntakePneumaticsSubsystem;
-import frc.robot.subsystems.swervedrive.IntakeSubsystem;
-import frc.robot.subsystems.swervedrive.InternalMoverSubsystem;
-import frc.robot.subsystems.swervedrive.LeftClimbSubsystem;
-import frc.robot.subsystems.swervedrive.RightClimbSubsystem;
-import frc.robot.subsystems.swervedrive.ShootingAngleSubsytems;
-import frc.robot.subsystems.swervedrive.ShootingSubsystem;
+import frc.robot.commands.GameAutos.GameAutoDriveCommand;
+import frc.robot.commands.GameAutos.GameAutoIntakeCommand;
+import frc.robot.commands.GameAutos.GameAutoInternalMoverCommand;
+import frc.robot.commands.GameAutos.GameAutoShootingAngleCommand;
+import frc.robot.commands.GameAutos.GameAutoShootingCommand;
+import frc.robot.commands.simpleCommands.IntakeCommand;
+import frc.robot.commands.simpleCommands.LeftClimbCommand;
 import frc.robot.subsystems.swervedrive.SwerveSubsystem;
-import frc.robot.commands.swervedrive.GameAutos.GameAutoDriveCommand;
-import frc.robot.commands.swervedrive.GameAutos.GameAutoIntakeCommand;
-import frc.robot.commands.swervedrive.GameAutos.GameAutoInternalMoverCommand;
-import frc.robot.commands.swervedrive.GameAutos.GameAutoShootingAngleCommand;
-import frc.robot.commands.swervedrive.GameAutos.GameAutoShootingCommand;
 
 public class AutoContainer extends SubsystemBase{
     //used to choose Auto

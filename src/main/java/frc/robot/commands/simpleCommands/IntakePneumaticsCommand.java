@@ -1,7 +1,7 @@
-package frc.robot.commands.swervedrive;
+package frc.robot.commands.simpleCommands;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.subsystems.swervedrive.IntakePneumaticsSubsystem;
+import frc.robot.subsystems.IntakePneumaticsSubsystem;
 
 public class IntakePneumaticsCommand extends Command{
 
