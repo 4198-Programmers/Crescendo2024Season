@@ -1,17 +1,17 @@
-package frc.robot.commands.simpleCommands;
+package frc.robot.commands;
 
 import java.util.function.DoubleSupplier;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Constants;
-import frc.robot.subsystems.RightClimbSubsystem;
+import frc.robot.subsystems.swervedrive.RightClimbSubsystem;
 
-public class RightClimbCommand extends Command{
+public class RightClimbLimitlessCommand extends Command{
     RightClimbSubsystem rightClimbSubsystem;
     double speed;
     DoubleSupplier throttle;
     
-    public RightClimbCommand(RightClimbSubsystem rightClimbSubsystem, double speed, DoubleSupplier throttle) {
+    public RightClimbLimitlessCommand(RightClimbSubsystem rightClimbSubsystem, double speed, DoubleSupplier throttle) {
         this.rightClimbSubsystem = rightClimbSubsystem;
         this.speed = speed;
         this.throttle = throttle;
@@ -24,8 +24,6 @@ public class RightClimbCommand extends Command{
 
        if (rightClimbSubsystem.rightClimbMotorPosition() <= Constants.RIGHT_CLIMB_MOTOR_MAX && rightClimbSubsystem.rightClimbMotorPosition() >= Constants.RIGHT_CLIMB_MOTOR_MIN){
         this.rightClimbSubsystem.move(this.speed * this.throttle.getAsDouble());
-       }else{
-        this.rightClimbSubsystem.move( - (this.speed * this.throttle.getAsDouble()));
        }
     }
 
