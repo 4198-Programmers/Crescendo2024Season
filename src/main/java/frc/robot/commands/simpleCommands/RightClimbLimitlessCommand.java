@@ -1,10 +1,10 @@
-package frc.robot.commands;
+package frc.robot.commands.simpleCommands;
 
 import java.util.function.DoubleSupplier;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Constants;
-import frc.robot.subsystems.swervedrive.RightClimbSubsystem;
+import frc.robot.subsystems.RightClimbSubsystem;
 
 public class RightClimbLimitlessCommand extends Command{
     RightClimbSubsystem rightClimbSubsystem;

@@ -36,7 +36,9 @@ import frc.robot.commands.simpleCommands.IntakeCommand;
 import frc.robot.commands.simpleCommands.IntakePneumaticsCommand;
 import frc.robot.commands.simpleCommands.InternalMoverCommand;
 import frc.robot.commands.simpleCommands.LeftClimbCommand;
+import frc.robot.commands.simpleCommands.LeftClimbLimitlessCommand;
 import frc.robot.commands.simpleCommands.RightClimbCommand;
+import frc.robot.commands.simpleCommands.RightClimbLimitlessCommand;
 import frc.robot.commands.simpleCommands.ShootingAngleCommand;
 import frc.robot.commands.simpleCommands.ShootingCommand;
 import frc.robot.commands.swervedrive.zeroGyro;
@@ -102,7 +104,15 @@ public class RobotContainer
     JoystickButton intakePneumaticsButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_5);
 
     JoystickButton autoIntakeButton = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_1);
+    JoystickButton rClimbUpLimitlessButton = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_10);
+    JoystickButton rClimbDownLimitlessButton = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_9);
+    JoystickButton lClimbUpLimitlessButton = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_8);
+    JoystickButton lClimbDownLimitlessButton = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_7);
+    JoystickButton bClimbDownLimitlessButton = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_11);
+    JoystickButton bClimbUpLimitlessButton = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_12);
 
+    JoystickButton autoShootButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_1);
+    JoystickButton autoAmpButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_2);
     JoystickButton interalMoverUpButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_5);
     //JoystickButton interalMoverDownButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_3);
     JoystickButton shooterAngleUpButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_6);
@@ -118,8 +128,6 @@ public class RobotContainer
     SendableChooser<Command> autoChooser = new SendableChooser<>();
     AutoContainer autoContainer = new AutoContainer(intakeSubsystem, shootingAngleSubsytems, shootingSubsystem, drivebase, 
     leftClimbSubsystem, rightClimbSubsystem, internalMoverSubsystem, ampbarPNSubsystem, intakePneumaticsSubsystem);
-    JoystickButton autoShootButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_1);
-    JoystickButton autoAmpButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_2);
 
    public RobotContainer()
   {
@@ -195,15 +203,36 @@ public class RobotContainer
 //    new JoystickButton(driverXbox, 3).whileTrue(new RepeatCommand(new InstantCommand(drivebase::lock, drivebase)));
   
 //non swerve button binding
+
+//right joystick 
+ampButton.toggleOnTrue(new AmpBarPneumaticStateCommand(ampbarPNSubsystem));
 zeroGyroButton.whileTrue(new zeroGyro(drivebase));
 intakeInButton.whileTrue(new IntakeCommand(intakeSubsystem, internalMoverSubsystem, Constants.INTAKE_MOTOR_SPEED));
-ampButton.toggleOnTrue(new AmpBarPneumaticStateCommand(ampbarPNSubsystem));
+intakePneumaticsButton.toggleOnTrue(new IntakePneumaticsCommand(intakePneumaticsSubsystem));
 
+
+//middle joystick
+autoIntakeButton.toggleOnTrue(new AutoIntakeCommand(intakeSubsystem, internalMoverSubsystem, intakePneumaticsSubsystem, 0.25, 1));
+
+lClimbUpLimitlessButton.whileTrue(new LeftClimbLimitlessCommand(leftClimbSubsystem, Constants.CLIMB_SPEED, () -> rightJoystick.getThrottle()));
+lClimbDownLimitlessButton.whileTrue(new LeftClimbLimitlessCommand(leftClimbSubsystem, -Constants.CLIMB_SPEED, () -> rightJoystick.getThrottle()));
+rClimbUpLimitlessButton.whileTrue(new RightClimbLimitlessCommand(rightClimbSubsystem, Constants.CLIMB_SPEED, () -> rightJoystick.getThrottle()));
+rClimbDownLimitlessButton.whileTrue(new RightClimbLimitlessCommand(rightClimbSubsystem, -Constants.CLIMB_SPEED, () -> rightJoystick.getThrottle()));
+bClimbUpLimitlessButton.whileTrue(new RightClimbLimitlessCommand(rightClimbSubsystem, Constants.CLIMB_SPEED, () -> rightJoystick.getThrottle())
+  .alongWith(new LeftClimbLimitlessCommand(leftClimbSubsystem, Constants.CLIMB_SPEED, () -> rightJoystick.getThrottle())));
+bClimbDownLimitlessButton.whileTrue(new RightClimbLimitlessCommand(rightClimbSubsystem, -Constants.CLIMB_SPEED, () -> rightJoystick.getThrottle())
+  .alongWith(new LeftClimbLimitlessCommand(leftClimbSubsystem, -Constants.CLIMB_SPEED, () -> rightJoystick.getThrottle())));
+  
+
+//left Joystick 
+autoShootButton.toggleOnTrue(new AutoShootingCommand(shootingSubsystem, internalMoverSubsystem, shootingAngleSubsytems, -8, 1, 0.5));
+autoAmpButton.toggleOnTrue(new AutoAmpCommand(shootingSubsystem, internalMoverSubsystem, shootingAngleSubsytems, ampbarPNSubsystem, -0.5, 0.5, 0.5));
+shootingButton.whileTrue(new ShootingCommand(shootingSubsystem, - Constants.SHOOTING_MOTOR_SPEED));
 interalMoverUpButton.whileTrue(new InternalMoverCommand(internalMoverSubsystem, Constants.INTERNAL_MOVER_SPEED));
 //interalMoverDownButton.whileTrue(new InternalMoverCommand(internalMoverSubsystem, -Constants.INTERNAL_MOVER_SPEED));
 shooterAngleUpButton.whileTrue(new ShootingAngleCommand(shootingAngleSubsytems, -Constants.SHOOTING_ANGLE_MOTOR_SPEED));
 shooterAngleDownButton.whileTrue(new ShootingAngleCommand(shootingAngleSubsytems, Constants.SHOOTING_ANGLE_MOTOR_SPEED));
-shootingButton.whileTrue(new ShootingCommand(shootingSubsystem, - Constants.SHOOTING_MOTOR_SPEED));
+
 lClimbUpButton.whileTrue(new LeftClimbCommand(leftClimbSubsystem, Constants.CLIMB_SPEED, () -> rightJoystick.getThrottle()));
 lClimbDownButton.whileTrue(new LeftClimbCommand(leftClimbSubsystem, -Constants.CLIMB_SPEED, () -> rightJoystick.getThrottle()));
 rClimbUpButton.whileTrue(new RightClimbCommand(rightClimbSubsystem, Constants.CLIMB_SPEED, () -> rightJoystick.getThrottle()));
@@ -212,12 +241,7 @@ bClimbUpButton.whileTrue(new RightClimbCommand(rightClimbSubsystem, Constants.CL
   .alongWith(new LeftClimbCommand(leftClimbSubsystem, Constants.CLIMB_SPEED, () -> rightJoystick.getThrottle())));
 bClimbDownButton.whileTrue(new RightClimbCommand(rightClimbSubsystem, -Constants.CLIMB_SPEED, () -> rightJoystick.getThrottle())
   .alongWith(new LeftClimbCommand(leftClimbSubsystem, -Constants.CLIMB_SPEED, () -> rightJoystick.getThrottle())));
-  autoShootButton.toggleOnTrue(new AutoShootingCommand(shootingSubsystem, internalMoverSubsystem, shootingAngleSubsytems, -8, 1, 0.5));
 
-  intakePneumaticsButton.toggleOnTrue(new IntakePneumaticsCommand(intakePneumaticsSubsystem));
-      
-  autoIntakeButton.toggleOnTrue(new AutoIntakeCommand(intakeSubsystem, internalMoverSubsystem, intakePneumaticsSubsystem, 0.25, 1));
-  autoAmpButton.toggleOnTrue(new AutoAmpCommand(shootingSubsystem, internalMoverSubsystem, shootingAngleSubsytems, ampbarPNSubsystem, -0.5, 0.5, 0.5));
 }
 
   /**
