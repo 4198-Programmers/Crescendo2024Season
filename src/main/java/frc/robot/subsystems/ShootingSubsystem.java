@@ -13,8 +13,8 @@ public class ShootingSubsystem extends SubsystemBase{
     private RelativeEncoder shooterEncoder = shootingMotor.getEncoder();
 
 public void shootOut(double speed){
-    shootingMotor.set(-speed);
-    shootingMotor2.set(-speed);
+    shootingMotor.set( - speed);
+    shootingMotor2.set(speed);
 }
 
 public void stop(){
