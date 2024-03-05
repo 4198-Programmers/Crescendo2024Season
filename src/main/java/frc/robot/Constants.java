@@ -73,8 +73,8 @@ public static final double SHOOTING_ANGLE_MOTOR_SPEED = 0.5;
 public static final double MAX_SHOOTING_SPEED = 5000;
 public static final double MAX_LEFT_CLIMB_POSITION = 100;
 public static final double MIN_LEFT_CLIMB_POSITION = -1;
-public static final double RIGHT_CLIMB_MOTOR_MAX = 100;
-public static final double RIGHT_CLIMB_MOTOR_MIN = -1;
+public static final double MAX_RIGHT_CLIMB_POSITION = 100;
+public static final double MIN_RIGHT_CLIMB_POSITION = -1;
 
 //swtiches 
 public static final int MIDDLE_LIMIT_SWITCH_ID = 9;
@@ -106,6 +106,7 @@ public static final int JOYSTICK_BUTTON_12 = 12;
 public static final double SHOOTER_ANGLE_A = -0.0235642;
 public static final double SHOOTER_ANGLE_B = -1.52065;
 public static final double SHOOTER_ANGLE_C = 43.2451;
+
 
 
 }

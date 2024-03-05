@@ -16,11 +16,15 @@ public class GameAutoLeftClimbCommand extends Command{
         this.speed = speed;
         this.throttle = throttle;
         this.time = time;
-        this.startTime = System.currentTimeMillis();
-        this.isFinished = false;
         addRequirements(leftClimbSubsystem);
     }
     
+    @Override
+    public void initialize(){
+        this.startTime = System.currentTimeMillis();
+        this.isFinished = false;
+    }
+
     @Override
     public void execute() {
         if (System.currentTimeMillis() <= startTime + time) {

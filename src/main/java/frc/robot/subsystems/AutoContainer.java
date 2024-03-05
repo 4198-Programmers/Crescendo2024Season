@@ -1,26 +1,24 @@
 package frc.robot.subsystems;
 
+import com.pathplanner.lib.auto.NamedCommands;
+
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.geometry.Translation2d;
-import edu.wpi.first.units.Measure;
 import edu.wpi.first.units.Units;
-import edu.wpi.first.wpilibj.shuffleboard.LayoutType;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.Constants;
-import frc.robot.commands.GameAutos.GameAutoDriveCommand;
-import frc.robot.commands.GameAutos.GameAutoIntakeCommand;
-import frc.robot.commands.GameAutos.GameAutoInternalMoverCommand;
-import frc.robot.commands.GameAutos.GameAutoShootingAngleCommand;
-import frc.robot.commands.GameAutos.GameAutoShootingCommand;
-import frc.robot.commands.simpleCommands.IntakeCommand;
-import frc.robot.commands.simpleCommands.LeftClimbCommand;
+import frc.robot.commands.simpleCommands.AmpBarPneumaticStateCommand;
+import frc.robot.commands.simpleCommands.ShootingCommand;
 import frc.robot.subsystems.swervedrive.SwerveSubsystem;
+import frc.robot.commands.complexCommands.AutoAmpCommand;
+import frc.robot.commands.complexCommands.AutoIntakeCommand;
+import frc.robot.commands.complexCommands.AutoSetShootingAngleCommand;
+import frc.robot.commands.complexCommands.AutoShootingCommand;
 
 public class AutoContainer extends SubsystemBase{
     //used to choose Auto
@@ -60,51 +58,27 @@ public class AutoContainer extends SubsystemBase{
         this.internalMoverSubsystem = internalMoverSubsystem;
         this.ampbarPNSubsystem = ampbarPNSubsystem;
         this.intakePneumaticsSubsystem = intakePneumaticsSubsystem;
-
-        this.redDefaultAuto = 
-        new GameAutoShootingAngleCommand(shootingAngleSubsytems, 1, 41, 2)
-         .andThen( new GameAutoShootingCommand(shootingSubsystem, internalMoverSubsystem, 1, 3000)
-        .andThen(this.swerveSubsystem.driveToPose(firstPose))
-        .andThen(new GameAutoIntakeCommand(intakeSubsystem, intakePneumaticsSubsystem, internalMoverSubsystem, 1, 3000))
-        .andThen(this.swerveSubsystem.driveToPose(secondPose))
-        //.andThen(this.swerveSubsystem.driveToPose(secondPose))
-        .andThen(new GameAutoShootingCommand(shootingSubsystem, internalMoverSubsystem, 1, 3000))
-        //.andThen(this.swerveSubsystem.driveToPose(thirdPose))
-        .andThen(this.swerveSubsystem.driveToPose(thirdPose))
-        .andThen(new GameAutoIntakeCommand(intakeSubsystem, intakePneumaticsSubsystem, internalMoverSubsystem, 0, 0))
-        .andThen(this.swerveSubsystem.driveToPose(lastPose))
-        //.andThen(this.swerveSubsystem.driveToPose(lastPose))
-        .andThen(new GameAutoShootingCommand(shootingSubsystem, internalMoverSubsystem, 0, 0)));
         
-        
-    SequentialCommandGroup redDefaultAuto = new SequentialCommandGroup(
-        new GameAutoShootingAngleCommand(shootingAngleSubsytems, 1, 40, 2)
-        .andThen(new GameAutoShootingCommand(shootingSubsystem, internalMoverSubsystem, 1, 1000))
-        .andThen(this.swerveSubsystem.driveToPose(firstPose))
-        .andThen(new GameAutoIntakeCommand(intakeSubsystem, intakePneumaticsSubsystem, internalMoverSubsystem, 0, 0))
-        .andThen(this.swerveSubsystem.driveToPose(secondPose))
-        .andThen(this.swerveSubsystem.driveToPose(secondPose))
-        .andThen(new GameAutoShootingCommand(shootingSubsystem, internalMoverSubsystem, 0, 0))
-        .andThen(this.swerveSubsystem.driveToPose(thirdPose))
-        .andThen(this.swerveSubsystem.driveToPose(thirdPose))
-        .andThen(new GameAutoIntakeCommand(intakeSubsystem, intakePneumaticsSubsystem, internalMoverSubsystem, 0, 0))
-        .andThen(this.swerveSubsystem.driveToPose(lastPose))
-        .andThen(this.swerveSubsystem.driveToPose(lastPose))
-        .andThen(new GameAutoShootingCommand(shootingSubsystem, internalMoverSubsystem, 0, 0)));
-    }
+        NamedCommands.registerCommand("Auto Shoot Command", new AutoShootingCommand(shootingSubsystem, internalMoverSubsystem, shootingAngleSubsytems, -8, 1, 1).withTimeout(3));
+        NamedCommands.registerCommand("Auto Intake Command", new AutoIntakeCommand(intakeSubsystem, internalMoverSubsystem, intakePneumaticsSubsystem, 1, 1).withTimeout(5));
+        NamedCommands.registerCommand("Shooter Angle Command" , new AutoSetShootingAngleCommand(shootingAngleSubsytems, -8, 1).withTimeout(5));
+        NamedCommands.registerCommand("Auto Amp Command" , new AutoAmpCommand(shootingSubsystem, internalMoverSubsystem, shootingAngleSubsytems, ampbarPNSubsystem, -8, 1, 1).withTimeout(2));
+        NamedCommands.registerCommand("Amp Bar Pneumatics", new AmpBarPneumaticStateCommand(ampbarPNSubsystem).withTimeout(2));
+        NamedCommands.registerCommand("Shooting Amp Command", new ShootingCommand(shootingSubsystem, internalMoverSubsystem, 0.5, 2500).withTimeout(3));
+        NamedCommands.registerCommand("Shooting Command", new ShootingCommand(shootingSubsystem, internalMoverSubsystem, 1, 5000).withTimeout(3));
+}
+    
+        public void SetupAutoOptions(SendableChooser<Command> sendableChooser) {
+        sendableChooser.addOption("Test back and forth", this.swerveSubsystem.getAutonomousCommand("test back and forth"));
+        sendableChooser.addOption("Test back and amp", this.swerveSubsystem.getAutonomousCommand("test 2step back and right"));
+        sendableChooser.addOption("Test Auto", this.swerveSubsystem.getAutonomousCommand("Test Auto"));
 
-    public void SetupAutoOptions(SendableChooser<Command> sendableChooser) {
-        sendableChooser.setDefaultOption("Intake", new IntakeCommand(intakeSubsystem, internalMoverSubsystem, 0));
-        sendableChooser.addOption("Test Auto 1", this.swerveSubsystem.getAutonomousCommand("Test Auto 1"));
-        sendableChooser.addOption("GameAutoIntakeCommand",
-                new GameAutoIntakeCommand(intakeSubsystem, intakePneumaticsSubsystem, internalMoverSubsystem, 0.5, 15000));
-
-        sendableChooser.addOption("makeABox", this.swerveSubsystem.driveToPose(firstPose)
+        /*sendableChooser.addOption("makeABox", this.swerveSubsystem.driveToPose(firstPose)
                 .andThen(this.swerveSubsystem.driveToPose(secondPose))
                 .andThen(this.swerveSubsystem.driveToPose(thirdPose))
                 .andThen(this.swerveSubsystem.driveToPose(lastPose)));
         sendableChooser.addOption("Red Auto 1", this.redDefaultAuto);
-    }
-    
+    */
+        }
 
 }

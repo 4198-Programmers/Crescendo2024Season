@@ -21,9 +21,13 @@ public class GameAutoDriveCommand extends Command {
         this.translationX = translationX;
         this.translationY = translationY;
         this.angularRotationX = angularRotationX;
+        addRequirements(swerveSubsystem);
+    }
+
+    @Override
+    public void initialize(){
         this.startTime = System.currentTimeMillis();
         this.isFinished = false;
-        addRequirements(swerveSubsystem);
     }
 
        @Override

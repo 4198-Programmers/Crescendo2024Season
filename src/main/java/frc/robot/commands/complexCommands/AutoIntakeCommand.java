@@ -27,6 +27,7 @@ public class AutoIntakeCommand extends Command{
     @Override
     public void execute(){
         System.out.println("Sensor Status: " + internalMoverSubsystem.middleLimitStatus());
+        System.out.println("Auto Intake Command: Execute");
         
         if(internalMoverSubsystem.middleLimitStatus()) {
         intakeSubsystem.intakeMotorSpeed(-speedIntake);
@@ -41,7 +42,13 @@ public class AutoIntakeCommand extends Command{
     }
 
     @Override
+    public boolean isFinished() {
+        return !internalMoverSubsystem.middleLimitStatus();
+    }
+
+    @Override
     public void end(boolean interrupted){
+        System.out.println("Auto Intake Command: End");
         intakeSubsystem.stop();
         internalMoverSubsystem.stop();
         intakePneumaticsSubsystem.intakeDown();

@@ -16,9 +16,13 @@ public class GameAutoRightClimbCommand extends Command{
         this.speed = speed;
         this.throttle = throttle;
         this.time = time;
+        addRequirements(rightClimbSubsystem);
+    }
+
+    @Override
+    public void initialize(){
         this.startTime = System.currentTimeMillis();
         this.isFinished = false;
-        addRequirements(rightClimbSubsystem);
     }
      
     @Override

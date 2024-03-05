@@ -22,10 +22,10 @@ public class LeftClimbCommand extends Command{
     public void execute() {
         System.out.println("left Climb Position:" + leftClimbSubsystem.getPosition());
         if(leftClimbSubsystem.getPosition() <= Constants.MAX_LEFT_CLIMB_POSITION && leftClimbSubsystem.getPosition() >= Constants.MIN_LEFT_CLIMB_POSITION){
-        leftClimbSubsystem.move( this.speed * this.throttle.getAsDouble());
+        leftClimbSubsystem.move(this.speed * Math.abs(this.throttle.getAsDouble()));
     //run fine when inside of the limits but will move opposite when statement is not true. 
         } else {
-            leftClimbSubsystem.move( - (this.speed * this.throttle.getAsDouble()));
+            leftClimbSubsystem.move(- (this.speed * Math.abs(this.throttle.getAsDouble())));
         }
    }
 

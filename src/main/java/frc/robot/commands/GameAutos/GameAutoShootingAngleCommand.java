@@ -16,9 +16,13 @@ public class GameAutoShootingAngleCommand extends Command {
         this.speed = speed;
         this.angle = angle;
         this.tolerance = tolerance;
-        this.isFinished = false;
-        this.startTime = System.currentTimeMillis();
         addRequirements(shootingAngleSubsytems);
+    }
+
+    @Override
+    public void initialize(){
+        this.startTime = System.currentTimeMillis();
+        this.isFinished = false;
     }
 
     @Override

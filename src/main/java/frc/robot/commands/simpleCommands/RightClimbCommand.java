@@ -22,11 +22,12 @@ public class RightClimbCommand extends Command{
     public void execute() {
         System.out.println("Right Climb Position:" + rightClimbSubsystem.rightClimbMotorPosition());
 
-       if (rightClimbSubsystem.rightClimbMotorPosition() <= Constants.RIGHT_CLIMB_MOTOR_MAX && rightClimbSubsystem.rightClimbMotorPosition() >= Constants.RIGHT_CLIMB_MOTOR_MIN){
-        this.rightClimbSubsystem.move(this.speed * this.throttle.getAsDouble());
-       }else{
-        this.rightClimbSubsystem.move( - Math.abs(this.speed * this.throttle.getAsDouble()));
-       }
+        if(rightClimbSubsystem.rightClimbMotorPosition() <= Constants.MAX_RIGHT_CLIMB_POSITION && rightClimbSubsystem.rightClimbMotorPosition() >= Constants.MIN_RIGHT_CLIMB_POSITION){
+            rightClimbSubsystem.move(this.speed * Math.abs(this.throttle.getAsDouble()));
+        //run fine when inside of the limits but will move opposite when statement is not true. 
+            } else {
+                rightClimbSubsystem.move(- (this.speed * Math.abs(this.throttle.getAsDouble())));
+            }
     }
 
     @Override

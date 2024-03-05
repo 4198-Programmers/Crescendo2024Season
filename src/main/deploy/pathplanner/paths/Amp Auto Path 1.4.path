@@ -1,0 +1,70 @@
+{
+  "version": 1.0,
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 1.8549156338217678,
+        "y": 7.712058749533177
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 2.8549156338217676,
+        "y": 7.712058749533177
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 9.488976317620095,
+        "y": 5.52811290895741
+      },
+      "prevControl": {
+        "x": 8.488976317620095,
+        "y": 5.52811290895741
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": null
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "eventMarkers": [
+    {
+      "name": "New Event Marker",
+      "waypointRelativePos": 0.65,
+      "command": {
+        "type": "parallel",
+        "data": {
+          "commands": [
+            {
+              "type": "named",
+              "data": {
+                "name": "Auto Intake Command"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "globalConstraints": {
+    "maxVelocity": 4.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": -179.69045094017352,
+    "rotateFast": false
+  },
+  "reversed": false,
+  "folder": "Amp Bar Auto",
+  "previewStartingState": {
+    "rotation": 88.93908830973578,
+    "velocity": 0
+  },
+  "useDefaultConstraints": true
+}

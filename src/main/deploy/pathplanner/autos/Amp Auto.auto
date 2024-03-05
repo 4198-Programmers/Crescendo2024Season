@@ -1,0 +1,73 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 1.8267774427286747,
+      "y": 7.70644777756792
+    },
+    "rotation": 90.0
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "named",
+          "data": {
+            "name": "Amp Bar Pnuematics"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shooting Amp Command"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Amp Auto Path 1.0"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Amp Auto Path 1.1"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Amp Bar Pnuematics"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shooting Amp Command"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Amp Auto Path 1.2"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Right Auto 1.3"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Shoot Command"
+          }
+        }
+      ]
+    }
+  },
+  "folder": "Autos",
+  "choreoAuto": false
+}

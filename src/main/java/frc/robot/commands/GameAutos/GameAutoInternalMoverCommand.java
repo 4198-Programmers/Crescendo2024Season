@@ -14,9 +14,13 @@ public class GameAutoInternalMoverCommand extends Command {
         this.internalMoverSubsystem = internalMoverSubsystem;
         this.speed = speed;
         this.time = time;
+        addRequirements(internalMoverSubsystem);
+    }
+
+    @Override
+    public void initialize(){
         this.startTime = System.currentTimeMillis();
         this.isFinished = false;
-        addRequirements(internalMoverSubsystem);
     }
     
     @Override

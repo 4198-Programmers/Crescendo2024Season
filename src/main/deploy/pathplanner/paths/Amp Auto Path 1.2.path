@@ -1,0 +1,76 @@
+{
+  "version": 1.0,
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 1.8384715971711143,
+        "y": 7.6947536231254805
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 2.832474724778509,
+        "y": 7.145128364330803
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 9.430477768318958,
+        "y": 7.429315761244349
+      },
+      "prevControl": {
+        "x": 8.430477768318958,
+        "y": 7.429315761244349
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": null
+    }
+  ],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.3,
+      "rotationDegrees": 180.0,
+      "rotateFast": false
+    }
+  ],
+  "constraintZones": [],
+  "eventMarkers": [
+    {
+      "name": "New Event Marker",
+      "waypointRelativePos": 0.55,
+      "command": {
+        "type": "parallel",
+        "data": {
+          "commands": [
+            {
+              "type": "named",
+              "data": {
+                "name": "Auto Intake Command"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "globalConstraints": {
+    "maxVelocity": 4.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 179.60406746257397,
+    "rotateFast": false
+  },
+  "reversed": false,
+  "folder": "Amp Bar Auto",
+  "previewStartingState": {
+    "rotation": 91.73570458892834,
+    "velocity": 0
+  },
+  "useDefaultConstraints": true
+}

@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 2.0,
-        "y": 7.0
+        "x": 3.9785018601376234,
+        "y": 7.016492665463964
       },
       "prevControl": null,
       "nextControl": {
-        "x": 3.0,
-        "y": 7.0
+        "x": 3.0312753502999885,
+        "y": 7.074963437676164
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 4.0,
-        "y": 6.0
+        "x": 1.8267774427286747,
+        "y": 7.6947536231254805
       },
       "prevControl": {
-        "x": 3.0,
-        "y": 6.0
+        "x": 1.7741537477376947,
+        "y": 7.57196500147986
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Amp Auto Path 1-2"
     }
   ],
   "rotationTargets": [],
@@ -39,13 +39,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0,
+    "rotation": 90.0,
     "rotateFast": false
   },
   "reversed": false,
-  "folder": "Test Folder",
+  "folder": "Amp Bar Auto",
   "previewStartingState": {
-    "rotation": 0,
+    "rotation": 178.77609510063633,
     "velocity": 0
   },
   "useDefaultConstraints": true
