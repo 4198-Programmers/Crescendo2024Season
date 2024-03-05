@@ -22,9 +22,8 @@ public class LeftClimbLimitlessCommand extends Command{
     public void execute() {
         System.out.println("left Climb Position:" + leftClimbSubsystem.getPosition());
 
-       if (leftClimbSubsystem.getPosition() <= Constants.RIGHT_CLIMB_MOTOR_MAX && leftClimbSubsystem.getPosition() >= Constants.RIGHT_CLIMB_MOTOR_MIN){
         this.leftClimbSubsystem.move(this.speed * this.throttle.getAsDouble());
-       }
+
     }
 
     @Override

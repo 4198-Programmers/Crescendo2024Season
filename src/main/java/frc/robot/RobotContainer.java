@@ -210,24 +210,15 @@ zeroGyroButton.whileTrue(new zeroGyro(drivebase));
 intakeInButton.whileTrue(new IntakeCommand(intakeSubsystem, internalMoverSubsystem, Constants.INTAKE_MOTOR_SPEED));
 intakePneumaticsButton.toggleOnTrue(new IntakePneumaticsCommand(intakePneumaticsSubsystem));
 
+lClimbUpLimitlessButton.whileTrue(new LeftClimbLimitlessCommand(leftClimbSubsystem, Constants.CLIMB_SPEED, () -> middleJoystick.getThrottle()));
+lClimbDownLimitlessButton.whileTrue(new LeftClimbLimitlessCommand(leftClimbSubsystem, -Constants.CLIMB_SPEED, () -> middleJoystick.getThrottle()));
+rClimbUpLimitlessButton.whileTrue(new RightClimbLimitlessCommand(rightClimbSubsystem, -Constants.CLIMB_SPEED, () -> middleJoystick.getThrottle()));
+rClimbDownLimitlessButton.whileTrue(new RightClimbLimitlessCommand(rightClimbSubsystem, Constants.CLIMB_SPEED, () -> middleJoystick.getThrottle()));
+bClimbUpLimitlessButton.whileTrue(new RightClimbLimitlessCommand(rightClimbSubsystem, -Constants.CLIMB_SPEED, () -> middleJoystick.getThrottle())
+  .alongWith(new LeftClimbLimitlessCommand(leftClimbSubsystem, Constants.CLIMB_SPEED, () -> middleJoystick.getThrottle())));
+bClimbDownLimitlessButton.whileTrue(new RightClimbLimitlessCommand(rightClimbSubsystem, Constants.CLIMB_SPEED, () -> middleJoystick.getThrottle())
+  .alongWith(new LeftClimbLimitlessCommand(leftClimbSubsystem, -Constants.CLIMB_SPEED, () -> middleJoystick.getThrottle())));
 
-//middle joystick
-autoIntakeButton.toggleOnTrue(new AutoIntakeCommand(intakeSubsystem, internalMoverSubsystem, intakePneumaticsSubsystem, 0.25, 1));
-
-lClimbUpLimitlessButton.whileTrue(new LeftClimbLimitlessCommand(leftClimbSubsystem, Constants.CLIMB_SPEED, () -> rightJoystick.getThrottle()));
-lClimbDownLimitlessButton.whileTrue(new LeftClimbLimitlessCommand(leftClimbSubsystem, -Constants.CLIMB_SPEED, () -> rightJoystick.getThrottle()));
-rClimbUpLimitlessButton.whileTrue(new RightClimbLimitlessCommand(rightClimbSubsystem, Constants.CLIMB_SPEED, () -> rightJoystick.getThrottle()));
-rClimbDownLimitlessButton.whileTrue(new RightClimbLimitlessCommand(rightClimbSubsystem, -Constants.CLIMB_SPEED, () -> rightJoystick.getThrottle()));
-bClimbUpLimitlessButton.whileTrue(new RightClimbLimitlessCommand(rightClimbSubsystem, Constants.CLIMB_SPEED, () -> rightJoystick.getThrottle())
-  .alongWith(new LeftClimbLimitlessCommand(leftClimbSubsystem, Constants.CLIMB_SPEED, () -> rightJoystick.getThrottle())));
-bClimbDownLimitlessButton.whileTrue(new RightClimbLimitlessCommand(rightClimbSubsystem, -Constants.CLIMB_SPEED, () -> rightJoystick.getThrottle())
-  .alongWith(new LeftClimbLimitlessCommand(leftClimbSubsystem, -Constants.CLIMB_SPEED, () -> rightJoystick.getThrottle())));
-  
-
-//left Joystick 
-autoShootButton.toggleOnTrue(new AutoShootingCommand(shootingSubsystem, internalMoverSubsystem, shootingAngleSubsytems, -8, 1, 0.5));
-autoAmpButton.toggleOnTrue(new AutoAmpCommand(shootingSubsystem, internalMoverSubsystem, shootingAngleSubsytems, ampbarPNSubsystem, -0.5, 0.5, 0.5));
-shootingButton.whileTrue(new ShootingCommand(shootingSubsystem, - Constants.SHOOTING_MOTOR_SPEED));
 interalMoverUpButton.whileTrue(new InternalMoverCommand(internalMoverSubsystem, Constants.INTERNAL_MOVER_SPEED));
 //interalMoverDownButton.whileTrue(new InternalMoverCommand(internalMoverSubsystem, -Constants.INTERNAL_MOVER_SPEED));
 shooterAngleUpButton.whileTrue(new ShootingAngleCommand(shootingAngleSubsytems, -Constants.SHOOTING_ANGLE_MOTOR_SPEED));
@@ -235,11 +226,11 @@ shooterAngleDownButton.whileTrue(new ShootingAngleCommand(shootingAngleSubsytems
 
 lClimbUpButton.whileTrue(new LeftClimbCommand(leftClimbSubsystem, Constants.CLIMB_SPEED, () -> rightJoystick.getThrottle()));
 lClimbDownButton.whileTrue(new LeftClimbCommand(leftClimbSubsystem, -Constants.CLIMB_SPEED, () -> rightJoystick.getThrottle()));
-rClimbUpButton.whileTrue(new RightClimbCommand(rightClimbSubsystem, Constants.CLIMB_SPEED, () -> rightJoystick.getThrottle()));
-rClimbDownButton.whileTrue(new RightClimbCommand(rightClimbSubsystem, -Constants.CLIMB_SPEED, () -> rightJoystick.getThrottle()));
-bClimbUpButton.whileTrue(new RightClimbCommand(rightClimbSubsystem, Constants.CLIMB_SPEED, () -> rightJoystick.getThrottle())
+rClimbUpButton.whileTrue(new RightClimbCommand(rightClimbSubsystem, -Constants.CLIMB_SPEED, () -> rightJoystick.getThrottle()));
+rClimbDownButton.whileTrue(new RightClimbCommand(rightClimbSubsystem, Constants.CLIMB_SPEED, () -> rightJoystick.getThrottle()));
+bClimbUpButton.whileTrue(new RightClimbCommand(rightClimbSubsystem, - Constants.CLIMB_SPEED, () -> rightJoystick.getThrottle())
   .alongWith(new LeftClimbCommand(leftClimbSubsystem, Constants.CLIMB_SPEED, () -> rightJoystick.getThrottle())));
-bClimbDownButton.whileTrue(new RightClimbCommand(rightClimbSubsystem, -Constants.CLIMB_SPEED, () -> rightJoystick.getThrottle())
+bClimbDownButton.whileTrue(new RightClimbCommand(rightClimbSubsystem, Constants.CLIMB_SPEED, () -> rightJoystick.getThrottle())
   .alongWith(new LeftClimbCommand(leftClimbSubsystem, -Constants.CLIMB_SPEED, () -> rightJoystick.getThrottle())));
 
 }
