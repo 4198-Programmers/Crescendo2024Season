@@ -72,6 +72,7 @@ public class AutoContainer extends SubsystemBase{
         sendableChooser.addOption("Test back and forth", this.swerveSubsystem.getAutonomousCommand("test back and forth"));
         sendableChooser.addOption("Test back and amp", this.swerveSubsystem.getAutonomousCommand("test 2step back and right"));
         sendableChooser.addOption("Test Auto", this.swerveSubsystem.getAutonomousCommand("Test Auto"));
+        sendableChooser.addOption("Just Taxi Auto", this.swerveSubsystem.getAutonomousCommand("Just Back Only Auto"));
 
         sendableChooser.addOption("Right Side Out Only Auto", this.swerveSubsystem.getAutonomousCommand("Right Side Out Only Auto"));
         sendableChooser.addOption("Right Shoot and Out Only Auto", this.swerveSubsystem.getAutonomousCommand("Right Shoot and Out Only Auto"));

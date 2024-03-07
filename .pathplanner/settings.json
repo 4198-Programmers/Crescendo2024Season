@@ -3,10 +3,11 @@
   "robotLength": 0.7493,
   "holonomicMode": true,
   "pathFolders": [
-    "Amp Bar Auto",
-    "Left Side Auto",
-    "Middle Side Auto",
-    "Right Side Auto",
+    "Amp",
+    "Left",
+    "Middle",
+    "Right Auto",
+    "Outside Auto",
     "Test Folder"
   ],
   "autoFolders": [
