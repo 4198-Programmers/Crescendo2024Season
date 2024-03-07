@@ -16,12 +16,12 @@
     },
     {
       "anchor": {
-        "x": 9.5,
-        "y": 7.4
+        "x": 10.0,
+        "y": 7.45
       },
       "prevControl": {
-        "x": 8.5,
-        "y": 7.399999999999977
+        "x": 9.0,
+        "y": 7.449999999999977
       },
       "nextControl": null,
       "isLocked": false,
@@ -31,7 +31,12 @@
   "rotationTargets": [
     {
       "waypointRelativePos": 0.3,
-      "rotationDegrees": 180.0,
+      "rotationDegrees": 0.0,
+      "rotateFast": false
+    },
+    {
+      "waypointRelativePos": 1,
+      "rotationDegrees": 0,
       "rotateFast": false
     }
   ],
@@ -63,13 +68,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 179.60406746257397,
+    "rotation": -1.076215591945737,
     "rotateFast": false
   },
   "reversed": false,
   "folder": "Amp Bar Auto",
   "previewStartingState": {
-    "rotation": 91.73570458892834,
+    "rotation": -88.83003838701556,
     "velocity": 0
   },
   "useDefaultConstraints": true

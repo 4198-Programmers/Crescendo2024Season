@@ -73,6 +73,43 @@ public class AutoContainer extends SubsystemBase{
         sendableChooser.addOption("Test back and amp", this.swerveSubsystem.getAutonomousCommand("test 2step back and right"));
         sendableChooser.addOption("Test Auto", this.swerveSubsystem.getAutonomousCommand("Test Auto"));
 
+        sendableChooser.addOption("Right Side Out Only Auto", this.swerveSubsystem.getAutonomousCommand("Right Side Out Only Auto"));
+        sendableChooser.addOption("Right Shoot and Out Only Auto", this.swerveSubsystem.getAutonomousCommand("Right Shoot and Out Only Auto"));
+       //ONLY mean it will complete just the stated command in title 
+        sendableChooser.addOption("Right Side and Amp Auto", this.swerveSubsystem.getAutonomousCommand("Right Side and Amp Auto"));
+        sendableChooser.addOption("Right Side Full", this.swerveSubsystem.getAutonomousCommand("Right Side Full"));
+        //FULL mean to the full extent of its capibilities 
+        sendableChooser.addOption("Middle Full Auto", this.swerveSubsystem.getAutonomousCommand("Middle Full Auto"));
+
+        sendableChooser.addOption("Left Out Only Auto", this.swerveSubsystem.getAutonomousCommand("Left Out Only Auto"));
+        sendableChooser.addOption("Left Side Shoot and Out Only Auto", this.swerveSubsystem.getAutonomousCommand("Left Side Shoot and Out Only Auto"));
+        sendableChooser.addOption("Left Side Out Auto", this.swerveSubsystem.getAutonomousCommand("Left Side Out Auto"));
+        sendableChooser.addOption("Left Side Full Auto", this.swerveSubsystem.getAutonomousCommand("Left Side Full Auto"));
+        
+        sendableChooser.addOption("Amp Auto", this.swerveSubsystem.getAutonomousCommand("Amp Auto"));
+        //amp commands/pnumatics are not re writen for auto 
+
+        //address shooting encoder issue (start at 0 or set it at perfect angle before match)
+        //added rotational target at the end of each statment (this might fix our rotational issues)
+
+        //general locations on path planner
+/*  Amp Location x 1.85 y 7.7 r -90
+ *  Right Side starting x 0.75 y 4.5 r -60 
+ *  Middle Side starting x 1.3 y 5.55 r 0 
+ *  Left Side starting x 0.75 y 4.5 r -60 
+ * 
+ * shoot non button side 
+ * intake on button side 
+ * 
+ *middle rings 
+ * ring 1 (top) x 10 y 7.45
+ * ring 2 x 10 y 5.9
+ * ring 3 x 10 y 4.1 
+ * ring 4 x 10 y 2.45 
+ * ring 5 x 10 y 0.75
+ * 
+ */
+
         /*sendableChooser.addOption("makeABox", this.swerveSubsystem.driveToPose(firstPose)
                 .andThen(this.swerveSubsystem.driveToPose(secondPose))
                 .andThen(this.swerveSubsystem.driveToPose(thirdPose))

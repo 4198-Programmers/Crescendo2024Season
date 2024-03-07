@@ -12,6 +12,12 @@
     "data": {
       "commands": [
         {
+          "type": "named",
+          "data": {
+            "name": "Auto Shoot Command"
+          }
+        },
+        {
           "type": "path",
           "data": {
             "pathName": "Right Shoot and Out Only 2.0"

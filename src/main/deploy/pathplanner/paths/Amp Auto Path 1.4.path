@@ -28,7 +28,13 @@
       "linkedName": null
     }
   ],
-  "rotationTargets": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 1,
+      "rotationDegrees": 0,
+      "rotateFast": false
+    }
+  ],
   "constraintZones": [],
   "eventMarkers": [
     {
@@ -57,13 +63,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -179.69045094017352,
+    "rotation": -0.23586774217969922,
     "rotateFast": false
   },
   "reversed": false,
   "folder": "Amp Bar Auto",
   "previewStartingState": {
-    "rotation": 88.93908830973578,
+    "rotation": -90.76272730982089,
     "velocity": 0
   },
   "useDefaultConstraints": true
