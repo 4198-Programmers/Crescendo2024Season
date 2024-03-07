@@ -211,8 +211,8 @@ intakePneumaticsButton.toggleOnTrue(new IntakePneumaticsCommand(intakePneumatics
 
 //left joystick 
 autoIntakeButton.whileTrue(new AutoIntakeCommand(intakeSubsystem, internalMoverSubsystem, intakePneumaticsSubsystem,0.5 , 1));
-lClimbUpLimitlessButton.whileTrue(new LeftClimbLimitlessCommand(leftClimbSubsystem, Constants.CLIMB_SPEED, () -> middleJoystick.getThrottle()));
-lClimbDownLimitlessButton.whileTrue(new LeftClimbLimitlessCommand(leftClimbSubsystem, -Constants.CLIMB_SPEED, () -> middleJoystick.getThrottle()));
+lClimbUpLimitlessButton.whileTrue(new LeftClimbLimitlessCommand(leftClimbSubsystem, -Constants.CLIMB_SPEED, () -> middleJoystick.getThrottle()));
+lClimbDownLimitlessButton.whileTrue(new LeftClimbLimitlessCommand(leftClimbSubsystem, Constants.CLIMB_SPEED, () -> middleJoystick.getThrottle()));
 rClimbUpLimitlessButton.whileTrue(new RightClimbLimitlessCommand(rightClimbSubsystem, -Constants.CLIMB_SPEED, () -> middleJoystick.getThrottle()));
 rClimbDownLimitlessButton.whileTrue(new RightClimbLimitlessCommand(rightClimbSubsystem, Constants.CLIMB_SPEED, () -> middleJoystick.getThrottle()));
 bClimbUpLimitlessButton.whileTrue(new RightClimbLimitlessCommand(rightClimbSubsystem, -Constants.CLIMB_SPEED, () -> middleJoystick.getThrottle())
