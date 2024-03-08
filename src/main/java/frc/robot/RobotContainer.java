@@ -29,7 +29,9 @@ import frc.robot.commands.complexCommands.AutoAmpCommand;
 import frc.robot.commands.complexCommands.AutoIntakeCommand;
 import frc.robot.commands.complexCommands.AutoSetShootingAngleCommand;
 import frc.robot.commands.complexCommands.AutoShootingCommand;
+import frc.robot.commands.simpleCommands.AmpBarPneumaticDownCommand;
 import frc.robot.commands.simpleCommands.AmpBarPneumaticStateCommand;
+import frc.robot.commands.simpleCommands.AmpBarPneumaticUpCommand;
 import frc.robot.commands.simpleCommands.IntakeCommand;
 import frc.robot.commands.simpleCommands.IntakePneumaticsCommand;
 import frc.robot.commands.simpleCommands.InternalMoverCommand;
@@ -118,7 +120,8 @@ public class RobotContainer
     JoystickButton angleShootSpeakerButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_12);
     JoystickButton angleShootAmpButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_11);
 
-
+JoystickButton PnUp = new JoystickButton(leftJoystick, 6);
+JoystickButton PnDown = new JoystickButton(leftJoystick, 4);
 
 
 
@@ -231,6 +234,10 @@ autoAmpButton.toggleOnTrue(new AutoAmpCommand(shootingSubsystem, internalMoverSu
 autoShootButton.toggleOnTrue(new AutoShootingCommand(shootingSubsystem, internalMoverSubsystem, shootingAngleSubsytems, -8, 1, 0.5));
 angleShootSpeakerButton.whileTrue(new AutoSetShootingAngleCommand(shootingAngleSubsytems, -8, 0.5));
 setLowShooterButton.whileTrue(new AutoSetShootingAngleCommand(shootingAngleSubsytems, -0.5, 0.5));
+
+PnDown.toggleOnTrue(new AmpBarPneumaticDownCommand(ampbarPNSubsystem));
+PnUp.toggleOnTrue(new AmpBarPneumaticUpCommand(ampbarPNSubsystem));
+
 
 
 //-12.24 amp location 61
