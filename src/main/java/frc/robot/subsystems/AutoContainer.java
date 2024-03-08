@@ -87,12 +87,13 @@ public class AutoContainer extends SubsystemBase{
         sendableChooser.addOption("Right Shoot and Out Only Auto", this.swerveSubsystem.getAutonomousCommand("Right Shoot and Out Only Auto"));
        //ONLY mean it will complete just the stated command in title 
         //sendableChooser.addOption("Right Side and Amp Auto", this.swerveSubsystem.getAutonomousCommand("Right Side and Amp Auto"));
-        //sendableChooser.addOption("Right Side Full", this.swerveSubsystem.getAutonomousCommand("Right Side Full"));
+        //sendableChooser.addOption("Right Side Full", this.swe vrveSubsystem.getAutonomousCommand("Right Side Full"));
         //FULL mean to the full extent of its capibilities 
         sendableChooser.addOption("Middle Full Auto", this.swerveSubsystem.getAutonomousCommand("Middle Full Auto"));
 
         sendableChooser.addOption("Left Out Only Auto", this.swerveSubsystem.getAutonomousCommand("Left Out Only Auto"));
         sendableChooser.addOption("Left Side Shoot and Out Only Auto", this.swerveSubsystem.getAutonomousCommand("Left Side Shoot and Out Only Auto"));
+        sendableChooser.addOption("HAuto 2 Note Middle", chooseSequentialCommand(1));
         //sendableChooser.addOption("Left Side Out Auto", this.swerveSubsystem.getAutonomousCommand("Left Side Out Auto"));
         //sendableChooser.addOption("Left Side Full Auto", this.swerveSubsystem.getAutonomousCommand("Left Side Full Auto"));
         
@@ -131,8 +132,8 @@ public class AutoContainer extends SubsystemBase{
                 case 1:
                 return new AutoSetShootingAngleCommand(shootingAngleSubsytems, -8, 1)
                 .andThen(new AutoShootingCommand(shootingSubsystem, internalMoverSubsystem, shootingAngleSubsytems, -8, 1, 1).withTimeout(3))
-                .andThen(new AutoDriveCommand(swerveSubsystem, -1, 0, 0).withTimeout(3))
-                .alongWith(new IntakeCommand(intakeSubsystem, internalMoverSubsystem, 1).withTimeout(5))
+                .andThen(new AutoDriveCommand(swerveSubsystem, -1, 0, 0).withTimeout(3)
+                .alongWith(new IntakeCommand(intakeSubsystem, internalMoverSubsystem, 1).withTimeout(5)))
                 .andThen(new AutoDriveCommand(swerveSubsystem, 1, 0, 0).withTimeout(3))
                 .andThen(new AutoSetShootingAngleCommand(shootingAngleSubsytems, -8, 1))
                 .andThen(new AutoShootingCommand(shootingSubsystem, internalMoverSubsystem, shootingAngleSubsytems, -8, 1, 1));
