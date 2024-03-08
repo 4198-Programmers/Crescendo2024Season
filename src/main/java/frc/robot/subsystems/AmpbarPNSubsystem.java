@@ -21,12 +21,14 @@ public class AmpbarPNSubsystem extends SubsystemBase {
 
     public void pullAmpBarUp(){
         if(ampbarPN.get()){
+        System.out.println(ampbarPN.get());
         ampbarPN.toggle();
         }
     }
     
     public void pullAmpBarDown() {
         if(!ampbarPN.get()) {
+        System.out.println(ampbarPN.get());
         ampbarPN.toggle();
         }
     }

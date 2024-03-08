@@ -29,8 +29,14 @@ public class AutoAmpCommand extends Command {
     }
 
     @Override
+    public void initialize() {
+        ampbarPNSubsystem.initialize();
+    }
+    @Override
     public void execute() {
         System.out.println("shootingAngle: " + shootingAngleSubsytems.encoderPosition());
+        System.out.println("shootingSpeed: " + shootingSubsystem.getSpeed());
+
         // speedInteralMover = shootingAngleSubsytems.encoderPosition() >= -20 ?
         // speedInteralMover/-20 : speedInteralMover;
         double gap = shootingAngleSubsytems.encoderPosition() - anglePosition;
@@ -45,12 +51,10 @@ public class AutoAmpCommand extends Command {
         } else {
             shootingAngleSubsytems.stop();
             shootingSubsystem.shootOut(speedShoot);
-            if (4000 <= shootingSubsystem.getSpeed()) {
+            if (2500 <= shootingSubsystem.getSpeed()) {
                 internalMoverSubsystem.move(speedInteralMover);
             }
         }
-
-        System.out.println("shooter speed" + shootingSubsystem.getSpeed());
     }
 
     @Override

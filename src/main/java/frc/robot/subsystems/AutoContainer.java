@@ -64,8 +64,8 @@ public class AutoContainer extends SubsystemBase{
         NamedCommands.registerCommand("Shooter Angle Command" , new AutoSetShootingAngleCommand(shootingAngleSubsytems, -8, 1).withTimeout(5));
         NamedCommands.registerCommand("Auto Amp Command" , new AutoAmpCommand(shootingSubsystem, internalMoverSubsystem, shootingAngleSubsytems, ampbarPNSubsystem, -8, 1, 1).withTimeout(2));
         NamedCommands.registerCommand("Amp Bar Pneumatics", new AmpBarPneumaticStateCommand(ampbarPNSubsystem).withTimeout(2));
-        NamedCommands.registerCommand("Shooting Amp Command", new ShootingCommand(shootingSubsystem, internalMoverSubsystem, 0.5, 2500).withTimeout(3));
-        NamedCommands.registerCommand("Shooting Command", new ShootingCommand(shootingSubsystem, internalMoverSubsystem, 1, 5000).withTimeout(3));
+        // NamedCommands.registerCommand("Shooting Amp Command", new ShootingCommand(shootingSubsystem, internalMoverSubsystem, 0.5, 1, 2500).withTimeout(3));
+        // NamedCommands.registerCommand("Shooting Command", new ShootingCommand(shootingSubsystem, internalMoverSubsystem, 1, , 5000).withTimeout(3));
 }
     
         public void SetupAutoOptions(SendableChooser<Command> sendableChooser) {
@@ -73,7 +73,7 @@ public class AutoContainer extends SubsystemBase{
         sendableChooser.addOption("Test back and amp", this.swerveSubsystem.getAutonomousCommand("test 2step back and right"));
         sendableChooser.addOption("Test Auto", this.swerveSubsystem.getAutonomousCommand("Test Auto"));
         sendableChooser.addOption("Just Taxi Auto", this.swerveSubsystem.getAutonomousCommand("Just Back Only Auto"));
-
+        sendableChooser.addOption("Just Shoot Auto", new AutoShootingCommand(shootingSubsystem, internalMoverSubsystem, shootingAngleSubsytems, -8, 1, 1));
         sendableChooser.addOption("Right Side Out Only Auto", this.swerveSubsystem.getAutonomousCommand("Right Side Out Only Auto"));
         sendableChooser.addOption("Right Shoot and Out Only Auto", this.swerveSubsystem.getAutonomousCommand("Right Shoot and Out Only Auto"));
        //ONLY mean it will complete just the stated command in title 
