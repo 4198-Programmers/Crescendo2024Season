@@ -2,54 +2,54 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 1.328428690111538,
-      "y": 5.547612425391122
+      "x": 1.5,
+      "y": 7.35
     },
-    "rotation": 180.0
+    "rotation": -90.0
   },
   "command": {
     "type": "sequential",
     "data": {
       "commands": [
         {
-          "type": "named",
-          "data": {
-            "name": "Auto Shoot Command"
-          }
-        },
-        {
           "type": "path",
           "data": {
-            "pathName": "Test intake and staright back"
-          }
-        },
-        {
-          "type": "wait",
-          "data": {
-            "waitTime": 2.0
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "test back to front"
-          }
-        },
-        {
-          "type": "wait",
-          "data": {
-            "waitTime": 1.0
+            "pathName": "Amp H 2.0"
           }
         },
         {
           "type": "named",
           "data": {
-            "name": "Auto Shoot Command"
+            "name": "Auto Amp Command"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Amp H 2.1"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Amp H 2.2"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Amp H 2.3"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Amp Command"
           }
         }
       ]
     }
   },
-  "folder": "Test Auto",
+  "folder": "Autos H",
   "choreoAuto": false
 }
