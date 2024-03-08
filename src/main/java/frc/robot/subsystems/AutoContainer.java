@@ -122,6 +122,7 @@ public class AutoContainer extends SubsystemBase {
                 sendableChooser.addOption("HAuto 2 Note Middle", chooseSequentialCommand(1));
                 sendableChooser.addOption("HAuto 2 Note Amp Blue", chooseSequentialCommand(2));
                 sendableChooser.addOption("HAuto 2 Note Amp", chooseSequentialCommand(3));
+                sendableChooser.addOption("HAuto Taxi", chooseSequentialCommand(4));
                 // sendableChooser.addOption("Left Side Out Auto",
                 // this.swerveSubsystem.getAutonomousCommand("Left Side Out Auto"));
                 // sendableChooser.addOption("Left Side Full Auto",
@@ -168,9 +169,10 @@ public class AutoContainer extends SubsystemBase {
                                                 .andThen(new AutoShootingCommand(shootingSubsystem,
                                                                 internalMoverSubsystem, shootingAngleSubsytems, -8, 1,
                                                                 1).withTimeout(3))
-                                                .andThen(new AutoDriveCommand(swerveSubsystem, -1, 0, 0).withTimeout(3))
-                                                .alongWith(new IntakeCommand(intakeSubsystem, internalMoverSubsystem, 1)
-                                                                .withTimeout(5))
+                                                .andThen(new AutoDriveCommand(swerveSubsystem, -1, 0, 0).withTimeout(3)
+                                                                .alongWith(new IntakeCommand(intakeSubsystem,
+                                                                                internalMoverSubsystem, 1)
+                                                                                .withTimeout(5)))
                                                 .andThen(new AutoDriveCommand(swerveSubsystem, 1, 0, 0).withTimeout(3))
                                                 .andThen(new AutoSetShootingAngleCommand(shootingAngleSubsytems, -8, 1))
                                                 .andThen(new AutoShootingCommand(shootingSubsystem,
@@ -206,6 +208,8 @@ public class AutoContainer extends SubsystemBase {
                                                 .andThen(new AutoAmpCommand(shootingSubsystem, internalMoverSubsystem,
                                                                 shootingAngleSubsytems, ampbarPNSubsystem, -1, 1, 1))
                                                 .andThen(new AutoDriveCommand(swerveSubsystem, 1, 0, 0).withTimeout(5));
+                        case 4:
+                                return new AutoDriveCommand(swerveSubsystem, 1, 0, 0).withTimeout(4);
                 }
                 return null;
         }
