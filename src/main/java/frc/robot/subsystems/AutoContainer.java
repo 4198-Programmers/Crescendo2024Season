@@ -69,7 +69,12 @@ public class AutoContainer extends SubsystemBase{
 }
     
         public void SetupAutoOptions(SendableChooser<Command> sendableChooser) {
+        //Autos we can attempt
         sendableChooser.addOption("Amp Auto H", this.swerveSubsystem.getAutonomousCommand("Amp Auto H"));
+        sendableChooser.addOption("Right Side Taxi H Auto", this.swerveSubsystem.getAutonomousCommand("Right Side Taxi H Auto"));
+        sendableChooser.addOption("Right Side 2 Note H Auto", this.swerveSubsystem.getAutonomousCommand("Right Side 2 Note H Auto"));
+        sendableChooser.addOption("Left Side Taxi H Auto", this.swerveSubsystem.getAutonomousCommand("Left Side Taxi H Auto"));
+        sendableChooser.addOption("Left Side 2 Note H Auto", this.swerveSubsystem.getAutonomousCommand("Left Side 2 Note H Auto"));
 
         sendableChooser.addOption("Test back and forth", this.swerveSubsystem.getAutonomousCommand("test back and forth"));
         sendableChooser.addOption("Test back and amp", this.swerveSubsystem.getAutonomousCommand("test 2step back and right"));

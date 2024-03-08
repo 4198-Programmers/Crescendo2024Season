@@ -2,10 +2,10 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 0.72394368066646,
-      "y": 6.639585345679005
+      "x": 0.7044441642327478,
+      "y": 4.387391197585246
     },
-    "rotation": 60.0
+    "rotation": -60.0
   },
   "command": {
     "type": "sequential",
@@ -26,12 +26,12 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Right Side Taxi"
+            "pathName": "Left Side Taxi"
           }
         }
       ]
     }
   },
-  "folder": "HAuto",
+  "folder": "Autos H",
   "choreoAuto": false
 }

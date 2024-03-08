@@ -2,10 +2,10 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 0.7336934388833163,
-      "y": 6.668834620329574
+      "x": 0.6361958567147553,
+      "y": 4.348392164717821
     },
-    "rotation": 60.0
+    "rotation": -60.0
   },
   "command": {
     "type": "sequential",
@@ -26,13 +26,13 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Right Side 2 Note 1.0"
+            "pathName": "Left Side 2 Note 1.0"
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "Right Side 2 Note 2.0"
+            "pathName": "Left Side 2 Note 2.0"
           }
         },
         {
@@ -50,6 +50,6 @@
       ]
     }
   },
-  "folder": "HAuto",
+  "folder": "Autos H",
   "choreoAuto": false
 }
