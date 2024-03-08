@@ -1,0 +1,55 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 1.5,
+      "y": 7.35
+    },
+    "rotation": -90.0
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Amp H 2.0"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Amp Command"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Amp H 2.1"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Amp H 2.2"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Amp H 2.3"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Amp Command"
+          }
+        }
+      ]
+    }
+  },
+  "folder": "Autos H",
+  "choreoAuto": false
+}

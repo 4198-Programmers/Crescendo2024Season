@@ -69,6 +69,8 @@ public class AutoContainer extends SubsystemBase{
 }
     
         public void SetupAutoOptions(SendableChooser<Command> sendableChooser) {
+        sendableChooser.addOption("Amp Auto H", this.swerveSubsystem.getAutonomousCommand("Amp Auto H"));
+
         sendableChooser.addOption("Test back and forth", this.swerveSubsystem.getAutonomousCommand("test back and forth"));
         sendableChooser.addOption("Test back and amp", this.swerveSubsystem.getAutonomousCommand("test 2step back and right"));
         sendableChooser.addOption("Test Auto", this.swerveSubsystem.getAutonomousCommand("Test Auto"));
@@ -77,21 +79,18 @@ public class AutoContainer extends SubsystemBase{
         sendableChooser.addOption("Right Side Out Only Auto", this.swerveSubsystem.getAutonomousCommand("Right Side Out Only Auto"));
         sendableChooser.addOption("Right Shoot and Out Only Auto", this.swerveSubsystem.getAutonomousCommand("Right Shoot and Out Only Auto"));
        //ONLY mean it will complete just the stated command in title 
-        sendableChooser.addOption("Right Side and Amp Auto", this.swerveSubsystem.getAutonomousCommand("Right Side and Amp Auto"));
-        sendableChooser.addOption("Right Side Full", this.swerveSubsystem.getAutonomousCommand("Right Side Full"));
+        //sendableChooser.addOption("Right Side and Amp Auto", this.swerveSubsystem.getAutonomousCommand("Right Side and Amp Auto"));
+        //sendableChooser.addOption("Right Side Full", this.swerveSubsystem.getAutonomousCommand("Right Side Full"));
         //FULL mean to the full extent of its capibilities 
         sendableChooser.addOption("Middle Full Auto", this.swerveSubsystem.getAutonomousCommand("Middle Full Auto"));
 
         sendableChooser.addOption("Left Out Only Auto", this.swerveSubsystem.getAutonomousCommand("Left Out Only Auto"));
         sendableChooser.addOption("Left Side Shoot and Out Only Auto", this.swerveSubsystem.getAutonomousCommand("Left Side Shoot and Out Only Auto"));
-        sendableChooser.addOption("Left Side Out Auto", this.swerveSubsystem.getAutonomousCommand("Left Side Out Auto"));
-        sendableChooser.addOption("Left Side Full Auto", this.swerveSubsystem.getAutonomousCommand("Left Side Full Auto"));
+        //sendableChooser.addOption("Left Side Out Auto", this.swerveSubsystem.getAutonomousCommand("Left Side Out Auto"));
+        //sendableChooser.addOption("Left Side Full Auto", this.swerveSubsystem.getAutonomousCommand("Left Side Full Auto"));
         
-        sendableChooser.addOption("Amp Auto", this.swerveSubsystem.getAutonomousCommand("Amp Auto"));
+        //sendableChooser.addOption("Amp Auto", this.swerveSubsystem.getAutonomousCommand("Amp Auto"));
         //amp commands/pnumatics are not re writen for auto 
-
-        //address shooting encoder issue (start at 0 or set it at perfect angle before match)
-        //added rotational target at the end of each statment (this might fix our rotational issues)
 
         //general locations on path planner
 /*  Amp Location x 1.85 y 7.7 r -90
