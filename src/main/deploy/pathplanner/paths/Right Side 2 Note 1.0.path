@@ -1,0 +1,86 @@
+{
+  "version": 1.0,
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 0.7336934388833163,
+        "y": 6.668834620329574
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 1.7336934388833174,
+        "y": 6.668834620329574
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 2.5373987090016947,
+        "y": 6.366592115607035
+      },
+      "prevControl": {
+        "x": 2.371652819315141,
+        "y": 6.27884429165533
+      },
+      "nextControl": {
+        "x": 2.5804823014985088,
+        "y": 6.389401076340643
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 2.8981397630253705,
+        "y": 6.990576641485824
+      },
+      "prevControl": {
+        "x": 2.810391939073666,
+        "y": 6.707833653196999
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "Right Side 2 Note 1.0 Start"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "eventMarkers": [
+    {
+      "name": "New Event Marker",
+      "waypointRelativePos": 0.55,
+      "command": {
+        "type": "parallel",
+        "data": {
+          "commands": [
+            {
+              "type": "named",
+              "data": {
+                "name": "intakeCommand"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 60.0,
+    "rotateFast": false
+  },
+  "reversed": false,
+  "folder": "HAuto",
+  "previewStartingState": {
+    "rotation": 60.0,
+    "velocity": 0
+  },
+  "useDefaultConstraints": true
+}

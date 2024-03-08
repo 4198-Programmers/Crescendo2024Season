@@ -1,0 +1,55 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 0.6361958567147553,
+      "y": 4.348392164717821
+    },
+    "rotation": -60.0
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "named",
+          "data": {
+            "name": "Shooter Angle Command"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "shoot"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Left Side 2 Note 1.0"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Left Side 2 Note 2.0"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shooter Angle Command"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "shoot"
+          }
+        }
+      ]
+    }
+  },
+  "folder": "HAuto",
+  "choreoAuto": false
+}

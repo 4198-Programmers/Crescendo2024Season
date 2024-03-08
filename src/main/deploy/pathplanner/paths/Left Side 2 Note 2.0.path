@@ -1,0 +1,68 @@
+{
+  "version": 1.0,
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 2.7226441151219607,
+        "y": 4.231395066115549
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 2.556898225435407,
+        "y": 4.562886845488656
+      },
+      "isLocked": false,
+      "linkedName": "Left Side 2 Note Auto 1.0 Connect"
+    },
+    {
+      "anchor": {
+        "x": 2.0791600728094584,
+        "y": 4.884628866644907
+      },
+      "prevControl": {
+        "x": 2.293654753580292,
+        "y": 4.9041283830786195
+      },
+      "nextControl": {
+        "x": 1.6579328553863175,
+        "y": 4.846335483242803
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 0.7044441642327478,
+        "y": 4.416640472235815
+      },
+      "prevControl": {
+        "x": 1.3381784483283943,
+        "y": 4.348392164717821
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": null
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": -60.0,
+    "rotateFast": false
+  },
+  "reversed": false,
+  "folder": "HAuto",
+  "previewStartingState": {
+    "rotation": -60.0,
+    "velocity": 0
+  },
+  "useDefaultConstraints": true
+}
