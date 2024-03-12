@@ -9,7 +9,7 @@ import frc.robot.subsystems.MotorClimbSubsystem;
 import frc.robot.subsystems.AmpBarSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.subsystems.ShootingSubsystem;
-
+import frc.robot.subsystems.Swerve.SwerveSubsystem;
 import frc.robot.commands.InternalMoverDownCommand;
 import frc.robot.commands.InternalMoverUpCommand;
 import frc.robot.commands.MoveAmpMotorDown;
@@ -21,6 +21,7 @@ import frc.robot.commands.AimAngleupCommand;
 
 import frc.robot.commands.ShooterAngleCommand;
 import frc.robot.commands.ShootingMotorCommand;
+import frc.robot.commands.SwerveTeleopDrive;
 import frc.robot.commands.ClimbCommands.BothMotorClimbDownCommand;
 import frc.robot.commands.ClimbCommands.BothMotorClimbUpCommand;
 import frc.robot.commands.ClimbCommands.LeftMotorClimbDownCommand;
@@ -45,6 +46,7 @@ public class RobotContainer {
   private final InternalMoverSubsystem internalMoverSubsystem = new InternalMoverSubsystem();
   private final MotorClimbSubsystem motorClimbSubsystem = new MotorClimbSubsystem();
   private final AmpBarSubsystem ampBarSubsystem = new AmpBarSubsystem();
+  private final SwerveSubsystem swerveSubsystem = new SwerveSubsystem();
 
   //Commands
   private MoveIntakeDown moveIntakeDown = new MoveIntakeDown(intakeSubsystem);
@@ -102,12 +104,12 @@ public class RobotContainer {
     pneumaticsCompressor.enableDigital();
     // Configure the trigger bindings
     configureBindings();
-    //  swerveSubsystem.setDefaultCommand(new SwerveTeleopDrive(
-    //   swerveSubsystem, 
-    // () -> leftJoystick.getX(), 
-    //    () -> leftJoystick.getY(), 
-    //  () -> middleJoystick.getX(), 
-    //  () -> true));
+     swerveSubsystem.setDefaultCommand(new SwerveTeleopDrive(
+      swerveSubsystem, 
+    () -> leftJoystick.getX(), 
+       () -> leftJoystick.getY(), 
+     () -> middleJoystick.getX(), 
+     () -> true));
   }
 
   /**

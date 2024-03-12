@@ -18,6 +18,6 @@ public class ChangeAmpBarPneumaticStateCommand extends Command{
 
     @Override
     public void end(boolean interrupted){
-        ampBarSubsystem.ampBarKillSwitch();
+        ampBarSubsystem.pushAmpBarDown();
     }
 }

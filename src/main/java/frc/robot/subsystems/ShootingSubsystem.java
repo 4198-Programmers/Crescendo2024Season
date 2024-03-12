@@ -10,7 +10,7 @@ import frc.robot.Constants;
 public class ShootingSubsystem extends SubsystemBase {
 
     private CANSparkMax shootingMotor = new CANSparkMax(Constants.SHOOTING_MOTOR_ID, MotorType.kBrushless); //MotorType TBD
-    private CANSparkMax shootingMotorAngle = new CANSparkMax(Constants.SHOOTING_MOTOR_ANGLE_ID, MotorType.kBrushed);
+    private CANSparkMax shootingMotorAngle = new CANSparkMax(Constants.SHOOTING_MOTOR_ANGLE_ID, MotorType.kBrushless);
     private RelativeEncoder shootingAngleEncoder = shootingMotorAngle.getEncoder();
 
     public ShootingSubsystem(){

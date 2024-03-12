@@ -39,7 +39,7 @@ public final class Constants {
   public static final double VOLTAGE_COMPENSATION = 12.0; //Max battery volts we can half
   public static final boolean ANGLE_ENCODER_DIRECTION = false;
   //Angle PID Controller Constants
-  public static final double ANGLE_KP = 0;
+  public static final double ANGLE_KP = 0.1;
   public static final double ANGLE_KI = 0;
   public static final double ANGLE_KD = 0;
   //Drive Constants
@@ -145,7 +145,7 @@ public final class Constants {
   public static final int JOYSTICK_BUTTON_12 = 12;
 
   //Deadband for joysticks
-    public static final double DEADBAND = 0;
+    public static final double DEADBAND = 0.1;
   
   //Internal Mover Direction/speed
   public static final int MIDDLE_LIMIT_SWITCH = 9;

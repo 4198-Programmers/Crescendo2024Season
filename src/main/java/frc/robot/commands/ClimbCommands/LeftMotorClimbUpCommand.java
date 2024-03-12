@@ -8,10 +8,11 @@ public class LeftMotorClimbUpCommand extends Command {
 
     private MotorClimbSubsystem motorClimbSubsystem;
     double maxClimb = Constants.CLIMB_MOTOR_MAX;
-    double leftPosition = motorClimbSubsystem.getClimbMotorLeftPosition();
+    double leftPosition;
 
     public LeftMotorClimbUpCommand(MotorClimbSubsystem m_motorClimbSubsystem) {
         this.motorClimbSubsystem = m_motorClimbSubsystem;
+        this.leftPosition = motorClimbSubsystem.getClimbMotorLeftPosition();
         addRequirements(motorClimbSubsystem);
     }
 
