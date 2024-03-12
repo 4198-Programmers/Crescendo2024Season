@@ -119,10 +119,10 @@ public class AutoContainer extends SubsystemBase {
                                 this.swerveSubsystem.getAutonomousCommand("Left Out Only Auto"));
                 sendableChooser.addOption("Left Side Shoot and Out Only Auto",
                                 this.swerveSubsystem.getAutonomousCommand("Left Side Shoot and Out Only Auto"));
-                sendableChooser.addOption("HAuto 2 Note Middle", chooseSequentialCommand(1));
-                sendableChooser.addOption("HAuto 2 Note Amp Blue", chooseSequentialCommand(2));
-                sendableChooser.addOption("HAuto 2 Note Amp", chooseSequentialCommand(3));
-                sendableChooser.addOption("HAuto Taxi", chooseSequentialCommand(4));
+                sendableChooser.addOption("HAuto 2 Note Middle", chooseSequentialCommand(0));
+                sendableChooser.addOption("HAuto 2 Note Amp Blue", chooseSequentialCommand(1));
+                sendableChooser.addOption("HAuto 2 Note Amp Red", chooseSequentialCommand(2));
+                sendableChooser.addOption("HAuto Taxi", chooseSequentialCommand(3));
                 // sendableChooser.addOption("Left Side Out Auto",
                 // this.swerveSubsystem.getAutonomousCommand("Left Side Out Auto"));
                 // sendableChooser.addOption("Left Side Full Auto",
@@ -164,53 +164,54 @@ public class AutoContainer extends SubsystemBase {
         public Command chooseSequentialCommand(int choice) {
                 switch (choice) {
                         // Middle Auto
-                        case 1:
+                        case 0:
                                 return new AutoSetShootingAngleCommand(shootingAngleSubsytems, -8, 1)
                                                 .andThen(new AutoShootingCommand(shootingSubsystem,
                                                                 internalMoverSubsystem, shootingAngleSubsytems, -8, 1,
                                                                 1).withTimeout(3))
-                                                .andThen(new AutoDriveCommand(swerveSubsystem, -1, 0, 0).withTimeout(3)
+                                                .andThen(new AutoDriveCommand(swerveSubsystem, () -> -1, () -> 0, () -> 0).withTimeout(3)
                                                                 .alongWith(new IntakeCommand(intakeSubsystem,
                                                                                 internalMoverSubsystem, 1)
                                                                                 .withTimeout(5)))
-                                                .andThen(new AutoDriveCommand(swerveSubsystem, 1, 0, 0).withTimeout(3))
+                                                .andThen(new AutoDriveCommand(swerveSubsystem, () -> 1, () -> 0, () -> 0).withTimeout(3))
                                                 .andThen(new AutoSetShootingAngleCommand(shootingAngleSubsytems, -8, 1))
                                                 .andThen(new AutoShootingCommand(shootingSubsystem,
                                                                 internalMoverSubsystem, shootingAngleSubsytems, -8, 1,
                                                                 1));
                         // Blue Amp 2 Note Auto
-                        case 2:
-                                return new AutoDriveCommand(swerveSubsystem, 1, -1, -1).withTimeout(3)
+                        case 1:
+                                return new AutoDriveCommand(swerveSubsystem, () -> 1, () -> -1, () -> -1)
+                                                                .withTimeout(3)
                                                 .andThen(new AutoAmpCommand(shootingSubsystem, internalMoverSubsystem,
                                                                 shootingAngleSubsytems, ampbarPNSubsystem, -1, 1, 1)
                                                                 .withTimeout(3))
-                                                .andThen(new AutoDriveCommand(swerveSubsystem, 1, 1, 1).withTimeout(4)
+                                                .andThen(new AutoDriveCommand(swerveSubsystem, () -> 1, () -> 1, () -> 1).withTimeout(4)
                                                                 .alongWith(new AutoIntakeCommand(intakeSubsystem,
                                                                                 internalMoverSubsystem,
                                                                                 intakePneumaticsSubsystem, 1, 1)))
-                                                .andThen(new AutoDriveCommand(swerveSubsystem, -1, -1, -1)
+                                                .andThen(new AutoDriveCommand(swerveSubsystem, () -> -1, () -> -1, () -> -1)
                                                                 .withTimeout(4))
                                                 .andThen(new AutoAmpCommand(shootingSubsystem, internalMoverSubsystem,
                                                                 shootingAngleSubsytems, ampbarPNSubsystem, -1, 1, 1))
-                                                .andThen(new AutoDriveCommand(swerveSubsystem, 1, 0, 0).withTimeout(5));
+                                                .andThen(new AutoDriveCommand(swerveSubsystem, () -> 1, () -> 0, () -> 0).withTimeout(5));
                         // Red Amp 2 Note Auto
-                        case 3:
-                                return new AutoDriveCommand(swerveSubsystem, 1, 1, -1).withTimeout(3)
+                        case 2:
+                                return new AutoDriveCommand(swerveSubsystem, () -> 1, () -> 1, () -> -1).withTimeout(3)
                                                 .andThen(new AutoAmpCommand(shootingSubsystem, internalMoverSubsystem,
                                                                 shootingAngleSubsytems, ampbarPNSubsystem, -1, 1, 1)
                                                                 .withTimeout(3))
-                                                .andThen(new AutoDriveCommand(swerveSubsystem, 1, -1, 1).withTimeout(4)
+                                                .andThen(new AutoDriveCommand(swerveSubsystem, () -> 1, () -> -1, () -> 1).withTimeout(4)
                                                                 .alongWith(new AutoIntakeCommand(intakeSubsystem,
                                                                                 internalMoverSubsystem,
                                                                                 intakePneumaticsSubsystem, 1, 1)))
-                                                .andThen(new AutoDriveCommand(swerveSubsystem, -1, 1, -1)
+                                                .andThen(new AutoDriveCommand(swerveSubsystem, () -> -1, () -> 1, () -> -1)
                                                                 .withTimeout(4))
                                                 .andThen(new AutoAmpCommand(shootingSubsystem, internalMoverSubsystem,
                                                                 shootingAngleSubsytems, ampbarPNSubsystem, -1, 1, 1))
-                                                .andThen(new AutoDriveCommand(swerveSubsystem, 1, 0, 0).withTimeout(5));
-                        case 4:
-                                return new AutoDriveCommand(swerveSubsystem, 1, 0, 0).withTimeout(4);
-                }
-                return null;
+                                                .andThen(new AutoDriveCommand(swerveSubsystem, () -> 1, () -> 0, () -> 0).withTimeout(5));
+                        case 3:
+                                return new AutoDriveCommand(swerveSubsystem, () -> 1, () -> 0, () -> 0).withTimeout(4);
+                default: return null;
+                        }
         }
 }
