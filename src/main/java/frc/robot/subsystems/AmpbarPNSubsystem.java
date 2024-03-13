@@ -16,7 +16,7 @@ public class AmpbarPNSubsystem extends SubsystemBase {
     
 
     public void initialize(){
-        ampbarPN.set(false);
+    pullAmpBarUp();
     }
 
     public void pullAmpBarUp(){
