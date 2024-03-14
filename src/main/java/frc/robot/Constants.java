@@ -123,7 +123,7 @@ public static final int INTERNAL_MOTOR_ID = 0;
   //RGB Lights
   public static final int AddressableLED = 0;
   //how long the stip is
-  public static final int AddressableLEDBuffer = 0;
+  public static final int AddressableLEDBuffer = 300;
 
   //Motor Climb
   public static final double LEFT_MOTOR_CLIMB_SPEED = 0;
