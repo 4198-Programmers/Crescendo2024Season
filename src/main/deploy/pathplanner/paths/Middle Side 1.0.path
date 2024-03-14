@@ -16,16 +16,16 @@
     },
     {
       "anchor": {
-        "x": 4.0,
+        "x": 3.0541358944950683,
         "y": 5.55
       },
       "prevControl": {
-        "x": 3.0,
+        "x": 2.0541358944950683,
         "y": 5.55
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Middle Side 1.0 end"
     }
   ],
   "rotationTargets": [
