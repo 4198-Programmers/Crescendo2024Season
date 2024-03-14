@@ -74,7 +74,7 @@ public static final double SHOOTING_MOTOR_SPEED = 1;
 public static final double CLIMB_SPEED = 0.5;
 public static final double SHOOTING_ANGLE_MOTOR_SPEED = 0.5;
 
-// limits
+//limits
 public static final double MAX_SHOOTING_SPEED = 5000;
 public static final double MAX_LEFT_CLIMB_POSITION = 100;
 public static final double MIN_LEFT_CLIMB_POSITION = -1;
@@ -84,9 +84,12 @@ public static final double MIN_RIGHT_CLIMB_POSITION = -1;
 //swtiches 
 public static final int MIDDLE_LIMIT_SWITCH_ID = 9;
 
+//LED
+public static final int DRIVE_BASE_LED_ID = 0;
+public static final int AddressableLEDBuffer = 300;
+
 //Pneumatic channel
 public static final int INTAKE_PNEUMATIC_CHANNEL = 5;
-
 
 //joystick id
 public static final int RIGHT_JOYSTICK_ID = 2;
@@ -111,7 +114,6 @@ public static final int JOYSTICK_BUTTON_12 = 12;
 public static final double SHOOTER_ANGLE_A = -0.0235642;
 public static final double SHOOTER_ANGLE_B = -1.52065;
 public static final double SHOOTER_ANGLE_C = 43.2451;
-
 
 
 }

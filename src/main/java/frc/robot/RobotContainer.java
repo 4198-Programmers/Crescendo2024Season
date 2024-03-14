@@ -48,6 +48,7 @@ import frc.robot.subsystems.AutoContainer;
 import frc.robot.subsystems.IntakePneumaticsSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.subsystems.InternalMoverSubsystem;
+import frc.robot.subsystems.LEDSubsystem;
 import frc.robot.subsystems.LeftClimbSubsystem;
 import frc.robot.subsystems.RightClimbSubsystem;
 import frc.robot.subsystems.ShootingAngleSubsytems;
@@ -87,9 +88,9 @@ public class RobotContainer
   private final ShootingSubsystem shootingSubsystem = new ShootingSubsystem();
   private final LeftClimbSubsystem leftClimbSubsystem = new LeftClimbSubsystem();
   private final RightClimbSubsystem rightClimbSubsystem = new RightClimbSubsystem();
-
   private final AmpbarPNSubsystem ampbarPNSubsystem = new AmpbarPNSubsystem();
   private final IntakePneumaticsSubsystem intakePneumaticsSubsystem = new IntakePneumaticsSubsystem();
+  private final LEDSubsystem lEDSubsystem = new LEDSubsystem();
 
   //Joysticks 
    Joystick rightJoystick = new Joystick(Constants.RIGHT_JOYSTICK_ID);
@@ -107,7 +108,6 @@ public class RobotContainer
     JoystickButton autoShootButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_1);
     JoystickButton autoAmpButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_2);
     JoystickButton setLowShooterButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_5);
-    //JoystickButton interalMoverDownButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_3);
     JoystickButton shooterAngleUpButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_6);
     JoystickButton shooterAngleDownButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_4);
     JoystickButton shootingButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_3);
@@ -115,21 +115,16 @@ public class RobotContainer
     JoystickButton rClimbDownLimitlessButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_9);
     JoystickButton lClimbUpLimitlessButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_8);
     JoystickButton lClimbDownLimitlessButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_7);
-    //JoystickButton bClimbDownLimitlessButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_11);
-    //JoystickButton bClimbUpLimitlessButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_12);
     JoystickButton angleShootSpeakerButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_12);
     JoystickButton angleShootAmpButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_11);
 
-JoystickButton PnUp = new JoystickButton(leftJoystick, 6);
-JoystickButton PnDown = new JoystickButton(leftJoystick, 4);
-
-
+    JoystickButton PnUp = new JoystickButton(leftJoystick, 6);
+  JoystickButton PnDown = new JoystickButton(leftJoystick, 4);
 
 
     SendableChooser<Command> autoChooser = new SendableChooser<>();
     AutoContainer autoContainer = new AutoContainer(intakeSubsystem, shootingAngleSubsytems, shootingSubsystem, drivebase, 
     leftClimbSubsystem, rightClimbSubsystem, internalMoverSubsystem, ampbarPNSubsystem, intakePneumaticsSubsystem);
-    
     
    public RobotContainer()
   {

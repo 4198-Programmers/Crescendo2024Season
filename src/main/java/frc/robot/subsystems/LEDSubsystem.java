@@ -2,11 +2,6 @@ package frc.robot.subsystems;
 
 import java.util.Optional;
 
-import org.w3c.dom.css.RGBColor;
-
-import com.revrobotics.CANSparkMax;
-
-import edu.wpi.first.hal.AddressableLEDJNI;
 import edu.wpi.first.wpilibj.AddressableLED;
 import edu.wpi.first.wpilibj.AddressableLEDBuffer;
 import edu.wpi.first.wpilibj.DriverStation;
@@ -15,7 +10,7 @@ import edu.wpi.first.wpilibj.util.Color;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
-public class LEDBaseSubsytem extends SubsystemBase {
+public class LEDSubsystem extends SubsystemBase {
 
     private static final String LedBuffer = null;
 
@@ -30,7 +25,7 @@ public class LEDBaseSubsytem extends SubsystemBase {
 
     private Optional<Alliance> alliance;
 
-    public LEDBaseSubsytem() {
+    public LEDSubsystem() {
         driveBaseLED.setLength(driveBaseLEDBuffer.getLength());
         driveBaseLED.setData(driveBaseLEDBuffer);
         driveBaseLED.start();
