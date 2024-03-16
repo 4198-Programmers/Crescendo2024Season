@@ -12,7 +12,7 @@ import frc.robot.Constants;
 
 public class FMSInfo {
     final StringSubscriber stringSubscriber;
-
+//GP104_A4
     final AtomicBoolean isAmplifiedAtomic = new AtomicBoolean(false);
 
     public FMSInfo() {

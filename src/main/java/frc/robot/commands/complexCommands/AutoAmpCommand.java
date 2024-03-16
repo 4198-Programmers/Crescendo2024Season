@@ -30,7 +30,7 @@ public class AutoAmpCommand extends Command {
 
     @Override
     public void initialize() {
-        ampbarPNSubsystem.initialize();
+      //  ampbarPNSubsystem.initialize();
     }
     @Override
     public void execute() {

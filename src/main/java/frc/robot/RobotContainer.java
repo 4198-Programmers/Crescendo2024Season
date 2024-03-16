@@ -99,26 +99,25 @@ public class RobotContainer
    //buttons 
     JoystickButton intakeInButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_1);
     JoystickButton zeroGyroButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_11);
-    JoystickButton ampButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_8);
-    JoystickButton intakePneumaticsButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_5);
 
     JoystickButton autoIntakeButton = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_1);
 
     JoystickButton autoShootButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_1);
     JoystickButton autoAmpButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_2);
-    JoystickButton setLowShooterButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_5);
-    //JoystickButton interalMoverDownButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_3);
-    JoystickButton shooterAngleUpButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_6);
-    JoystickButton shooterAngleDownButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_4);
     JoystickButton shootingButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_3);
-    JoystickButton rClimbUpLimitlessButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_10);
-    JoystickButton rClimbDownLimitlessButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_9);
-    JoystickButton lClimbUpLimitlessButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_8);
+    JoystickButton shooterAngleDownButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_4);
+    JoystickButton ampButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_5);
+    JoystickButton shooterAngleUpButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_6);
     JoystickButton lClimbDownLimitlessButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_7);
+    JoystickButton lClimbUpLimitlessButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_8);
+    JoystickButton rClimbDownLimitlessButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_9);
+    JoystickButton rClimbUpLimitlessButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_10);
+    JoystickButton setLowShooterButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_11);
+    JoystickButton angleShootSpeakerButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_12);
+
+    //JoystickButton interalMoverDownButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_3);
     //JoystickButton bClimbDownLimitlessButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_11);
     //JoystickButton bClimbUpLimitlessButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_12);
-    JoystickButton angleShootSpeakerButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_12);
-    JoystickButton angleShootAmpButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_11);
 
 JoystickButton PnUp = new JoystickButton(leftJoystick, 6);
 JoystickButton PnDown = new JoystickButton(leftJoystick, 4);
@@ -210,10 +209,8 @@ JoystickButton PnDown = new JoystickButton(leftJoystick, 4);
 //non swerve button binding
 
 //right joystick 
-ampButton.toggleOnTrue(new AmpBarPneumaticStateCommand(ampbarPNSubsystem));
 zeroGyroButton.whileTrue(new zeroGyro(drivebase));
 intakeInButton.whileTrue(new IntakeCommand(intakeSubsystem, internalMoverSubsystem, Constants.INTAKE_MOTOR_SPEED));
-intakePneumaticsButton.toggleOnTrue(new IntakePneumaticsCommand(intakePneumaticsSubsystem));
 
 //left joystick 
 autoIntakeButton.whileTrue(new AutoIntakeCommand(intakeSubsystem, internalMoverSubsystem, intakePneumaticsSubsystem,0.5 , 1));
@@ -235,6 +232,7 @@ autoAmpButton.toggleOnTrue(new AutoAmpCommand(shootingSubsystem, internalMoverSu
 autoShootButton.toggleOnTrue(new AutoShootingCommand(shootingSubsystem, internalMoverSubsystem, shootingAngleSubsytems, -8, 1, 0.5));
 angleShootSpeakerButton.whileTrue(new AutoSetShootingAngleCommand(shootingAngleSubsytems, -8, 0.5));
 setLowShooterButton.whileTrue(new AutoSetShootingAngleCommand(shootingAngleSubsytems, -0.5, 0.5));
+ampButton.toggleOnTrue(new AmpBarPneumaticStateCommand(ampbarPNSubsystem));
 
 PnDown.toggleOnTrue(new AmpBarPneumaticDownCommand(ampbarPNSubsystem));
 PnUp.toggleOnTrue(new AmpBarPneumaticUpCommand(ampbarPNSubsystem));
