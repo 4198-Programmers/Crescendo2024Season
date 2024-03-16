@@ -85,7 +85,7 @@ public static final double MIN_RIGHT_CLIMB_POSITION = -1;
 public static final int MIDDLE_LIMIT_SWITCH_ID = 9;
 
 //LED
-public static final int DRIVE_BASE_LED_ID = 1;
+public static final int DRIVE_BASE_LED_ID = 3;
 public static final int AddressableLEDBuffer = 300;
 
 //Pneumatic channel
