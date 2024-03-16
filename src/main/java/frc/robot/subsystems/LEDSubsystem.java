@@ -76,11 +76,7 @@ public class LEDSubsystem extends SubsystemBase {
 
     // setHSV() -> color saturation
 
-<<<<<<< Updated upstream
-public void setRGBColor(Color color) {
-=======
     public void setRGBColor(Color color) {
->>>>>>> Stashed changes
         this.currentColor = color;
         for (var i = 0; i < driveBaseLEDBuffer.getLength(); i++) {
             this.driveBaseLEDBuffer.setLED(i, this.currentColor);
