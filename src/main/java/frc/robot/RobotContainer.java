@@ -90,7 +90,7 @@ public class RobotContainer
   private final RightClimbSubsystem rightClimbSubsystem = new RightClimbSubsystem();
   private final AmpbarPNSubsystem ampbarPNSubsystem = new AmpbarPNSubsystem();
   private final IntakePneumaticsSubsystem intakePneumaticsSubsystem = new IntakePneumaticsSubsystem();
-  private final LEDSubsystem lEDSubsystem = new LEDSubsystem();
+  private final LEDSubsystem ledSubsystem = new LEDSubsystem();
 
   //Joysticks 
    Joystick rightJoystick = new Joystick(Constants.RIGHT_JOYSTICK_ID);
@@ -180,6 +180,8 @@ public class RobotContainer
 
     drivebase.setDefaultCommand(
         !RobotBase.isSimulation() ? driveFieldOrientedAnglularVelocity : driveFieldOrientedDirectAngleSim);
+
+    ledSubsystem.setDefaultCommand(ledSubsystem.getDefaultCommand());
   }
 
   /**
@@ -210,8 +212,8 @@ zeroGyroButton.whileTrue(new zeroGyro(drivebase));
 intakeInButton.whileTrue(new IntakeCommand(intakeSubsystem, internalMoverSubsystem, Constants.INTAKE_MOTOR_SPEED));
 intakePneumaticsButton.toggleOnTrue(new IntakePneumaticsCommand(intakePneumaticsSubsystem));
 
-//left joystick 
-autoIntakeButton.whileTrue(new AutoIntakeCommand(intakeSubsystem, internalMoverSubsystem, intakePneumaticsSubsystem,0.5 , 1));
+//left joystick
+autoIntakeButton.whileTrue(new AutoIntakeCommand(intakeSubsystem, internalMoverSubsystem, intakePneumaticsSubsystem,0.5 , 1).andThen(new LEDSubsystem()));
 
   //left Joystick
 //interalMoverDownButton.whileTrue(new InternalMoverCommand(internalMoverSubsystem, -Constants.INTERNAL_MOVER_SPEED));

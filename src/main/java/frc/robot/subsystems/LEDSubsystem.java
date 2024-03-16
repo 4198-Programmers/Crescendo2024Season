@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.AddressableLEDBuffer;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj.util.Color;
+import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
@@ -31,35 +32,63 @@ public class LEDSubsystem extends SubsystemBase {
         driveBaseLED.start();
         this.alliance = DriverStation.getAlliance();
     }
+
+    public Command getDefaultCommand() {
+        return runOnce(
+                () -> {
+                    Alliance currentAlliance = this.alliance.get();
+                    if (Alliance.Red == currentAlliance) {
+                        this.setRGBColor(Color.kRed);
+                    } else if (Alliance.Blue == currentAlliance) {
+                        this.setRGBColor(Color.kBlue);
+                    } else {
+                        this.setRGBColor(Color.kPurple);
+                    }
+                });
+    }
+
+    private int circleDivisor = 10;
+
+    private int circlePostionOn = 0;
+
+    private Color currentColor = Color.kBlack;
+
+    private void RGBCircle() {
+        for (var i = 0; i < driveBaseLEDBuffer.getLength(); i++) {
+            int currentLightPosition = i % this.circleDivisor;
+            Color currentColor = driveBaseLEDBuffer.getLED(i);
+            if (currentLightPosition == this.circlePostionOn) {
+            driveBaseLEDBuffer.setLED(i, this.currentColor);
+            } else {
+                driveBaseLEDBuffer.setLED(i, Color.kBlack);
+            }
+
+        }
+    }
+
     // setHSV() -> color saturation
 
-    // public void solidColors(){
-    public void RGBColorRed() {
+    private void RGBColorPurple() {
         for (var i = 0; i < driveBaseLEDBuffer.getLength(); i++) {
-            driveBaseLEDBuffer.setLED(i, Color.kRed);
+            driveBaseLEDBuffer.setLED(i, Color.kPurple);
         }
     }
 
-    public void RGBColorBlue() {
+public void setRGBColor(Color color) {
+        this.currentColor = color;
         for (var i = 0; i < driveBaseLEDBuffer.getLength(); i++) {
-            driveBaseLEDBuffer.setRGB(i, 0, 0, 255);
-        }
-    }
-
-    public void RGBColorGreen() {
-        for (var i = 0; i < driveBaseLEDBuffer.getLength(); i++) {
-            driveBaseLEDBuffer.setRGB(i, 0, 255, 0);
+            driveBaseLEDBuffer.setLED(i, this.currentColor);
         }
     }
     // }
 
     public void changingColor() {
-//red = 0-60
-//yellow 61-120
-//green 121-180
-//cyan 181-240
-//blue 241-300
-//magenta 301-360
+        // red = 0-60
+        // yellow 61-120
+        // green 121-180
+        // cyan 181-240
+        // blue 241-300
+        // magenta 301-360
         for (var i = 0; i < LedBuffer.length(); i++) {
 
             final var hue = (m_rainbowFirstPixelHue + (i * 180 / m_ledBuffer.length()));
@@ -76,4 +105,3 @@ public class LEDSubsystem extends SubsystemBase {
 // No periodic
 // change different sections of led seperatly
 //
-
