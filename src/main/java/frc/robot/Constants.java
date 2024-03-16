@@ -75,7 +75,7 @@ public static final double CLIMB_SPEED = 0.5;
 public static final double SHOOTING_ANGLE_MOTOR_SPEED = 0.5;
 
 // limits
-public static final double MAX_SHOOTING_SPEED = 5000;
+public static final double MAX_SHOOTING_SPEED = 5500;
 public static final double MAX_LEFT_CLIMB_POSITION = 100;
 public static final double MIN_LEFT_CLIMB_POSITION = -1;
 public static final double MAX_RIGHT_CLIMB_POSITION = 100;

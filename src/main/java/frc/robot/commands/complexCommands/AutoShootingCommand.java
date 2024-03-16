@@ -35,12 +35,17 @@ public class AutoShootingCommand extends Command {
             shootingAngleSubsytems.move(-speedInteralMover);
         } else if (gap < -0.5) {
             System.out.println("raising shooter");
+            shootingSubsystem.shootOut(speedShoot);
             shootingAngleSubsytems.move(speedInteralMover);
+
         } else {
             shootingAngleSubsytems.stop();
             shootingSubsystem.shootOut(speedShoot);
              if (Constants.MAX_SHOOTING_SPEED <= shootingSubsystem.getSpeed()){
                 System.out.println("Shooting Speed: " + shootingSubsystem.getSpeed());
+                System.out.println("Shooting Speed2: " + shootingSubsystem.getSpeed2());
+
+            shootingSubsystem.shootOut(speedShoot);
             internalMoverSubsystem.move(speedInteralMover);
         }
     }
