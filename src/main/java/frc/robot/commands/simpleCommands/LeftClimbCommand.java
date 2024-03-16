@@ -20,7 +20,7 @@ public class LeftClimbCommand extends Command{
     
     @Override
     public void execute() {
-        System.out.println("left Climb Position:" + leftClimbSubsystem.getPosition());
+        //System.out.println("left Climb Position:" + leftClimbSubsystem.getPosition());
         if(leftClimbSubsystem.getPosition() >= Constants.MAX_LEFT_CLIMB_POSITION){
             leftClimbSubsystem.move(- Math.abs(this.speed));
         //run fine when inside of the limits but will move opposite when statement is not true. 

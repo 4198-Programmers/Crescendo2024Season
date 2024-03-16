@@ -35,7 +35,7 @@ public class AutoAmpCommand extends Command {
     @Override
     public void execute() {
         System.out.println("shootingAngle: " + shootingAngleSubsytems.encoderPosition());
-        System.out.println("shootingSpeed: " + shootingSubsystem.getSpeed());
+        // System.out.println("shootingSpeed: " + shootingSubsystem.getSpeed());
 
         // speedInteralMover = shootingAngleSubsytems.encoderPosition() >= -20 ?
         // speedInteralMover/-20 : speedInteralMover;

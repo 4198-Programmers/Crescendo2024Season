@@ -20,13 +20,13 @@ public class AutoDriveCommand extends Command{
 
     @Override
     public void execute() {
-        System.out.println("Executing Drive Command");
+        // System.out.println("Executing Drive Command");
         swerveDriveBase.driveCommand(xSpeed, ySpeed, zRotation);
     }
 
     @Override
     public void end(boolean interrupted) {
-        System.out.println("Ending Drive Command");
+        // System.out.println("Ending Drive Command");
         swerveDriveBase.driveCommand(()-> 0, ()-> 0, ()-> 0);
     }
 }

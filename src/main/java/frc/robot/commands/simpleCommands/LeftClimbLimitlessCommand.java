@@ -19,7 +19,7 @@ public class LeftClimbLimitlessCommand extends Command{
      
     @Override
     public void execute() {
-        System.out.println("left Climb Position:" + leftClimbSubsystem.getPosition());
+        //System.out.println("left Climb Position:" + leftClimbSubsystem.getPosition());
 
         this.leftClimbSubsystem.move(this.speed * this.throttle.getAsDouble());
 
