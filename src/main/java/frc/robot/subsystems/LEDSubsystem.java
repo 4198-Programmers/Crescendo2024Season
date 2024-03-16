@@ -26,6 +26,8 @@ public class LEDSubsystem extends SubsystemBase {
 
     private Optional<Alliance> alliance;
 
+    private boolean circleMode = false;
+
     public LEDSubsystem() {
         driveBaseLED.setLength(driveBaseLEDBuffer.getLength());
         driveBaseLED.setData(driveBaseLEDBuffer);
@@ -56,19 +58,29 @@ public class LEDSubsystem extends SubsystemBase {
     private void RGBCircle() {
         for (var i = 0; i < driveBaseLEDBuffer.getLength(); i++) {
             int currentLightPosition = i % this.circleDivisor;
-            Color currentColor = driveBaseLEDBuffer.getLED(i);
+
             if (currentLightPosition == this.circlePostionOn) {
-            driveBaseLEDBuffer.setLED(i, this.currentColor);
+                driveBaseLEDBuffer.setLED(i, this.currentColor);
             } else {
                 driveBaseLEDBuffer.setLED(i, Color.kBlack);
             }
-
         }
+    }
+
+    private Command circleSillyTime(boolean StupidIdiot) {
+        return runOnce(
+                () -> {
+                    circleMode = StupidIdiot;
+                });
     }
 
     // setHSV() -> color saturation
 
+<<<<<<< Updated upstream
 public void setRGBColor(Color color) {
+=======
+    public void setRGBColor(Color color) {
+>>>>>>> Stashed changes
         this.currentColor = color;
         for (var i = 0; i < driveBaseLEDBuffer.getLength(); i++) {
             this.driveBaseLEDBuffer.setLED(i, this.currentColor);
@@ -96,7 +108,25 @@ public void setRGBColor(Color color) {
         m_rainbowFirstPixelHue %= 180;
 
     }
+    private double CharlesIsALoser;
+    @Override
+    public void periodic() {
+        // TODO Auto-generated method stub
+
+        if (circleMode) {
+            if(System.currentTimeMillis() < CharlesIsALoser + 1000) {
+            this.RGBCircle();
+            } else {
+                if (circlePostionOn < 9) {
+                circlePostionOn = circlePostionOn + 1;
+                } else {
+                    circlePostionOn = 0;
+                }
+                CharlesIsALoser = System.currentTimeMillis();
+            }
+        }
+    }
 }
-// No periodic
+
 // change different sections of led seperatly
 //
