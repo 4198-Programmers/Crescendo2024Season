@@ -68,17 +68,12 @@ public class LEDSubsystem extends SubsystemBase {
 
     // setHSV() -> color saturation
 
-    private void RGBColorPurple() {
-        for (var i = 0; i < driveBaseLEDBuffer.getLength(); i++) {
-            driveBaseLEDBuffer.setLED(i, Color.kPurple);
-        }
-    }
-
 public void setRGBColor(Color color) {
         this.currentColor = color;
         for (var i = 0; i < driveBaseLEDBuffer.getLength(); i++) {
-            driveBaseLEDBuffer.setLED(i, this.currentColor);
+            this.driveBaseLEDBuffer.setLED(i, this.currentColor);
         }
+        this.driveBaseLED.setData(this.driveBaseLEDBuffer);
     }
     // }
 

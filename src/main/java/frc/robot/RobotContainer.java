@@ -212,8 +212,8 @@ zeroGyroButton.whileTrue(new zeroGyro(drivebase));
 intakeInButton.whileTrue(new IntakeCommand(intakeSubsystem, internalMoverSubsystem, Constants.INTAKE_MOTOR_SPEED));
 intakePneumaticsButton.toggleOnTrue(new IntakePneumaticsCommand(intakePneumaticsSubsystem));
 
-//left joystick
-autoIntakeButton.whileTrue(new AutoIntakeCommand(intakeSubsystem, internalMoverSubsystem, intakePneumaticsSubsystem,0.5 , 1).andThen(new LEDSubsystem()));
+//left joystickandThen
+autoIntakeButton.whileTrue(new AutoIntakeCommand(intakeSubsystem, internalMoverSubsystem, intakePneumaticsSubsystem,0.5 , 1));
 
   //left Joystick
 //interalMoverDownButton.whileTrue(new InternalMoverCommand(internalMoverSubsystem, -Constants.INTERNAL_MOVER_SPEED));
