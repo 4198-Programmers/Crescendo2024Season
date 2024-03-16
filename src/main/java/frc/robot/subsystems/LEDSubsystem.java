@@ -76,11 +76,7 @@ public class LEDSubsystem extends SubsystemBase {
 
     // setHSV() -> color saturation
 
-<<<<<<< Updated upstream
-public void setRGBColor(Color color) {
-=======
     public void setRGBColor(Color color) {
->>>>>>> Stashed changes
         this.currentColor = color;
         for (var i = 0; i < driveBaseLEDBuffer.getLength(); i++) {
             this.driveBaseLEDBuffer.setLED(i, this.currentColor);
@@ -108,17 +104,19 @@ public void setRGBColor(Color color) {
         m_rainbowFirstPixelHue %= 180;
 
     }
+
     private double CharlesIsALoser;
+
     @Override
     public void periodic() {
         // TODO Auto-generated method stub
 
         if (circleMode) {
-            if(System.currentTimeMillis() < CharlesIsALoser + 1000) {
-            this.RGBCircle();
+            if (System.currentTimeMillis() < CharlesIsALoser + 1000) {
+                this.RGBCircle();
             } else {
                 if (circlePostionOn < 9) {
-                circlePostionOn = circlePostionOn + 1;
+                    circlePostionOn = circlePostionOn + 1;
                 } else {
                     circlePostionOn = 0;
                 }
