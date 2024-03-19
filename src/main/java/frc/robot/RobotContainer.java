@@ -55,6 +55,8 @@ import frc.robot.subsystems.ShootingSubsystem;
 import frc.robot.subsystems.swervedrive.SwerveSubsystem;
 import java.io.File;
 
+import org.photonvision.PhotonCamera;
+
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a "declarative" paradigm, very
@@ -70,6 +72,7 @@ public class RobotContainer
   // CommandJoystick rotationController = new CommandJoystick(1);
   // Replace with CommandPS4Controller or CommandJoystick if needed
   CommandJoystick driverController = new CommandJoystick(1);
+  private PhotonCamera photonCamera = new PhotonCamera("Targeting Camera");
 
   // CommandJoystick driverController   = new CommandJoystick(3);//(OperatorConstants.DRIVER_CONTROLLER_PORT);
   XboxController driverXbox = new XboxController(0);
@@ -101,6 +104,7 @@ public class RobotContainer
     JoystickButton zeroGyroButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_11);
 
     JoystickButton autoIntakeButton = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_1);
+    JoystickButton autoTargetButton = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_3);
 
     JoystickButton autoShootButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_1);
     JoystickButton autoAmpButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_2);
@@ -236,6 +240,8 @@ ampButton.toggleOnTrue(new AmpBarPneumaticStateCommand(ampbarPNSubsystem));
 
 PnDown.toggleOnTrue(new AmpBarPneumaticDownCommand(ampbarPNSubsystem));
 PnUp.toggleOnTrue(new AmpBarPneumaticUpCommand(ampbarPNSubsystem));
+
+autoTargetButton.whileTrue(drivebase.aimAtTarget(photonCamera));
 
 
 
