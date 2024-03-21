@@ -112,10 +112,10 @@ public class LEDSubsystem extends SubsystemBase {
         m_rainbowFirstPixelHue %= 180;
 
     }
+}
+ //   private double CharlesIsALoser;
 
-    private double CharlesIsALoser;
-
-    @Override
+ /*    @Override
     public void periodic() {
         // TODO Auto-generated method stub
 
@@ -133,6 +133,7 @@ public class LEDSubsystem extends SubsystemBase {
         }
     }
 }
+*/
 
 // change different sections of led seperatly
 //
