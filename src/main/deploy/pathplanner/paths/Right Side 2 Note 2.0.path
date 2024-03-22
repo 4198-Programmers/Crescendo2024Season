@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.3,
-        "y": 7.5
+        "x": 2.8981397630253705,
+        "y": 6.990576641485824
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.6077671666032165,
-        "y": 7.685245406120266
+        "x": 2.205906929628587,
+        "y": 7.175822047606091
       },
       "isLocked": false,
       "linkedName": "Right Side 2 Note 1.0 Start"

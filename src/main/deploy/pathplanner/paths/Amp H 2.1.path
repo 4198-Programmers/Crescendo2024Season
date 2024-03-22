@@ -43,7 +43,7 @@
     "rotateFast": false
   },
   "reversed": false,
-  "folder": "Amp Bar Auto",
+  "folder": null,
   "previewStartingState": {
     "rotation": -90.67776408657866,
     "velocity": 0

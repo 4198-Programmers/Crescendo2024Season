@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 2.9026396514331485,
-        "y": 5.55472336015897
+        "x": 1.328428690111538,
+        "y": 5.557362183607978
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.8792513425482693,
-        "y": 6.478561561111727
+        "x": 2.328428690111538,
+        "y": 5.557362183607978
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Start Middle 2 Note 1"
     },
     {
       "anchor": {
-        "x": 2.9026396514331485,
-        "y": 7.004798511021523
+        "x": 2.9858875869770753,
+        "y": 5.557362183607978
       },
       "prevControl": {
-        "x": 2.8909454969907094,
-        "y": 6.010795383414129
+        "x": 1.9858875869770753,
+        "y": 5.557362183607978
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "End Middle 2 Note 1"
     }
   ],
   "rotationTargets": [],
@@ -37,7 +37,14 @@
       "command": {
         "type": "parallel",
         "data": {
-          "commands": []
+          "commands": [
+            {
+              "type": "named",
+              "data": {
+                "name": "Auto Intake Command"
+              }
+            }
+          ]
         }
       }
     }
@@ -50,13 +57,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -90.46837107167906,
+    "rotation": 0,
     "rotateFast": false
   },
   "reversed": false,
-  "folder": "Test Folder",
+  "folder": "Middle",
   "previewStartingState": {
-    "rotation": -89.13658539093926,
+    "rotation": 0,
     "velocity": 0
   },
   "useDefaultConstraints": true

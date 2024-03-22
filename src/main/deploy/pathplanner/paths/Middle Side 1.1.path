@@ -3,16 +3,16 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.0541358944950683,
+        "x": 2.9176392794590833,
         "y": 5.55
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.7085279671441294,
+        "x": 1.5720313521081444,
         "y": 5.55
       },
       "isLocked": false,
-      "linkedName": "Middle Side 1.0 end"
+      "linkedName": null
     },
     {
       "anchor": {

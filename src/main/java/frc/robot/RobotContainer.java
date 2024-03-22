@@ -177,8 +177,8 @@ JoystickButton PnDown = new JoystickButton(leftJoystick, 4);
     // left stick controls translation
     // right stick controls the angular velocity of the robot
     Command driveFieldOrientedAnglularVelocity = drivebase.driveCommand(
-        () -> MathUtil.applyDeadband(leftJoystick.getY(), OperatorConstants.LEFT_Y_DEADBAND),
-        () -> MathUtil.applyDeadband(leftJoystick.getX(), OperatorConstants.LEFT_X_DEADBAND),
+        () -> MathUtil.applyDeadband(-leftJoystick.getY(), OperatorConstants.LEFT_Y_DEADBAND),
+        () -> MathUtil.applyDeadband(-leftJoystick.getX(), OperatorConstants.LEFT_X_DEADBAND),
         () -> MathUtil.applyDeadband(middleJoystick.getX(), OperatorConstants.LEFT_X_DEADBAND));
 
     Command driveFieldOrientedDirectAngleSim = drivebase.simDriveCommand(

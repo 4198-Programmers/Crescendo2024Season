@@ -2,10 +2,10 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 0.7336934388833163,
-      "y": 6.668834620329574
+      "x": 1.328428690111538,
+      "y": 5.557362183607978
     },
-    "rotation": 60.0
+    "rotation": 0
   },
   "command": {
     "type": "sequential",
@@ -26,13 +26,13 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Right Side 2 Note 1.0"
+            "pathName": "Middle 2 Note 1"
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "Right Side 2 Note 2.0"
+            "pathName": "Middle 2 Note 2"
           }
         },
         {
@@ -44,12 +44,36 @@
         {
           "type": "named",
           "data": {
-            "name": "shoot"
+            "name": "Auto Shoot Command"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Middle 2 Note 3"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Middle 2 Note 4"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shooter Angle Command"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Shoot Command"
           }
         }
       ]
     }
   },
-  "folder": "Autos H",
+  "folder": "Test Auto",
   "choreoAuto": false
 }

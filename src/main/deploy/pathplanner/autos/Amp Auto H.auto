@@ -20,19 +20,7 @@
         {
           "type": "named",
           "data": {
-            "name": "Amp Bar Pnuematics"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
             "name": "Auto Amp Command"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Amp Bar Pnuematics"
           }
         },
         {
@@ -51,12 +39,6 @@
           "type": "path",
           "data": {
             "pathName": "Amp H 2.3"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Auto Amp Command"
           }
         },
         {

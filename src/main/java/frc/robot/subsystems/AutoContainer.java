@@ -63,7 +63,8 @@ public class AutoContainer extends SubsystemBase {
                 this.intakePneumaticsSubsystem = intakePneumaticsSubsystem;
 
                 NamedCommands.registerCommand("Auto Shoot Command", new AutoShootingCommand(shootingSubsystem,
-                                internalMoverSubsystem, shootingAngleSubsytems, -8, 1, 1).withTimeout(3));
+                                internalMoverSubsystem, shootingAngleSubsytems, -8, 1, 1).withTimeout(1.5
+                                ));
                 NamedCommands.registerCommand("Auto Intake Command", new AutoIntakeCommand(intakeSubsystem,
                                 internalMoverSubsystem, intakePneumaticsSubsystem, 1, 1).withTimeout(10));
                 NamedCommands.registerCommand("Shooter Angle Command",
@@ -120,6 +121,9 @@ public class AutoContainer extends SubsystemBase {
                                 this.swerveSubsystem.getAutonomousCommand("Left Out Only Auto"));
                 sendableChooser.addOption("Left Side Shoot and Out Only Auto",
                                 this.swerveSubsystem.getAutonomousCommand("Left Side Shoot and Out Only Auto"));
+
+                sendableChooser.addOption("RotateAuto", this.swerveSubsystem.getAutonomousCommand("Rotate Auto"));
+                sendableChooser.addOption("Middle 2 Note Auto", this.swerveSubsystem.getAutonomousCommand("Middle 2 Note Auto"));
                 sendableChooser.addOption("HAuto 2 Note Middle", chooseSequentialCommand(0));
                 sendableChooser.addOption("HAuto 2 Note Amp Blue", chooseSequentialCommand(1));
                 sendableChooser.addOption("HAuto 2 Note Amp Red", chooseSequentialCommand(2));

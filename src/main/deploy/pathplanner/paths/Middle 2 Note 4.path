@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 1.5,
-        "y": 7.35
+        "x": 2.956638312326507,
+        "y": 7.039325432570105
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.9801442983770416,
-        "y": 7.783300952193916
+        "x": 1.9566383123265076,
+        "y": 7.039325432570105
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "End Middle 2 Note 3"
     },
     {
       "anchor": {
-        "x": 1.8,
-        "y": 7.7
+        "x": 1.328428690111538,
+        "y": 5.557362183607978
       },
       "prevControl": {
-        "x": 1.7297349807253108,
-        "y": 7.6414458172710935
+        "x": 2.328428690111538,
+        "y": 5.557362183607978
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Start Middle 2 Note 1"
     }
   ],
   "rotationTargets": [],
@@ -39,13 +39,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -88.95837332398996,
-    "rotateFast": false
+    "rotation": 0,
+    "rotateFast": true
   },
   "reversed": false,
-  "folder": null,
+  "folder": "Middle",
   "previewStartingState": {
-    "rotation": -90.0,
+    "rotation": 60.0,
     "velocity": 0
   },
   "useDefaultConstraints": true
