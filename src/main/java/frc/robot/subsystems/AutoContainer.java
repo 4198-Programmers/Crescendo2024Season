@@ -63,7 +63,8 @@ public class AutoContainer extends SubsystemBase {
                 this.intakePneumaticsSubsystem = intakePneumaticsSubsystem;
 
                 NamedCommands.registerCommand("Auto Shoot Command", new AutoShootingCommand(shootingSubsystem,
-                                internalMoverSubsystem, shootingAngleSubsytems, -8, 1, 1).withTimeout(3));
+                                internalMoverSubsystem, shootingAngleSubsytems, -8, 1, 1).withTimeout(1.5
+                                ));
                 NamedCommands.registerCommand("Auto Intake Command", new AutoIntakeCommand(intakeSubsystem,
                                 internalMoverSubsystem, intakePneumaticsSubsystem, 1, 1).withTimeout(10));
                 NamedCommands.registerCommand("Shooter Angle Command",
@@ -84,6 +85,7 @@ public class AutoContainer extends SubsystemBase {
         public void SetupAutoOptions(SendableChooser<Command> sendableChooser) {
                 // Autos we can attempt
                 sendableChooser.addOption("Amp Auto H", this.swerveSubsystem.getAutonomousCommand("Amp Auto H"));
+
                 sendableChooser.addOption("Right Side Taxi H Auto",
                                 this.swerveSubsystem.getAutonomousCommand("Right Side Taxi H Auto"));
                 sendableChooser.addOption("Right Side 2 Note H Auto",
@@ -95,7 +97,7 @@ public class AutoContainer extends SubsystemBase {
 
                 sendableChooser.addOption("Test back and forth",
                                 this.swerveSubsystem.getAutonomousCommand("test back and forth"));
-                sendableChooser.addOption("Test back and amp",
+                sendableChooser.addOption("test 2step back and right",
                                 this.swerveSubsystem.getAutonomousCommand("test 2step back and right"));
                 sendableChooser.addOption("Test Auto", this.swerveSubsystem.getAutonomousCommand("Test Auto"));
                 sendableChooser.addOption("Just Taxi Auto",
@@ -119,6 +121,9 @@ public class AutoContainer extends SubsystemBase {
                                 this.swerveSubsystem.getAutonomousCommand("Left Out Only Auto"));
                 sendableChooser.addOption("Left Side Shoot and Out Only Auto",
                                 this.swerveSubsystem.getAutonomousCommand("Left Side Shoot and Out Only Auto"));
+
+                sendableChooser.addOption("RotateAuto", this.swerveSubsystem.getAutonomousCommand("Rotate Auto"));
+                sendableChooser.addOption("Middle 2 Note Auto", this.swerveSubsystem.getAutonomousCommand("Middle 2 Note Auto"));
                 sendableChooser.addOption("HAuto 2 Note Middle", chooseSequentialCommand(0));
                 sendableChooser.addOption("HAuto 2 Note Amp Blue", chooseSequentialCommand(1));
                 sendableChooser.addOption("HAuto 2 Note Amp Red", chooseSequentialCommand(2));

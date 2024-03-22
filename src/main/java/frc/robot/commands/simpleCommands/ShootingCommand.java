@@ -23,7 +23,7 @@ public class ShootingCommand extends Command {
 
     @Override
     public void execute() {
-        System.out.println("Throttle: " + joystick.getThrottle());
+        //System.out.println("Throttle: " + joystick.getThrottle());
         shootingSubsystem.shootOut(speed * Math.abs(joystick.getThrottle()));
              if (maxShootingSpeedLimit <= shootingSubsystem.getSpeed()){
             internalMoverSubsystem.move(0.5);

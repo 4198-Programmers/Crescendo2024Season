@@ -11,6 +11,8 @@ public class ShootingSubsystem extends SubsystemBase{
     private CANSparkMax shootingMotor = new CANSparkMax(Constants.SHOOTER_MOTOR_ID, MotorType.kBrushless);
     private CANSparkMax shootingMotor2 = new CANSparkMax(Constants.SHOOTER_MOTOR_2_ID, MotorType.kBrushless);
     private RelativeEncoder shooterEncoder = shootingMotor.getEncoder();
+    private RelativeEncoder shooterEncoder2 = shootingMotor2.getEncoder();
+
 
 public void shootOut(double speed){
     shootingMotor.set( - speed);
@@ -25,4 +27,9 @@ public void stop(){
 public double getSpeed(){
     return shooterEncoder.getVelocity();
 }
+public double getSpeed2(){
+    return shooterEncoder2.getVelocity();
+}
+
+
 }

@@ -75,12 +75,14 @@ public final class Constants {
   public static final double CLIMB_SPEED = 0.5;
   public static final double SHOOTING_ANGLE_MOTOR_SPEED = 0.5;
 
-  // limits
-  public static final double MAX_SHOOTING_SPEED = 5000;
-  public static final double MAX_LEFT_CLIMB_POSITION = 100;
-  public static final double MIN_LEFT_CLIMB_POSITION = -1;
-  public static final double MAX_RIGHT_CLIMB_POSITION = 100;
-  public static final double MIN_RIGHT_CLIMB_POSITION = -1;
+// limits
+public static final double MAX_SHOOTING_SPEED = 5500;
+public static final double MAX_SHOOTING_SPEED_2 = -14;
+
+public static final double MAX_LEFT_CLIMB_POSITION = 100;
+public static final double MIN_LEFT_CLIMB_POSITION = -1;
+public static final double MAX_RIGHT_CLIMB_POSITION = 100;
+public static final double MIN_RIGHT_CLIMB_POSITION = -1;
 
   // swtiches
   public static final int MIDDLE_LIMIT_SWITCH_ID = 9;
@@ -110,10 +112,5 @@ public final class Constants {
   public static final int JOYSTICK_BUTTON_10 = 10;
   public static final int JOYSTICK_BUTTON_11 = 11;
   public static final int JOYSTICK_BUTTON_12 = 12;
-
-  // shooter angle math constants
-  public static final double SHOOTER_ANGLE_A = -0.0235642;
-  public static final double SHOOTER_ANGLE_B = -1.52065;
-  public static final double SHOOTER_ANGLE_C = 43.2451;
 
 }

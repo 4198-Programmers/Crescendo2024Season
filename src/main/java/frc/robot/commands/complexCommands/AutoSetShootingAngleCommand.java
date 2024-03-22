@@ -28,10 +28,10 @@ public class AutoSetShootingAngleCommand extends Command {
         double gap = shootingAngleSubsytems.encoderPosition() - anglePosition;
 
        if (gap > 0.5) {
-            System.out.println("lowering shooter");
+            //System.out.println("lowering shooter");
             shootingAngleSubsytems.move(-speedAngleShooter);
         } else if (gap < -0.5) {
-            System.out.println("raising shooter");
+            //System.out.println("raising shooter");
             shootingAngleSubsytems.move(speedAngleShooter);
         } else {
             shootingAngleSubsytems.stop();

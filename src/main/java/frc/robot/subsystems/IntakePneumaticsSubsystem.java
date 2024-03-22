@@ -18,7 +18,7 @@ public class IntakePneumaticsSubsystem extends SubsystemBase {
     }
 
     public void intakeUp(){
-        System.out.println("Intake Solenoid Status: " + intakeSolenoid.get());
+        //System.out.println("Intake Solenoid Status: " + intakeSolenoid.get());
 
         if (!intakeSolenoid.get()){
         intakeSolenoid.toggle();
@@ -26,7 +26,7 @@ public class IntakePneumaticsSubsystem extends SubsystemBase {
     }
 
     public void intakeDown(){
-        System.out.println("Intake Solenoid Status: " + intakeSolenoid.get());
+        //System.out.println("Intake Solenoid Status: " + intakeSolenoid.get());
         if(intakeSolenoid.get()){
             intakeSolenoid.toggle();
         }

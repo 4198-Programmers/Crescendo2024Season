@@ -19,7 +19,7 @@ public class RightClimbLimitlessCommand extends Command{
      
     @Override
     public void execute() {
-        System.out.println("Right Climb Position:" + rightClimbSubsystem.rightClimbMotorPosition());
+        //System.out.println("Right Climb Position:" + rightClimbSubsystem.rightClimbMotorPosition());
 
         this.rightClimbSubsystem.move(this.speed * this.throttle.getAsDouble());
     }
