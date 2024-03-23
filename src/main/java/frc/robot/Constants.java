@@ -113,4 +113,7 @@ public static final double MIN_RIGHT_CLIMB_POSITION = -1;
   public static final int JOYSTICK_BUTTON_11 = 11;
   public static final int JOYSTICK_BUTTON_12 = 12;
 
+  public static final double SHOOTER_ANGLE_A = 0;
+  public static final double SHOOTER_ANGLE_B = 0;
+  public static final double SHOOTER_ANGLE_C = 0;
 }
