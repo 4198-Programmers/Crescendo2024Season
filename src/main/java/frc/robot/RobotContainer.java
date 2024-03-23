@@ -17,6 +17,7 @@ import edu.wpi.first.wpilibj.RobotBase;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.util.Color;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
@@ -48,6 +49,7 @@ import frc.robot.subsystems.AutoContainer;
 import frc.robot.subsystems.IntakePneumaticsSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.subsystems.InternalMoverSubsystem;
+import frc.robot.subsystems.LEDSubsystem;
 import frc.robot.subsystems.LeftClimbSubsystem;
 import frc.robot.subsystems.RightClimbSubsystem;
 import frc.robot.subsystems.ShootingAngleSubsytems;
@@ -90,9 +92,9 @@ public class RobotContainer
   private final ShootingSubsystem shootingSubsystem = new ShootingSubsystem();
   private final LeftClimbSubsystem leftClimbSubsystem = new LeftClimbSubsystem();
   private final RightClimbSubsystem rightClimbSubsystem = new RightClimbSubsystem();
-
   private final AmpbarPNSubsystem ampbarPNSubsystem = new AmpbarPNSubsystem();
   private final IntakePneumaticsSubsystem intakePneumaticsSubsystem = new IntakePneumaticsSubsystem();
+  private final LEDSubsystem ledSubsystem = new LEDSubsystem();
 
   //Joysticks 
    Joystick rightJoystick = new Joystick(Constants.RIGHT_JOYSTICK_ID);
@@ -123,16 +125,14 @@ public class RobotContainer
     //JoystickButton bClimbDownLimitlessButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_11);
     //JoystickButton bClimbUpLimitlessButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_12);
 
-JoystickButton PnUp = new JoystickButton(leftJoystick, 6);
-JoystickButton PnDown = new JoystickButton(leftJoystick, 4);
+    JoystickButton PnUp = new JoystickButton(leftJoystick, 6);
+  JoystickButton PnDown = new JoystickButton(leftJoystick, 4);
 
-
-
+    JoystickButton LEDButton = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_4);
 
     SendableChooser<Command> autoChooser = new SendableChooser<>();
     AutoContainer autoContainer = new AutoContainer(intakeSubsystem, shootingAngleSubsytems, shootingSubsystem, drivebase, 
     leftClimbSubsystem, rightClimbSubsystem, internalMoverSubsystem, ampbarPNSubsystem, intakePneumaticsSubsystem);
-    
     
    public RobotContainer()
   {
@@ -177,9 +177,9 @@ JoystickButton PnDown = new JoystickButton(leftJoystick, 4);
     // left stick controls translation
     // right stick controls the angular velocity of the robot
     Command driveFieldOrientedAnglularVelocity = drivebase.driveCommand(
-        () -> MathUtil.applyDeadband(-leftJoystick.getY(), OperatorConstants.LEFT_Y_DEADBAND),
-        () -> MathUtil.applyDeadband(-leftJoystick.getX(), OperatorConstants.LEFT_X_DEADBAND),
-        () -> MathUtil.applyDeadband(middleJoystick.getX(), OperatorConstants.LEFT_X_DEADBAND));
+        () -> MathUtil.applyDeadband(leftJoystick.getY(), OperatorConstants.LEFT_Y_DEADBAND),
+        () -> MathUtil.applyDeadband(leftJoystick.getX(), OperatorConstants.LEFT_X_DEADBAND),
+        () -> MathUtil.applyDeadband(-middleJoystick.getX(), OperatorConstants.LEFT_X_DEADBAND));
 
     Command driveFieldOrientedDirectAngleSim = drivebase.simDriveCommand(
         () -> MathUtil.applyDeadband(driverXbox.getLeftY(), OperatorConstants.LEFT_Y_DEADBAND),
@@ -188,6 +188,8 @@ JoystickButton PnDown = new JoystickButton(leftJoystick, 4);
 
     drivebase.setDefaultCommand(
         !RobotBase.isSimulation() ? driveFieldOrientedAnglularVelocity : driveFieldOrientedDirectAngleSim);
+
+    ledSubsystem.setDefaultCommand(ledSubsystem.getDefaultCommand());   
   }
 
   /**
@@ -216,7 +218,7 @@ JoystickButton PnDown = new JoystickButton(leftJoystick, 4);
 zeroGyroButton.whileTrue(new zeroGyro(drivebase));
 intakeInButton.whileTrue(new IntakeCommand(intakeSubsystem, internalMoverSubsystem, Constants.INTAKE_MOTOR_SPEED));
 
-//left joystick 
+//left joystickandThen
 autoIntakeButton.whileTrue(new AutoIntakeCommand(intakeSubsystem, internalMoverSubsystem, intakePneumaticsSubsystem,0.5 , 1));
 
   //left Joystick
@@ -241,6 +243,7 @@ ampButton.toggleOnTrue(new AmpBarPneumaticStateCommand(ampbarPNSubsystem));
 PnDown.toggleOnTrue(new AmpBarPneumaticDownCommand(ampbarPNSubsystem));
 PnUp.toggleOnTrue(new AmpBarPneumaticUpCommand(ampbarPNSubsystem));
 
+LEDButton.whileTrue(this.ledSubsystem.setColorCommand(Color.kBlue));
 autoTargetButton.whileTrue(drivebase.aimAtTarget(photonCamera));
 
 
