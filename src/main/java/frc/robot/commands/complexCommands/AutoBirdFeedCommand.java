@@ -46,10 +46,12 @@ public class AutoBirdFeedCommand extends Command {
                 shootingAngleSubsytems.move(gap);
             }
         }
-        @Override
-        public void end(boolean interrupted){
-            shootingAngleSubsytems.stop();
-            shootingSubsystem.stop();
-        }
+
+    }
+
+    @Override
+    public void end(boolean interrupted) {
+        shootingAngleSubsytems.stop();
+        shootingSubsystem.stop();
     }
 }
