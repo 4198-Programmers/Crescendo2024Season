@@ -118,18 +118,22 @@ public class LEDSubsystem extends SubsystemBase {
  /*    @Override
     public void periodic() {
         // TODO Auto-generated method stub
+<<<<<<< Updated upstream
 
         if (circleMode) {
             if (System.currentTimeMillis() < CharlesIsALoser + 1000) {
                 this.RGBCircle();
             } else {
+=======
+        if (circleMode && System.currentTimeMillis() < CharlesIsALoser + 1000) {
+            this.RGBCircle();
+>>>>>>> Stashed changes
                 if (circlePostionOn < 9) {
                     circlePostionOn = circlePostionOn + 1;
                 } else {
                     circlePostionOn = 0;
                 }
                 CharlesIsALoser = System.currentTimeMillis();
-            }
         }
     }
 }
