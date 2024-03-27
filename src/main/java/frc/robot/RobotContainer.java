@@ -42,6 +42,7 @@ import frc.robot.commands.simpleCommands.RightClimbCommand;
 import frc.robot.commands.simpleCommands.RightClimbLimitlessCommand;
 import frc.robot.commands.simpleCommands.ShootingAngleCommand;
 import frc.robot.commands.simpleCommands.ShootingCommand;
+import frc.robot.commands.simpleCommands.ShootingIntakeCommand;
 import frc.robot.commands.swervedrive.zeroGyro;
 import frc.robot.commands.swervedrive.drivebase.AbsoluteDriveAdv;
 import frc.robot.subsystems.AmpbarPNSubsystem;
@@ -101,8 +102,8 @@ public class RobotContainer
    Joystick middleJoystick = new Joystick(Constants.MIDDLE_JOYSTICK_ID);
    Joystick leftJoystick = new Joystick(Constants.LEFT_JOYSTICK_ID);
 
-   //buttons 
-    JoystickButton intakeInButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_1);
+   //buttons     
+    JoystickButton shooterIntakeButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_1);
     JoystickButton zeroGyroButton = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_11);
 
     JoystickButton autoIntakeButton = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_1);
@@ -120,6 +121,7 @@ public class RobotContainer
     JoystickButton rClimbUpLimitlessButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_10);
     JoystickButton setLowShooterButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_11);
     JoystickButton angleShootSpeakerButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_12);
+
 
     //JoystickButton interalMoverDownButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_3);
     //JoystickButton bClimbDownLimitlessButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_11);
