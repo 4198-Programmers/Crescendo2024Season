@@ -121,6 +121,10 @@ public class RobotContainer
     JoystickButton setLowShooterButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_11);
     JoystickButton angleShootSpeakerButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_12);
 
+
+    JoystickButton babyBirdFeed = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_1);
+
+
     //JoystickButton interalMoverDownButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_3);
     //JoystickButton bClimbDownLimitlessButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_11);
     //JoystickButton bClimbUpLimitlessButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_12);
@@ -235,7 +239,7 @@ rClimbDownLimitlessButton.whileTrue(new RightClimbLimitlessCommand(rightClimbSub
 //bClimbDownLimitlessButton.whileTrue(new RightClimbLimitlessCommand(rightClimbSubsystem, Constants.CLIMB_SPEED, () -> middleJoystick.getThrottle())
 //  .alongWith(new LeftClimbLimitlessCommand(leftClimbSubsystem, -Constants.CLIMB_SPEED, () -> middleJoystick.getThrottle())));
 autoAmpButton.toggleOnTrue(new AutoAmpCommand(shootingSubsystem, internalMoverSubsystem, shootingAngleSubsytems, ampbarPNSubsystem, -0.5, 0.5, 0.5));
-autoShootButton.toggleOnTrue(new AutoShootingCommand(shootingSubsystem, internalMoverSubsystem, shootingAngleSubsytems, -8, 1, 0.5));
+autoShootButton.toggleOnTrue(new AutoShootingCommand(shootingSubsystem, internalMoverSubsystem, shootingAngleSubsytems, -8, 1, Constatns.MAX_SHOOTING_SPEED, 0.5));
 angleShootSpeakerButton.whileTrue(new AutoSetShootingAngleCommand(shootingAngleSubsytems, -8, 0.5));
 setLowShooterButton.whileTrue(new AutoSetShootingAngleCommand(shootingAngleSubsytems, -0.5, 0.5));
 ampButton.toggleOnTrue(new AmpBarPneumaticStateCommand(ampbarPNSubsystem));
@@ -246,6 +250,10 @@ PnUp.toggleOnTrue(new AmpBarPneumaticUpCommand(ampbarPNSubsystem));
 LEDButton.whileTrue(this.ledSubsystem.setColorCommand(Color.kBlue));
 autoTargetButton.whileTrue(drivebase.aimAtTarget(photonCamera));
 
+
+babyBirdFeed.whileTrue(new AutoShootingCommand(shootingSubsystem, internalMoverSubsystem, shootingAngleSubsytems, -8, -0.5, 0));
+// to Abby, I wanted to sleep so the simplest way to write this was to use the auto shoot comand for the baby bird intake comand. 
+//read over the command, the first part adjst the angle of the shooter, second ramps up the shooter, and the third fires
 
 
 //-12.24 amp location 61

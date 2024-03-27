@@ -13,14 +13,18 @@ public class AutoShootingCommand extends Command {
     double speedInteralMover;
     double speedShoot;
     double anglePosition;
+    double maxShootingSpeed;
+    double maxShootingSpeed2;
 
-    public AutoShootingCommand(ShootingSubsystem shootingSubsytems, InternalMoverSubsystem internalMoverSubsystem, ShootingAngleSubsytems shootingAngleSubsytems, double anglePosition, double speedShoot, double speedInteralMover){
+    public AutoShootingCommand(ShootingSubsystem shootingSubsytems, InternalMoverSubsystem internalMoverSubsystem, ShootingAngleSubsytems shootingAngleSubsytems, double anglePosition, double speedShoot, double maxShootingSpeed, double maxShootingSpeed2 double speedInteralMover){
         this.shootingSubsystem = shootingSubsytems;
         this.internalMoverSubsystem = internalMoverSubsystem;
         this.shootingAngleSubsytems = shootingAngleSubsytems;
         this.speedShoot = -speedShoot;
         this.speedInteralMover = speedInteralMover;
         this.anglePosition = anglePosition;
+        this.maxShootingSpeed = maxShootingSpeed;
+        this.maxShootingSpeed2 = maxShootingSpeed2; 
         addRequirements(shootingSubsytems, internalMoverSubsystem, shootingAngleSubsytems);
     }
 
@@ -44,7 +48,7 @@ public class AutoShootingCommand extends Command {
                 System.out.println("Shooting Speed: " + shootingSubsystem.getSpeed());
                 System.out.println("Shooting Speed2: " + shootingSubsystem.getSpeed2());
 
-             if (Constants.MAX_SHOOTING_SPEED <= shootingSubsystem.getSpeed() && Constants.MAX_SHOOTING_SPEED_2 <= shootingSubsystem.getSpeed2()){
+             if (maxShootingSpeed <= shootingSubsystem.getSpeed() && maxShootingSpeed2 <= shootingSubsystem.getSpeed2()){
                 System.out.println("Shooting Speed: " + shootingSubsystem.getSpeed());
                 System.out.println("Shooting Speed2: " + shootingSubsystem.getSpeed2());
 
