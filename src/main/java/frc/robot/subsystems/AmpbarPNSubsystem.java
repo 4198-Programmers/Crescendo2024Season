@@ -11,13 +11,13 @@ public class AmpbarPNSubsystem extends SubsystemBase {
     //compressor is enabled in the constructor for robot container
     
     public AmpbarPNSubsystem(){
-        this.initialize();
+      //  this.initialize();
     }
     
 
-    public void initialize(){
-    pullAmpBarUp();
-    }
+    // public void initialize(){
+    // pullAmpBarUp();
+    // }
 
     public void pullAmpBarUp(){
         if(ampbarPN.get()){

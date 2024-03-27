@@ -38,6 +38,7 @@ public class LEDSubsystem extends SubsystemBase {
     public Command getDefaultCommand() {
         return runOnce(
                 () -> {
+                    System.out.println("Led set up");
                     Alliance currentAlliance = this.alliance.get();
                     if (Alliance.Red == currentAlliance) {
                         this.setRGBColor(Color.kRed);
@@ -65,6 +66,13 @@ public class LEDSubsystem extends SubsystemBase {
                 driveBaseLEDBuffer.setLED(i, Color.kBlack);
             }
         }
+    }
+
+    public Command setColorCommand(Color color) {
+        return runOnce(() -> {
+            System.out.println("Setting Color: " + color.toHexString());
+            setColorCommand(color);
+        });
     }
 
     private Command circleSillyTime(boolean StupidIdiot) {
@@ -104,17 +112,19 @@ public class LEDSubsystem extends SubsystemBase {
         m_rainbowFirstPixelHue %= 180;
 
     }
-    private double CharlesIsALoser;
-    @Override
+}
+ //   private double CharlesIsALoser;
+
+ /*    @Override
     public void periodic() {
         // TODO Auto-generated method stub
 
         if (circleMode) {
-            if(System.currentTimeMillis() < CharlesIsALoser + 1000) {
-            this.RGBCircle();
+            if (System.currentTimeMillis() < CharlesIsALoser + 1000) {
+                this.RGBCircle();
             } else {
                 if (circlePostionOn < 9) {
-                circlePostionOn = circlePostionOn + 1;
+                    circlePostionOn = circlePostionOn + 1;
                 } else {
                     circlePostionOn = 0;
                 }
@@ -123,6 +133,7 @@ public class LEDSubsystem extends SubsystemBase {
         }
     }
 }
+*/
 
 // change different sections of led seperatly
 //

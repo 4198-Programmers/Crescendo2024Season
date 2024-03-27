@@ -20,7 +20,7 @@ public class RightClimbCommand extends Command{
      
     @Override
     public void execute() {
-        System.out.println("Right Climb Position:" + rightClimbSubsystem.rightClimbMotorPosition());
+       // System.out.println("Right Climb Position:" + rightClimbSubsystem.rightClimbMotorPosition());
 
         if(rightClimbSubsystem.rightClimbMotorPosition() >= Constants.MAX_RIGHT_CLIMB_POSITION){
             rightClimbSubsystem.move(- Math.abs(this.speed));

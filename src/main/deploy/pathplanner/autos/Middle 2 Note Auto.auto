@@ -1,0 +1,79 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 1.328428690111538,
+      "y": 5.557362183607978
+    },
+    "rotation": 180.0
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "named",
+          "data": {
+            "name": "Shooter Angle Command"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Shoot Command"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Middle 2 Note 1"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Middle 2 Note 2"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shooter Angle Command"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Shoot Command"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Middle 2 Note 3"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Middle 2 Note 4"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shooter Angle Command"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Shoot Command"
+          }
+        }
+      ]
+    }
+  },
+  "folder": "Test Auto",
+  "choreoAuto": false
+}
