@@ -14,7 +14,6 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.commands.simpleCommands.AmpBarPneumaticStateCommand;
 import frc.robot.commands.simpleCommands.IntakeCommand;
-import frc.robot.commands.simpleCommands.ShootingIntakeCommand;
 import frc.robot.subsystems.swervedrive.SwerveSubsystem;
 import frc.robot.commands.complexCommands.AutoAmpCommand;
 import frc.robot.commands.complexCommands.AutoDriveCommand;

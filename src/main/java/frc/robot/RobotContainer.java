@@ -218,7 +218,7 @@ public class RobotContainer
 
 //right joystick 
 zeroGyroButton.whileTrue(new zeroGyro(drivebase));
-intakeInButton.whileTrue(new IntakeCommand(intakeSubsystem, internalMoverSubsystem, Constants.INTAKE_MOTOR_SPEED));
+shooterIntakeButton.whileTrue(new ShootingIntakeCommand(shootingSubsystem, 0.3));
 
 //left joystickandThen
 autoIntakeButton.whileTrue(new AutoIntakeCommand(intakeSubsystem, internalMoverSubsystem, intakePneumaticsSubsystem,0.5 , 1));
