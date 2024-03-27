@@ -27,6 +27,7 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.complexCommands.AutoAmpCommand;
+import frc.robot.commands.complexCommands.AutoBirdFeedCommand;
 import frc.robot.commands.complexCommands.AutoIntakeCommand;
 import frc.robot.commands.complexCommands.AutoSetShootingAngleCommand;
 import frc.robot.commands.complexCommands.AutoShootingCommand;
@@ -42,7 +43,6 @@ import frc.robot.commands.simpleCommands.RightClimbCommand;
 import frc.robot.commands.simpleCommands.RightClimbLimitlessCommand;
 import frc.robot.commands.simpleCommands.ShootingAngleCommand;
 import frc.robot.commands.simpleCommands.ShootingCommand;
-import frc.robot.commands.simpleCommands.ShootingIntakeCommand;
 import frc.robot.commands.swervedrive.zeroGyro;
 import frc.robot.commands.swervedrive.drivebase.AbsoluteDriveAdv;
 import frc.robot.subsystems.AmpbarPNSubsystem;
@@ -218,13 +218,13 @@ public class RobotContainer
 
 //right joystick 
 zeroGyroButton.whileTrue(new zeroGyro(drivebase));
-shooterIntakeButton.whileTrue(new ShootingIntakeCommand(shootingSubsystem, 0.3));
 
 //left joystickandThen
 autoIntakeButton.whileTrue(new AutoIntakeCommand(intakeSubsystem, internalMoverSubsystem, intakePneumaticsSubsystem,0.5 , 1));
 
   //left Joystick
 //interalMoverDownButton.whileTrue(new InternalMoverCommand(internalMoverSubsystem, -Constants.INTERNAL_MOVER_SPEED));
+shooterIntakeButton.whileTrue(new AutoBirdFeedCommand(shootingAngleSubsytems, shootingSubsystem, Constants.AUTO_BIRD_FEED_ANGLE, Constants.SHOOTING_MOTOR_SPEED));
 shooterAngleUpButton.whileTrue(new ShootingAngleCommand(shootingAngleSubsytems, -Constants.SHOOTING_ANGLE_MOTOR_SPEED));
 shooterAngleDownButton.whileTrue(new ShootingAngleCommand(shootingAngleSubsytems, Constants.SHOOTING_ANGLE_MOTOR_SPEED));
 shootingButton.whileTrue(new ShootingCommand(shootingSubsystem, internalMoverSubsystem, - Constants.SHOOTING_MOTOR_SPEED, rightJoystick, Constants.MAX_SHOOTING_SPEED));
