@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 1.8,
-        "y": 7.7
+        "x": 3.280482769496345,
+        "y": 6.974011293994152
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.8,
-        "y": 7.7
+        "x": 1.9090244815556079,
+        "y": 7.654877110707412
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "End Auto Intake Command"
     },
     {
       "anchor": {
-        "x": 2.9,
-        "y": 7.6
+        "x": 0.7223726295789177,
+        "y": 6.691938312791901
       },
       "prevControl": {
-        "x": 1.9,
-        "y": 7.6
+        "x": 2.1230108810923882,
+        "y": 5.874899332742377
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Start Auto Intake Command"
     }
   ],
   "rotationTargets": [],
@@ -38,14 +38,14 @@
     "maxAngularAcceleration": 720.0
   },
   "goalEndState": {
-    "velocity": 0,
-    "rotation": -90.0,
+    "velocity": 0.0,
+    "rotation": -120.0,
     "rotateFast": false
   },
   "reversed": false,
-  "folder": null,
+  "folder": "Top2NoteAuto",
   "previewStartingState": {
-    "rotation": -90.67776408657866,
+    "rotation": 180.0,
     "velocity": 0
   },
   "useDefaultConstraints": true

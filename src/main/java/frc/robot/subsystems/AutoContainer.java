@@ -82,58 +82,10 @@ public class AutoContainer extends SubsystemBase {
         }
 
         public void SetupAutoOptions(SendableChooser<Command> sendableChooser) {
+                sendableChooser.addOption("Top2NoteAuto", this.swerveSubsystem.getAutonomousCommand("Top2NoteAuto"));
+                sendableChooser.addOption("ShootAuto", this.swerveSubsystem.getAutonomousCommand("ShootAuto"));
                 // Autos we can attempt
-                sendableChooser.addOption("Amp Auto H", this.swerveSubsystem.getAutonomousCommand("Amp Auto H"));
-
-                sendableChooser.addOption("Right Side Taxi H Auto",
-                                this.swerveSubsystem.getAutonomousCommand("Right Side Taxi H Auto"));
-                sendableChooser.addOption("Right Side 2 Note H Auto",
-                                this.swerveSubsystem.getAutonomousCommand("Right Side 2 Note H Auto"));
-                sendableChooser.addOption("Left Side Taxi H Auto",
-                                this.swerveSubsystem.getAutonomousCommand("Left Side Taxi H Auto"));
-                sendableChooser.addOption("Left Side 2 Note H Auto",
-                                this.swerveSubsystem.getAutonomousCommand("Left Side 2 Note H Auto"));
-
-                sendableChooser.addOption("Test back and forth",
-                                this.swerveSubsystem.getAutonomousCommand("test back and forth"));
-                sendableChooser.addOption("test 2step back and right",
-                                this.swerveSubsystem.getAutonomousCommand("test 2step back and right"));
-                sendableChooser.addOption("Test Auto", this.swerveSubsystem.getAutonomousCommand("Test Auto"));
-                sendableChooser.addOption("Just Taxi Auto",
-                                this.swerveSubsystem.getAutonomousCommand("Just Back Only Auto"));
-                sendableChooser.addOption("Just Shoot Auto", new AutoShootingCommand(shootingSubsystem,
-                                internalMoverSubsystem, shootingAngleSubsytems, -8, 1, 1));
-                sendableChooser.addOption("Right Side Out Only Auto",
-                                this.swerveSubsystem.getAutonomousCommand("Right Side Out Only Auto"));
-                sendableChooser.addOption("Right Shoot and Out Only Auto",
-                                this.swerveSubsystem.getAutonomousCommand("Right Shoot and Out Only Auto"));
-                // ONLY mean it will complete just the stated command in title
-                // sendableChooser.addOption("Right Side and Amp Auto",
-                // this.swerveSubsystem.getAutonomousCommand("Right Side and Amp Auto"));
-                // sendableChooser.addOption("Right Side Full",
-                // this.swerveSubsystem.getAutonomousCommand("Right Side Full"));
-                // FULL mean to the full extent of its capibilities
-                sendableChooser.addOption("Middle Full Auto",
-                                this.swerveSubsystem.getAutonomousCommand("Middle Full Auto"));
-
-                sendableChooser.addOption("Left Out Only Auto",
-                                this.swerveSubsystem.getAutonomousCommand("Left Out Only Auto"));
-                sendableChooser.addOption("Left Side Shoot and Out Only Auto",
-                                this.swerveSubsystem.getAutonomousCommand("Left Side Shoot and Out Only Auto"));
-
-                sendableChooser.addOption("RotateAuto", this.swerveSubsystem.getAutonomousCommand("Rotate Auto"));
-                sendableChooser.addOption("Middle 2 Note Auto", this.swerveSubsystem.getAutonomousCommand("Middle 2 Note Auto"));
-                sendableChooser.addOption("HAuto 2 Note Middle", chooseSequentialCommand(0));
-                sendableChooser.addOption("HAuto 2 Note Amp Blue", chooseSequentialCommand(1));
-                sendableChooser.addOption("HAuto 2 Note Amp Red", chooseSequentialCommand(2));
-                sendableChooser.addOption("HAuto Taxi", chooseSequentialCommand(3));
-                // sendableChooser.addOption("Left Side Out Auto",
-                // this.swerveSubsystem.getAutonomousCommand("Left Side Out Auto"));
-                // sendableChooser.addOption("Left Side Full Auto",
-                // this.swerveSubsystem.getAutonomousCommand("Left Side Full Auto"));
-
-                // sendableChooser.addOption("Amp Auto",
-                // this.swerveSubsystem.getAutonomousCommand("Amp Auto"));
+                
                 // amp commands/pnumatics are not re writen for auto
 
                 // general locations on path planner

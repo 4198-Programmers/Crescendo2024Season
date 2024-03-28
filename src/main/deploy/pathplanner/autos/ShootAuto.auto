@@ -2,10 +2,10 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 0.7516461186768542,
-      "y": 6.6
+      "x": 0.7710059022013775,
+      "y": 4.260274681686803
     },
-    "rotation": 60.0
+    "rotation": 120.0
   },
   "command": {
     "type": "sequential",
@@ -14,18 +14,18 @@
         {
           "type": "named",
           "data": {
-            "name": "Auto Shoot Command"
+            "name": "Shooter Angle Command"
           }
         },
         {
-          "type": "path",
+          "type": "named",
           "data": {
-            "pathName": "Right Shoot and Out Only 2.0"
+            "name": "Auto Shoot Command"
           }
         }
       ]
     }
   },
-  "folder": "Autos",
+  "folder": "New Folder",
   "choreoAuto": false
 }
