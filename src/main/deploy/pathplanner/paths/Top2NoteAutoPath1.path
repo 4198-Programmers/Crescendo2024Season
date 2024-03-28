@@ -8,8 +8,8 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.0354709903727963,
-        "y": 6.798931512560292
+        "x": 1.5578118905525558,
+        "y": 7.5661179242586405
       },
       "isLocked": false,
       "linkedName": "Start Auto Intake Command"
@@ -28,7 +28,13 @@
       "linkedName": "End Auto Intake Command"
     }
   ],
-  "rotationTargets": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.5,
+      "rotationDegrees": 180.0,
+      "rotateFast": false
+    }
+  ],
   "constraintZones": [],
   "eventMarkers": [
     {

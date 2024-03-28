@@ -8,8 +8,8 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.9090244815556079,
-        "y": 7.654877110707412
+        "x": 1.9090244815556083,
+        "y": 7.654877110707411
       },
       "isLocked": false,
       "linkedName": "End Auto Intake Command"
@@ -20,8 +20,8 @@
         "y": 6.691938312791901
       },
       "prevControl": {
-        "x": 2.1230108810923882,
-        "y": 5.874899332742377
+        "x": 1.5110352727827958,
+        "y": 6.794303731057604
       },
       "nextControl": null,
       "isLocked": false,
