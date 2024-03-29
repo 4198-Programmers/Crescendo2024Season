@@ -84,6 +84,9 @@ public class AutoContainer extends SubsystemBase {
         public void SetupAutoOptions(SendableChooser<Command> sendableChooser) {
                 sendableChooser.addOption("Top2NoteAuto", this.swerveSubsystem.getAutonomousCommand("Top2NoteAuto"));
                 sendableChooser.addOption("ShootAuto", this.swerveSubsystem.getAutonomousCommand("ShootAuto"));
+                sendableChooser.addOption("Middle 3 Note", this.swerveSubsystem.getAutonomousCommand("Middle 3 Note"));
+                sendableChooser.addOption("Middle 2 Note", this.swerveSubsystem.getAutonomousCommand("Middle 2 Note"));
+                sendableChooser.addOption("Middle 4 Note", this.swerveSubsystem.getAutonomousCommand("Middle 4 Note"));
                 // Autos we can attempt
                 
                 // amp commands/pnumatics are not re writen for auto
