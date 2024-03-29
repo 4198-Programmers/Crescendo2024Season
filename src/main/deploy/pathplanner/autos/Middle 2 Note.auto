@@ -30,6 +30,12 @@
           }
         },
         {
+          "type": "path",
+          "data": {
+            "pathName": "Middle 2 Note Path 2"
+          }
+        },
+        {
           "type": "named",
           "data": {
             "name": "Auto Shoot Command"
@@ -38,6 +44,6 @@
       ]
     }
   },
-  "folder": "Autos",
+  "folder": "Middle Auto",
   "choreoAuto": false
 }
