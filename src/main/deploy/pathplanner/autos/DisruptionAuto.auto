@@ -2,25 +2,25 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 0.7710059022013775,
-      "y": 4.260274681686803
+      "x": 0.5988912262724809,
+      "y": 6.7241388044029655
     },
-    "rotation": 120.0
+    "rotation": -121.60750224624891
   },
   "command": {
     "type": "sequential",
     "data": {
       "commands": [
         {
-          "type": "named",
+          "type": "path",
           "data": {
-            "name": "Shooter Angle Command"
+            "pathName": "DisruptionAuto1"
           }
         },
         {
-          "type": "named",
+          "type": "path",
           "data": {
-            "name": "Auto Shoot Command"
+            "pathName": "DisruptionAuto2"
           }
         }
       ]

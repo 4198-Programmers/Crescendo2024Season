@@ -3,11 +3,13 @@
   "robotLength": 0.7493,
   "holonomicMode": true,
   "pathFolders": [
-    "New Folder",
-    "Top2NoteAuto"
+    "Middle 2 Note",
+    "Middle 3 Note",
+    "Middle 4 Note",
+    "DisruptionAuto"
   ],
   "autoFolders": [
-    "New Folder"
+    "Autos"
   ],
   "defaultMaxVel": 2.0,
   "defaultMaxAccel": 3.0,
