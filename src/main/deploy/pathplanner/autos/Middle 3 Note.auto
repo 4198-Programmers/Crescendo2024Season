@@ -44,6 +44,18 @@
         {
           "type": "named",
           "data": {
+            "name": "Auto Intake Command"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Middle 3 Note Path 3"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
             "name": "Auto Shoot Command"
           }
         }

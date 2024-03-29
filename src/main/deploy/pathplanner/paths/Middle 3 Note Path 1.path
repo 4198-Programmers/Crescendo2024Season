@@ -16,55 +16,21 @@
     },
     {
       "anchor": {
-        "x": 3.218381821379027,
+        "x": 3.3704058291307457,
         "y": 5.5430292057165325
       },
       "prevControl": {
-        "x": 2.218381821379027,
-        "y": 5.5430292057165325
-      },
-      "nextControl": {
-        "x": 4.218381821379031,
-        "y": 5.5430292057165325
-      },
-      "isLocked": false,
-      "linkedName": null
-    },
-    {
-      "anchor": {
-        "x": 1.3473171105886368,
-        "y": 5.5430292057165325
-      },
-      "prevControl": {
-        "x": 1.8150832882862349,
+        "x": 2.3704058291307457,
         "y": 5.5430292057165325
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Middle 3 Note 1-2"
+      "linkedName": null
     }
   ],
   "rotationTargets": [],
   "constraintZones": [],
-  "eventMarkers": [
-    {
-      "name": "Intake",
-      "waypointRelativePos": 0.8,
-      "command": {
-        "type": "parallel",
-        "data": {
-          "commands": [
-            {
-              "type": "named",
-              "data": {
-                "name": "Auto Intake Command"
-              }
-            }
-          ]
-        }
-      }
-    }
-  ],
+  "eventMarkers": [],
   "globalConstraints": {
     "maxVelocity": 2.0,
     "maxAcceleration": 3.0,
