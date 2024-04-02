@@ -34,6 +34,12 @@
                 }
               },
               {
+                "type": "path",
+                "data": {
+                  "pathName": "Source Side Path 3"
+                }
+              },
+              {
                 "type": "named",
                 "data": {
                   "name": "Auto Shoot Command"
