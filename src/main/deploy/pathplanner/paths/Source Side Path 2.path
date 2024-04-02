@@ -63,7 +63,7 @@
   "reversed": false,
   "folder": "Sourse Side Note",
   "previewStartingState": {
-    "rotation": 0,
+    "rotation": 90.0,
     "velocity": 0
   },
   "useDefaultConstraints": true
