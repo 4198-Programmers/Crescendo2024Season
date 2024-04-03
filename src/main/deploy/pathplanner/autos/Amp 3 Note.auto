@@ -12,12 +12,6 @@
     "data": {
       "commands": [
         {
-          "type": "named",
-          "data": {
-            "name": "Amp Bar Pneumatics"
-          }
-        },
-        {
           "type": "path",
           "data": {
             "pathName": "Amp 3 note 1"
@@ -26,7 +20,7 @@
         {
           "type": "named",
           "data": {
-            "name": "Auto Amp Command"
+            "name": "Auto Amp Auto Command"
           }
         },
         {
@@ -44,7 +38,7 @@
         {
           "type": "named",
           "data": {
-            "name": "Auto Amp Command"
+            "name": "Auto Amp Auto Command"
           }
         },
         {

@@ -69,7 +69,7 @@ public class AutoContainer extends SubsystemBase {
                                 internalMoverSubsystem, intakePneumaticsSubsystem, 1, 1).withTimeout(10));
                 NamedCommands.registerCommand("Shooter Angle Command",
                                 new AutoSetShootingAngleCommand(shootingAngleSubsytems, -8, 1).withTimeout(10));
-                NamedCommands.registerCommand("Auto Amp Command",
+                NamedCommands.registerCommand("Auto Amp Auto Command",
                                 new AutoAmpAutoCommand(shootingSubsystem, internalMoverSubsystem, shootingAngleSubsytems,
                                                 ampbarPNSubsystem, -0.5, 0.5, 0.5).withTimeout(3));
                 NamedCommands.registerCommand("Amp Bar Pneumatics",
