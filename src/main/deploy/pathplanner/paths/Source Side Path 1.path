@@ -16,22 +16,6 @@
     },
     {
       "anchor": {
-        "x": 1.850957085372818,
-        "y": 4.588153136206022
-      },
-      "prevControl": {
-        "x": 1.7028547365365414,
-        "y": 4.670451847169359
-      },
-      "nextControl": {
-        "x": 1.9990594342090944,
-        "y": 4.505854425242685
-      },
-      "isLocked": false,
-      "linkedName": null
-    },
-    {
-      "anchor": {
         "x": 2.7973922614511895,
         "y": 4.7013138637806104
       },
@@ -59,7 +43,7 @@
     "rotateFast": false
   },
   "reversed": false,
-  "folder": "Sourse Side Note",
+  "folder": null,
   "previewStartingState": {
     "rotation": 119.65910923599512,
     "velocity": 0

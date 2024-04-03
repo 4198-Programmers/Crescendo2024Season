@@ -16,12 +16,6 @@
           "data": {
             "commands": [
               {
-                "type": "named",
-                "data": {
-                  "name": "Amp Bar Pneumatics"
-                }
-              },
-              {
                 "type": "path",
                 "data": {
                   "pathName": "Amp 3 note 1"
@@ -34,18 +28,6 @@
           "type": "parallel",
           "data": {
             "commands": [
-              {
-                "type": "named",
-                "data": {
-                  "name": "Amp Bar Pneumatics"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "Auto Intake Command"
-                }
-              },
               {
                 "type": "path",
                 "data": {
@@ -60,30 +42,12 @@
           "data": {
             "commands": [
               {
-                "type": "named",
-                "data": {
-                  "name": "Amp Bar Pneumatics"
-                }
-              },
-              {
                 "type": "path",
                 "data": {
                   "pathName": "Amp 3 note 3"
                 }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "Auto Amp Command"
-                }
               }
             ]
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Amp Bar Pneumatics"
           }
         }
       ]
