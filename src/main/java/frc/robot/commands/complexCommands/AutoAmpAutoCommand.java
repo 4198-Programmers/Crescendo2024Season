@@ -1,12 +1,13 @@
 package frc.robot.commands.complexCommands;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.Constants;
 import frc.robot.subsystems.AmpbarPNSubsystem;
 import frc.robot.subsystems.InternalMoverSubsystem;
 import frc.robot.subsystems.ShootingAngleSubsytems;
 import frc.robot.subsystems.ShootingSubsystem;
 
-public class AutoAmpCommand extends Command {
+public class AutoAmpAutoCommand extends Command {
     ShootingSubsystem shootingSubsystem;
     InternalMoverSubsystem internalMoverSubsystem;
     ShootingAngleSubsytems shootingAngleSubsytems;
@@ -14,8 +15,9 @@ public class AutoAmpCommand extends Command {
     double speedInteralMover;
     double speedShoot;
     double anglePosition;
+    boolean isFinished;
 
-    public AutoAmpCommand(ShootingSubsystem shootingSubsytems, InternalMoverSubsystem internalMoverSubsystem,
+    public AutoAmpAutoCommand(ShootingSubsystem shootingSubsytems, InternalMoverSubsystem internalMoverSubsystem,
             ShootingAngleSubsytems shootingAngleSubsytems, AmpbarPNSubsystem ampbarPNSubsystem, double anglePosition,
             double speedShoot, double speedInteralMover) {
         this.shootingSubsystem = shootingSubsytems;
@@ -30,8 +32,9 @@ public class AutoAmpCommand extends Command {
 
     @Override
     public void initialize() {
-      //  ampbarPNSubsystem.initialize();
+        isFinished = false;
     }
+
     @Override
     public void execute() {
         System.out.println("shootingAngle: " + shootingAngleSubsytems.encoderPosition());
@@ -41,27 +44,33 @@ public class AutoAmpCommand extends Command {
         // speedInteralMover/-20 : speedInteralMover;
         double gap = shootingAngleSubsytems.encoderPosition() - anglePosition;
         
-        if (gap > 0.7) {
+        if (gap > 0.5) {
             System.out.println("lowering shooter");
             shootingAngleSubsytems.move(-speedInteralMover);
-        } else if (gap < -0.7) {
+        } else if (gap < -0.5) {
             System.out.println("raising shooter");
             shootingAngleSubsytems.move(speedInteralMover);
         } else {
             shootingAngleSubsytems.stop();
             shootingSubsystem.shootOut(speedShoot);
-            if (2000 <= shootingSubsystem.getSpeed() && -6 <= shootingSubsystem.getSpeed2()){
+
+             if (2000 <= shootingSubsystem.getSpeed() && -6 <= shootingSubsystem.getSpeed2()){
                 System.out.println("Shooting Speed: " + shootingSubsystem.getSpeed());
                 System.out.println("Shooting Speed2: " + shootingSubsystem.getSpeed2());
 
                 internalMoverSubsystem.move(speedInteralMover);
+            isFinished = true;
+             }
         }
     }
+
+    @Override
+    public boolean isFinished(){
+        return isFinished;
     }
 
     @Override
     public void end(boolean interrupted) {
-
         shootingSubsystem.stop();
         internalMoverSubsystem.stop();
         shootingAngleSubsytems.stop();
