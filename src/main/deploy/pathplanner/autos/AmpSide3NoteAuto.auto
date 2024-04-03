@@ -1,0 +1,67 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 0.77,
+      "y": 6.71
+    },
+    "rotation": -120.0
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "named",
+          "data": {
+            "name": "Shooter Angle Command"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Shoot Command"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Top3NoteAutoPath1"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Top3NoteAutoPath2"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Shoot Command"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Top3NoteAutoPath3"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Top3NoteAutoPath4"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Shoot Command"
+          }
+        }
+      ]
+    }
+  },
+  "folder": null,
+  "choreoAuto": false
+}

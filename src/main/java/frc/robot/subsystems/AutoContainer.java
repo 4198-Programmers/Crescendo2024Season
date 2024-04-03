@@ -90,6 +90,7 @@ public class AutoContainer extends SubsystemBase {
                 sendableChooser.addOption("Amp 3 Note", this.swerveSubsystem.getAutonomousCommand("Amp 3 Note"));
                 sendableChooser.addOption("Disruption Auto", this.swerveSubsystem.getAutonomousCommand("DisruptionAuto"));
                 sendableChooser.addOption("SourceSideAuto", this.swerveSubsystem.getAutonomousCommand("SourceSideAuto"));
+                sendableChooser.addOption("AmpSide3NoteAuto", this.swerveSubsystem.getAutonomousCommand("AmpSide3NoteAuto"));
 
                 // Autos we can attempt
                 
