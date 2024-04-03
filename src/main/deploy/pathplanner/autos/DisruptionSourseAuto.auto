@@ -2,10 +2,10 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 0.7223726295789177,
-      "y": 6.691938312791901
+      "x": 0.7023114046228107,
+      "y": 4.420390379242297
     },
-    "rotation": -120.0
+    "rotation": 118.70595254340108
   },
   "command": {
     "type": "sequential",
@@ -26,25 +26,19 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Top2NoteAutoPath1"
+            "pathName": "DisruptionSourseSide1"
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "Top2NoteAutoPath2"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Auto Shoot Command"
+            "pathName": "DisruptionSourseSide2"
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "Top2NoteAutoPath3"
+            "pathName": "DisruptionSourseSide3"
           }
         }
       ]

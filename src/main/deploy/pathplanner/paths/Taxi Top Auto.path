@@ -3,25 +3,25 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 0.7275269251393202,
-        "y": 6.782609576615164
+        "x": 0.7578322726366571,
+        "y": 6.707637319657108
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.8267774427286747,
-        "y": 6.127736927838528
+        "x": 1.3686344972199518,
+        "y": 8.420131318818965
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 7.439971575099845,
-        "y": 6.034183692299009
+        "x": 6.9193381414628226,
+        "y": 7.630215738515452
       },
       "prevControl": {
-        "x": 6.439971575099845,
-        "y": 6.034183692299009
+        "x": 5.930861264108357,
+        "y": 7.284248831438522
       },
       "nextControl": null,
       "isLocked": false,
@@ -43,7 +43,7 @@
     "rotateFast": true
   },
   "reversed": false,
-  "folder": null,
+  "folder": "Taxi Auto",
   "previewStartingState": {
     "rotation": -120.0,
     "velocity": 0

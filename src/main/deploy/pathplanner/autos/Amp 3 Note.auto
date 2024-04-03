@@ -24,12 +24,6 @@
           }
         },
         {
-          "type": "wait",
-          "data": {
-            "waitTime": 0.25
-          }
-        },
-        {
           "type": "path",
           "data": {
             "pathName": "Amp 3 note 2"
@@ -45,6 +39,12 @@
           "type": "path",
           "data": {
             "pathName": "Amp 3 note 3"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Amp 3 note 4"
           }
         }
       ]

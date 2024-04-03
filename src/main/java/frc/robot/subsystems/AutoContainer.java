@@ -84,14 +84,23 @@ public class AutoContainer extends SubsystemBase {
 
         public void SetupAutoOptions(SendableChooser<Command> sendableChooser) {
                 sendableChooser.addOption("Top2NoteAuto", this.swerveSubsystem.getAutonomousCommand("Top2NoteAuto"));
-                sendableChooser.addOption("ShootAuto", this.swerveSubsystem.getAutonomousCommand("ShootAuto"));
-                sendableChooser.addOption("Middle 3 Note", this.swerveSubsystem.getAutonomousCommand("Middle 3 Note"));
+                sendableChooser.addOption("Top3NoteAuto", this.swerveSubsystem.getAutonomousCommand("Top3NoteAuto"));
+
                 sendableChooser.addOption("Middle 2 Note", this.swerveSubsystem.getAutonomousCommand("Middle 2 Note"));
+                sendableChooser.addOption("Middle 3 Note", this.swerveSubsystem.getAutonomousCommand("Middle 3 Note"));
                 sendableChooser.addOption("Middle 4 Note", this.swerveSubsystem.getAutonomousCommand("Middle 4 Note"));
+                
+                sendableChooser.addOption("Source Side Auto", this.swerveSubsystem.getAutonomousCommand("SourceSideAuto"));
+
+                sendableChooser.addOption("Taxi Sourse Side", this.swerveSubsystem.getAutonomousCommand("Taxi Sourse Side"));
+                sendableChooser.addOption("Taxi Top Side", this.swerveSubsystem.getAutonomousCommand("TaxiTopAuto"));
+
                 sendableChooser.addOption("Amp 3 Note", this.swerveSubsystem.getAutonomousCommand("Amp 3 Note"));
+                
                 sendableChooser.addOption("Disruption Auto", this.swerveSubsystem.getAutonomousCommand("DisruptionAuto"));
-                sendableChooser.addOption("SourceSideAuto", this.swerveSubsystem.getAutonomousCommand("SourceSideAuto"));
-                sendableChooser.addOption("AmpSide3NoteAuto", this.swerveSubsystem.getAutonomousCommand("AmpSide3NoteAuto"));
+                sendableChooser.addOption("Disruption Sourse Auto", this.swerveSubsystem.getAutonomousCommand("DisruptionSourseAuto"));
+                
+                sendableChooser.addOption("Shoot Auto", this.swerveSubsystem.getAutonomousCommand("ShootAuto"));
 
                 // Autos we can attempt
                 

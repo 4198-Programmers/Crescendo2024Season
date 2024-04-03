@@ -8,8 +8,8 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 4.24,
-        "y": 7.03
+        "x": 2.1416999009296824,
+        "y": 7.160689221776849
       },
       "isLocked": false,
       "linkedName": null
@@ -20,8 +20,8 @@
         "y": 6.691938312786578
       },
       "prevControl": {
-        "x": 1.5977715367753014,
-        "y": 7.547883910933699
+        "x": 1.894580681591642,
+        "y": 7.259536909512066
       },
       "nextControl": null,
       "isLocked": false,
@@ -43,7 +43,7 @@
     "rotateFast": false
   },
   "reversed": false,
-  "folder": "Amp Side Note",
+  "folder": null,
   "previewStartingState": {
     "rotation": 180.0,
     "velocity": 0

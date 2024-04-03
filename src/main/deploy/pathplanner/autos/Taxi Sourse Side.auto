@@ -2,10 +2,10 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 0.7223726295789177,
-      "y": 6.691938312791901
+      "x": 0.708408428769049,
+      "y": 4.351767428634458
     },
-    "rotation": -120.0
+    "rotation": 120.37912601136838
   },
   "command": {
     "type": "sequential",
@@ -26,25 +26,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Top2NoteAutoPath1"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "Top2NoteAutoPath2"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Auto Shoot Command"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "Top2NoteAutoPath3"
+            "pathName": "TaxiSourseSideAuto"
           }
         }
       ]

@@ -12,6 +12,18 @@
     "data": {
       "commands": [
         {
+          "type": "named",
+          "data": {
+            "name": "Auto Shoot Command"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Shoot Command"
+          }
+        },
+        {
           "type": "path",
           "data": {
             "pathName": "DisruptionAuto1"
@@ -21,6 +33,12 @@
           "type": "path",
           "data": {
             "pathName": "DisruptionAuto2"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "DisruptionAuto3"
           }
         }
       ]
