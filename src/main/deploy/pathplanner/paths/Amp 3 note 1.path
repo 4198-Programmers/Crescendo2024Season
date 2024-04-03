@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 1.481051682482512,
-        "y": 7.3533508204457165
+        "x": 1.4876469638979162,
+        "y": 7.425788070949362
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.5588649186777044,
-        "y": 7.470070674738507
+        "x": 1.5654602000931086,
+        "y": 7.542507925242152
       },
       "isLocked": false,
       "linkedName": null
@@ -42,23 +42,6 @@
               "type": "named",
               "data": {
                 "name": "Amp Bar Pneumatics"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "name": "New Event Marker",
-      "waypointRelativePos": 1.0,
-      "command": {
-        "type": "parallel",
-        "data": {
-          "commands": [
-            {
-              "type": "named",
-              "data": {
-                "name": "Auto Amp Command"
               }
             }
           ]
