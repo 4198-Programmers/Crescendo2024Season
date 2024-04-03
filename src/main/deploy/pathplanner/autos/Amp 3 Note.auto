@@ -12,42 +12,21 @@
     "data": {
       "commands": [
         {
-          "type": "parallel",
+          "type": "path",
           "data": {
-            "commands": [
-              {
-                "type": "path",
-                "data": {
-                  "pathName": "Amp 3 note 1"
-                }
-              }
-            ]
+            "pathName": "Amp 3 note 1"
           }
         },
         {
-          "type": "parallel",
+          "type": "path",
           "data": {
-            "commands": [
-              {
-                "type": "path",
-                "data": {
-                  "pathName": "Amp 3 note 2"
-                }
-              }
-            ]
+            "pathName": "Amp 3 note 2"
           }
         },
         {
-          "type": "parallel",
+          "type": "path",
           "data": {
-            "commands": [
-              {
-                "type": "path",
-                "data": {
-                  "pathName": "Amp 3 note 3"
-                }
-              }
-            ]
+            "pathName": "Amp 3 note 3"
           }
         }
       ]

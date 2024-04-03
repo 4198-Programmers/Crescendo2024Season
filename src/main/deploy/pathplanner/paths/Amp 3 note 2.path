@@ -36,7 +36,25 @@
     }
   ],
   "constraintZones": [],
-  "eventMarkers": [],
+  "eventMarkers": [
+    {
+      "name": "New Event Marker",
+      "waypointRelativePos": 0,
+      "command": {
+        "type": "parallel",
+        "data": {
+          "commands": [
+            {
+              "type": "named",
+              "data": {
+                "name": "Auto Intake Command"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
   "globalConstraints": {
     "maxVelocity": 2.0,
     "maxAcceleration": 3.0,
@@ -49,7 +67,7 @@
     "rotateFast": false
   },
   "reversed": false,
-  "folder": "Amp 2 Note",
+  "folder": null,
   "previewStartingState": {
     "rotation": 90.66619997018313,
     "velocity": 0
