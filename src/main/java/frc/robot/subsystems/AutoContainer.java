@@ -84,7 +84,6 @@ public class AutoContainer extends SubsystemBase {
 
         public void SetupAutoOptions(SendableChooser<Command> sendableChooser) {
                 sendableChooser.addOption("Top2NoteAuto", this.swerveSubsystem.getAutonomousCommand("Top2NoteAuto"));
-                sendableChooser.addOption("Top3NoteAuto", this.swerveSubsystem.getAutonomousCommand("Top3NoteAuto"));
 
                 sendableChooser.addOption("Middle 2 Note", this.swerveSubsystem.getAutonomousCommand("Middle 2 Note"));
                 sendableChooser.addOption("Middle 3 Note", this.swerveSubsystem.getAutonomousCommand("Middle 3 Note"));

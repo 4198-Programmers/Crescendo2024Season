@@ -38,7 +38,6 @@ public class LEDSubsystem extends SubsystemBase {
     public Command getDefaultCommand() {
         return runOnce(
                 () -> {
-                    System.out.println("Led set up");
                     Alliance currentAlliance = this.alliance.get();
                     if (Alliance.Red == currentAlliance) {
                         this.setRGBColor(Color.kRed);
