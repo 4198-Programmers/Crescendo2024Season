@@ -13,9 +13,10 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.commands.simpleCommands.AmpBarPneumaticStateCommand;
+import frc.robot.commands.simpleCommands.AutoResetAngleCommand;
 import frc.robot.commands.simpleCommands.IntakeCommand;
+import frc.robot.commands.simpleCommands.ShootingAngleCommand;
 import frc.robot.subsystems.swervedrive.SwerveSubsystem;
-import frc.robot.commands.complexCommands.AutoAmpAutoCommand;
 import frc.robot.commands.complexCommands.AutoAmpCommand;
 import frc.robot.commands.complexCommands.AutoDriveCommand;
 import frc.robot.commands.complexCommands.AutoIntakeCommand;
@@ -62,6 +63,9 @@ public class AutoContainer extends SubsystemBase {
                 this.ampbarPNSubsystem = ampbarPNSubsystem;
                 this.intakePneumaticsSubsystem = intakePneumaticsSubsystem;
 
+                NamedCommands.registerCommand("Reset Angle Command", new AutoResetAngleCommand(shootingAngleSubsytems,
+                                0.5).withTimeout(5));
+
                 NamedCommands.registerCommand("Auto Shoot Command", new AutoShootingCommand(shootingSubsystem,
                                 internalMoverSubsystem, shootingAngleSubsytems, -8, 1, 1).withTimeout(1.5
                                 ));
@@ -69,9 +73,9 @@ public class AutoContainer extends SubsystemBase {
                                 internalMoverSubsystem, intakePneumaticsSubsystem, 1, 1).withTimeout(10));
                 NamedCommands.registerCommand("Shooter Angle Command",
                                 new AutoSetShootingAngleCommand(shootingAngleSubsytems, -8, 1).withTimeout(10));
-                NamedCommands.registerCommand("Auto Amp Auto Command",
-                                new AutoAmpAutoCommand(shootingSubsystem, internalMoverSubsystem, shootingAngleSubsytems,
-                                                ampbarPNSubsystem, -0.5, 0.5, 0.5).withTimeout(3));
+                NamedCommands.registerCommand("Auto Amp Command",
+                                new AutoAmpCommand(shootingSubsystem, internalMoverSubsystem, shootingAngleSubsytems,
+                                                ampbarPNSubsystem, -8, 1, 1).withTimeout(2));
                 NamedCommands.registerCommand("Amp Bar Pneumatics",
                                 new AmpBarPneumaticStateCommand(ampbarPNSubsystem).withTimeout(2));
                 // NamedCommands.registerCommand("Shooting Amp Command", new
@@ -83,6 +87,8 @@ public class AutoContainer extends SubsystemBase {
         }
 
         public void SetupAutoOptions(SendableChooser<Command> sendableChooser) {
+                // Autos we can attempt
+                sendableChooser.addOption("Reset Angle Command", this.swerveSubsystem.getAutonomousCommand("Reset Angle Command"));
                 sendableChooser.addOption("Top2NoteAuto", this.swerveSubsystem.getAutonomousCommand("Top2NoteAuto"));
 
                 sendableChooser.addOption("Middle 2 Note", this.swerveSubsystem.getAutonomousCommand("Middle 2 Note"));
@@ -103,6 +109,15 @@ public class AutoContainer extends SubsystemBase {
 
                 // Autos we can attempt
                 
+
+              
+                // sendableChooser.addOption("Left Side Out Auto",
+                // this.swerveSubsystem.getAutonomousCommand("Left Side Out Auto"));
+                // sendableChooser.addOption("Left Side Full Auto",
+                // this.swerveSubsystem.getAutonomousCommand("Left Side Full Auto"));
+
+                // sendableChooser.addOption("Amp Auto",
+                // this.swerveSubsystem.getAutonomousCommand("Amp Auto"));
                 // amp commands/pnumatics are not re writen for auto
 
                 // general locations on path planner
