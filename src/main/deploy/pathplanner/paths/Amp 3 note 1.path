@@ -43,6 +43,12 @@
               "data": {
                 "name": "Amp Bar Pneumatics"
               }
+            },
+            {
+              "type": "wait",
+              "data": {
+                "waitTime": 2.0
+              }
             }
           ]
         }

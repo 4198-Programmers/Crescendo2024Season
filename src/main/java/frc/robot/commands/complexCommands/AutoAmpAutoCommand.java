@@ -1,5 +1,6 @@
 package frc.robot.commands.complexCommands;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.AmpbarPNSubsystem;
 import frc.robot.subsystems.InternalMoverSubsystem;
@@ -14,7 +15,7 @@ public class AutoAmpAutoCommand extends Command {
     double speedInteralMover;
     double speedShoot;
     double anglePosition;
-    boolean isFinished;
+    double shotTime = 0.0;
 
     public AutoAmpAutoCommand(ShootingSubsystem shootingSubsytems, InternalMoverSubsystem internalMoverSubsystem,
             ShootingAngleSubsytems shootingAngleSubsytems, AmpbarPNSubsystem ampbarPNSubsystem, double anglePosition,
@@ -27,11 +28,6 @@ public class AutoAmpAutoCommand extends Command {
         this.speedInteralMover = speedInteralMover;
         this.anglePosition = anglePosition;
         addRequirements(shootingSubsytems, internalMoverSubsystem, shootingAngleSubsytems);
-    }
-
-    @Override
-    public void initialize() {
-        isFinished = false;
     }
 
     @Override
@@ -56,15 +52,15 @@ public class AutoAmpAutoCommand extends Command {
                 System.out.println("Shooting Speed: " + shootingSubsystem.getSpeed());
                 System.out.println("Shooting Speed2: " + shootingSubsystem.getSpeed2());
 
+                shotTime = Timer.getFPGATimestamp();
                 internalMoverSubsystem.move(speedInteralMover);
-                isFinished = true;
             }
         }
     }
 
     @Override
     public boolean isFinished(){
-        return isFinished;
+        return shotTime != 0 && Timer.getFPGATimestamp() >= shotTime +1;
     }
 
     @Override

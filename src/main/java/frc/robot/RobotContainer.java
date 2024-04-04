@@ -26,6 +26,7 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Constants.OperatorConstants;
+import frc.robot.commands.complexCommands.AutoAmpAutoCommand;
 import frc.robot.commands.complexCommands.AutoAmpCommand;
 import frc.robot.commands.complexCommands.AutoBirdFeedCommand;
 import frc.robot.commands.complexCommands.AutoIntakeCommand;
@@ -122,6 +123,7 @@ public class RobotContainer
     JoystickButton setLowShooterButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_11);
     JoystickButton angleShootSpeakerButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_12);
 
+      JoystickButton test = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_4);
 
     //JoystickButton interalMoverDownButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_3);
     //JoystickButton bClimbDownLimitlessButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_11);
@@ -248,7 +250,9 @@ PnUp.toggleOnTrue(new AmpBarPneumaticUpCommand(ampbarPNSubsystem));
 // LEDButton.whileTrue(this.ledSubsystem.setColorCommand(Color.kBlue));
 autoTargetButton.whileTrue(drivebase.aimAtTarget(photonCamera));
 
-
+test.onTrue(new AutoAmpAutoCommand( shootingSubsystem,  internalMoverSubsystem,
+ shootingAngleSubsytems,  ampbarPNSubsystem, -0.7,
+ 0.5,  0.5));
 
 //-12.24 amp location 61
 

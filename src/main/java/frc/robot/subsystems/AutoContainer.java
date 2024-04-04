@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.commands.simpleCommands.AmpBarPneumaticStateCommand;
+import frc.robot.commands.simpleCommands.AmpBarPneumaticUpCommand;
 import frc.robot.commands.simpleCommands.AutoResetAngleCommand;
 import frc.robot.commands.simpleCommands.IntakeCommand;
 import frc.robot.commands.simpleCommands.ShootingAngleCommand;
@@ -77,7 +78,7 @@ public class AutoContainer extends SubsystemBase {
                                 new AutoAmpCommand(shootingSubsystem, internalMoverSubsystem, shootingAngleSubsytems,
                                                 ampbarPNSubsystem, -8, 1, 1).withTimeout(2));
                 NamedCommands.registerCommand("Amp Bar Pneumatics",
-                                new AmpBarPneumaticStateCommand(ampbarPNSubsystem).withTimeout(2));
+                                new AmpBarPneumaticUpCommand(ampbarPNSubsystem).withTimeout(3));
                 // NamedCommands.registerCommand("Shooting Amp Command", new
                 // ShootingCommand(shootingSubsystem, internalMoverSubsystem, 0.5, 1,
                 // 2500).withTimeout(3));
