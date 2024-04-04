@@ -43,7 +43,7 @@
     "rotateFast": false
   },
   "reversed": false,
-  "folder": "Middle 2 Note",
+  "folder": null,
   "previewStartingState": {
     "rotation": -179.10666090768467,
     "velocity": 0

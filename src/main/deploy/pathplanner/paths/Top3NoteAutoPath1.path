@@ -61,7 +61,7 @@
     "rotateFast": true
   },
   "reversed": false,
-  "folder": "Amp Side Note",
+  "folder": null,
   "previewStartingState": {
     "rotation": -120.0,
     "velocity": 0

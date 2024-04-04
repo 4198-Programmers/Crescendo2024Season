@@ -2,8 +2,8 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 1.4806128860378027,
-      "y": 7.376021970089053
+      "x": 1.33,
+      "y": 7.23
     },
     "rotation": 90.0
   },
@@ -11,6 +11,12 @@
     "type": "sequential",
     "data": {
       "commands": [
+        {
+          "type": "named",
+          "data": {
+            "name": "Amp Bar Pneumatics"
+          }
+        },
         {
           "type": "path",
           "data": {
@@ -26,7 +32,7 @@
         {
           "type": "wait",
           "data": {
-            "waitTime": 0.25
+            "waitTime": 0.1
           }
         },
         {
@@ -36,15 +42,15 @@
           }
         },
         {
-          "type": "named",
-          "data": {
-            "name": "Auto Amp Auto Command"
-          }
-        },
-        {
           "type": "path",
           "data": {
             "pathName": "Amp 3 note 3"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Amp Auto Command"
           }
         }
       ]

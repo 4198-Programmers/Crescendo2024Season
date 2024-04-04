@@ -52,12 +52,12 @@ public class AutoAmpAutoCommand extends Command {
         } else {
             shootingAngleSubsytems.stop();
             shootingSubsystem.shootOut(speedShoot);
+
             if (2000 <= shootingSubsystem.getSpeed() && -6 <= shootingSubsystem.getSpeed2()){
                 System.out.println("Shooting Speed: " + shootingSubsystem.getSpeed());
                 System.out.println("Shooting Speed2: " + shootingSubsystem.getSpeed2());
 
                 internalMoverSubsystem.move(speedInteralMover);
-                isFinished = true;
             }
         }
     }

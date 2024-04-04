@@ -24,5 +24,7 @@ public void initialize(){
 
     @Override
     public void end(boolean interrupted){
+        ampBarSubsystem.pullAmpBarUp();
+
     }
 }

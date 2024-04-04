@@ -3,25 +3,25 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 1.4876469638979162,
-        "y": 7.425788070949362
+        "x": 1.33,
+        "y": 7.233
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.5654602000931086,
-        "y": 7.542507925242152
+        "x": 1.4078132361951925,
+        "y": 7.34971985429279
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 1.811757936312081,
-        "y": 7.703510383324085
+        "x": 1.81,
+        "y": 7.68
       },
       "prevControl": {
-        "x": 1.7533980091656864,
-        "y": 7.625697147128892
+        "x": 1.7516400728536055,
+        "y": 7.602186763804807
       },
       "nextControl": null,
       "isLocked": false,
@@ -30,25 +30,7 @@
   ],
   "rotationTargets": [],
   "constraintZones": [],
-  "eventMarkers": [
-    {
-      "name": "New Event Marker",
-      "waypointRelativePos": 0,
-      "command": {
-        "type": "parallel",
-        "data": {
-          "commands": [
-            {
-              "type": "named",
-              "data": {
-                "name": "Amp Bar Pneumatics"
-              }
-            }
-          ]
-        }
-      }
-    }
-  ],
+  "eventMarkers": [],
   "globalConstraints": {
     "maxVelocity": 2.0,
     "maxAcceleration": 3.0,
