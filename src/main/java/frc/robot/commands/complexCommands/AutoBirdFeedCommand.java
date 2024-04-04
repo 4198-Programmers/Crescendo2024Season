@@ -25,11 +25,11 @@ public class AutoBirdFeedCommand extends Command {
         double gap = shootingAngleSubsytems.encoderPosition() - anglePosition;
         if (gap > 0.5) {
             // System.out.println("lowering shooter");
-            shootingAngleSubsytems.move(gap);
+            shootingAngleSubsytems.move(anglePosition);
         } else if (gap < -0.5) {
             // System.out.println("raising shooter");
             shootingSubsystem.shootOut(speedShoot);
-            shootingAngleSubsytems.move(gap);
+            shootingAngleSubsytems.move(-anglePosition);
 
         } else {
             shootingAngleSubsytems.stop();

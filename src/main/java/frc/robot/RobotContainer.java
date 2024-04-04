@@ -50,7 +50,7 @@ import frc.robot.subsystems.AutoContainer;
 import frc.robot.subsystems.IntakePneumaticsSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.subsystems.InternalMoverSubsystem;
-import frc.robot.subsystems.LEDSubsystem;
+// import frc.robot.subsystems.LEDSubsystem;
 import frc.robot.subsystems.LeftClimbSubsystem;
 import frc.robot.subsystems.RightClimbSubsystem;
 import frc.robot.subsystems.ShootingAngleSubsytems;
@@ -95,7 +95,7 @@ public class RobotContainer
   private final RightClimbSubsystem rightClimbSubsystem = new RightClimbSubsystem();
   private final AmpbarPNSubsystem ampbarPNSubsystem = new AmpbarPNSubsystem();
   private final IntakePneumaticsSubsystem intakePneumaticsSubsystem = new IntakePneumaticsSubsystem();
-  private final LEDSubsystem ledSubsystem = new LEDSubsystem();
+  // private final LEDSubsystem ledSubsystem = new LEDSubsystem();
 
   //Joysticks 
    Joystick rightJoystick = new Joystick(Constants.RIGHT_JOYSTICK_ID);
@@ -191,7 +191,7 @@ public class RobotContainer
     drivebase.setDefaultCommand(
         !RobotBase.isSimulation() ? driveFieldOrientedAnglularVelocity : driveFieldOrientedDirectAngleSim);
 
-    ledSubsystem.setDefaultCommand(ledSubsystem.getDefaultCommand());   
+    // ledSubsystem.setDefaultCommand(ledSubsystem.getDefaultCommand());   
   }
 
   /**
@@ -205,13 +205,13 @@ public class RobotContainer
   {
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
 //Swerve DO NOT TOUCH
-    new JoystickButton(driverXbox, 1).onTrue((new InstantCommand(drivebase::zeroGyro)));
-    new JoystickButton(driverXbox, 3).onTrue(new InstantCommand(drivebase::addFakeVisionReading));
-    new JoystickButton(driverXbox,
-                       2).whileTrue(
-        Commands.deferredProxy(() -> drivebase.driveToPose(
-                                   new Pose2d(new Translation2d(4, 4), Rotation2d.fromDegrees(0)))
-                              ));
+    // new JoystickButton(driverXbox, 1).onTrue((new InstantCommand(drivebase::zeroGyro)));
+    // new JoystickButton(driverXbox, 3).onTrue(new InstantCommand(drivebase::addFakeVisionReading));
+    // new JoystickButton(driverXbox,
+    //                    2).whileTrue(
+    //     Commands.deferredProxy(() -> drivebase.driveToPose(
+    //                                new Pose2d(new Translation2d(4, 4), Rotation2d.fromDegrees(0)))
+    //                           ));
 //    new JoystickButton(driverXbox, 3).whileTrue(new RepeatCommand(new InstantCommand(drivebase::lock, drivebase)));
   
 //non swerve button binding
@@ -245,7 +245,7 @@ ampButton.toggleOnTrue(new AmpBarPneumaticStateCommand(ampbarPNSubsystem));
 PnDown.toggleOnTrue(new AmpBarPneumaticDownCommand(ampbarPNSubsystem));
 PnUp.toggleOnTrue(new AmpBarPneumaticUpCommand(ampbarPNSubsystem));
 
-LEDButton.whileTrue(this.ledSubsystem.setColorCommand(Color.kBlue));
+// LEDButton.whileTrue(this.ledSubsystem.setColorCommand(Color.kBlue));
 autoTargetButton.whileTrue(drivebase.aimAtTarget(photonCamera));
 
 
