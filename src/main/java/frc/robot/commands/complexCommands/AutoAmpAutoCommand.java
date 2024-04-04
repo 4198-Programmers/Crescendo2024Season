@@ -29,6 +29,11 @@ public class AutoAmpAutoCommand extends Command {
         this.anglePosition = anglePosition;
         addRequirements(shootingSubsytems, internalMoverSubsystem, shootingAngleSubsytems);
     }
+    @Override
+    public void initialize(){
+        shotTime = 0;
+
+    }
 
     @Override
     public void execute() {
@@ -38,29 +43,33 @@ public class AutoAmpAutoCommand extends Command {
         // speedInteralMover = shootingAngleSubsytems.encoderPosition() >= -20 ?
         // speedInteralMover/-20 : speedInteralMover;
         double gap = shootingAngleSubsytems.encoderPosition() - anglePosition;
-        
-        if (gap > 0.2) {
-            System.out.println("lowering shooter");
-            shootingAngleSubsytems.move(-speedInteralMover);
-        } else if (gap < -0.2) {
-            System.out.println("raising shooter");
-            shootingAngleSubsytems.move(speedInteralMover);
-        } else {
-            shootingAngleSubsytems.stop();
-            shootingSubsystem.shootOut(speedShoot);
-            if (2000 <= shootingSubsystem.getSpeed() && -6 <= shootingSubsystem.getSpeed2()){
-                System.out.println("Shooting Speed: " + shootingSubsystem.getSpeed());
-                System.out.println("Shooting Speed2: " + shootingSubsystem.getSpeed2());
+        if (shotTime == 0) {
+            if (gap > 0.2) {
+                System.out.println("lowering shooter");
+                shootingAngleSubsytems.move(-speedInteralMover);
+            } else if (gap < -0.2) {
+                System.out.println("raising shooter");
+                shootingAngleSubsytems.move(speedInteralMover);
+            } else {
 
-                shotTime = Timer.getFPGATimestamp();
-                internalMoverSubsystem.move(speedInteralMover);
+                shootingAngleSubsytems.stop();
+                shootingSubsystem.shootOut(speedShoot);
+                if (2000 <= shootingSubsystem.getSpeed() && -6 <= shootingSubsystem.getSpeed2()) {
+                    System.out.println("Shooting Speed: " + shootingSubsystem.getSpeed());
+                    System.out.println("Shooting Speed2: " + shootingSubsystem.getSpeed2());
+
+                    shotTime = Timer.getFPGATimestamp();
+                    System.out.println("time" + shotTime);
+
+                    internalMoverSubsystem.move(speedInteralMover);
+                }
             }
         }
     }
 
     @Override
-    public boolean isFinished(){
-        return shotTime != 0 && Timer.getFPGATimestamp() >= shotTime +1;
+    public boolean isFinished() {
+        return shotTime != 0 && Timer.getFPGATimestamp() >= shotTime + 1;
     }
 
     @Override

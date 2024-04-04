@@ -18,6 +18,7 @@ import frc.robot.commands.simpleCommands.AutoResetAngleCommand;
 import frc.robot.commands.simpleCommands.IntakeCommand;
 import frc.robot.commands.simpleCommands.ShootingAngleCommand;
 import frc.robot.subsystems.swervedrive.SwerveSubsystem;
+import frc.robot.commands.complexCommands.AutoAmpAutoCommand;
 import frc.robot.commands.complexCommands.AutoAmpCommand;
 import frc.robot.commands.complexCommands.AutoDriveCommand;
 import frc.robot.commands.complexCommands.AutoIntakeCommand;
@@ -75,8 +76,8 @@ public class AutoContainer extends SubsystemBase {
                 NamedCommands.registerCommand("Shooter Angle Command",
                                 new AutoSetShootingAngleCommand(shootingAngleSubsytems, -8, 1).withTimeout(10));
                 NamedCommands.registerCommand("Auto Amp Command",
-                                new AutoAmpCommand(shootingSubsystem, internalMoverSubsystem, shootingAngleSubsytems,
-                                                ampbarPNSubsystem, -8, 1, 1).withTimeout(2));
+                                new AutoAmpAutoCommand(shootingSubsystem, internalMoverSubsystem, shootingAngleSubsytems,
+                                                ampbarPNSubsystem, -0.5, 0.5, 0.5).withTimeout(3));
                 NamedCommands.registerCommand("Amp Bar Pneumatics",
                                 new AmpBarPneumaticUpCommand(ampbarPNSubsystem).withTimeout(3));
                 // NamedCommands.registerCommand("Shooting Amp Command", new

@@ -123,7 +123,6 @@ public class RobotContainer
     JoystickButton setLowShooterButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_11);
     JoystickButton angleShootSpeakerButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_12);
 
-      JoystickButton test = new JoystickButton(leftJoystick, Constants.JOYSTICK_BUTTON_4);
 
     //JoystickButton interalMoverDownButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_3);
     //JoystickButton bClimbDownLimitlessButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_11);
@@ -249,10 +248,6 @@ PnUp.toggleOnTrue(new AmpBarPneumaticUpCommand(ampbarPNSubsystem));
 
 // LEDButton.whileTrue(this.ledSubsystem.setColorCommand(Color.kBlue));
 autoTargetButton.whileTrue(drivebase.aimAtTarget(photonCamera));
-
-test.onTrue(new AutoAmpAutoCommand( shootingSubsystem,  internalMoverSubsystem,
- shootingAngleSubsytems,  ampbarPNSubsystem, -0.7,
- 0.5,  0.5));
 
 //-12.24 amp location 61
 
