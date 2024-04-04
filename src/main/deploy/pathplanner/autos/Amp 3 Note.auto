@@ -12,6 +12,12 @@
     "data": {
       "commands": [
         {
+          "type": "named",
+          "data": {
+            "name": "Reset Angle Command"
+          }
+        },
+        {
           "type": "path",
           "data": {
             "pathName": "Amp 3 note 1"
