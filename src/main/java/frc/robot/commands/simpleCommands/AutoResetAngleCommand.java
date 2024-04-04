@@ -16,17 +16,16 @@ public class AutoResetAngleCommand extends Command {
 
     @Override
     public void execute(){
-        //System.out.println("limitSwitch: " + shootingAngleSubsytems.checkSwitch());
+        System.out.println("limitSwitch: " + shootingAngleSubsytems.checkSwitch());
         //System.out.println("shooting Angle encoder: " + shootingAngleSubsytems.encoderPosition());
 
         if(shootingAngleSubsytems.checkSwitch()) {
         shootingAngleSubsytems.move(speed);
         } else {
-            shootingAngleSubsytems.resetAngle();
             shootingAngleSubsytems.move( - speed);
+            shootingAngleSubsytems.resetAngle();
 
             isFinished = true; 
-
         }
      }
 
@@ -35,4 +34,8 @@ public class AutoResetAngleCommand extends Command {
         return isFinished;
     }
     
+    @Override
+    public void end(boolean interrupted) {
+        shootingAngleSubsytems.stop();
+    }
 }

@@ -64,7 +64,7 @@ public class AutoContainer extends SubsystemBase {
                 this.intakePneumaticsSubsystem = intakePneumaticsSubsystem;
 
                 NamedCommands.registerCommand("Reset Angle Command", new AutoResetAngleCommand(shootingAngleSubsytems,
-                                0.5).withTimeout(1));
+                                0.5).withTimeout(5));
 
                 NamedCommands.registerCommand("Auto Shoot Command", new AutoShootingCommand(shootingSubsystem,
                                 internalMoverSubsystem, shootingAngleSubsytems, -8, 1, 1).withTimeout(1.5

@@ -16,6 +16,18 @@
           "data": {
             "name": "Reset Angle Command"
           }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shooter Angle Command"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Shoot Command"
+          }
         }
       ]
     }
