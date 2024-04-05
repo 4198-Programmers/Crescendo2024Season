@@ -1,6 +1,5 @@
 package frc.robot.commands.complexCommands;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.AmpbarPNSubsystem;
 import frc.robot.subsystems.InternalMoverSubsystem;
@@ -15,7 +14,7 @@ public class AutoAmpAutoCommand extends Command {
     double speedInteralMover;
     double speedShoot;
     double anglePosition;
-    double shotTime = 0.0;
+    boolean isFinished;
 
     public AutoAmpAutoCommand(ShootingSubsystem shootingSubsytems, InternalMoverSubsystem internalMoverSubsystem,
             ShootingAngleSubsytems shootingAngleSubsytems, AmpbarPNSubsystem ampbarPNSubsystem, double anglePosition,
@@ -29,10 +28,10 @@ public class AutoAmpAutoCommand extends Command {
         this.anglePosition = anglePosition;
         addRequirements(shootingSubsytems, internalMoverSubsystem, shootingAngleSubsytems);
     }
-    @Override
-    public void initialize(){
-        shotTime = 0;
 
+    @Override
+    public void initialize() {
+        isFinished = false;
     }
 
     @Override
@@ -43,33 +42,29 @@ public class AutoAmpAutoCommand extends Command {
         // speedInteralMover = shootingAngleSubsytems.encoderPosition() >= -20 ?
         // speedInteralMover/-20 : speedInteralMover;
         double gap = shootingAngleSubsytems.encoderPosition() - anglePosition;
-        if (shotTime == 0) {
-            if (gap > 0.2) {
-                System.out.println("lowering shooter");
-                shootingAngleSubsytems.move(-speedInteralMover);
-            } else if (gap < -0.2) {
-                System.out.println("raising shooter");
-                shootingAngleSubsytems.move(speedInteralMover);
-            } else {
+        
+        if (gap > 0.2) {
+            System.out.println("lowering shooter");
+            shootingAngleSubsytems.move(-speedInteralMover);
+        } else if (gap < -0.2) {
+            System.out.println("raising shooter");
+            shootingAngleSubsytems.move(speedInteralMover);
+        } else {
+            shootingAngleSubsytems.stop();
+            shootingSubsystem.shootOut(speedShoot);
 
-                shootingAngleSubsytems.stop();
-                shootingSubsystem.shootOut(speedShoot);
-                if (2000 <= shootingSubsystem.getSpeed() && -6 <= shootingSubsystem.getSpeed2()) {
-                    System.out.println("Shooting Speed: " + shootingSubsystem.getSpeed());
-                    System.out.println("Shooting Speed2: " + shootingSubsystem.getSpeed2());
+            if (2000 <= shootingSubsystem.getSpeed() && -6 <= shootingSubsystem.getSpeed2()){
+                System.out.println("Shooting Speed: " + shootingSubsystem.getSpeed());
+                System.out.println("Shooting Speed2: " + shootingSubsystem.getSpeed2());
 
-                    shotTime = Timer.getFPGATimestamp();
-                    System.out.println("time" + shotTime);
-
-                    internalMoverSubsystem.move(speedInteralMover);
-                }
+                internalMoverSubsystem.move(speedInteralMover);
             }
         }
     }
 
     @Override
-    public boolean isFinished() {
-        return shotTime != 0 && Timer.getFPGATimestamp() >= shotTime + 1;
+    public boolean isFinished(){
+        return isFinished;
     }
 
     @Override

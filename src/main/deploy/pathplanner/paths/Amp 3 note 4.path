@@ -16,16 +16,16 @@
     },
     {
       "anchor": {
-        "x": 4.069229811766396,
-        "y": 7.449176379834242
+        "x": 3.9317252423678632,
+        "y": 7.238681599870323
       },
       "prevControl": {
-        "x": 2.920354035382365,
-        "y": 7.501800074825221
+        "x": 2.782849465983832,
+        "y": 7.291305294861302
       },
       "nextControl": {
-        "x": 5.2181055881504275,
-        "y": 7.396552684843263
+        "x": 5.080601018751894,
+        "y": 7.186057904879344
       },
       "isLocked": false,
       "linkedName": null
@@ -49,33 +49,10 @@
       "waypointRelativePos": 1.0,
       "rotationDegrees": 180.0,
       "rotateFast": false
-    },
-    {
-      "waypointRelativePos": 2.0,
-      "rotationDegrees": 180.0,
-      "rotateFast": false
     }
   ],
   "constraintZones": [],
-  "eventMarkers": [
-    {
-      "name": "New Event Marker",
-      "waypointRelativePos": 0.75,
-      "command": {
-        "type": "parallel",
-        "data": {
-          "commands": [
-            {
-              "type": "named",
-              "data": {
-                "name": "Auto Intake Command"
-              }
-            }
-          ]
-        }
-      }
-    }
-  ],
+  "eventMarkers": [],
   "globalConstraints": {
     "maxVelocity": 2.0,
     "maxAcceleration": 3.0,
@@ -88,7 +65,7 @@
     "rotateFast": false
   },
   "reversed": false,
-  "folder": "Amp Auto",
+  "folder": null,
   "previewStartingState": {
     "rotation": 90.67403689798454,
     "velocity": 0

@@ -1,12 +1,6 @@
 {
   "version": 1.0,
-  "startingPose": {
-    "position": {
-      "x": 0.7090624707565208,
-      "y": 4.413268375408932
-    },
-    "rotation": 121.54131552687518
-  },
+  "startingPose": null,
   "command": {
     "type": "sequential",
     "data": {
@@ -49,12 +43,6 @@
                 "type": "named",
                 "data": {
                   "name": "Auto Shoot Command"
-                }
-              },
-              {
-                "type": "path",
-                "data": {
-                  "pathName": "Source Side Path 4"
                 }
               }
             ]

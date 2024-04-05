@@ -3,25 +3,25 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 7.875578828080734,
-        "y": 7.321271565620054
+        "x": 0.6987751318861041,
+        "y": 6.799930993345696
       },
       "prevControl": null,
       "nextControl": {
-        "x": 6.257400207108107,
-        "y": 7.301537679998438
+        "x": 2.2727379790599187,
+        "y": 5.874070495008159
       },
       "isLocked": false,
-      "linkedName": "disru2"
+      "linkedName": null
     },
     {
       "anchor": {
-        "x": 5.231238154784003,
-        "y": 7.321271565620054
+        "x": 7.220947975730539,
+        "y": 6.799930993345696
       },
       "prevControl": {
-        "x": 6.54354154862156,
-        "y": 7.341005451241672
+        "x": 6.089340699984659,
+        "y": 6.5633221993261035
       },
       "nextControl": null,
       "isLocked": false,
@@ -32,7 +32,7 @@
   "constraintZones": [],
   "eventMarkers": [],
   "globalConstraints": {
-    "maxVelocity": 3.0,
+    "maxVelocity": 2.0,
     "maxAcceleration": 3.0,
     "maxAngularVelocity": 540.0,
     "maxAngularAcceleration": 720.0
@@ -43,10 +43,10 @@
     "rotateFast": false
   },
   "reversed": false,
-  "folder": "Disruption Auto",
+  "folder": null,
   "previewStartingState": {
-    "rotation": 40.51539399045539,
+    "rotation": -120.0,
     "velocity": 0
   },
-  "useDefaultConstraints": false
+  "useDefaultConstraints": true
 }

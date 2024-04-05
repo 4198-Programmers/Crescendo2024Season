@@ -26,7 +26,6 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Constants.OperatorConstants;
-import frc.robot.commands.complexCommands.AutoAmpAutoCommand;
 import frc.robot.commands.complexCommands.AutoAmpCommand;
 import frc.robot.commands.complexCommands.AutoBirdFeedCommand;
 import frc.robot.commands.complexCommands.AutoIntakeCommand;
@@ -51,7 +50,7 @@ import frc.robot.subsystems.AutoContainer;
 import frc.robot.subsystems.IntakePneumaticsSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.subsystems.InternalMoverSubsystem;
-// import frc.robot.subsystems.LEDSubsystem;
+import frc.robot.subsystems.LEDSubsystem;
 import frc.robot.subsystems.LeftClimbSubsystem;
 import frc.robot.subsystems.RightClimbSubsystem;
 import frc.robot.subsystems.ShootingAngleSubsytems;
@@ -96,7 +95,7 @@ public class RobotContainer
   private final RightClimbSubsystem rightClimbSubsystem = new RightClimbSubsystem();
   private final AmpbarPNSubsystem ampbarPNSubsystem = new AmpbarPNSubsystem();
   private final IntakePneumaticsSubsystem intakePneumaticsSubsystem = new IntakePneumaticsSubsystem();
-  // private final LEDSubsystem ledSubsystem = new LEDSubsystem();
+  private final LEDSubsystem ledSubsystem = new LEDSubsystem();
 
   //Joysticks 
    Joystick rightJoystick = new Joystick(Constants.RIGHT_JOYSTICK_ID);
@@ -110,8 +109,8 @@ public class RobotContainer
     JoystickButton autoIntakeButton = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_1);
     JoystickButton autoTargetButton = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_3);
 
-    JoystickButton autoShootButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_1);
-    JoystickButton autoAmpButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_2);
+    JoystickButton autoShooterAngleButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_1);
+    JoystickButton autoAmpAngleButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_2);
     JoystickButton shootingButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_3);
     JoystickButton shooterAngleDownButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_4);
     JoystickButton ampButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_5);
@@ -192,7 +191,7 @@ public class RobotContainer
     drivebase.setDefaultCommand(
         !RobotBase.isSimulation() ? driveFieldOrientedAnglularVelocity : driveFieldOrientedDirectAngleSim);
 
-    // ledSubsystem.setDefaultCommand(ledSubsystem.getDefaultCommand());   
+    ledSubsystem.setDefaultCommand(ledSubsystem.getDefaultCommand());   
   }
 
   /**
@@ -206,13 +205,13 @@ public class RobotContainer
   {
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
 //Swerve DO NOT TOUCH
-    // new JoystickButton(driverXbox, 1).onTrue((new InstantCommand(drivebase::zeroGyro)));
-    // new JoystickButton(driverXbox, 3).onTrue(new InstantCommand(drivebase::addFakeVisionReading));
-    // new JoystickButton(driverXbox,
-    //                    2).whileTrue(
-    //     Commands.deferredProxy(() -> drivebase.driveToPose(
-    //                                new Pose2d(new Translation2d(4, 4), Rotation2d.fromDegrees(0)))
-    //                           ));
+    new JoystickButton(driverXbox, 1).onTrue((new InstantCommand(drivebase::zeroGyro)));
+    new JoystickButton(driverXbox, 3).onTrue(new InstantCommand(drivebase::addFakeVisionReading));
+    new JoystickButton(driverXbox,
+                       2).whileTrue(
+        Commands.deferredProxy(() -> drivebase.driveToPose(
+                                   new Pose2d(new Translation2d(4, 4), Rotation2d.fromDegrees(0)))
+                              ));
 //    new JoystickButton(driverXbox, 3).whileTrue(new RepeatCommand(new InstantCommand(drivebase::lock, drivebase)));
   
 //non swerve button binding
@@ -237,8 +236,8 @@ rClimbDownLimitlessButton.whileTrue(new RightClimbLimitlessCommand(rightClimbSub
 //  .alongWith(new LeftClimbLimitlessCommand(leftClimbSubsystem, Constants.CLIMB_SPEED, () -> middleJoystick.getThrottle())));
 //bClimbDownLimitlessButton.whileTrue(new RightClimbLimitlessCommand(rightClimbSubsystem, Constants.CLIMB_SPEED, () -> middleJoystick.getThrottle())
 //  .alongWith(new LeftClimbLimitlessCommand(leftClimbSubsystem, -Constants.CLIMB_SPEED, () -> middleJoystick.getThrottle())));
-autoAmpButton.toggleOnTrue(new AutoAmpCommand(shootingSubsystem, internalMoverSubsystem, shootingAngleSubsytems, ampbarPNSubsystem, -0.5, 0.5, 0.5));
-autoShootButton.toggleOnTrue(new AutoShootingCommand(shootingSubsystem, internalMoverSubsystem, shootingAngleSubsytems, -8, 1, 0.5));
+autoAmpAngleButton.toggleOnTrue(new AutoSetShootingAngleCommand(shootingAngleSubsytems, -0.7, 1));
+autoShooterAngleButton.toggleOnTrue(new AutoSetShootingAngleCommand(shootingAngleSubsytems, -8, 0.5));
 angleShootSpeakerButton.whileTrue(new AutoSetShootingAngleCommand(shootingAngleSubsytems, -8, 0.5));
 setLowShooterButton.whileTrue(new AutoSetShootingAngleCommand(shootingAngleSubsytems, -0.5, 0.5));
 ampButton.toggleOnTrue(new AmpBarPneumaticStateCommand(ampbarPNSubsystem));
@@ -246,8 +245,10 @@ ampButton.toggleOnTrue(new AmpBarPneumaticStateCommand(ampbarPNSubsystem));
 PnDown.toggleOnTrue(new AmpBarPneumaticDownCommand(ampbarPNSubsystem));
 PnUp.toggleOnTrue(new AmpBarPneumaticUpCommand(ampbarPNSubsystem));
 
-// LEDButton.whileTrue(this.ledSubsystem.setColorCommand(Color.kBlue));
+LEDButton.whileTrue(this.ledSubsystem.setColorCommand(Color.kBlue));
 autoTargetButton.whileTrue(drivebase.aimAtTarget(photonCamera));
+
+
 
 //-12.24 amp location 61
 

@@ -2,8 +2,8 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 1.4876469638979162,
-      "y": 7.425788070949362
+      "x": 1.33,
+      "y": 7.23
     },
     "rotation": 90.0
   },
@@ -11,12 +11,6 @@
     "type": "sequential",
     "data": {
       "commands": [
-        {
-          "type": "named",
-          "data": {
-            "name": "Reset Angle Command"
-          }
-        },
         {
           "type": "named",
           "data": {
@@ -32,13 +26,13 @@
         {
           "type": "named",
           "data": {
-            "name": "Auto Amp Command"
+            "name": "Auto Amp Auto Command"
           }
         },
         {
           "type": "wait",
           "data": {
-            "waitTime": 3.0
+            "waitTime": 0.1
           }
         },
         {
@@ -54,21 +48,9 @@
           }
         },
         {
-          "type": "wait",
-          "data": {
-            "waitTime": 1.0
-          }
-        },
-        {
           "type": "named",
           "data": {
-            "name": "Auto Amp Command"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "Amp 3 note 4"
+            "name": "Auto Amp Auto Command"
           }
         }
       ]

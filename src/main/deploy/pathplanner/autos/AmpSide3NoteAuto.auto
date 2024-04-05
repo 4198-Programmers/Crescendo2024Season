@@ -58,12 +58,6 @@
           "data": {
             "name": "Auto Shoot Command"
           }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "Top2NoteAutoPath3"
-          }
         }
       ]
     }
