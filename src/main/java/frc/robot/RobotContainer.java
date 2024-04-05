@@ -205,13 +205,13 @@ public class RobotContainer
   {
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
 //Swerve DO NOT TOUCH
-    new JoystickButton(driverXbox, 1).onTrue((new InstantCommand(drivebase::zeroGyro)));
-    new JoystickButton(driverXbox, 3).onTrue(new InstantCommand(drivebase::addFakeVisionReading));
-    new JoystickButton(driverXbox,
-                       2).whileTrue(
-        Commands.deferredProxy(() -> drivebase.driveToPose(
-                                   new Pose2d(new Translation2d(4, 4), Rotation2d.fromDegrees(0)))
-                              ));
+    // new JoystickButton(driverXbox, 1).onTrue((new InstantCommand(drivebase::zeroGyro)));
+    // new JoystickButton(driverXbox, 3).onTrue(new InstantCommand(drivebase::addFakeVisionReading));
+    // new JoystickButton(driverXbox,
+    //                    2).whileTrue(
+    //     Commands.deferredProxy(() -> drivebase.driveToPose(
+    //                                new Pose2d(new Translation2d(4, 4), Rotation2d.fromDegrees(0)))
+    //                           ));
 //    new JoystickButton(driverXbox, 3).whileTrue(new RepeatCommand(new InstantCommand(drivebase::lock, drivebase)));
   
 //non swerve button binding
@@ -236,7 +236,9 @@ rClimbDownLimitlessButton.whileTrue(new RightClimbLimitlessCommand(rightClimbSub
 //  .alongWith(new LeftClimbLimitlessCommand(leftClimbSubsystem, Constants.CLIMB_SPEED, () -> middleJoystick.getThrottle())));
 //bClimbDownLimitlessButton.whileTrue(new RightClimbLimitlessCommand(rightClimbSubsystem, Constants.CLIMB_SPEED, () -> middleJoystick.getThrottle())
 //  .alongWith(new LeftClimbLimitlessCommand(leftClimbSubsystem, -Constants.CLIMB_SPEED, () -> middleJoystick.getThrottle())));
-autoAmpAngleButton.toggleOnTrue(new AutoSetShootingAngleCommand(shootingAngleSubsytems, -0.7, 1));
+autoAmpAngleButton.toggleOnTrue(new AutoAmpCommand( shootingSubsystem, internalMoverSubsystem,
+ shootingAngleSubsytems,  ampbarPNSubsystem, -0.7,
+0.5, 0.5));
 autoShooterAngleButton.toggleOnTrue(new AutoSetShootingAngleCommand(shootingAngleSubsytems, -8, 0.5));
 angleShootSpeakerButton.whileTrue(new AutoSetShootingAngleCommand(shootingAngleSubsytems, -8, 0.5));
 setLowShooterButton.whileTrue(new AutoSetShootingAngleCommand(shootingAngleSubsytems, -0.5, 0.5));
