@@ -41,10 +41,10 @@ public class AutoAmpCommand extends Command {
         // speedInteralMover/-20 : speedInteralMover;
         double gap = shootingAngleSubsytems.encoderPosition() - anglePosition;
         
-        if (gap > 0.7) {
+        if (gap > 0.2) {
             System.out.println("lowering shooter");
             shootingAngleSubsytems.move(-speedInteralMover);
-        } else if (gap < -0.7) {
+        } else if (gap < -0.2) {
             System.out.println("raising shooter");
             shootingAngleSubsytems.move(speedInteralMover);
         } else {
