@@ -23,28 +23,18 @@ public class AutoBirdFeedCommand extends Command {
     @Override
     public void execute() {
         double gap = shootingAngleSubsytems.encoderPosition() - anglePosition;
+        shootingSubsystem.shootOut(speedShoot);
         if (gap > 0.5) {
             // System.out.println("lowering shooter");
-            shootingAngleSubsytems.move(anglePosition);
+            shootingAngleSubsytems.move(-1);
         } else if (gap < -0.5) {
             // System.out.println("raising shooter");
-            shootingSubsystem.shootOut(speedShoot);
-            shootingAngleSubsytems.move(-anglePosition);
+            shootingAngleSubsytems.move(1);
 
         } else {
             shootingAngleSubsytems.stop();
-            shootingSubsystem.shootOut(speedShoot);
             // System.out.println("Shooting Speed: " + shootingSubsystem.getSpeed());
             // System.out.println("Shooting Speed2: " + shootingSubsystem.getSpeed2());
-
-            if (Constants.MAX_SHOOTING_SPEED <= shootingSubsystem.getSpeed()
-                    && Constants.MAX_SHOOTING_SPEED_2 <= shootingSubsystem.getSpeed2()) {
-                // System.out.println("Shooting Speed: " + shootingSubsystem.getSpeed());
-                // System.out.println("Shooting Speed2: " + shootingSubsystem.getSpeed2());
-
-                shootingSubsystem.shootOut(speedShoot);
-                shootingAngleSubsytems.move(gap);
-            }
         }
 
     }
