@@ -109,8 +109,8 @@ public class RobotContainer
     JoystickButton autoIntakeButton = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_1);
     JoystickButton autoTargetButton = new JoystickButton(middleJoystick, Constants.JOYSTICK_BUTTON_3);
 
-    JoystickButton autoShootButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_1);
-    JoystickButton autoAmpButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_2);
+    JoystickButton autoShooterAngleButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_1);
+    JoystickButton autoAmpAngleButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_2);
     JoystickButton shootingButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_3);
     JoystickButton shooterAngleDownButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_4);
     JoystickButton ampButton = new JoystickButton(rightJoystick, Constants.JOYSTICK_BUTTON_5);
@@ -236,8 +236,8 @@ rClimbDownLimitlessButton.whileTrue(new RightClimbLimitlessCommand(rightClimbSub
 //  .alongWith(new LeftClimbLimitlessCommand(leftClimbSubsystem, Constants.CLIMB_SPEED, () -> middleJoystick.getThrottle())));
 //bClimbDownLimitlessButton.whileTrue(new RightClimbLimitlessCommand(rightClimbSubsystem, Constants.CLIMB_SPEED, () -> middleJoystick.getThrottle())
 //  .alongWith(new LeftClimbLimitlessCommand(leftClimbSubsystem, -Constants.CLIMB_SPEED, () -> middleJoystick.getThrottle())));
-autoAmpButton.toggleOnTrue(new AutoAmpCommand(shootingSubsystem, internalMoverSubsystem, shootingAngleSubsytems, ampbarPNSubsystem, -0.7, 0.5, 0.5));
-autoShootButton.toggleOnTrue(new AutoShootingCommand(shootingSubsystem, internalMoverSubsystem, shootingAngleSubsytems, -8, 1, 0.5));
+autoAmpAngleButton.toggleOnTrue(new AutoSetShootingAngleCommand(shootingAngleSubsytems, -0.7, 1));
+autoShooterAngleButton.toggleOnTrue(new AutoSetShootingAngleCommand(shootingAngleSubsytems, -8, 0.5));
 angleShootSpeakerButton.whileTrue(new AutoSetShootingAngleCommand(shootingAngleSubsytems, -8, 0.5));
 setLowShooterButton.whileTrue(new AutoSetShootingAngleCommand(shootingAngleSubsytems, -0.5, 0.5));
 ampButton.toggleOnTrue(new AmpBarPneumaticStateCommand(ampbarPNSubsystem));
