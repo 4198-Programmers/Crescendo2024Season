@@ -73,7 +73,7 @@ public final class Constants {
   public static final double INTERNAL_MOVER_SPEED = 0.5;
   public static final double SHOOTING_MOTOR_SPEED = 1;
   public static final double CLIMB_SPEED = 0.5;
-  public static final double SHOOTING_ANGLE_MOTOR_SPEED = 0.5;
+  public static final double SHOOTING_ANGLE_MOTOR_SPEED = 1;
 
 // limits
 public static final double MAX_SHOOTING_SPEED = 5500;

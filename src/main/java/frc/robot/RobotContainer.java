@@ -50,7 +50,7 @@ import frc.robot.subsystems.AutoContainer;
 import frc.robot.subsystems.IntakePneumaticsSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.subsystems.InternalMoverSubsystem;
-import frc.robot.subsystems.LEDSubsystem;
+//import frc.robot.subsystems.LEDSubsystem;
 import frc.robot.subsystems.LeftClimbSubsystem;
 import frc.robot.subsystems.RightClimbSubsystem;
 import frc.robot.subsystems.ShootingAngleSubsytems;
@@ -95,7 +95,7 @@ public class RobotContainer
   private final RightClimbSubsystem rightClimbSubsystem = new RightClimbSubsystem();
   private final AmpbarPNSubsystem ampbarPNSubsystem = new AmpbarPNSubsystem();
   private final IntakePneumaticsSubsystem intakePneumaticsSubsystem = new IntakePneumaticsSubsystem();
-  private final LEDSubsystem ledSubsystem = new LEDSubsystem();
+  //private final LEDSubsystem ledSubsystem = new LEDSubsystem();
 
   //Joysticks 
    Joystick rightJoystick = new Joystick(Constants.RIGHT_JOYSTICK_ID);
@@ -191,7 +191,7 @@ public class RobotContainer
     drivebase.setDefaultCommand(
         !RobotBase.isSimulation() ? driveFieldOrientedAnglularVelocity : driveFieldOrientedDirectAngleSim);
 
-    ledSubsystem.setDefaultCommand(ledSubsystem.getDefaultCommand());   
+   // ledSubsystem.setDefaultCommand(ledSubsystem.getDefaultCommand());   
   }
 
   /**
@@ -239,15 +239,12 @@ rClimbDownLimitlessButton.whileTrue(new RightClimbLimitlessCommand(rightClimbSub
 autoAmpAngleButton.toggleOnTrue(new AutoAmpCommand( shootingSubsystem, internalMoverSubsystem,
  shootingAngleSubsytems,  ampbarPNSubsystem, -0.7,
 0.5, 0.5));
-autoShooterAngleButton.toggleOnTrue(new AutoSetShootingAngleCommand(shootingAngleSubsytems, -8, 0.5));
-angleShootSpeakerButton.whileTrue(new AutoSetShootingAngleCommand(shootingAngleSubsytems, -8, 0.5));
-setLowShooterButton.whileTrue(new AutoSetShootingAngleCommand(shootingAngleSubsytems, -0.5, 0.5));
+autoShooterAngleButton.toggleOnTrue(new AutoSetShootingAngleCommand(shootingAngleSubsytems, -8, 1));
+angleShootSpeakerButton.whileTrue(new AutoSetShootingAngleCommand(shootingAngleSubsytems, -8, 1));
+setLowShooterButton.whileTrue(new AutoSetShootingAngleCommand(shootingAngleSubsytems, -0.5, 1));
 ampButton.toggleOnTrue(new AmpBarPneumaticStateCommand(ampbarPNSubsystem));
 
-PnDown.toggleOnTrue(new AmpBarPneumaticDownCommand(ampbarPNSubsystem));
-PnUp.toggleOnTrue(new AmpBarPneumaticUpCommand(ampbarPNSubsystem));
-
-LEDButton.whileTrue(this.ledSubsystem.setColorCommand(Color.kBlue));
+//LEDButton.whileTrue(this.ledSubsystem.setColorCommand(Color.kBlue));
 autoTargetButton.whileTrue(drivebase.aimAtTarget(photonCamera));
 
 

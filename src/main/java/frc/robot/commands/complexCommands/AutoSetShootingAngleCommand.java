@@ -23,7 +23,7 @@ public class AutoSetShootingAngleCommand extends Command {
 
     @Override
     public void execute() {
-        System.out.println("shootingAngle: " + shootingAngleSubsytems.encoderPosition());
+        // System.out.println("shootingAngle: " + shootingAngleSubsytems.encoderPosition());
         
         double gap = shootingAngleSubsytems.encoderPosition() - anglePosition;
 

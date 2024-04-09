@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.496931304639552,
-        "y": 6.871942365438616
+        "x": 3.136522740281947,
+        "y": 6.958021893251764
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.460038208296968,
-        "y": 6.96452841527237
+        "x": 1.5209709077602056,
+        "y": 7.079183884392232
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Amp 3 note 2-3"
     },
     {
       "anchor": {
-        "x": 1.768658374409481,
-        "y": 7.68
+        "x": 1.6981417438618351,
+        "y": 7.788306858664999
       },
       "prevControl": {
-        "x": 1.7995203910207322,
-        "y": 6.538105385383703
+        "x": 1.7290037604730863,
+        "y": 6.646412244048702
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "ye"
     }
   ],
   "rotationTargets": [

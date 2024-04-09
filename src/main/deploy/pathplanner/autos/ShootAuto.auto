@@ -14,6 +14,12 @@
         {
           "type": "named",
           "data": {
+            "name": "ResetAngleCommand"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
             "name": "Shooter Angle Command"
           }
         },

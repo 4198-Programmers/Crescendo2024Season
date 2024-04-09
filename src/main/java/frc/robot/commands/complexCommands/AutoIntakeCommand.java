@@ -47,7 +47,7 @@ public class AutoIntakeCommand extends Command{
 
     @Override
     public void end(boolean interrupted){
-        System.out.println("Auto Intake Command: End");
+        // System.out.println("Auto Intake Command: End");
         intakeSubsystem.stop();
         internalMoverSubsystem.stop();
         intakePneumaticsSubsystem.intakeDown();

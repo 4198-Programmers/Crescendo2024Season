@@ -14,6 +14,12 @@
         {
           "type": "named",
           "data": {
+            "name": "ResetAngleCommand"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
             "name": "Amp Bar Pneumatics"
           }
         },
@@ -24,15 +30,21 @@
           }
         },
         {
-          "type": "named",
+          "type": "wait",
           "data": {
-            "name": "Auto Amp Auto Command"
+            "waitTime": 0.02
           }
         },
         {
-          "type": "wait",
+          "type": "named",
           "data": {
-            "waitTime": 0.1
+            "name": "Amp Angle Command"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Amp Auto Command"
           }
         },
         {
@@ -45,6 +57,12 @@
           "type": "path",
           "data": {
             "pathName": "Amp 3 note 3"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Amp Angle Command"
           }
         },
         {
